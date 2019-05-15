@@ -64,7 +64,7 @@ public class SignUpPresenter<V extends SignUpContract.View> extends BasePresente
 
         //String userId = firebaseAuth.getCurrentUser().getUid();
 
-        SignUpModel signUpModel = new SignUpModel(name, email, admissionnumber, phonenumber, "excited");
+        SignUpModel signUpModel = new SignUpModel(name, email, admissionnumber, phonenumber, "student");
         String userIdd;
 
         databaseReference.child("users").child("user1").setValue(signUpModel).addOnCompleteListener(new OnCompleteListener<Void>() {
