@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "972216179383",
+    "firebase_url": "https://mywallpaperapp-c915a.firebaseio.com",
+    "project_id": "mywallpaperapp-c915a",
+    "storage_bucket": "mywallpaperapp-c915a.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:972216179383:android:a554433b6591633e",
+        "android_client_info": {
+          "package_name": "com.example.android.bookclublatest"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "972216179383-cg0pvotsc2jmlk6b2l3ivqopm3ssk3dp.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAMfxCaltcOiHV8P7CoItnQTvFC9IgaGuE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "972216179383-cg0pvotsc2jmlk6b2l3ivqopm3ssk3dp.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
