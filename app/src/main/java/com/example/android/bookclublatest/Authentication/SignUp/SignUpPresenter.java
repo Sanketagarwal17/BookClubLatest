@@ -23,9 +23,10 @@ public class SignUpPresenter<V extends SignUpContract.View> extends BasePresente
     FirebaseDatabase firebaseDatabase;
     DatabaseReference databaseReference;
     private static final String TAG = "SignUpPresenter";
+
     //SignUpContract.View view = getMvpView();
     @Override
-    public void CreateAccount(String name, String email, String admissionnumber, String phonenumber, String password) {
+    public void CreateAccount(final String name, final String email, final String admissionnumber, final String phonenumber, final String password) {
 
         firebaseAuth = FirebaseAuth.getInstance();
         firebaseDatabase = FirebaseDatabase.getInstance();
@@ -37,43 +38,27 @@ public class SignUpPresenter<V extends SignUpContract.View> extends BasePresente
             public void onComplete(@NonNull Task<AuthResult> task) {
 
                 if (task.isSuccessful()) {
-                    getMvpView().showSignUpResult();
+                    firebaseAuth.signInWithEmailAndPassword(email, password);
+                    String userId = firebaseAuth.getCurrentUser().getUid();
+                    SignUpModel signUpModel = new SignUpModel(name, email, admissionnumber, phonenumber, "excited");
 
+
+                    databaseReference.child("users").child(userId).setValue(signUpModel).addOnCompleteListener(new OnCompleteListener<Void>() {
+                        @Override
+                        public void onComplete(@NonNull Task<Void> task) {
+                            if (task.isSuccessful())
+                                Log.e("node", "Uploaded");
+                            else
+                                Log.e("node", task.getException().getMessage());
+                        }
+                    });
+
+
+                    getMvpView().showSignUpResult();
                 } else {
                     getMvpView().erroronLoading(task.getException().getMessage());
                 }
 
-            }
-        });
-
-
-        firebaseAuth.signInWithEmailAndPassword(email, password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
-            @Override
-            public void onComplete(@NonNull Task<AuthResult> task) {
-                if(task.isSuccessful())
-                {
-                    Log.d(TAG, "onComplete: ");
-                }
-                else
-                {
-                    Log.d(TAG, "onFailed: ");
-                }
-            }
-        });
-
-
-        //String userId = firebaseAuth.getCurrentUser().getUid();
-
-        SignUpModel signUpModel = new SignUpModel(name, email, admissionnumber, phonenumber, "excited");
-        String userIdd;
-
-        databaseReference.child("users").child("user1").setValue(signUpModel).addOnCompleteListener(new OnCompleteListener<Void>() {
-            @Override
-            public void onComplete(@NonNull Task<Void> task) {
-                if (task.isSuccessful())
-                    Log.e("node", "Uploaded");
-                else
-                    Log.e("node", task.getException().getMessage());
             }
         });
 
