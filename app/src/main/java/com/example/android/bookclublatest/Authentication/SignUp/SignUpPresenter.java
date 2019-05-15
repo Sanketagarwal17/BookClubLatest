@@ -59,6 +59,7 @@ public class SignUpPresenter<V extends SignUpContract.View> extends BasePresente
                     getMvpView().erroronLoading(task.getException().getMessage());
                 }
 
+
             }
         });
 

@@ -9,7 +9,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.android.bookclublatest.Admin.AdminActivity;
-import com.example.android.bookclublatest.Authentication.ForgetPassword.ForgetPassword;
+import com.example.android.bookclublatest.Authentication.ForgetPassword.ForgetPasswordActivity;
 import com.example.android.bookclublatest.Authentication.SignUp.SignUpActivity;
 import com.example.android.bookclublatest.Base.BaseActivity;
 import com.example.android.bookclublatest.BuildConfig;
@@ -118,7 +118,7 @@ public class LoginActivity extends BaseActivity implements LoginContract.View {
         forgetpassword.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(LoginActivity.this, ForgetPassword.class));
+                startActivity(new Intent(LoginActivity.this, ForgetPasswordActivity.class));
             }
         });
 
