@@ -13,6 +13,7 @@ import com.example.android.bookclublatest.Authentication.ForgetPassword.ForgetPa
 import com.example.android.bookclublatest.Authentication.SignUp.SignUpActivity;
 import com.example.android.bookclublatest.Base.BaseActivity;
 import com.example.android.bookclublatest.BuildConfig;
+import com.example.android.bookclublatest.HomePage.HomePageActivity;
 import com.example.android.bookclublatest.Member.MemberActivity;
 import com.example.android.bookclublatest.R;
 import com.example.android.bookclublatest.Student.StudentActivity;
@@ -36,7 +37,7 @@ public class LoginActivity extends BaseActivity implements LoginContract.View {
     TextView signup;
 
     @BindView(R.id.sign_up2)
-     TextView signup2;
+    TextView signup2;
 
     @BindView(R.id.login)
     Button login;
@@ -54,75 +55,72 @@ public class LoginActivity extends BaseActivity implements LoginContract.View {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
         ButterKnife.bind(this);
-       // getActivityComponent().inject(this);
+        mPresenter = new LoginPresenter<LoginContract.View>();
+        ((LoginPresenter<LoginContract.View>) mPresenter).onAttach(this);
+        // getActivityComponent().inject(this);
         //mPresenter.onAttach(this);
 
+
         firebaseAuth = FirebaseAuth.getInstance();
-        firebaseUser=firebaseAuth.getCurrentUser();
-        if(firebaseUser!=null)
-        {  finish();
-            if(BuildConfig.FLAVOR.equals("admin"))
-            { startActivityUtil(AdminActivity.class); }
-
-            else if(BuildConfig.FLAVOR.equals("member"))
-            { startActivityUtil(MemberActivity.class); }
-
-            else
-            { startActivityUtil(StudentActivity.class); }
-
-        }
-
-
-
-
-
-    login.setOnClickListener(new View.OnClickListener() {
-        @Override
-        public void onClick(View v) {
-            String user = email.getText().toString().trim();
-            String pass = password.getText().toString().trim();
-
-            if (user.equalsIgnoreCase(""))
-            {
-                email.setError("can't be blank");
+        firebaseUser = firebaseAuth.getCurrentUser();
+        if (firebaseUser != null) {
+            if (BuildConfig.FLAVOR.equals("admin")) {
+                startActivityUtil(AdminActivity.class);
+            } else if (BuildConfig.FLAVOR.equals("member")) {
+                startActivityUtil(MemberActivity.class);
+            } else {
+                startActivityUtil(HomePageActivity.class);
             }
-            else if (PASSWORD.equalsIgnoreCase(""))
-            {
-                password.setError("can't be blank");
-            }
-
-            else {
-                showLoading();
-                mPresenter.doLogin(user,pass);
-                hideLoading();
-            }
-        }
-    });
-
-
-    signup.setOnClickListener(new View.OnClickListener() {
-        @Override
-        public void onClick(View v) {
             finish();
-            startActivity(new Intent(LoginActivity.this, SignUpActivity.class));
-        }
-    });
 
-    signup2.setOnClickListener(new View.OnClickListener() {
-                                   @Override
-       public void onClick(View v) {
-            finish();
-            startActivity(new Intent(LoginActivity.this, SignUpActivity.class));
+
         }
 
-    });
 
-    forgetpassword.setOnClickListener(new View.OnClickListener() {
-                                          @Override
-                                          public void onClick(View v) {
-                                              startActivity(new Intent(LoginActivity.this, ForgetPassword.class));
-                                          }
-    });
+        login.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String user = email.getText().toString().trim();
+                String pass = password.getText().toString().trim();
+
+                if (user.equalsIgnoreCase("")) {
+                    email.setError("can't be blank");
+                } else if (PASSWORD.equalsIgnoreCase("")) {
+                    password.setError("can't be blank");
+                } else {
+                    showLoading();
+                    mPresenter.doLogin(user, pass);
+                    hideLoading();
+                }
+            }
+        });
+
+
+        signup.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                startActivity(new Intent(LoginActivity.this, SignUpActivity.class));
+                finish();
+            }
+        });
+
+        signup2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                startActivity(new Intent(LoginActivity.this, SignUpActivity.class));
+                finish();
+            }
+
+        });
+
+        forgetpassword.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(LoginActivity.this, ForgetPassword.class));
+            }
+        });
 
     }
 
@@ -137,20 +135,19 @@ public class LoginActivity extends BaseActivity implements LoginContract.View {
     @Override
     public void showloginResult() {
 
-        if(BuildConfig.FLAVOR.equals("admin"))
-        { startActivityUtil(AdminActivity.class); }
-
-        else if(BuildConfig.FLAVOR.equals("member"))
-        { startActivityUtil(MemberActivity.class); }
-
-        else
-        { startActivityUtil(StudentActivity.class); }
+        if (BuildConfig.FLAVOR.equals("admin")) {
+            startActivityUtil(AdminActivity.class);
+        } else if (BuildConfig.FLAVOR.equals("member")) {
+            startActivityUtil(MemberActivity.class);
+        } else {
+            startActivityUtil(HomePageActivity.class);
+        }
 
     }
 
     @Override
     public void errorOnLoading(String error) {
-        Toast.makeText(LoginActivity.this,"OOPS Something Wrong Happen"+error,Toast.LENGTH_LONG).show();
+        Toast.makeText(LoginActivity.this, "OOPS Something Wrong Happen" + error, Toast.LENGTH_LONG).show();
 
     }
 

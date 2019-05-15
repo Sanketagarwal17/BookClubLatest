@@ -21,7 +21,7 @@ public abstract class BaseActivity extends AppCompatActivity
 
     @Override
     public void showLoading() {
-        ProgressDialog progressDialog = new ProgressDialog(this);
+        progressDialog = new ProgressDialog(this);
         progressDialog.setMessage("Loading");
         progressDialog.show();
     }

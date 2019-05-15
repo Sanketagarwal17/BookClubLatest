@@ -15,7 +15,9 @@ public class MvpContract {
 
     public interface Presenter<V extends View>
     {
+        void onAttach(V mvpView);
 
+        void onDetach();
 
     }
 

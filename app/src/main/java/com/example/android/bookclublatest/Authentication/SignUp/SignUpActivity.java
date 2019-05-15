@@ -12,6 +12,7 @@ import com.example.android.bookclublatest.Admin.AdminActivity;
 import com.example.android.bookclublatest.Authentication.Login.LoginActivity;
 import com.example.android.bookclublatest.Base.BaseActivity;
 import com.example.android.bookclublatest.BuildConfig;
+import com.example.android.bookclublatest.HomePage.HomePageActivity;
 import com.example.android.bookclublatest.Member.MemberActivity;
 import com.example.android.bookclublatest.R;
 import com.example.android.bookclublatest.Student.StudentActivity;
@@ -55,8 +56,8 @@ public class SignUpActivity extends BaseActivity implements SignUpContract.View 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sign_up);
         ButterKnife.bind(this);
-
-
+        mPresenter = new SignUpPresenter<SignUpContract.View>();
+        ((SignUpPresenter<SignUpContract.View>) mPresenter).onAttach(this);
         createaccount.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -91,7 +92,7 @@ public class SignUpActivity extends BaseActivity implements SignUpContract.View 
         { startActivityUtil(MemberActivity.class); }
 
         else
-        { startActivityUtil(StudentActivity.class); }
+        { startActivityUtil(HomePageActivity.class); }
     }
 
     @Override
