@@ -24,7 +24,6 @@ public class SignUpPresenter<V extends SignUpContract.View> extends BasePresente
     DatabaseReference databaseReference;
     private static final String TAG = "SignUpPresenter";
 
-    //SignUpContract.View view = getMvpView();
     @Override
     public void CreateAccount(final String name, final String email, final String admissionnumber, final String phonenumber, final String password) {
 
@@ -40,10 +39,10 @@ public class SignUpPresenter<V extends SignUpContract.View> extends BasePresente
                 if (task.isSuccessful()) {
                     firebaseAuth.signInWithEmailAndPassword(email, password);
                     String userId = firebaseAuth.getCurrentUser().getUid();
-                    SignUpModel signUpModel = new SignUpModel(name, email, admissionnumber, phonenumber, "excited");
+                    SignUpModel signUpModel = new SignUpModel(name, email, admissionnumber, phonenumber, "Client");
 
-
-                    databaseReference.child("users").child(userId).setValue(signUpModel).addOnCompleteListener(new OnCompleteListener<Void>() {
+                    String node=email.replace('.',',');
+                    databaseReference.child("users").child(node).setValue(signUpModel).addOnCompleteListener(new OnCompleteListener<Void>() {
                         @Override
                         public void onComplete(@NonNull Task<Void> task) {
                             if (task.isSuccessful())

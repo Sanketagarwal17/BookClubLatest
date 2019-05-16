@@ -3,6 +3,8 @@ package com.example.android.bookclublatest.Authentication.SignUp;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -25,9 +27,8 @@ import com.google.firebase.database.FirebaseDatabase;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-public class SignUpActivity extends BaseActivity implements SignUpContract.View {
-
-
+public class SignUpActivity extends BaseActivity implements SignUpContract.View
+{
     @BindView(R.id.name)
     EditText name;
 
@@ -58,6 +59,33 @@ public class SignUpActivity extends BaseActivity implements SignUpContract.View 
         ButterKnife.bind(this);
         mPresenter = new SignUpPresenter<SignUpContract.View>();
         ((SignUpPresenter<SignUpContract.View>) mPresenter).onAttach(this);
+
+        email.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable s)
+            {
+                boolean correct=s.toString().contains("iitism.ac.in");
+                if(correct)
+                {
+                    createaccount.setEnabled(true);
+                }
+                else
+                {
+                    createaccount.setEnabled(false);
+                }
+            }
+        });
+
         createaccount.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
