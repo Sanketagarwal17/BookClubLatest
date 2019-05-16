@@ -21,9 +21,7 @@
         </activity>
         <activity android:name=".HomePage.HomePageActivity" />
         <activity android:name=".Authentication.SignUp.SignUpActivity" />
-        <activity android:name=".Authentication.ForgetPassword.ForgetPasswordActivity" />
-        <activity android:name=".Authentication.ChangePassword.ChangePasswordActivity" />
-        <activity android:name=".Book.RequestBook.RequestBookActivity"></activity>
+        <activity android:name=".Authentication.Verification.VerificationActivity"/>
     </application>
 
 </manifest>

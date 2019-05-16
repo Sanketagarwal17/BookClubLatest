@@ -1,5 +1,6 @@
 package com.example.android.bookclublatest.HomePage;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -13,11 +14,15 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import com.example.android.bookclublatest.Authentication.Login.LoginActivity;
+import com.example.android.bookclublatest.Authentication.Verification.VerificationActivity;
 import com.example.android.bookclublatest.R;
+import com.google.firebase.auth.FirebaseAuth;
 
 public class HomePageActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
+    FirebaseAuth firebaseAuth;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -69,8 +74,16 @@ public class HomePageActivity extends AppCompatActivity
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
+        if (id == R.id.action_verify)
+        {
+            startActivity(new Intent(this, VerificationActivity.class));
+        }
+        if(id==R.id.action_logout)
+        {
+            firebaseAuth=FirebaseAuth.getInstance();
+            firebaseAuth.signOut();
+            finish();
+            startActivity(new Intent(this, LoginActivity.class));
         }
 
         return super.onOptionsItemSelected(item);

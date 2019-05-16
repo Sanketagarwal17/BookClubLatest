@@ -9,7 +9,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.android.bookclublatest.Admin.AdminActivity;
-import com.example.android.bookclublatest.Authentication.ForgetPassword.ForgetPasswordActivity;
+//import com.example.android.bookclublatest.Authentication.ForgetPassword.ForgetPasswordActivity;
 import com.example.android.bookclublatest.Authentication.SignUp.SignUpActivity;
 import com.example.android.bookclublatest.Base.BaseActivity;
 import com.example.android.bookclublatest.BuildConfig;
@@ -57,8 +57,6 @@ public class LoginActivity extends BaseActivity implements LoginContract.View {
         ButterKnife.bind(this);
         mPresenter = new LoginPresenter<LoginContract.View>();
         ((LoginPresenter<LoginContract.View>) mPresenter).onAttach(this);
-        // getActivityComponent().inject(this);
-        //mPresenter.onAttach(this);
 
 
         firebaseAuth = FirebaseAuth.getInstance();
@@ -118,7 +116,7 @@ public class LoginActivity extends BaseActivity implements LoginContract.View {
         forgetpassword.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(LoginActivity.this, ForgetPasswordActivity.class));
+                //startActivity(new Intent(LoginActivity.this, ForgetPasswordActivity.class));
             }
         });
 
