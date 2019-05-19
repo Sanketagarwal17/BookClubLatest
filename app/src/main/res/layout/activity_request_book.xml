@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <Button
+        android:id="@+id/request_button"
+        style="@style/Widget.AppCompat.Button"
+        android:layout_width="201dp"
+        android:layout_height="57dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="51dp"
+
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="32dp"
+        android:background="@drawable/rounded_corner"
+        android:text="Send Request"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/request_publication_name" />
+
+    <EditText
+        android:id="@+id/request_book_name"
+        android:layout_width="353dp"
+        android:layout_height="61dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="280dp"
+        android:background="@drawable/rounded_corner"
+        android:drawableLeft="@drawable/lock"
+        android:ems="10"
+        android:gravity="center"
+        android:hint="Book name"
+        android:inputType="textPersonName"
+        android:textColor="@color/colorPrimary"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/textView21"
+        android:layout_width="359dp"
+        android:layout_height="138dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
+        android:gravity="center"
+        android:text="Request"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <EditText
+        android:id="@+id/request_publication_name"
+        android:layout_width="353dp"
+        android:layout_height="61dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="100dp"
+        android:background="@drawable/rounded_corner"
+        android:drawableLeft="@drawable/lock"
+        android:ems="10"
+        android:gravity="center"
+        android:hint="publication"
+        android:inputType="textPersonName"
+        android:textColor="@color/colorPrimary"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/request_author_name"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <EditText
+        android:id="@+id/request_author_name"
+        android:layout_width="353dp"
+        android:layout_height="61dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="172dp"
+        android:background="@drawable/rounded_corner"
+        android:drawableLeft="@drawable/lock"
+        android:ems="10"
+        android:gravity="center"
+        android:hint="author name"
+        android:inputType="textPersonName"
+        android:textColor="@color/colorPrimary"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/request_book_name"
+        app:layout_constraintVertical_bias="0.051" />
+
+</android.support.constraint.ConstraintLayout>
