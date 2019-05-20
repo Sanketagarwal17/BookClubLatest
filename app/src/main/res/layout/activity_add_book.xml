@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <EditText
+        android:id="@+id/add_pulication"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:layout_below="@id/add_author"
+        android:hint="Add Publication Name" />
+
+    <Button
+        android:id="@+id/add_isbn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:hint="Add ISBN code"/>
+
+    <Button
+        android:id="@+id/add_ism"
+        android:text="Add ISM code"
+        android:layout_toRightOf="@id/add_isbn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp" />
+
+    <EditText
+        android:id="@+id/add_bookname"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:layout_below="@id/add_isbn"
+        android:hint="Enter Bool Name"/>
+
+    <EditText
+        android:id="@+id/add_author"
+        android:hint="Add Author Name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:layout_below="@id/add_bookname"/>
+
+    <EditText
+        android:id="@+id/add_tags"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:hint="Add Tags"
+        android:layout_below="@id/add_pulication"/>
+
+    <CheckBox
+        android:id="@+id/add_hard_soft"
+        android:clickable="true"
+        android:layout_below="@id/add_tags"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:focusable="auto"
+        android:text="is it hard copy"/>
+
+    <Button
+        android:id="@+id/add_submit"
+        android:text="Button"
+        android:layout_below="@id/add_hard_soft"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"/>
+
+</RelativeLayout>
