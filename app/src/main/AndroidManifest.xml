@@ -22,6 +22,8 @@
         <activity android:name=".HomePage.HomePageActivity" />
         <activity android:name=".Authentication.SignUp.SignUpActivity" />
         <activity android:name=".Authentication.Verification.VerificationActivity"/>
+        <activity android:name=".HomePage.RequestBook.RequestActivity"/>
+        <activity android:name=".Member.AddBook.AddBookActivity"/>
     </application>
 
 </manifest>
