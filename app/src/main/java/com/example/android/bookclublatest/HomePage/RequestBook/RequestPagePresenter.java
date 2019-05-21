@@ -16,7 +16,8 @@ public class RequestPagePresenter <V extends RequestPageContract.View> extends B
     DatabaseReference databaseReference=firebaseDatabase.getReference().child("Request Book");
     @Override
     public void submit(String book, String author, String publication) {
-        databaseReference.child("book").setValue(new RequestModel(book,author,publication))
+         String reqKey = databaseReference.push().getKey();
+        databaseReference.child(reqKey).setValue(new RequestModel(book,author,publication))// generating a random key for each book request.
                 .addOnCompleteListener(new OnCompleteListener<Void>() {
                     @Override
                     public void onComplete(@NonNull Task<Void> task) {

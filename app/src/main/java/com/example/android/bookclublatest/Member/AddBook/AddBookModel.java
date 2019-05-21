@@ -32,7 +32,7 @@ public class AddBookModel
         return isbn;
     }
 
-    public AddBookModel(String book, String author, String publisher, String tags, String hardsofy, String ism, String isbn) {
+    public AddBookModel(String author, String book, String hardsofy, String isbn, String ism, String publisher, String tags) {
         this.book = book;
         this.author = author;
         this.publisher = publisher;
@@ -40,5 +40,10 @@ public class AddBookModel
         this.hardsofy = hardsofy;
         this.ism = ism;
         this.isbn = isbn;
+    }
+
+    public AddBookModel()
+    {
+
     }
 }

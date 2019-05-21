@@ -10,6 +10,7 @@ import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -31,6 +32,7 @@ import butterknife.ButterKnife;
 
 public class AddBookActivity extends BaseActivity implements AddBookContract.View {
 
+    private static final String TAG = "AddBookActivity";
     @BindView(R.id.add_bookname)
     EditText name;
     @BindView(R.id.add_author)
@@ -60,6 +62,7 @@ public class AddBookActivity extends BaseActivity implements AddBookContract.Vie
         setContentView(R.layout.activity_add_book);
         ButterKnife.bind(this);
         presenter=new AddBookPresenter<>();
+        presenter.onAttach(this);
         intentIntegrator=new IntentIntegrator(this);
         ISBN.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -76,19 +79,29 @@ public class AddBookActivity extends BaseActivity implements AddBookContract.Vie
             }
         });
 
-        mname=name.getText().toString();
-        mauthor=author.getText().toString();
-        mpublication=publisher.getText().toString();
-        mtags=tags.getText().toString();
-        if(checkBox.isChecked())
-            mchecbox="Hard Copy";
-        else
-            mchecbox="Soft Copy";
 
         submit.setOnClickListener(new View.OnClickListener() {
+
             @Override
             public void onClick(View v) {
-                presenter.submit(mname,mauthor,mpublication,misbn,mism,mtags,mchecbox);
+                mname=name.getText().toString();
+                mauthor=author.getText().toString();
+                mpublication=publisher.getText().toString();
+                mtags=tags.getText().toString();
+                if(checkBox.isChecked())
+                    mchecbox="Hard Copy";
+                else
+                    mchecbox="Soft Copy";
+                Log.d(TAG, "onClick:" + mname +" " + mauthor+" " + mpublication+" " +misbn+" " + mism+" " +mtags+" " +mchecbox);
+                if(misbn == null)
+                {
+                    misbn = "null";
+                }
+                if(mism == null)
+                {
+                    mism = "null" ;
+                }
+                presenter.submit(mauthor,mname,mchecbox,misbn,mism,mpublication,mtags);
             }
         });
 

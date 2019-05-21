@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".IssueBookDetailActivity">
+
+
+    <TextView
+        android:id="@+id/det_book"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="37dp"
+        android:layout_marginEnd="5dp"
+        android:text="End Game"
+        android:textColor="#000"
+        android:textSize="30sp"
+        android:textStyle="bold"
+        android:transitionName="ts_book"
+        app:layout_constraintEnd_toStartOf="@+id/det_author"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/det_author"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="35dp"
+        android:layout_marginEnd="34dp"
+        android:text="Stan Lee"
+        android:textColor="#000"
+        android:textSize="25sp"
+        android:transitionName="ts_author"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/det_book" />
+
+    <TextView
+        android:id="@+id/det_pub"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="36dp"
+        android:layout_marginEnd="16dp"
+        android:text="marvel studios"
+        android:textColor="#000"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:transitionName="ts_pub"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/det_author" />
+
+    <TextView
+        android:id="@+id/det_isbn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="30dp"
+        android:text="ISBN NO"
+        android:textColor="#000"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/det_ism"
+        app:layout_constraintStart_toStartOf="@+id/det_ism" />
+
+    <TextView
+        android:id="@+id/det_ism"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="29dp"
+        android:text="ISM NO"
+        android:textColor="#000"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/det_tags"
+        app:layout_constraintStart_toStartOf="@+id/det_tags" />
+
+    <TextView
+        android:id="@+id/det_tags"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="27dp"
+        android:text="Tags"
+        android:textColor="#000"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/det_hardsofy"
+        app:layout_constraintStart_toStartOf="@+id/det_hardsofy" />
+
+    <TextView
+        android:id="@+id/det_hardsofy"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="65dp"
+        android:layout_marginBottom="100dp"
+        android:text="HardSofy"
+        android:textColor="#000"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+</android.support.constraint.ConstraintLayout>

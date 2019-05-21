@@ -18,6 +18,7 @@ import android.widget.Button;
 import com.example.android.bookclublatest.Authentication.Login.LoginActivity;
 import com.example.android.bookclublatest.Authentication.Verification.VerificationActivity;
 import com.example.android.bookclublatest.HomePage.RequestBook.RequestActivity;
+import com.example.android.bookclublatest.IssueBook;
 import com.example.android.bookclublatest.Member.AddBook.AddBookActivity;
 import com.example.android.bookclublatest.R;
 import com.google.firebase.auth.FirebaseAuth;
@@ -31,6 +32,8 @@ public class HomePageActivity extends AppCompatActivity
     FirebaseAuth firebaseAuth;
     @BindView(R.id.request)
     Button request;
+    @BindView(R.id.issue)
+    Button issue;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -63,6 +66,13 @@ public class HomePageActivity extends AppCompatActivity
 
         NavigationView navigationView = findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+
+        issue.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(HomePageActivity.this, IssueBook.class));
+            }
+        });
     }
 
     @Override
