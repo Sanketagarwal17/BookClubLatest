@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+
+    <android.support.v7.widget.CardView xmlns:cardview="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/cardview"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        cardview:cardCornerRadius="10dp"
+        cardview:cardElevation="8dp"
+        cardview:cardUseCompatPadding="true"
+        cardview:layout_constraintBottom_toBottomOf="parent"
+        cardview:layout_constraintEnd_toEndOf="parent"
+        cardview:layout_constraintStart_toStartOf="parent"
+        cardview:layout_constraintTop_toTopOf="parent">
+
+        <android.support.constraint.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="250dp">
+
+            <TextView
+                android:id="@+id/browse_bookname"
+                android:layout_width="326dp"
+                android:layout_height="33dp"
+                android:layout_marginStart="19dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="20dp"
+                android:layout_marginBottom="13dp"
+                android:text="TextView"
+                android:textAlignment="center"
+                android:textColor="@android:color/black"
+                android:textSize="20sp"
+                cardview:layout_constraintBottom_toTopOf="@+id/browse_bookauthor"
+                cardview:layout_constraintEnd_toEndOf="parent"
+                cardview:layout_constraintStart_toStartOf="parent"
+                cardview:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/browse_bookauthor"
+                android:layout_width="0dp"
+                android:layout_height="36dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="13dp"
+                android:layout_marginEnd="192dp"
+                android:text="TextView"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/browse_bookname" />
+
+            <TextView
+                android:id="@+id/browse_bookpublisher"
+                android:layout_width="0dp"
+                android:layout_height="36dp"
+                android:layout_marginStart="21dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="192dp"
+                android:text="TextView"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/browse_bookauthor" />
+
+            <TextView
+                android:id="@+id/browse_bookhard"
+                android:layout_width="0dp"
+                android:layout_height="25dp"
+                android:layout_marginStart="21dp"
+                android:layout_marginTop="13dp"
+                android:layout_marginEnd="190dp"
+                android:text="TextView"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/browse_bookpublisher" />
+
+            <TextView
+                android:id="@+id/browse_booksoft"
+                android:layout_width="0dp"
+                android:layout_height="25dp"
+                android:layout_marginStart="21dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="190dp"
+                android:text="TextView"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/browse_bookhard" />
+
+            <ImageView
+                android:id="@+id/browse_bookimage"
+                android:layout_width="0dp"
+                android:layout_height="169dp"
+                android:layout_marginStart="18dp"
+                android:layout_marginTop="13dp"
+                android:layout_marginEnd="19dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/browse_bookhard"
+                app:layout_constraintTop_toBottomOf="@+id/browse_bookname"
+                tools:srcCompat="@tools:sample/avatars[13]" />
+        </android.support.constraint.ConstraintLayout>
+    </android.support.v7.widget.CardView>
+
+</android.support.constraint.ConstraintLayout>
