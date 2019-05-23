@@ -17,6 +17,7 @@ import android.widget.Button;
 
 import com.example.android.bookclublatest.Authentication.Login.LoginActivity;
 import com.example.android.bookclublatest.Authentication.Verification.VerificationActivity;
+import com.example.android.bookclublatest.HomePage.BrowseBooks.BrowseActivity;
 import com.example.android.bookclublatest.HomePage.RequestBook.RequestActivity;
 import com.example.android.bookclublatest.IssueBook;
 import com.example.android.bookclublatest.Member.AddBook.AddBookActivity;
@@ -34,6 +35,8 @@ public class HomePageActivity extends AppCompatActivity
     Button request;
     @BindView(R.id.issue)
     Button issue;
+    @BindView(R.id.browse)
+    Button browse;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -42,12 +45,6 @@ public class HomePageActivity extends AppCompatActivity
         setSupportActionBar(toolbar);
 
         ButterKnife.bind(this);
-        request.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(HomePageActivity.this, RequestActivity.class));
-            }
-        });
 
         FloatingActionButton fab = findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
@@ -73,6 +70,19 @@ public class HomePageActivity extends AppCompatActivity
                 startActivity(new Intent(HomePageActivity.this, IssueBook.class));
             }
         });
+        request.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(HomePageActivity.this, RequestActivity.class));
+            }
+        });
+        browse.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(HomePageActivity.this, BrowseActivity.class));
+            }
+        });
+
     }
 
     @Override
