@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/request_member_name"
+        android:layout_width="175dp"
+        android:layout_height="77dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:text="TextView" />
+
+    <TextView
+        android:id="@+id/requets_member_email"
+        android:layout_width="254dp"
+        android:layout_height="40dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="87dp"
+        android:text="TextView" />
+
+    <TextView
+        android:id="@+id/requets_member_number"
+        android:layout_width="196dp"
+        android:layout_height="40dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="188dp"
+        android:layout_marginTop="0dp"
+        android:text="TextView" />
+
+    <TextView
+        android:id="@+id/request_member_admission"
+        android:layout_width="188dp"
+        android:layout_height="40dp"
+        android:layout_below="@+id/requets_member_number"
+        android:layout_alignStart="@+id/requets_member_number"
+        android:text="TextView" />
+
+    <Button
+        android:id="@+id/dont_make_him_member"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="23dp"
+        android:layout_marginTop="135dp"
+        android:text="Button" />
+
+    <Button
+        android:id="@+id/make_him_member"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/dont_make_him_member"
+        android:layout_toEndOf="@+id/request_member_name"
+        android:text="Button" />
+</RelativeLayout>

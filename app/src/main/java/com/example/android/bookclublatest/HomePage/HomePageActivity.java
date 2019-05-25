@@ -15,6 +15,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Button;
 
+import com.example.android.bookclublatest.Admin.RequestsForMember.RequestsForMember;
 import com.example.android.bookclublatest.Authentication.Login.LoginActivity;
 import com.example.android.bookclublatest.Authentication.Verification.VerificationActivity;
 import com.example.android.bookclublatest.HomePage.BrowseBooks.BrowseActivity;
@@ -22,6 +23,7 @@ import com.example.android.bookclublatest.HomePage.RequestBook.RequestActivity;
 import com.example.android.bookclublatest.IssueBook;
 import com.example.android.bookclublatest.Member.AddBook.AddBookActivity;
 import com.example.android.bookclublatest.R;
+import com.example.android.bookclublatest.RequestForMember.RequestForMemberActivity;
 import com.google.firebase.auth.FirebaseAuth;
 
 import butterknife.BindView;
@@ -141,8 +143,9 @@ public class HomePageActivity extends AppCompatActivity
         } else if (id == R.id.nav_manage) {
 
         } else if (id == R.id.nav_share) {
-
+  startActivity(new Intent(HomePageActivity.this,RequestsForMember.class));
         } else if (id == R.id.nav_send) {
+            startActivity(new Intent(HomePageActivity.this,RequestForMemberActivity.class));
 
         }
 
