@@ -29,7 +29,9 @@
         <activity android:name=".Member.AddBook.AddBookActivity" />
         <activity android:name=".HomePage.BrowseBooks.BrowseActivity" />
         <activity android:name=".RequestForMember.RequestForMemberActivity" />
-        <activity android:name=".Admin.RequestsForMember.RequestsForMember"></activity>
+        <activity android:name=".Admin.RequestsForMember.RequestsForMember" />
+        <activity android:name=".Member.MemberActivity" />
+        <activity android:name=".Member.ConfirmIssue.ConfirmIssueActivity"></activity>
     </application>
 
 </manifest>
