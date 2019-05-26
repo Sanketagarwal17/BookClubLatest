@@ -136,7 +136,8 @@ public class HomePageActivity extends AppCompatActivity
         if (id == R.id.nav_add_book)
         {
             startActivity(new Intent(this, AddBookActivity.class));
-        } else if (id == R.id.nav_gallery) {
+        } else if (id == R.id.nav_requestmenmber) {
+            startActivity(new Intent(this,RequestForMemberActivity.class));
 
         } else if (id == R.id.nav_slideshow) {
 

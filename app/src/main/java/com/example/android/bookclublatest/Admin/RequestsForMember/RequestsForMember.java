@@ -47,7 +47,7 @@ RequetsForMemberContract.Presenter<RequetsForMemberContract.View> mPresenter;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_requests_for_member);
+        setContentView(R.layout.activity_all_request_for_member);
         mPresenter.onAttach(this);
         ButterKnife.bind(this);
 

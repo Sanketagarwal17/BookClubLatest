@@ -36,7 +36,7 @@ public class RequestsForMemberAdapter extends RecyclerView.Adapter <RequestsForM
     @NonNull
     @Override
     public RequestsForMemberAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
-        View view = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.activity_browse_books_detail, viewGroup, false);
+        View view = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.allrequestformember, viewGroup, false);
         return new RequestsForMemberAdapter.ViewHolder(view);    }
 
     @Override
