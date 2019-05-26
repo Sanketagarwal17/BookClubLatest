@@ -48,7 +48,7 @@ RequetsForMemberContract.Presenter<RequetsForMemberContract.View> mPresenter;
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_all_request_for_member);
-        mPresenter.onAttach(this);
+        mPresenter=new RequetsForMemberPresenter<>();
         ButterKnife.bind(this);
 
         arrayList=new ArrayList<>();
@@ -67,22 +67,23 @@ RequetsForMemberContract.Presenter<RequetsForMemberContract.View> mPresenter;
            for(DataSnapshot ds : dataSnapshot.getChildren())
            {
                final String emailm=ds.getValue().toString();
+               final String emailx=emailm.replace('.',',');
 
-
-               DatabaseReference databaseReference2=FirebaseDatabase.getInstance().getReference("users");
+               final DatabaseReference databaseReference2=FirebaseDatabase.getInstance().getReference("users");
 
 
                databaseReference2.addValueEventListener(new ValueEventListener() {
                    @Override
                    public void onDataChange(@NonNull DataSnapshot dataSnapshot1) {
+                        if(dataSnapshot1.getKey().equals(emailx)) {
 
-                       String name1 = dataSnapshot1.child(emailm).child("name").getValue().toString();
-                       String email1 = dataSnapshot1.child(emailm).child("email").getValue().toString();
-                       String phone1 = dataSnapshot1.child(emailm).child("phonenumber").getValue().toString();
-                       String admission1=dataSnapshot1.child(emailm).child("admissionnumber").getValue().toString();
-                       RequetsForMemberModel requetsForMemberModel=new RequetsForMemberModel(name1,admission1,email1,phone1);
-                       arrayList.add(requetsForMemberModel);
-                        requestsForMemberAdapter.notifyDataSetChanged();
+                            String name1 = dataSnapshot1.child("name").getValue().toString();
+                            String email1 = dataSnapshot1.child("email").getValue().toString();
+                            String phone1 = dataSnapshot1.child("phonenumber").getValue().toString();
+                            String admission1 = dataSnapshot1.child("admissionnumber").getValue().toString();
+                            RequetsForMemberModel requetsForMemberModel = new RequetsForMemberModel(name1, admission1, email1, phone1);
+                            arrayList.add(requetsForMemberModel);
+                        }
 
                    }
 
@@ -103,6 +104,7 @@ RequetsForMemberContract.Presenter<RequetsForMemberContract.View> mPresenter;
             }
         });
 
+        requestsForMemberAdapter.notifyDataSetChanged();
 
     }
 }

@@ -139,7 +139,8 @@ public class HomePageActivity extends AppCompatActivity
         } else if (id == R.id.nav_requestmenmber) {
             startActivity(new Intent(this,RequestForMemberActivity.class));
 
-        } else if (id == R.id.nav_slideshow) {
+        } else if (id == R.id.nav_penalty) {
+            startActivity(new Intent(this,RequestsForMember.class));
 
         } else if (id == R.id.nav_manage) {
 
