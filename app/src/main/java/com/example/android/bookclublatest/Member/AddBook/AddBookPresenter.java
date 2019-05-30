@@ -22,7 +22,7 @@ public class AddBookPresenter<V extends AddBookContract.View> extends BasePresen
     @Override
     public void submit(String author, String book, String hardsofy, final String isbn, final String ism, String publisher, final String tags)
     {
-        final AddBookModel model=new AddBookModel(author,book,hardsofy,isbn,ism,publisher,tags);
+        final AddBookModel model=new AddBookModel(author,book,hardsofy,isbn,ism,publisher,tags,"not issued");
         databaseReference.child(isbn).child(hardsofy).child(ism).setValue(model).addOnCompleteListener(new OnCompleteListener<Void>() {
             @Override
             public void onComplete(@NonNull Task<Void> task) {

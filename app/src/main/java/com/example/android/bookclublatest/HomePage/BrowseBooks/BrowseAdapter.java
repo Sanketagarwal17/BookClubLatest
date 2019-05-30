@@ -38,7 +38,7 @@ public class BrowseAdapter extends RecyclerView.Adapter<BrowseAdapter.ViewHolder
         viewHolder.author.setText(model.getAuthor());
         viewHolder.publisher.setText(model.getPublisher());
         viewHolder.hard.setText("Hard Sets : "+model.getHard());
-        viewHolder.soft.setText("Sost Sets : "+model.getSoft());
+        viewHolder.soft.setText("Soft Sets : "+model.getSoft());
         viewHolder.imageView.setImageResource(R.drawable.person);
     }
 

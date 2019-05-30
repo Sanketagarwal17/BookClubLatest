@@ -22,6 +22,7 @@ import com.example.android.bookclublatest.HomePage.BrowseBooks.BrowseActivity;
 import com.example.android.bookclublatest.HomePage.RequestBook.RequestActivity;
 import com.example.android.bookclublatest.IssueBook;
 import com.example.android.bookclublatest.Member.AddBook.AddBookActivity;
+import com.example.android.bookclublatest.Profile.ProfileActivity;
 import com.example.android.bookclublatest.R;
 import com.example.android.bookclublatest.RequestForMember.RequestForMemberActivity;
 import com.google.firebase.auth.FirebaseAuth;
@@ -139,16 +140,8 @@ public class HomePageActivity extends AppCompatActivity
         } else if (id == R.id.nav_requestmenmber) {
             startActivity(new Intent(this,RequestForMemberActivity.class));
 
-        } else if (id == R.id.nav_penalty) {
-            startActivity(new Intent(this,RequestsForMember.class));
-
-        } else if (id == R.id.nav_manage) {
-
-        } else if (id == R.id.nav_share) {
-  startActivity(new Intent(HomePageActivity.this,RequestsForMember.class));
-        } else if (id == R.id.nav_send) {
-            startActivity(new Intent(HomePageActivity.this,RequestForMemberActivity.class));
-
+        } else if (id == R.id.nav_profile) {
+            startActivity(new Intent(this, ProfileActivity.class));
         }
 
         DrawerLayout drawer = findViewById(R.id.drawer_layout);

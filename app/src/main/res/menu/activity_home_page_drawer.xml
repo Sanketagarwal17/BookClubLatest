@@ -6,13 +6,9 @@
     <group android:checkableBehavior="single">
 
         <item
-            android:id="@+id/nav_add_book"
-            android:icon="@drawable/ic_menu_camera"
-            android:title="Add Book" />
-        <item
-            android:id="@+id/nav_gallery"
+            android:id="@+id/nav_history"
             android:icon="@drawable/ic_menu_gallery"
-            android:title="My Requets" />
+            android:title="My Borrow History" />
         <item
             android:id="@+id/nav_penalty"
             android:icon="@drawable/ic_menu_slideshow"
@@ -20,11 +16,15 @@
         <item
             android:id="@+id/nav_manage"
             android:icon="@drawable/ic_menu_manage"
-            android:title="ChangePAssword" />
+            android:title="ChangePsssword" />
         <item
             android:icon="@drawable/ic_menu_slideshow"
             android:id="@+id/nav_requestmenmber"
             android:title="Request For member" />
+        <item
+            android:icon="@drawable/ic_menu_slideshow"
+            android:id="@+id/nav_profile"
+            android:title="Profile" />
     </group>
 
     <item android:title="Book Club">
@@ -37,6 +37,11 @@
                 android:id="@+id/nav_send"
                 android:icon="@drawable/ic_menu_send"
                 android:title="Help" />
+
+            <item
+                android:id="@+id/nav_developers"
+                android:icon="@drawable/ic_menu_send"
+                android:title="Developers" />
         </menu>
     </item>
 
@@ -46,6 +51,11 @@
             <item
                 android:icon="@drawable/ic_menu_share"
                 android:title="For Members Only" />
+
+            <item
+                android:id="@+id/nav_add_book"
+                android:icon="@drawable/ic_menu_camera"
+                android:title="Add Book" />
         </menu>
     </item>
 

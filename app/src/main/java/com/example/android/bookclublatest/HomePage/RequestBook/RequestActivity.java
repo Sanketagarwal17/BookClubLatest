@@ -23,14 +23,13 @@ import com.example.android.bookclublatest.Base.BaseActivity;
 import com.example.android.bookclublatest.Member.AddBook.AddBookActivity;
 import com.example.android.bookclublatest.R;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
 public class RequestActivity extends BaseActivity
         implements RequestPageContract.View {
-
-    FirebaseAuth firebaseAuth;
 
     @BindView(R.id.request_book_name)
     EditText book;
@@ -41,19 +40,26 @@ public class RequestActivity extends BaseActivity
     @BindView(R.id.request_button)
     Button submit;
 
+    FirebaseAuth firebaseAuth=FirebaseAuth.getInstance();
+    FirebaseUser firebaseUser=firebaseAuth.getCurrentUser();
+
     RequestPageContract.Presenter<RequestPageContract.View> presenter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_request_book);
-        presenter=new RequestPagePresenter<RequestPageContract.View>();
+        presenter= new RequestPagePresenter<>();
         ButterKnife.bind(this);
 
         submit.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
-                presenter.submit(book.getText().toString().trim(),author.getText().toString().trim(),publication.getText().toString().trim());
+            public void onClick(View v)
+            {
+                if(firebaseUser.isEmailVerified())
+                    presenter.submit(book.getText().toString().trim(),author.getText().toString().trim(),publication.getText().toString().trim());
+                else
+                    Toast.makeText(RequestActivity.this, "Please Verify Your email first", Toast.LENGTH_SHORT).show();
             }
         });
     }
