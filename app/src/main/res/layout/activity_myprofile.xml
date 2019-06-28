@@ -1,77 +1,70 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout
+<LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
     <TextView
         android:id="@+id/profile_name"
-        android:layout_width="0dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="152dp"
-        android:layout_marginTop="75dp"
-        android:layout_marginEnd="152dp"
-        android:text="Name"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:layout_gravity="center"
+        android:textSize="15sp"
+        android:textColor="@android:color/black"
+        android:layout_margin="6dp"
+        android:text="Name" />
 
     <TextView
         android:id="@+id/profile_email"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginStart="152dp"
-        android:layout_marginTop="35dp"
-        android:layout_marginEnd="151dp"
-        android:layout_marginBottom="558dp"
-        android:text="Email"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/profile_name" />
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:textSize="15sp"
+        android:textColor="@android:color/black"
+        android:layout_margin="6dp"
+        android:text="Email" />
 
     <TextView
         android:id="@+id/profile_admision"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginStart="152dp"
-        android:layout_marginTop="36dp"
-        android:layout_marginEnd="149dp"
-        android:layout_marginBottom="487dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:text="Admission Number"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/profile_email" />
+        android:layout_gravity="center"
+        android:textSize="15sp"
+        android:textColor="@android:color/black"
+        android:layout_margin="6dp" />
+
+    <TextView
+        android:id="@+id/profile_mobile"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Mobile Number"
+        android:layout_gravity="center"
+        android:textSize="15sp"
+        android:textColor="@android:color/black"
+        android:layout_margin="6dp" />
 
     <TextView
         android:id="@+id/profile_status"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginStart="152dp"
-        android:layout_marginTop="32dp"
-        android:layout_marginEnd="149dp"
-        android:layout_marginBottom="421dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:text="Status"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/profile_admision" />
+        android:layout_gravity="center"
+        android:textSize="15sp"
+        android:textColor="@android:color/black"
+        android:layout_margin="6dp"/>
 
     <Button
         android:id="@+id/profile_verify_email"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginStart="152dp"
-        android:layout_marginTop="30dp"
-        android:layout_marginEnd="154dp"
-        android:layout_marginBottom="353dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:text="verify email"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/profile_status" />
+        android:layout_gravity="center"
+        android:textSize="15sp"
+        android:textColor="@android:color/black"
+        android:layout_margin="6dp" />
 
-</android.support.constraint.ConstraintLayout>
+</LinearLayout>

@@ -10,6 +10,7 @@ import android.widget.Toast;
 import com.example.android.bookclublatest.Authentication.Verification.VerificationActivity;
 import com.example.android.bookclublatest.Base.BaseActivity;
 import com.example.android.bookclublatest.R;
+import com.example.android.bookclublatest.SharedPref.SharedPref;
 import com.google.firebase.auth.FirebaseAuth;
 
 import butterknife.BindView;
@@ -29,6 +30,10 @@ public class ProfileActivity extends BaseActivity implements ProfileContract.Vie
     TextView status;
     @BindView(R.id.profile_verify_email)
     Button verify;
+    @BindView(R.id.profile_mobile)
+    TextView mobile;
+
+    SharedPref sharedPref;
 
 
     @Override
@@ -37,6 +42,13 @@ public class ProfileActivity extends BaseActivity implements ProfileContract.Vie
         setContentView(R.layout.activity_myprofile);
         ButterKnife.bind(this);
         mpresenter = new ProfilePresenter<ProfileContract.View>();
+        sharedPref=new SharedPref(this);
+
+
+        mobile.setText(sharedPref.getMobile());
+        admission.setText(sharedPref.getAdmission());
+        email.setText(sharedPref.getEmail());
+        name.setText(sharedPref.getUsername());
 
         verify.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -47,8 +59,6 @@ public class ProfileActivity extends BaseActivity implements ProfileContract.Vie
                     startActivity(new Intent(ProfileActivity.this, VerificationActivity.class));
             }
         });
-
-        //add shared preference and show details
 
     }
 }
