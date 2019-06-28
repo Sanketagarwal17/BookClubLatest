@@ -1,0 +1,68 @@
+package com.example.android.bookclublatest.SharedPref;
+
+import android.content.Context;
+import android.content.SharedPreferences;
+
+public class SharedPref
+{
+
+    private static final String PREF_NAME = "welcome";
+    private static final String MOBILE = "mobile";
+    private static final String ADMISSION = "admission";
+    private static final String EMAIL = "email";
+    private static final String USERNAME = "username";
+
+
+
+    int Private_mode=0;
+
+    SharedPreferences pref;
+    SharedPreferences.Editor editor;
+    Context context;
+
+    public SharedPref(Context context)
+    {
+        this.context=context;
+        pref=context.getSharedPreferences(PREF_NAME,Private_mode);
+        editor=pref.edit();
+    }
+
+    public String getMobile()
+    {
+        return pref.getString(MOBILE,"");
+    }
+    public void setMobile(String mobile)
+    {
+        editor.putString(MOBILE,mobile);
+        editor.commit();
+    }
+
+    public String getEmail()
+    {
+        return pref.getString(EMAIL,"");
+    }
+    public void setEmail(String email)
+    {
+        editor.putString(EMAIL,email);
+        editor.commit();
+    }
+
+    public String getAdmission()
+    {
+        return pref.getString(ADMISSION,"");
+    }
+    public void setAdmission(String admission)
+    {
+        editor.putString(ADMISSION,admission);
+        editor.commit();
+    }
+    public String getUsername()
+    {
+        return pref.getString(USERNAME,"");
+    }
+    public void setUsername(String username)
+    {
+        editor.putString(USERNAME,username);
+        editor.commit();
+    }
+}

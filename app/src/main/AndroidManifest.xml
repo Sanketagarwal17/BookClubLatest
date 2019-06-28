@@ -35,6 +35,10 @@
         <activity android:name=".Member.MemberActivity" />
         <activity android:name=".Member.ConfirmIssue.ConfirmIssueActivity"></activity>
         <activity android:name=".Profile.ProfileActivity"/>
+        <activity android:name=".Faq.MVP.FAQActivity"/>
+        <activity android:name=".ContactUs.ContactUsActivity"/>
+        <activity android:name=".Developers.DevelopersActivity"/>
+        <activity android:name=".AboutClub.AboutUsActivity"/>
     </application>
 
 </manifest>

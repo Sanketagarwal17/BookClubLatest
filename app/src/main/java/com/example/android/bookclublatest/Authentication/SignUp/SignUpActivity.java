@@ -20,6 +20,7 @@ import com.example.android.bookclublatest.BuildConfig;
 import com.example.android.bookclublatest.HomePage.HomePageActivity;
 import com.example.android.bookclublatest.Member.MemberActivity;
 import com.example.android.bookclublatest.R;
+import com.example.android.bookclublatest.SharedPref.SharedPref;
 import com.example.android.bookclublatest.Student.StudentActivity;
 import com.firebase.ui.auth.ui.email.SignInActivity;
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -100,10 +101,7 @@ public class SignUpActivity extends BaseActivity implements SignUpContract.View
                 ,admissionnumber.getText().toString().trim(),phonenumber.getText().toString().trim()
                 ,password.getText().toString().trim());
                hideLoading();
-                SharedPreferences sharedPreferences=getSharedPreferences("email",Context.MODE_PRIVATE);
-                SharedPreferences.Editor editor=sharedPreferences.edit();
-                editor.putString("Value",email.getText().toString().trim());
-                editor.apply();
+
                 String email1=email.getText().toString().trim();
                 String email2=email1.replace('.',',');
 
@@ -116,30 +114,19 @@ public class SignUpActivity extends BaseActivity implements SignUpContract.View
                     }
                 });
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
             }
         });
 
     }
 
 
-    private void startActivityUtil(Class activity) {
+    private void startActivityUtil(Class activity)
+    {
+        SharedPref sharedPref=new SharedPref(this);
+        sharedPref.setUsername(name.getText().toString());
+        sharedPref.setEmail(email.getText().toString());
+        sharedPref.setMobile(phonenumber.getText().toString());
+        sharedPref.setAdmission(admissionnumber.getText().toString());
         Intent intent = new Intent(SignUpActivity.this, activity);
         startActivity(intent);
         finish();

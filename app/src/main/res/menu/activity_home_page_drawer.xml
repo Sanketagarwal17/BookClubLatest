@@ -30,18 +30,22 @@
     <item android:title="Book Club">
         <menu>
             <item
-                android:id="@+id/nav_share"
+                android:id="@+id/nav_aboutus"
                 android:icon="@drawable/ic_menu_share"
                 android:title="About Club" />
             <item
-                android:id="@+id/nav_send"
+                android:id="@+id/nav_contact"
                 android:icon="@drawable/ic_menu_send"
-                android:title="Help" />
+                android:title="Contact Us" />
 
             <item
                 android:id="@+id/nav_developers"
                 android:icon="@drawable/ic_menu_send"
                 android:title="Developers" />
+            <item
+                android:id="@+id/nav_faq"
+                android:icon="@drawable/ic_menu_slideshow"
+                android:title="FAQ's"/>
         </menu>
     </item>
 

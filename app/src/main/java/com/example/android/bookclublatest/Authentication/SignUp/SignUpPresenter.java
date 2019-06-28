@@ -36,7 +36,8 @@ public class SignUpPresenter<V extends SignUpContract.View> extends BasePresente
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
 
-                if (task.isSuccessful()) {
+                if (task.isSuccessful())
+                {
                     firebaseAuth.signInWithEmailAndPassword(email, password);
                     String userId = firebaseAuth.getCurrentUser().getUid();
                     SignUpModel signUpModel = new SignUpModel(name, email, admissionnumber, phonenumber, "Client");
