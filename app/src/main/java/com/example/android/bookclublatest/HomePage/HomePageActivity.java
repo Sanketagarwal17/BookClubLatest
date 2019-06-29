@@ -17,6 +17,7 @@ import android.widget.Button;
 
 import com.example.android.bookclublatest.AboutClub.AboutUsActivity;
 import com.example.android.bookclublatest.Admin.RequestsForMember.RequestsForMember;
+import com.example.android.bookclublatest.Authentication.ChangePassword.ChangePasswordActivity;
 import com.example.android.bookclublatest.Authentication.Login.LoginActivity;
 import com.example.android.bookclublatest.Authentication.Verification.VerificationActivity;
 import com.example.android.bookclublatest.ContactUs.ContactUsActivity;
@@ -164,6 +165,8 @@ public class HomePageActivity extends AppCompatActivity
             startActivity(new Intent(this, AboutUsActivity.class));
         else if(id==R.id.nav_developers)
             startActivity(new Intent(this, DevelopersActivity.class));
+        else  if(id==R.id.nav_chnage_password)
+            startActivity(new Intent(this,ChangePasswordActivity.class));
 
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);

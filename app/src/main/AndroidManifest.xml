@@ -33,12 +33,13 @@
         <activity android:name=".RequestForMember.RequestForMemberActivity" />
         <activity android:name=".Admin.RequestsForMember.RequestsForMember" />
         <activity android:name=".Member.MemberActivity" />
-        <activity android:name=".Member.ConfirmIssue.ConfirmIssueActivity"></activity>
-        <activity android:name=".Profile.ProfileActivity"/>
-        <activity android:name=".Faq.MVP.FAQActivity"/>
-        <activity android:name=".ContactUs.ContactUsActivity"/>
-        <activity android:name=".Developers.DevelopersActivity"/>
-        <activity android:name=".AboutClub.AboutUsActivity"/>
+        <activity android:name=".Member.ConfirmIssue.ConfirmIssueActivity" />
+        <activity android:name=".Profile.ProfileActivity" />
+        <activity android:name=".Faq.MVP.FAQActivity" />
+        <activity android:name=".ContactUs.ContactUsActivity" />
+        <activity android:name=".Developers.DevelopersActivity" />
+        <activity android:name=".AboutClub.AboutUsActivity" />
+        <activity android:name=".Authentication.ChangePassword.ChangePasswordActivity"></activity>
     </application>
 
 </manifest>
