@@ -83,8 +83,10 @@ public class LoginActivity extends BaseActivity implements LoginContract.View {
 
                 if (user.equalsIgnoreCase("")) {
                     email.setError("can't be blank");
+                    email.requestFocus();
                 } else if (PASSWORD.equalsIgnoreCase("")) {
                     password.setError("can't be blank");
+                    password.requestFocus();
                 } else {
                     showLoading();
                     mPresenter.doLogin(user, pass);
@@ -140,7 +142,6 @@ public class LoginActivity extends BaseActivity implements LoginContract.View {
         } else {
             startActivityUtil(HomePageActivity.class);
         }
-
     }
 
     @Override

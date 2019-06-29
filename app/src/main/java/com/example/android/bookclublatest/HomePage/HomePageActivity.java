@@ -15,9 +15,14 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Button;
 
+import com.example.android.bookclublatest.AboutClub.AboutUsActivity;
 import com.example.android.bookclublatest.Admin.RequestsForMember.RequestsForMember;
+import com.example.android.bookclublatest.Authentication.ChangePassword.ChangePasswordActivity;
 import com.example.android.bookclublatest.Authentication.Login.LoginActivity;
 import com.example.android.bookclublatest.Authentication.Verification.VerificationActivity;
+import com.example.android.bookclublatest.ContactUs.ContactUsActivity;
+import com.example.android.bookclublatest.Developers.DevelopersActivity;
+import com.example.android.bookclublatest.Faq.MVP.FAQActivity;
 import com.example.android.bookclublatest.HomePage.BrowseBooks.BrowseActivity;
 import com.example.android.bookclublatest.HomePage.RequestBook.RequestActivity;
 import com.example.android.bookclublatest.IssueBook;
@@ -25,6 +30,7 @@ import com.example.android.bookclublatest.Member.AddBook.AddBookActivity;
 import com.example.android.bookclublatest.Profile.ProfileActivity;
 import com.example.android.bookclublatest.R;
 import com.example.android.bookclublatest.RequestForMember.RequestForMemberActivity;
+import com.example.android.bookclublatest.SharedPref.SharedPref;
 import com.google.firebase.auth.FirebaseAuth;
 
 import butterknife.BindView;
@@ -40,13 +46,16 @@ public class HomePageActivity extends AppCompatActivity
     Button issue;
     @BindView(R.id.browse)
     Button browse;
+
+    SharedPref sharedPref;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home_page);
         Toolbar toolbar =  findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-
+        sharedPref=new SharedPref(this);
         ButterKnife.bind(this);
 
         FloatingActionButton fab = findViewById(R.id.fab);
@@ -121,10 +130,15 @@ public class HomePageActivity extends AppCompatActivity
         {
             firebaseAuth=FirebaseAuth.getInstance();
             firebaseAuth.signOut();
+
+            sharedPref.setAdmission("");
+            sharedPref.setMobile("");
+            sharedPref.setUsername("");
+            sharedPref.setEmail("");
+
             finish();
             startActivity(new Intent(this, LoginActivity.class));
         }
-
         return super.onOptionsItemSelected(item);
     }
 
@@ -143,6 +157,16 @@ public class HomePageActivity extends AppCompatActivity
         } else if (id == R.id.nav_profile) {
             startActivity(new Intent(this, ProfileActivity.class));
         }
+        else if(id==R.id.nav_faq)
+            startActivity(new Intent(this, FAQActivity.class));
+        else if(id==R.id.nav_contact)
+            startActivity(new Intent(this, ContactUsActivity.class));
+        else if(id==R.id.nav_aboutus)
+            startActivity(new Intent(this, AboutUsActivity.class));
+        else if(id==R.id.nav_developers)
+            startActivity(new Intent(this, DevelopersActivity.class));
+        else  if(id==R.id.nav_chnage_password)
+            startActivity(new Intent(this,ChangePasswordActivity.class));
 
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);

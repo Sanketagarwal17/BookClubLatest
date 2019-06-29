@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <ImageView
+        android:id="@+id/contact_image"
+        android:src="@drawable/contact2"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:layout_centerHorizontal="true"
+        android:layout_margin="6dp"/>
+
+    <RelativeLayout
+        android:id="@+id/relativeLayout2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:layout_below="@id/contact_image">
+
+
+        <LinearLayout
+            android:id="@+id/emailUsLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            android:gravity="center">
+
+            <ImageView
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                android:layout_marginRight="12dp"
+                android:src="@drawable/email" />
+
+            <TextView
+                android:id="@+id/contactemailtext"
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:padding="4dp"
+                android:text="rishabh.agarwal997@gmail.com"
+                android:textAlignment="center"
+                android:textSize="12sp" />
+
+            <Button
+                android:id="@+id/contactemailbutton"
+                android:layout_width="80dp"
+                android:layout_height="32dp"
+                android:layout_marginLeft="16dp"
+                android:text="Email us"
+                android:textColor="#FFF"
+                android:textSize="12sp"
+                android:textStyle="bold"
+                android:background="@color/colorPrimaryDark"/>
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_below="@+id/emailUsLayout"
+            android:layout_marginLeft="12dp"
+            android:layout_marginRight="12dp"
+            android:background="#555" />
+
+
+        <LinearLayout
+            android:id="@+id/callUsLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/emailUsLayout"
+            android:layout_margin="8dp"
+            android:gravity="center">
+
+            <ImageView
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                android:layout_marginRight="12dp"
+                android:src="@drawable/mobile" />
+
+            <TextView
+                android:id="@+id/contact_mobile_text"
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:padding="4dp"
+                android:text="9935685103"
+                android:textAlignment="center"
+                android:textSize="12sp" />
+
+            <Button
+                android:id="@+id/contact_mobile_button"
+                android:layout_width="80dp"
+                android:layout_marginLeft="16dp"
+                android:layout_height="32dp"
+                android:text="Call"
+                android:textColor="#FFF"
+                android:textSize="12sp"
+                android:textStyle="bold"
+                android:background="@color/colorPrimaryDark" />
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_below="@+id/callUsLayout"
+            android:layout_marginLeft="12dp"
+            android:layout_marginRight="12dp"
+            android:background="#555" />
+
+        <LinearLayout
+            android:id="@+id/workLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/callUsLayout"
+            android:layout_margin="8dp"
+            android:gravity="center">
+
+            <ImageView
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                android:layout_marginRight="12dp"
+                android:src="@drawable/telephone" />
+
+            <TextView
+                android:id="@+id/contact_phone_text"
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:padding="4dp"
+                android:text="6209274679"
+                android:textAlignment="center"
+                android:textSize="12sp" />
+
+            <Button
+                android:id="@+id/contact_phone_button"
+                android:layout_width="80dp"
+                android:layout_marginLeft="16dp"
+                android:layout_height="32dp"
+                android:text="Call"
+                android:textColor="#FFF"
+                android:textSize="12sp"
+                android:textStyle="bold"
+                android:background="@color/colorPrimaryDark" />
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_below="@id/workLayout"
+            android:layout_marginLeft="12dp"
+            android:layout_marginRight="12dp"
+            android:background="#555" />
+
+    </RelativeLayout>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/relativeLayout2"
+        android:text="We Are Always There To Help You"
+        android:textAlignment="center"
+        android:layout_marginTop="50dp"
+        android:textColor="@android:color/black"
+        android:textSize="15sp"/>
+
+</RelativeLayout>
