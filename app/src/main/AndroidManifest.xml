@@ -40,7 +40,9 @@
         <activity android:name=".Developers.DevelopersActivity" />
         <activity android:name=".AboutClub.AboutUsActivity" />
         <activity android:name=".Authentication.ChangePassword.ChangePasswordActivity" />
-        <activity android:name=".Authentication.Verification.OtpActivity"></activity>
+        <activity android:name=".Authentication.Verification.OtpActivity" />
+        <activity android:name=".BorrowHistory.BorrowHistoryActivity" />
+        <activity android:name=".Admin.RequestsForMember.AdminActivity.AdminActivity"></activity>
     </application>
 
 </manifest>
