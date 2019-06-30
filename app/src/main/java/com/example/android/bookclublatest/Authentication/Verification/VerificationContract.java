@@ -8,15 +8,17 @@ public class VerificationContract
     public interface View extends MvpContract.View
     {
         void showEmail(String string);
-        void showPhone(String string);
         void showToast(String string);
         void disableEmailVerification();
+        void disablePhoneVerification();
     }
     public interface Presenter<V extends View>
     {
         void fillEmail();
         void getEmail();
-        void getPhone();
         void checkEmailVerified();
+        void verifyPhone(String mobilenumber);
+
+
     }
 }
