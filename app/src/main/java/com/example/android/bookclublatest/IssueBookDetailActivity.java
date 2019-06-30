@@ -99,8 +99,6 @@ public class IssueBookDetailActivity extends AppCompatActivity {
                           //      .child("ISBN").setValue(isbn);
                         FirebaseDatabase.getInstance().getReference().child("Issue Requests").child(uid).child("Books") .child(isbn)
                                 .child("Hardsofy").setValue(hardsofy);
-                        FirebaseDatabase.getInstance().getReference().child("Issue Requests").child(uid).child("Books") .child(isbn)
-                                .child("Ism").setValue(ism);
                         Toast.makeText(IssueBookDetailActivity.this, book + "requested for you", Toast.LENGTH_SHORT).show();
                     }
                     else
