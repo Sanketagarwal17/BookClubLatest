@@ -1,18 +1,22 @@
 package com.example.android.bookclublatest.Authentication.Verification;
 
+import android.app.Activity;
 import android.support.annotation.NonNull;
 import android.widget.Toast;
 
-import com.example.android.bookclublatest.Authentication.SignUp.SignUpContract;
 import com.example.android.bookclublatest.Base.BaseActivity;
 import com.example.android.bookclublatest.Base.BasePresenter;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.auth.PhoneAuthProvider;
+
+import java.util.concurrent.TimeUnit;
 
 public class VerificationPresenter<V extends VerificationContract.View> extends BasePresenter<V> implements VerificationContract.Presenter<V>
 {
+
     FirebaseAuth firebaseAuth=FirebaseAuth.getInstance();
     FirebaseUser firebaseUser=firebaseAuth.getCurrentUser();
 
@@ -49,8 +53,7 @@ public class VerificationPresenter<V extends VerificationContract.View> extends 
     }
 
     @Override
-    public void getPhone() {
+    public void verifyPhone(String mobilenumber) {  }
 
-    }
 
 }

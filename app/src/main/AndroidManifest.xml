@@ -39,7 +39,8 @@
         <activity android:name=".ContactUs.ContactUsActivity" />
         <activity android:name=".Developers.DevelopersActivity" />
         <activity android:name=".AboutClub.AboutUsActivity" />
-        <activity android:name=".Authentication.ChangePassword.ChangePasswordActivity"></activity>
+        <activity android:name=".Authentication.ChangePassword.ChangePasswordActivity" />
+        <activity android:name=".Authentication.Verification.OtpActivity"></activity>
     </application>
 
 </manifest>
