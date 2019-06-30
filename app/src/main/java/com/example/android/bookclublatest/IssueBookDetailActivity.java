@@ -93,6 +93,8 @@ public class IssueBookDetailActivity extends AppCompatActivity {
                         String uid = FirebaseAuth.getInstance().getCurrentUser().getUid();
                         FirebaseDatabase.getInstance().getReference().child("Issue Requests").child(uid)
                                 .child("Phone").setValue(FirebaseAuth.getInstance().getCurrentUser().getPhoneNumber());
+                        FirebaseDatabase.getInstance().getReference().child("Issue Requests").child(uid)
+                                .child("Email").setValue(FirebaseAuth.getInstance().getCurrentUser().getEmail());
                         //FirebaseDatabase.getInstance().getReference().child("Issue Requests").child(uid).child("Books")
                           //      .child("ISBN").setValue(isbn);
                         FirebaseDatabase.getInstance().getReference().child("Issue Requests").child(uid).child("Books") .child(isbn)
