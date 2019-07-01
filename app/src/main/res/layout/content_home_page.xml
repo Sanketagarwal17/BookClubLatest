@@ -7,18 +7,13 @@
     tools:context=".HomePage.HomePageActivity">
 
 
-    <AdapterViewFlipper
-        android:layout_width="388dp"
-        android:layout_height="166dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginBottom="8dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.024">
-
-    </AdapterViewFlipper>
+    <ss.com.bannerslider.Slider
+        android:paddingTop="40dp"
+        android:id="@+id/banner_slider1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:slider_interval="5000"
+        tools:layout_editor_absoluteY="1dp" />
 
     <Button
         android:id="@+id/returnbook"
@@ -26,7 +21,7 @@
         android:layout_height="98dp"
         android:layout_marginStart="8dp"
         android:layout_marginEnd="16dp"
-        android:layout_marginBottom="48dp"
+        android:layout_marginBottom="36dp"
         android:background="@drawable/rounded_corner"
         android:text="RETURN"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -38,8 +33,8 @@
         android:id="@+id/request"
         android:layout_width="134dp"
         android:layout_height="98dp"
-        android:layout_marginStart="24dp"
-        android:layout_marginBottom="48dp"
+        android:layout_marginStart="28dp"
+        android:layout_marginBottom="36dp"
         android:background="@drawable/rounded_corner"
         android:text="REQUEST"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -49,7 +44,7 @@
         android:id="@+id/browse"
         android:layout_width="134dp"
         android:layout_height="98dp"
-        android:layout_marginTop="228dp"
+        android:layout_marginTop="312dp"
         android:layout_marginEnd="16dp"
         android:background="@drawable/rounded_corner"
         android:text="BROWSE"
@@ -68,7 +63,8 @@
         android:text="ISSUE"
         app:layout_constraintBottom_toTopOf="@+id/request"
         app:layout_constraintEnd_toStartOf="@+id/browse"
+        app:layout_constraintHorizontal_bias="0.444"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintVertical_bias="0.738" />
 </android.support.constraint.ConstraintLayout>
