@@ -45,10 +45,13 @@ import com.google.firebase.database.ValueEventListener;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import ss.com.bannerslider.Slider;
 
 public class HomePageActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
+    MainSliderAdapter MainSliderAdapter = new MainSliderAdapter();
+    PicassoImageLoadingService PicassoImageLoadingService =new PicassoImageLoadingService(HomePageActivity.this);
     FirebaseAuth firebaseAuth;
     @BindView(R.id.request)
     Button request;
@@ -56,6 +59,13 @@ public class HomePageActivity extends AppCompatActivity
     Button issue;
     @BindView(R.id.browse)
     Button browse;
+
+    @BindView(R.id.banner_slider1)
+    Slider banner_slider;
+
+
+
+
 
     SharedPref sharedPref;
 
@@ -71,6 +81,9 @@ public class HomePageActivity extends AppCompatActivity
         setSupportActionBar(toolbar);
         sharedPref=new SharedPref(this);
         ButterKnife.bind(this);
+        Slider.init(PicassoImageLoadingService);
+        banner_slider.setAdapter(MainSliderAdapter);
+
 
         FloatingActionButton fab = findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {

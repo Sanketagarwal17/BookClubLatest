@@ -61,6 +61,9 @@ dependencies {
     implementation 'com.journeyapps:zxing-android-embedded:3.4.0'
     implementation 'com.ms-square:expandableTextView:0.1.4'
 
+    implementation 'com.ss.bannerslider:bannerslider:2.0.0'
+
+
 }
 
 
