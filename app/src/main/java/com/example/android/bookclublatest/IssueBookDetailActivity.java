@@ -9,6 +9,7 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.android.bookclublatest.SharedPref.SharedPref;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -16,11 +17,15 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import java.util.Calendar;
+import java.util.Date;
+
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
 public class IssueBookDetailActivity extends AppCompatActivity {
 
+    SharedPref  sharedPref;
     @BindView(R.id.det_book)
     TextView tvBook;
     @BindView(R.id.det_author)
@@ -43,7 +48,9 @@ public class IssueBookDetailActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_issue_book_detail);
-      final String book = getIntent().getStringExtra("book");
+        sharedPref=new SharedPref(this);
+
+        final String book = getIntent().getStringExtra("book");
         final String author = getIntent().getStringExtra("author");
         final String isbn = getIntent().getStringExtra("isbn");
         final String hardsofy = getIntent().getStringExtra("hardsofy");
@@ -61,13 +68,15 @@ public class IssueBookDetailActivity extends AppCompatActivity {
         issueBookButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(FirebaseAuth.getInstance().getCurrentUser()== null)
-                    Toast.makeText(IssueBookDetailActivity.this, "Please login first", Toast.LENGTH_SHORT).show();
+                if(!FirebaseAuth.getInstance().getCurrentUser().isEmailVerified())
+                    Toast.makeText(IssueBookDetailActivity.this, "Please Verify Your Email First", Toast.LENGTH_LONG).show();
                 else
                 {
+                    String email=sharedPref.getEmail();
+                    email=email.replace('.',',');
 
                     DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference().child("Issue Requests").
-                            child(FirebaseAuth.getInstance().getCurrentUser().getUid()).child("Books");
+                            child(email);
                     databaseReference.addValueEventListener(new ValueEventListener() {
                         @Override
                         public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
@@ -78,7 +87,6 @@ public class IssueBookDetailActivity extends AppCompatActivity {
                                 {
                                     IssueBookDetailActivity.this.setSend(0);
                                     break;
-
                                 }
                             }
                         }
@@ -88,17 +96,15 @@ public class IssueBookDetailActivity extends AppCompatActivity {
 
                         }
                     });
-                    if(send != 0) {
-                        String email = FirebaseAuth.getInstance().getCurrentUser().getEmail();
-                        String uid = FirebaseAuth.getInstance().getCurrentUser().getUid();
-                        FirebaseDatabase.getInstance().getReference().child("Issue Requests").child(uid)
-                                .child("Phone").setValue(FirebaseAuth.getInstance().getCurrentUser().getPhoneNumber());
-                        FirebaseDatabase.getInstance().getReference().child("Issue Requests").child(uid)
-                                .child("Email").setValue(FirebaseAuth.getInstance().getCurrentUser().getEmail());
-                        //FirebaseDatabase.getInstance().getReference().child("Issue Requests").child(uid).child("Books")
-                          //      .child("ISBN").setValue(isbn);
-                        FirebaseDatabase.getInstance().getReference().child("Issue Requests").child(uid).child("Books") .child(isbn)
-                                .child("Hardsofy").setValue(hardsofy);
+                    if(send != 0)
+                    {
+                        FirebaseDatabase.getInstance().getReference().child("Issue Requests").child(email).child(isbn)
+                                .child("Status").setValue("pending");
+                        FirebaseDatabase.getInstance().getReference().child("Issue Requests").child(email).child(isbn)
+                                .child("Name").setValue(book);
+                        FirebaseDatabase.getInstance().getReference().child("Issue Requests").child(email).child(isbn)
+                                .child("Timestamp").setValue(Calendar.getInstance().getTimeInMillis());
+
                         Toast.makeText(IssueBookDetailActivity.this, book + "requested for you", Toast.LENGTH_SHORT).show();
                     }
                     else

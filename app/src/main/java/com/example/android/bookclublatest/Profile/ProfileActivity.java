@@ -44,7 +44,7 @@ public class ProfileActivity extends BaseActivity implements ProfileContract.Vie
         mpresenter = new ProfilePresenter<ProfileContract.View>();
         sharedPref=new SharedPref(this);
 
-
+        status.setText(sharedPref.getAccessLevel());
         mobile.setText(sharedPref.getMobile());
         admission.setText(sharedPref.getAdmission());
         email.setText(sharedPref.getEmail());

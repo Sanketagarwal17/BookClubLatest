@@ -15,7 +15,7 @@
         <activity android:name=".IssueBook" />
         <activity android:name=".Member.IssueBook.IssueActivity" />
         <activity
-            android:name=".Authentication.Login.LoginActivity"
+            android:name=".Splash.SplashActivity"
             android:label="@string/app_name"
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
@@ -24,6 +24,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".Authentication.Login.LoginActivity"/>
         <activity android:name=".HomePage.HomePageActivity" />
         <activity android:name=".Authentication.SignUp.SignUpActivity" />
         <activity android:name=".Authentication.Verification.VerificationActivity" />
@@ -43,6 +44,7 @@
         <activity android:name=".Authentication.Verification.OtpActivity" />
         <activity android:name=".BorrowHistory.BorrowHistoryActivity" />
         <activity android:name=".Admin.RequestsForMember.AdminActivity.AdminActivity"></activity>
+        <activity android:name=".Member.ConfirmIssue.ConfirmProceed.ProceedActivity"/>
     </application>
 
 </manifest>

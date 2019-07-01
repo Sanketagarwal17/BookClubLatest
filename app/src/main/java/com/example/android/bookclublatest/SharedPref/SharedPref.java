@@ -10,6 +10,7 @@ public class SharedPref
     private static final String MOBILE = "mobile";
     private static final String ADMISSION = "admission";
     private static final String EMAIL = "email";
+    private static final String ACCESS_LEVEL = "level";
     private static final String USERNAME = "username";
 
 
@@ -63,6 +64,15 @@ public class SharedPref
     public void setUsername(String username)
     {
         editor.putString(USERNAME,username);
+        editor.commit();
+    }
+    public String getAccessLevel()
+    {
+        return pref.getString(ACCESS_LEVEL,"");
+    }
+    public void setAccessLevel(String level)
+    {
+        editor.putString(ACCESS_LEVEL,level);
         editor.commit();
     }
 }

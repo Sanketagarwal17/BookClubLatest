@@ -63,10 +63,6 @@ public class HomePageActivity extends AppCompatActivity
     @BindView(R.id.banner_slider1)
     Slider banner_slider;
 
-
-
-
-
     SharedPref sharedPref;
 
     DatabaseReference databaseReference;
@@ -175,13 +171,16 @@ public class HomePageActivity extends AppCompatActivity
         // Handle navigation view item clicks here.
         int id = item.getItemId();
 
-        if (id == R.id.nav_add_book)
+        if (id == R.id.nav_requestmenmber)
         {
-            startActivity(new Intent(this, AddBookActivity.class));
-        } else if (id == R.id.nav_requestmenmber) {
-            startActivity(new Intent(this,RequestForMemberActivity.class));
+            if(sharedPref.getAccessLevel().equals("Student"))
+                startActivity(new Intent(this,RequestForMemberActivity.class));
+            else
+                Toast.makeText(this, "You are already a member", Toast.LENGTH_SHORT).show();
 
-        } else if (id == R.id.nav_profile) {
+        }
+
+        else if (id == R.id.nav_profile) {
             startActivity(new Intent(this, ProfileActivity.class));
         }
         else if(id==R.id.nav_faq)
@@ -194,43 +193,14 @@ public class HomePageActivity extends AppCompatActivity
             startActivity(new Intent(this, DevelopersActivity.class));
         else  if(id==R.id.nav_chnage_password)
             startActivity(new Intent(this,ChangePasswordActivity.class));
-        else if(id==R.id.nav_member_page) {
-            databaseReference = FirebaseDatabase.getInstance().getReference("Status");
-            firebaseAuth = FirebaseAuth.getInstance();
-            FirebaseUser firebaseUser = firebaseAuth.getCurrentUser();
-            String email = firebaseUser.getEmail();
-            final String email1 = email.replace('.', ',');
 
-            Log.e("hoji",email1);
-
-            databaseReference.addValueEventListener(new ValueEventListener() {
-                @Override
-                public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                    for (DataSnapshot ds : dataSnapshot.getChildren()) {
-                        Log.e("qwe",ds.getKey());
-                        if (ds.getKey().equals(email1)) {
-                            Log.e("qwer",  ds.getValue().toString());
-                            if (ds.getValue().equals("Member")) {
-                                startActivity(new Intent(HomePageActivity.this,MemberActivity.class));
-                            }
-                            else {
-                                Toast.makeText(HomePageActivity.this, "You are not authorized to open", Toast.LENGTH_SHORT).show();
-                            }
-                        }
-                    }
-
-                }
-
-                @Override
-                public void onCancelled(@NonNull DatabaseError databaseError) {
-
-                }
-            });
-
-
+        else if(id==R.id.nav_member_page)
+        {
+            if(sharedPref.getAccessLevel().equals("Member"))
+                startActivity(new Intent(this, MemberActivity.class));
+            else
+                Toast.makeText(this, "You are not Authorized to access it", Toast.LENGTH_LONG).show();
         }
-
-
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
