@@ -47,7 +47,8 @@ public class RequestsForMemberAdapter extends RecyclerView.Adapter <RequestsForM
        viewHolder.admissionnumber.setText(requetsForMemberModel.getAdmissionnumber());
        viewHolder.email.setText(requetsForMemberModel.getEmail());
        viewHolder.phone.setText(requetsForMemberModel.getPhonenumber());
-        final  String email1=requetsForMemberModel.getEmail();
+        final  String email2=requetsForMemberModel.getEmail();
+        final  String email1=email2.replace('.',',');
        viewHolder.makemember.setOnClickListener(new View.OnClickListener() {
            @Override
            public void onClick(View v) {
@@ -59,12 +60,20 @@ public class RequestsForMemberAdapter extends RecyclerView.Adapter <RequestsForM
                        Toast.makeText(context,"Successfully made member",Toast.LENGTH_LONG).show();
                        FirebaseAuth firebaseAuth = FirebaseAuth.getInstance();
                         FirebaseDatabase firebaseDatabase = FirebaseDatabase.getInstance();
-                        DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference();
+                        final DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference("Status");
 
 
-                       databaseReference.child("Status").child(email1).setValue("Member").addOnCompleteListener(new OnCompleteListener<Void>() {
+                       databaseReference.child(email1).setValue("Member").addOnCompleteListener(new OnCompleteListener<Void>() {
                            @Override
                            public void onComplete(@NonNull Task<Void> task) {
+                               if(task.isSuccessful())
+                               {
+                                  DatabaseReference databaseReference2=FirebaseDatabase.getInstance().getReference("requstsformember");
+
+                                  databaseReference2.child(email1).removeValue();
+
+
+                               }
                            }
                        });
 
@@ -80,7 +89,7 @@ public class RequestsForMemberAdapter extends RecyclerView.Adapter <RequestsForM
                    }
                });
 
-
+            alertdialog.show();
            }
        });
 
@@ -89,6 +98,12 @@ public class RequestsForMemberAdapter extends RecyclerView.Adapter <RequestsForM
            @Override
            public void onClick(View v) {
                Toast.makeText(context ,"request rejected",Toast.LENGTH_LONG).show();
+               final DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference();
+
+               DatabaseReference databaseReference2=FirebaseDatabase.getInstance().getReference("requstsformember");
+
+               databaseReference2.child(email1).removeValue();
+
            }
        });
 

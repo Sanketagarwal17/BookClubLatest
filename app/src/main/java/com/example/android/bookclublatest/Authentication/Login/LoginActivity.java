@@ -8,8 +8,8 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.android.bookclublatest.Admin.AdminActivity;
 //import com.example.android.bookclublatest.Authentication.ForgetPassword.ForgetPasswordActivity;
+import com.example.android.bookclublatest.Admin.RequestsForMember.AdminActivity.AdminActivity;
 import com.example.android.bookclublatest.Authentication.SignUp.SignUpActivity;
 import com.example.android.bookclublatest.Base.BaseActivity;
 import com.example.android.bookclublatest.BuildConfig;

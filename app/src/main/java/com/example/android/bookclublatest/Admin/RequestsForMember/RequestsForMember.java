@@ -6,6 +6,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
+import android.widget.Toast;
 
 import com.example.android.bookclublatest.Base.BaseActivity;
 import com.example.android.bookclublatest.R;
@@ -54,9 +56,6 @@ RequetsForMemberContract.Presenter<RequetsForMemberContract.View> mPresenter;
         arrayList=new ArrayList<>();
         allrequestformember.setHasFixedSize(false);
         allrequestformember.setLayoutManager(new LinearLayoutManager(this));
-        requestsForMemberAdapter=new RequestsForMemberAdapter(this,arrayList);
-        allrequestformember.setAdapter(requestsForMemberAdapter);
-
 
         databaseReference=FirebaseDatabase.getInstance().getReference("requstsformember");
 
@@ -67,23 +66,32 @@ RequetsForMemberContract.Presenter<RequetsForMemberContract.View> mPresenter;
            for(DataSnapshot ds : dataSnapshot.getChildren())
            {
                final String emailm=ds.getValue().toString();
+               Log.e("emailtest",emailm);
                final String emailx=emailm.replace('.',',');
 
-               final DatabaseReference databaseReference2=FirebaseDatabase.getInstance().getReference("users");
+                DatabaseReference databaseReference2=FirebaseDatabase.getInstance().getReference("users");
 
 
                databaseReference2.addValueEventListener(new ValueEventListener() {
                    @Override
                    public void onDataChange(@NonNull DataSnapshot dataSnapshot1) {
-                        if(dataSnapshot1.getKey().equals(emailx)) {
+                       for (DataSnapshot ds2 : dataSnapshot1.getChildren())
+                       {       if (ds2.getKey().equals(emailx)) {
+                               Log.e("emailtest1", emailx);
 
-                            String name1 = dataSnapshot1.child("name").getValue().toString();
-                            String email1 = dataSnapshot1.child("email").getValue().toString();
-                            String phone1 = dataSnapshot1.child("phonenumber").getValue().toString();
-                            String admission1 = dataSnapshot1.child("admissionnumber").getValue().toString();
-                            RequetsForMemberModel requetsForMemberModel = new RequetsForMemberModel(name1, admission1, email1, phone1);
-                            arrayList.add(requetsForMemberModel);
-                        }
+
+                               String name1 = ds2.child("name").getValue().toString();
+                               String email1 = ds2.child("email").getValue().toString();
+                               String phone1 = ds2.child("phonenumber").getValue().toString();
+                               String admission1 = ds2.child("admissionnumber").getValue().toString();
+                               RequetsForMemberModel requetsForMemberModel = new RequetsForMemberModel(name1, admission1, email1, phone1);
+                               arrayList.add(requetsForMemberModel);
+                           }
+                   }
+                       requestsForMemberAdapter=new RequestsForMemberAdapter(RequestsForMember.this,arrayList);
+                       allrequestformember.setAdapter(requestsForMemberAdapter);
+                       requestsForMemberAdapter.notifyDataSetChanged();
+
 
                    }
 
@@ -104,7 +112,6 @@ RequetsForMemberContract.Presenter<RequetsForMemberContract.View> mPresenter;
             }
         });
 
-        requestsForMemberAdapter.notifyDataSetChanged();
 
     }
 }

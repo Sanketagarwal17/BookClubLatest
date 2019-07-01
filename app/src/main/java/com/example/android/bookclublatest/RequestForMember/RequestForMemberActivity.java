@@ -32,10 +32,14 @@ public class RequestForMemberActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_request_for_member);
 sendrequest=findViewById(R.id.sendrequestformember);
-        SharedPreferences result=getSharedPreferences("email",Context.MODE_PRIVATE);
-        final String email1=result.getString("Value","sanketagarwal702@gmail.com").trim();
 
-final String email=email1.replace('.',',');
+        FirebaseAuth firebaseAuth=FirebaseAuth.getInstance();
+        FirebaseUser firebaseUser=firebaseAuth.getCurrentUser();
+
+
+ final String email1=firebaseUser.getEmail();
+        final String email=email1.replace('.',',');
+
 
         databaseReference = FirebaseDatabase.getInstance().getReference(); // root node.
 
