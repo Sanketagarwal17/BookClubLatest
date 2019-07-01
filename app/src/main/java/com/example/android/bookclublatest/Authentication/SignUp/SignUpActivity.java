@@ -128,6 +128,7 @@ public class SignUpActivity extends BaseActivity implements SignUpContract.View
         sharedPref.setEmail(email.getText().toString());
         sharedPref.setMobile(phonenumber.getText().toString());
         sharedPref.setAdmission(admissionnumber.getText().toString());
+        sharedPref.setAccessLevel("Student");
         Intent intent = new Intent(SignUpActivity.this, activity);
         startActivity(intent);
         finish();

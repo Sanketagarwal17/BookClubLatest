@@ -14,7 +14,7 @@
         android:layout_marginEnd="16dp"
         android:layout_marginBottom="48dp"
         android:background="@drawable/rounded_corner"
-        android:text="RETURN Confirm"
+        android:text="Confirm RETURN"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
@@ -27,18 +27,18 @@
         android:layout_marginStart="24dp"
         android:layout_marginBottom="48dp"
         android:background="@drawable/rounded_corner"
-        android:text="REQUEST Confirm"
+        android:text="Confirm REQUEST"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
     <Button
-        android:id="@+id/browse"
+        android:id="@+id/addbook"
         android:layout_width="134dp"
         android:layout_height="98dp"
         android:layout_marginTop="228dp"
         android:layout_marginEnd="16dp"
         android:background="@drawable/rounded_corner"
-        android:text="BROWSE"
+        android:text="Add Book"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -51,7 +51,7 @@
         android:layout_marginEnd="66dp"
         android:layout_marginBottom="8dp"
         android:background="@drawable/rounded_corner"
-        android:text="ISSUE Confirm"
+        android:text=" Confirm ISSUE"
         app:layout_constraintBottom_toTopOf="@+id/request"
         app:layout_constraintEnd_toStartOf="@+id/browse"
         app:layout_constraintStart_toStartOf="parent"

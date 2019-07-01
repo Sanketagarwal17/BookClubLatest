@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="6dp"
+    android:elevation="12dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="name"
+            android:id="@+id/isuuelist_name"
+
+            android:textSize="14sp"
+            android:textColor="@android:color/black"
+            android:padding="3dp"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="name"
+            android:id="@+id/isuuelist_email"
+            android:textSize="14sp"
+            android:textColor="@android:color/black"
+            android:padding="3dp"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="name"
+            android:id="@+id/isuuelist_isbn"
+            android:textSize="14sp"
+            android:textColor="@android:color/black"
+            android:padding="3dp"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="name"
+            android:textAlignment="center"
+            android:id="@+id/isuuelist_button"
+            android:textSize="14sp"
+            android:textColor="@android:color/black"
+            android:padding="3dp"
+            android:background="@android:color/darker_gray"/>
+
+    </LinearLayout>
+
+</android.support.v7.widget.CardView>
