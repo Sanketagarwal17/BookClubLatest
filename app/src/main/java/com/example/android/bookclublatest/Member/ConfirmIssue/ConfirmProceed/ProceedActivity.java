@@ -37,7 +37,6 @@ public class ProceedActivity extends AppCompatActivity implements DatePickerDial
     ImageView dtae_image;
     @BindView(R.id.proceed_issue)
     Button issue_final;
-
     @BindView(R.id.confirm_email)
     TextView cemail;
     @BindView(R.id.confirm_name)

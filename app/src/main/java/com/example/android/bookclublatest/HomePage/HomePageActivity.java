@@ -31,6 +31,7 @@ import com.example.android.bookclublatest.HomePage.RequestBook.RequestActivity;
 import com.example.android.bookclublatest.IssueBook;
 import com.example.android.bookclublatest.Member.AddBook.AddBookActivity;
 import com.example.android.bookclublatest.Member.MemberActivity;
+import com.example.android.bookclublatest.Penalty.PenaltyActivity;
 import com.example.android.bookclublatest.Profile.ProfileActivity;
 import com.example.android.bookclublatest.R;
 import com.example.android.bookclublatest.RequestForMember.RequestForMemberActivity;
@@ -191,9 +192,11 @@ public class HomePageActivity extends AppCompatActivity
             startActivity(new Intent(this, AboutUsActivity.class));
         else if(id==R.id.nav_developers)
             startActivity(new Intent(this, DevelopersActivity.class));
-        else  if(id==R.id.nav_chnage_password)
-            startActivity(new Intent(this,ChangePasswordActivity.class));
+        else  if(id==R.id.nav_chnage_password) {
+            //startActivity(new Intent(this, ChangePasswordActivity.class));
+            startActivity(new Intent(this,PenaltyActivity.class));
 
+        }
         else if(id==R.id.nav_member_page)
         {
             if(sharedPref.getAccessLevel().equals("Member"))
