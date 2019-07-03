@@ -44,7 +44,8 @@
         <activity android:name=".BorrowHistory.BorrowHistoryActivity" />
         <activity android:name=".Admin.RequestsForMember.AdminActivity.AdminActivity" />
         <activity android:name=".Member.ConfirmIssue.ConfirmProceed.ProceedActivity" />
-        <activity android:name=".Penalty.PenaltyActivity"></activity>
+        <activity android:name=".Penalty.PenaltyActivity" />
+        <activity android:name=".Member.ReturnBook.ReturnBookActivity"></activity>
     </application>
 
 </manifest>
