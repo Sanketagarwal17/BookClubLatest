@@ -65,11 +65,13 @@ PenaltyAdapter penaltyAdapter;
                            String return_date = dataSnapshot2.child("return_date").getValue().toString();
                            String bookname=dataSnapshot2.child("bookname").getValue().toString();
                            String isbn=dataSnapshot2.child("isbn").getValue().toString();
-                           Log.e("issue", issue_date);
+                           Log.e("issue", bookname);
                            penaltyModel=new PenaltyModel(issue_date,return_date,isbn,bookname);
                            penaltyModelList.add(penaltyModel);
+                           Log.e("issuech", String.valueOf(penaltyModelList.size()));
                        }
                        penaltyAdapter=new PenaltyAdapter(penaltyModelList,PenaltyActivity.this);
+                       penaltyAdapter.notifyDataSetChanged();
                        recyclerView.setAdapter(penaltyAdapter);
                    }
 

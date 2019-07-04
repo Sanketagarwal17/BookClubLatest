@@ -184,6 +184,9 @@ public class HomePageActivity extends AppCompatActivity
         else if (id == R.id.nav_profile) {
             startActivity(new Intent(this, ProfileActivity.class));
         }
+        else if(id == R.id.nav_penalty)
+            startActivity(new Intent(this,PenaltyActivity.class));
+
         else if(id==R.id.nav_faq)
             startActivity(new Intent(this, FAQActivity.class));
         else if(id==R.id.nav_contact)
@@ -193,8 +196,7 @@ public class HomePageActivity extends AppCompatActivity
         else if(id==R.id.nav_developers)
             startActivity(new Intent(this, DevelopersActivity.class));
         else  if(id==R.id.nav_chnage_password) {
-            //startActivity(new Intent(this, ChangePasswordActivity.class));
-            startActivity(new Intent(this,PenaltyActivity.class));
+            startActivity(new Intent(this, ChangePasswordActivity.class));
 
         }
         else if(id==R.id.nav_member_page)
