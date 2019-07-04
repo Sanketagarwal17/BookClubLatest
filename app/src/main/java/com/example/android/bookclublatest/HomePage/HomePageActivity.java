@@ -26,10 +26,10 @@ import com.example.android.bookclublatest.Authentication.Verification.Verificati
 import com.example.android.bookclublatest.ContactUs.ContactUsActivity;
 import com.example.android.bookclublatest.Developers.DevelopersActivity;
 import com.example.android.bookclublatest.Faq.MVP.FAQActivity;
-import com.example.android.bookclublatest.HomePage.BrowseBooks.BrowseActivity;
+import com.example.android.bookclublatest.HomePage.History.HistoryActivity;
 import com.example.android.bookclublatest.HomePage.RequestBook.RequestActivity;
+import com.example.android.bookclublatest.HomePage.Return.ReturnActivity;
 import com.example.android.bookclublatest.IssueBook;
-import com.example.android.bookclublatest.Member.AddBook.AddBookActivity;
 import com.example.android.bookclublatest.Member.MemberActivity;
 import com.example.android.bookclublatest.Penalty.PenaltyActivity;
 import com.example.android.bookclublatest.Profile.ProfileActivity;
@@ -37,12 +37,7 @@ import com.example.android.bookclublatest.R;
 import com.example.android.bookclublatest.RequestForMember.RequestForMemberActivity;
 import com.example.android.bookclublatest.SharedPref.SharedPref;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.ValueEventListener;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -58,8 +53,10 @@ public class HomePageActivity extends AppCompatActivity
     Button request;
     @BindView(R.id.issue)
     Button issue;
-    @BindView(R.id.browse)
-    Button browse;
+    @BindView(R.id.history)
+    Button history;
+    @BindView(R.id.returnbook)
+    Button returnbook;
 
     @BindView(R.id.banner_slider1)
     Slider banner_slider;
@@ -112,10 +109,17 @@ public class HomePageActivity extends AppCompatActivity
                 startActivity(new Intent(HomePageActivity.this, RequestActivity.class));
             }
         });
-        browse.setOnClickListener(new View.OnClickListener() {
+
+        history.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(HomePageActivity.this, BrowseActivity.class));
+                startActivity(new Intent(HomePageActivity.this, HistoryActivity.class));
+            }
+        });
+        returnbook.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(HomePageActivity.this, ReturnActivity.class));
             }
         });
 

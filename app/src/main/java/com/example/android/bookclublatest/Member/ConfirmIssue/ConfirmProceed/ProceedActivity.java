@@ -4,18 +4,25 @@ import android.annotation.SuppressLint;
 import android.app.DatePickerDialog;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.DatePicker;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.android.bookclublatest.Member.ConfirmIssue.ConfirmIssueActivity;
 import com.example.android.bookclublatest.R;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 import com.google.zxing.integration.android.IntentIntegrator;
 import com.google.zxing.integration.android.IntentResult;
 
@@ -27,6 +34,8 @@ import butterknife.ButterKnife;
 
 public class ProceedActivity extends AppCompatActivity implements DatePickerDialog.OnDateSetListener
 {
+    @BindView(R.id.proceed_checkbox)
+    CheckBox checkBox;
     @BindView(R.id.proceed_scan)
     TextView scan;
     @BindView(R.id.proceed_code)
@@ -54,7 +63,9 @@ public class ProceedActivity extends AppCompatActivity implements DatePickerDial
     DatePickerDialog datePickerDialog;
     final static String[] months={"Jan","Feb","Mar","Apr","May","June","July","Aug","Sep","Oct","Nov","Dec"};
 
-    String email,bookname,isbn,issue_date,return_date,ism_code;
+    String email,bookname,isbn,issue_date,return_date,ism_code,hard_soft="Hard Copy";
+
+    int correct=0;
 
 
     @Override
@@ -103,9 +114,74 @@ public class ProceedActivity extends AppCompatActivity implements DatePickerDial
                     Toast.makeText(ProceedActivity.this, "Make Sure that all credentials are Checked", Toast.LENGTH_SHORT).show();
                 }
                 else
-                    updateDatabase();
+                    checkCode();
             }
         });
+    }
+
+    private void checkCode()
+    {
+        if(checkBox.isChecked())
+            hard_soft="Hard Copy";
+        else
+            hard_soft="Soft Copy";
+
+        FirebaseDatabase firebaseDatabase=FirebaseDatabase.getInstance();
+        DatabaseReference databaseReference=firebaseDatabase.getReference("Books_List");
+
+        databaseReference.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+
+                for(DataSnapshot ds1:dataSnapshot.getChildren())
+                {
+                    if(ds1.getKey().equals(isbn))
+                    {
+                        Log.i("isbn",isbn);
+                        for(DataSnapshot ds2:ds1.getChildren())
+                        {
+                            if(ds2.getKey().equals(hard_soft))
+                            {
+                                Log.i("Type",hard_soft);
+                                for(DataSnapshot ds3:ds2.getChildren())
+                                {
+                                    if(ds3.getKey().equals(ism_code))
+                                    {
+                                        Log.i("ismcode is ",ism_code);
+                                        ProceedActivity.this.setCorrect(1);
+                                        break;
+                                    }
+                                }
+                            }
+                        }
+
+                    }
+                }
+
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
+
+
+        Log.i("Here after setter",correct+"");
+        if(correct==1)
+        {
+            updateDatabase();
+        }
+        else
+        {
+            Toast.makeText(this, "Try Again  OR \nThe Scanned Code didn't matched with any of the Books in Database", Toast.LENGTH_LONG).show();
+        }
+    }
+
+    private void setCorrect(int correct)
+    {
+        Log.i("Here at setter",correct+"");
+        this.correct=correct;
     }
 
     private void updateDatabase()
@@ -118,8 +194,14 @@ public class ProceedActivity extends AppCompatActivity implements DatePickerDial
         //Create Issue History
         FirebaseDatabase database=FirebaseDatabase.getInstance();
         DatabaseReference reference=database.getReference("Issue History");
-        ProceedModel model=new ProceedModel(bookname,isbn,issue_date,return_date,"Not Returned");
-        reference.child(email).child(ism_code).setValue(model);
+        ProceedModel model=new ProceedModel(bookname,isbn,issue_date,return_date,"Not Returned",ism_code);
+        reference.child(email).child(isbn).setValue(model);
+
+        Toast.makeText(this, "Successfully Updated", Toast.LENGTH_SHORT).show();
+
+        //close this tab and go o list
+        finish();
+        startActivity(new Intent(this, ConfirmIssueActivity.class));
     }
 
     @SuppressLint("SetTextI18n")

@@ -98,11 +98,11 @@ public class IssueBookDetailActivity extends AppCompatActivity {
                     });
                     if(send != 0)
                     {
-                        FirebaseDatabase.getInstance().getReference().child("Issue Requests").child(email).child(isbn)
+                        FirebaseDatabase.getInstance().getReference().child("Issue Requests").child(email).child(ism)
                                 .child("Status").setValue("pending");
-                        FirebaseDatabase.getInstance().getReference().child("Issue Requests").child(email).child(isbn)
+                        FirebaseDatabase.getInstance().getReference().child("Issue Requests").child(email).child(ism)
                                 .child("Name").setValue(book);
-                        FirebaseDatabase.getInstance().getReference().child("Issue Requests").child(email).child(isbn)
+                        FirebaseDatabase.getInstance().getReference().child("Issue Requests").child(email).child(ism)
                                 .child("Timestamp").setValue(Calendar.getInstance().getTimeInMillis());
 
                         Toast.makeText(IssueBookDetailActivity.this, book + "requested for you", Toast.LENGTH_SHORT).show();
