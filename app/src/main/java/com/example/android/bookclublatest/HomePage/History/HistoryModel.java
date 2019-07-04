@@ -2,22 +2,22 @@ package com.example.android.bookclublatest.HomePage.History;
 
 public class HistoryModel
 {
-    private String bookname,isbn,issue_date,return_date,status,ismcode;
+    private String bookname,isbn,issue_date,return_date,status,ism;
 
     public HistoryModel() {
     }
 
-    public HistoryModel(String bookname, String isbn, String issue_date, String return_date, String status, String ismcode) {
+    public HistoryModel(String bookname, String isbn, String ism, String issue_date, String return_date, String status) {
         this.bookname = bookname;
         this.isbn = isbn;
         this.issue_date = issue_date;
         this.return_date = return_date;
         this.status = status;
-        this.ismcode = ismcode;
+        this.ism = ism;
     }
 
     public String getIsmcode() {
-        return ismcode;
+        return ism;
     }
 
     public String getBookname() {

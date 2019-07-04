@@ -44,9 +44,10 @@
         <activity android:name=".Admin.RequestsForMember.AdminActivity.AdminActivity" />
         <activity android:name=".Member.ConfirmIssue.ConfirmProceed.ProceedActivity" />
         <activity android:name=".Penalty.PenaltyActivity" />
-        <activity android:name=".Member.ReturnBook.ReturnBookActivity"></activity>
         <activity android:name=".HomePage.History.HistoryActivity"/>
         <activity android:name=".HomePage.Return.ReturnActivity"/>
+        <activity android:name=".Member.ConfirmReturn.ConfirmActivity"/>
+        <activity android:name=".Member.ConfirmReturn.ReturnProceed.ProceedReturnActivity"/>
     </application>
 
 </manifest>

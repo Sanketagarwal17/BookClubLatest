@@ -1,0 +1,236 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+
+    <TextView
+        android:id="@+id/proceed_scan"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="@android:color/black"
+        android:text="Click to Scan The Unique Code"
+        android:textSize="15sp"
+        android:padding="6dp"
+        android:background="@android:color/darker_gray"
+        android:gravity="center"/>
+    <TextView
+        android:id="@+id/proceed_code"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="15sp"
+        android:padding="6dp"/>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@android:color/darker_gray"/>
+
+
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="@android:color/black"
+        android:text="Confirm Before Proceed"
+        android:textSize="15sp"
+        android:padding="6dp"
+        android:background="@android:color/darker_gray"
+        android:gravity="center"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:text="Email"
+            android:textSize="15sp"
+            android:layout_gravity="center"
+            android:textColor="@android:color/black"
+            android:padding="2dp"/>
+
+        <TextView
+            android:id="@+id/confirm_email"
+            android:layout_width="0dp"
+            android:layout_weight="3"
+            android:layout_height="wrap_content"
+            android:text="Return"
+            android:textSize="15sp"
+            android:layout_gravity="center"
+            android:textColor="@android:color/darker_gray"
+            android:padding="2dp"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:text="Book Name"
+            android:textSize="15sp"
+            android:layout_gravity="center"
+            android:textColor="@android:color/black"
+            android:padding="2dp"/>
+
+        <TextView
+            android:id="@+id/confirm_name"
+            android:layout_width="0dp"
+            android:layout_weight="3"
+            android:layout_height="wrap_content"
+            android:text="Return"
+            android:textSize="15sp"
+            android:layout_gravity="center"
+            android:textColor="@android:color/darker_gray"
+            android:padding="2dp"/>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:text="Issue Date"
+            android:textSize="15sp"
+            android:layout_gravity="center"
+            android:textColor="@android:color/black"
+            android:padding="2dp"/>
+
+        <TextView
+            android:id="@+id/confirm_issue"
+            android:layout_width="0dp"
+            android:layout_weight="3"
+            android:layout_height="wrap_content"
+            android:text="Issue Date"
+            android:textSize="15sp"
+            android:layout_gravity="center"
+            android:textColor="@android:color/darker_gray"
+            android:padding="2dp"/>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:text="Return Date"
+            android:textSize="15sp"
+            android:layout_gravity="center"
+            android:textColor="@android:color/black"
+            android:padding="2dp"/>
+
+        <TextView
+            android:id="@+id/confirm_return"
+            android:layout_width="0dp"
+            android:layout_weight="3"
+            android:layout_height="wrap_content"
+            android:text="Return"
+            android:textSize="15sp"
+            android:layout_gravity="center"
+            android:textColor="@android:color/darker_gray"
+            android:padding="2dp"/>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:text="Today's Date"
+            android:textSize="15sp"
+            android:layout_gravity="center"
+            android:textColor="@android:color/black"
+            android:padding="2dp"/>
+
+        <TextView
+            android:id="@+id/confirm_today"
+            android:layout_width="0dp"
+            android:layout_weight="3"
+            android:layout_height="wrap_content"
+            android:text="Return"
+            android:textSize="15sp"
+            android:layout_gravity="center"
+            android:textColor="@android:color/darker_gray"
+            android:padding="2dp"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:text="ISBN"
+            android:textSize="15sp"
+            android:layout_gravity="center"
+            android:textColor="@android:color/black"
+            android:padding="2dp"/>
+
+        <TextView
+            android:id="@+id/confirm_isbn"
+            android:layout_width="0dp"
+            android:layout_weight="3"
+            android:layout_height="wrap_content"
+            android:text="Return"
+            android:textSize="15sp"
+            android:layout_gravity="center"
+            android:textColor="@android:color/darker_gray"
+            android:padding="2dp"/>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:text="Unique Code"
+            android:textSize="15sp"
+            android:layout_gravity="center"
+            android:textColor="@android:color/black"
+            android:padding="2dp"/>
+
+        <TextView
+            android:id="@+id/confirm_ism"
+            android:layout_width="0dp"
+            android:layout_weight="3"
+            android:layout_height="wrap_content"
+            android:text="Return"
+            android:textSize="15sp"
+            android:layout_gravity="center"
+            android:textColor="@android:color/darker_gray"
+            android:padding="2dp"/>
+    </LinearLayout>
+
+
+    <Button
+        android:id="@+id/proceed_issue"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="RETURN"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="50dp"/>
+
+</LinearLayout>

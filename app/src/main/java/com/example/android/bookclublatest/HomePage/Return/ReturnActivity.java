@@ -1,5 +1,6 @@
 package com.example.android.bookclublatest.HomePage.Return;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -12,6 +13,7 @@ import android.widget.Toast;
 import com.example.android.bookclublatest.HomePage.History.HistoryActivity;
 import com.example.android.bookclublatest.HomePage.History.HistoryAdapter;
 import com.example.android.bookclublatest.HomePage.History.HistoryModel;
+import com.example.android.bookclublatest.HomePage.HomePageActivity;
 import com.example.android.bookclublatest.R;
 import com.example.android.bookclublatest.SharedPref.SharedPref;
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -66,7 +68,14 @@ public class ReturnActivity extends AppCompatActivity implements ReturnAdapter.C
                     {
                         for(DataSnapshot ds2:ds.getChildren())
                         {
-                            HistoryModel model=ds2.getValue(HistoryModel.class);
+                            String bookname,isbn,issue_date,return_date,status,ism;
+                            bookname=ds2.child("bookname").getValue().toString();
+                            isbn=ds2.child("isbn").getValue().toString();
+                            ism=ds2.child("ism").getValue().toString();
+                            issue_date=ds2.child("issue_date").getValue().toString();
+                            return_date=ds2.child("return_date").getValue().toString();
+                            status=ds2.child("status").getValue().toString();
+                            HistoryModel model=new HistoryModel(bookname,isbn,ism,issue_date,return_date,status);
                             if(model.getStatus().equals("Not Returned"))
                                 list.add(model);
                         }
@@ -91,9 +100,9 @@ public class ReturnActivity extends AppCompatActivity implements ReturnAdapter.C
         String issuedate=list.get(pos).getIssue_date();
         String returndtae=list.get(pos).getReturn_date();
         String ismcode=list.get(pos).getIsmcode();
-        String status="pending";
+        final String status="pending";
 
-        HistoryModel model=new HistoryModel(book,isbn,issuedate,returndtae,status,ismcode);
+        HistoryModel model=new HistoryModel(book,isbn,ismcode,issuedate,returndtae,status);
 
         //Create a request to return
         FirebaseDatabase.getInstance().getReference().child("Return Requests").child(email).child(isbn).setValue(model).addOnCompleteListener(new OnCompleteListener<Void>() {
@@ -102,6 +111,8 @@ public class ReturnActivity extends AppCompatActivity implements ReturnAdapter.C
                 if(task.isSuccessful())
                 {
                     Toast.makeText(ReturnActivity.this, "Your Request Has Been Recieved, Return the Book To the Club", Toast.LENGTH_LONG).show();
+                    startActivity(new Intent(ReturnActivity.this, HomePageActivity.class));
+                    finish();
                 }
                 else
                 {
