@@ -1,20 +1,23 @@
-package com.example.android.bookclublatest.Member.ConfirmIssue.ConfirmProceed;
+package com.example.android.bookclublatest.HomePage.History;
 
-public class ProceedModel
+public class HistoryModel
 {
-    String bookname,isbn,issue_date,return_date,status,ism;
+    private String bookname,isbn,issue_date,return_date,status,ismcode;
 
-    public ProceedModel(String bookname, String isbn, String issue_date, String return_date, String status, String ism) {
+    public HistoryModel() {
+    }
+
+    public HistoryModel(String bookname, String isbn, String issue_date, String return_date, String status, String ismcode) {
         this.bookname = bookname;
         this.isbn = isbn;
         this.issue_date = issue_date;
         this.return_date = return_date;
         this.status = status;
-        this.ism = ism;
+        this.ismcode = ismcode;
     }
 
-    public String getIsm() {
-        return ism;
+    public String getIsmcode() {
+        return ismcode;
     }
 
     public String getBookname() {

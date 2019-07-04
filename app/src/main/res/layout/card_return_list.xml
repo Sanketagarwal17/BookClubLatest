@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:elevation="12dp"
+    android:padding="3dp">
+    <LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/history_book"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="dhgjhs"
+            android:textColor="@android:color/black"
+            android:textSize="15sp"
+            android:padding="3dp"/>
+        <TextView
+            android:id="@+id/history_isbn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="dhgjhs"
+            android:textColor="@android:color/black"
+            android:textSize="15sp"
+            android:padding="3dp"/>
+        <TextView
+            android:id="@+id/history_issue"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="dhgjhs"
+            android:textColor="@android:color/black"
+            android:textSize="15sp"
+            android:padding="3dp"/>
+        <TextView
+            android:id="@+id/history_return"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="dhgjhs"
+            android:textColor="@android:color/black"
+            android:textSize="15sp"
+            android:padding="3dp"/>
+        <TextView
+            android:id="@+id/history_returnRequest"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Request Return"
+            android:textAlignment="center"
+            android:textColor="@android:color/black"
+            android:textSize="15sp"
+            android:padding="3dp"
+            android:background="@android:color/holo_green_light"/>
+
+    </LinearLayout>
+</android.support.v7.widget.CardView>
