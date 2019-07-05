@@ -47,8 +47,7 @@ PenaltyAdapter penaltyAdapter;
 
         DatabaseReference databaseReference=FirebaseDatabase.getInstance().getReference("Issue History");
         final String email1=FirebaseAuth.getInstance().getCurrentUser().getEmail();
-       // final  String email=email1.replace('.',',');
-        final  String email="rishabh997,18je0676@am,iitism,ac,in";
+        final  String email=email1.replace('.',',');
 
         databaseReference.addValueEventListener(new ValueEventListener() {
             @Override
