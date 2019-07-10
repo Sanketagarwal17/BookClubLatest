@@ -36,8 +36,8 @@ public class LoginActivity extends BaseActivity implements LoginContract.View {
     @BindView(R.id.sign_up)
     TextView signup;
 
-    @BindView(R.id.sign_up2)
-    TextView signup2;
+//    @BindView(R.id.sign_up2)
+//    TextView signup2;
 
     @BindView(R.id.login)
     Button login;
@@ -105,15 +105,15 @@ public class LoginActivity extends BaseActivity implements LoginContract.View {
             }
         });
 
-        signup2.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-                startActivity(new Intent(LoginActivity.this, SignUpActivity.class));
-                finish();
-            }
-
-        });
+//        signup2.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//
+//                startActivity(new Intent(LoginActivity.this, SignUpActivity.class));
+//                finish();
+//            }
+//
+//        });
 
         forgetpassword.setOnClickListener(new View.OnClickListener() {
             @Override
