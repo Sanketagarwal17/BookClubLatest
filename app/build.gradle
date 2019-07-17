@@ -62,6 +62,7 @@ dependencies {
     implementation 'com.ms-square:expandableTextView:0.1.4'
 
     implementation 'com.ss.bannerslider:bannerslider:2.0.0'
+    implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
 
 
 }
