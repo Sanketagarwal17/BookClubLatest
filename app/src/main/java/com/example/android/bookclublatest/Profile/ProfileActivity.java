@@ -43,7 +43,6 @@ public class ProfileActivity extends BaseActivity implements ProfileContract.Vie
         ButterKnife.bind(this);
         mpresenter = new ProfilePresenter<ProfileContract.View>();
         sharedPref=new SharedPref(this);
-
         status.setText(sharedPref.getAccessLevel());
         mobile.setText(sharedPref.getMobile());
         admission.setText(sharedPref.getAdmission());
