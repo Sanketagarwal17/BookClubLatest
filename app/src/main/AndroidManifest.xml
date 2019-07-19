@@ -48,6 +48,10 @@
         <activity android:name=".HomePage.Return.ReturnActivity"/>
         <activity android:name=".Member.ConfirmReturn.ConfirmActivity"/>
         <activity android:name=".Member.ConfirmReturn.ReturnProceed.ProceedReturnActivity"/>
+
+        <meta-data
+            android:name="preloaded_fonts"
+            android:resource="@array/preloaded_fonts" />
     </application>
 
 </manifest>

@@ -67,7 +67,7 @@ dependencies {
     implementation 'com.ss.bannerslider:bannerslider:2.0.0'
     implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
 
-    implementation 'de.hdodenhof:circleimageview:3.0.0'
+    implementation 'com.mikhaellopez:circularimageview:3.2.0'
 
 }
 
