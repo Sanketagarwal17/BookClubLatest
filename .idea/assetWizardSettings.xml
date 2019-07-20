@@ -171,11 +171,11 @@
                           <map>
                             <entry key="assetSourceType" value="FILE" />
                             <entry key="color" value="ffffff" />
-                            <entry key="height" value="100" />
-                            <entry key="outputName" value="book_card_bg" />
+                            <entry key="height" value="21" />
+                            <entry key="outputName" value="search_img" />
                             <entry key="overrideSize" value="true" />
-                            <entry key="sourceFile" value="$PROJECT_DIR$/../Downloads/Group 2.3.svg" />
-                            <entry key="width" value="350" />
+                            <entry key="sourceFile" value="$PROJECT_DIR$/../Downloads/image 4.svg" />
+                            <entry key="width" value="21" />
                           </map>
                         </option>
                       </PersistentState>

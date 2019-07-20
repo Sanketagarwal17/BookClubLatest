@@ -66,7 +66,7 @@ public class IssueBookAdapter extends RecyclerView.Adapter<IssueBookAdapter.Issu
         issueBookViewHolder.book.setText(addBookModel1.getBook());
         issueBookViewHolder.author.setText(addBookModel1.getAuthor());
         issueBookViewHolder.pub.setText(addBookModel1.getPublisher());
-        issueBookViewHolder.cardView.setOnClickListener(new View.OnClickListener() {
+        issueBookViewHolder.bookCard.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(context,IssueBookDetailActivity.class);
@@ -98,13 +98,13 @@ public class IssueBookAdapter extends RecyclerView.Adapter<IssueBookAdapter.Issu
     public class IssueBookViewHolder extends RecyclerView.ViewHolder
     {
         TextView book,pub,author;
-        CardView cardView;
+        ConstraintLayout bookCard;
         public IssueBookViewHolder(@NonNull View itemView) {
             super(itemView);
             book = itemView.findViewById(R.id.tv_book);
             pub = itemView.findViewById(R.id.tv_pub);
             author = itemView.findViewById(R.id.tv_author);
-            cardView = itemView.findViewById(R.id.cardview);
+            bookCard = itemView.findViewById(R.id.book_card);
         }
     }
 }

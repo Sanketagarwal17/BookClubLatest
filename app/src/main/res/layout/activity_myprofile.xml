@@ -49,8 +49,6 @@
         android:id="@+id/textView5"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:layout_marginBottom="8dp"
         android:text="PROFILE"
         android:textColor="#fff"
         android:fontFamily="@font/roboto_regular"

@@ -1,85 +1,143 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/book_card"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_marginBottom="12dp"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_height="wrap_content"
+    android:background="@drawable/book_card_bg">
 
-
-    <android.support.v7.widget.CardView
-        xmlns:cardview="http://schemas.android.com/apk/res-auto"
-        android:id="@+id/cardview"
-        android:layout_width="match_parent"
+    <TextView
+        android:id="@+id/tv_book"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="2dp"
+        android:layout_marginTop="12dp"
+        android:layout_marginEnd="32dp"
+        android:fontFamily="@font/quicksand_regular"
+        android:text="The Girl Who Knew"
+        android:textColor="#000"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:transitionName="ts_book"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.2"
+        app:layout_constraintStart_toStartOf="@+id/guideline15"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tv_pub"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Narway Publications"
+        android:textSize="12sp"
+        android:textColor="#B0B0B0"
+        android:fontFamily="@font/quicksand_regular"
+        android:textStyle="bold"
+        android:transitionName="ts_pub"
+        app:layout_constraintStart_toStartOf="@+id/tv_author"
+        app:layout_constraintTop_toBottomOf="@+id/tv_author" />
+
+    <TextView
+        android:id="@+id/tv_author"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Aayush Narway"
+        android:textSize="12sp"
+        android:textColor="#B0B0B0"
+        android:fontFamily="@font/quicksand_regular"
+        android:textStyle="bold"
+        android:transitionName="ts_author"
+        app:layout_constraintStart_toStartOf="@+id/tv_book"
+        app:layout_constraintTop_toBottomOf="@+id/tv_book" />
+
+    <android.support.constraint.Guideline
+        android:id="@+id/guideline14"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.35" />
+
+    <android.support.constraint.Guideline
+        android:id="@+id/guideline15"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.39" />
+
+    <ImageView
+        android:id="@+id/imageView8"
+        android:layout_width="0dp"
+        android:layout_height="100dp"
         android:layout_marginStart="8dp"
+        android:layout_marginTop="16dp"
         android:layout_marginEnd="8dp"
-        cardview:cardCornerRadius="10dp"
-        cardview:cardElevation="16dp"
-        cardview:cardUseCompatPadding="true"
-        >
+        android:layout_marginBottom="16dp"
+        android:outlineProvider="none"
+        android:scaleType="fitXY"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintDimensionRatio="w,3:4"
+        app:layout_constraintEnd_toStartOf="@+id/guideline14"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/test_book_img" />
 
+    <TextView
+        android:id="@+id/textView20"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="Total no. of copies :"
+        android:textStyle="bold"
+        android:fontFamily="@font/quicksand_regular"
+        android:textSize="14sp"
+        android:textColor="#216583"
+        app:layout_constraintStart_toStartOf="@+id/tv_pub"
+        app:layout_constraintTop_toBottomOf="@+id/tv_pub" />
 
-        <android.support.constraint.ConstraintLayout
-            android:layout_width="match_parent"
-            android:layout_height="200dp"
-            >
+    <TextView
+        android:id="@+id/textView23"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Availabilty status :"
+        android:textStyle="bold"
+        android:fontFamily="@font/quicksand_regular"
+        android:textSize="14sp"
+        android:textColor="#216583"
+        app:layout_constraintStart_toStartOf="@+id/textView20"
+        app:layout_constraintTop_toBottomOf="@+id/textView20" />
 
-            <TextView
-                android:id="@+id/tv_book"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
-                android:layout_marginTop="16dp"
-                android:text="Avengers Endgame"
-                android:textColor="#000000"
-                android:textSize="30sp"
-                android:transitionName="ts_book"
-                android:textStyle="bold"
-                cardview:layout_constraintStart_toStartOf="parent"
-                cardview:layout_constraintTop_toTopOf="parent" />
+    <TextView
+        android:id="@+id/textView24"
+        android:layout_width="0dp"
+        android:layout_height="28sp"
+        android:layout_marginEnd="4dp"
+        android:layout_marginBottom="8dp"
+        android:autoSizeMaxTextSize="14sp"
+        android:autoSizeMinTextSize="7sp"
+        android:autoSizeStepGranularity="1sp"
+        android:autoSizeTextType="uniform"
+        android:fontFamily="@font/quicksand_regular"
+        android:text="Not Available"
+        android:textColor="#af0404"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/textView25"
+        app:layout_constraintTop_toBottomOf="@+id/textView20"
+        app:layout_constraintVertical_bias="0.0" />
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginEnd="16dp"
-                android:layout_marginBottom="16dp"
-                android:text="Marvel Studios"
-                android:id="@+id/tv_pub"
-                android:textColor="#000"
-                android:textSize="20dp"
-                android:transitionName="ts_pub"
-                android:textStyle="bold"
-                cardview:layout_constraintBottom_toBottomOf="parent"
-                cardview:layout_constraintEnd_toEndOf="parent" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginEnd="8dp"
-                android:text="-"
-                android:textColor="#000"
-                android:textSize="30sp"
-                android:textStyle="bold"
-                cardview:layout_constraintBaseline_toBaselineOf="@+id/tv_author"
-                cardview:layout_constraintEnd_toStartOf="@+id/tv_author" />
-
-            <TextView
-                android:id="@+id/tv_author"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="40dp"
-                android:layout_marginEnd="16dp"
-                android:text="Stan Lee"
-                android:transitionName="ts_author"
-                android:textColor="#000"
-                android:textSize="25sp"
-                android:textStyle="bold"
-                cardview:layout_constraintEnd_toEndOf="parent"
-                cardview:layout_constraintTop_toBottomOf="@+id/tv_book" />
-
-        </android.support.constraint.ConstraintLayout>
-
-    </android.support.v7.widget.CardView>
-
+    <TextView
+        android:id="@+id/textView25"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/quicksand_regular"
+        android:text="0"
+        android:textColor="#000"
+        android:textSize="14sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/textView23"
+        app:layout_constraintStart_toEndOf="@+id/textView20"
+        app:layout_constraintTop_toTopOf="@+id/textView20" />
 </android.support.constraint.ConstraintLayout>
