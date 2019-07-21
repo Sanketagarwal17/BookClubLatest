@@ -5,23 +5,7 @@
     android:id="@+id/base"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#FFFFFF">
-
-    <ImageView
-        android:id="@+id/imageView2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:layout_marginBottom="8dp"
-        android:scaleX="1.5"
-        android:scaleY="2"
-        app:layout_constraintBottom_toTopOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.017"
-        app:srcCompat="@drawable/ellipse" />
+    android:background="@drawable/activiy_bg">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/constraintLayout"
@@ -42,28 +26,31 @@
             android:layout_width="0dp"
             android:layout_height="51dp"
             android:layout_marginTop="16dp"
+            android:layout_marginBottom="8dp"
             android:background="@drawable/rectangle2"
             android:ems="10"
             android:fontFamily="@font/josefin_slab_thin"
-            android:gravity="center"
+            android:gravity="center_vertical"
             android:hint="additional information (optional)"
             android:inputType="textPersonName"
             android:paddingLeft="24dp"
-            android:textAlignment="viewStart"
             android:textColor="#7E7E7E"
             android:textSize="14sp"
             android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@+id/request_button"
             app:layout_constraintEnd_toEndOf="@+id/request_author_name"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="@+id/request_author_name"
-            app:layout_constraintTop_toBottomOf="@+id/request_publication_name" />
+            app:layout_constraintTop_toBottomOf="@+id/request_publication_name"
+            app:layout_constraintVertical_bias="0.0" />
 
         <Button
             android:id="@+id/request_button"
             style="@style/Widget.AppCompat.Button"
             android:layout_width="0dp"
             android:layout_height="57dp"
-
+            android:fontFamily="@font/quicksand_regular"
+            android:textStyle="bold"
             android:background="@drawable/rectangle"
             android:text="Send Request"
             android:textColor="#ffffff"
@@ -76,21 +63,23 @@
             android:id="@+id/request_book_name"
             android:layout_width="0dp"
             android:layout_height="51dp"
+            android:layout_marginTop="8dp"
             android:layout_marginBottom="16dp"
             android:background="@drawable/rectangle2"
             android:ems="10"
             android:fontFamily="@font/josefin_slab_thin"
-            android:gravity="center"
+            android:gravity="center_vertical"
             android:hint="Book Name"
             android:inputType="textPersonName"
             android:paddingLeft="24dp"
-            android:textAlignment="viewStart"
             android:textColor="#7E7E7E"
             android:textSize="14sp"
             android:textStyle="bold"
             app:layout_constraintBottom_toTopOf="@+id/request_author_name"
             app:layout_constraintEnd_toEndOf="@+id/request_author_name"
-            app:layout_constraintStart_toStartOf="@+id/request_author_name" />
+            app:layout_constraintStart_toStartOf="@+id/request_author_name"
+            app:layout_constraintTop_toBottomOf="@+id/textView21"
+            app:layout_constraintVertical_bias="1.0" />
 
         <EditText
             android:id="@+id/request_author_name"
@@ -103,12 +92,11 @@
             android:background="@drawable/rectangle2"
             android:ems="10"
             android:fontFamily="@font/josefin_slab_thin"
-            android:gravity="center"
+            android:gravity="center_vertical"
 
             android:hint="Author Name"
             android:inputType="textPersonName"
             android:paddingLeft="24dp"
-            android:textAlignment="viewStart"
             android:textColor="#7E7E7E"
             android:textSize="14sp"
             android:textStyle="bold"
@@ -126,11 +114,10 @@
             android:background="@drawable/rectangle2"
             android:ems="10"
             android:fontFamily="@font/josefin_slab_thin"
-            android:gravity="center"
+            android:gravity="center_vertical"
             android:hint="Publication"
             android:inputType="textPersonName"
             android:paddingLeft="24dp"
-            android:textAlignment="viewStart"
             android:textColor="#7E7E7E"
             android:textSize="14sp"
             android:textStyle="bold"
@@ -141,19 +128,54 @@
         <TextView
             android:id="@+id/textView21"
             android:layout_width="0dp"
-            android:layout_height="96dp"
+            android:layout_height="wrap_content"
             android:layout_marginStart="32dp"
             android:layout_marginTop="58dp"
             android:layout_marginEnd="32dp"
+            android:fontFamily="@font/quicksand_regular"
             android:padding="6dp"
             android:text="Fill the following form and we promise to look if your demands can be fulfilled"
             android:textAlignment="center"
             android:textColor="#216583"
             android:textSize="24sp"
+            android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.498"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <TextView
+        android:id="@+id/textView16"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
+        android:text="REQUEST"
+        android:textColor="#fff"
+        android:fontFamily="@font/roboto_regular"
+        android:textSize="21sp"
+        app:layout_constraintBottom_toTopOf="@+id/guideline6"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <android.support.constraint.Guideline
+        android:id="@+id/guideline6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.08" />
+
+    <ImageView
+        android:id="@+id/imageView6"
+        android:layout_width="32dp"
+        android:layout_height="32dp"
+        android:layout_marginStart="8dp"
+        app:layout_constraintBottom_toBottomOf="@+id/textView16"
+        app:layout_constraintStart_toStartOf="@+id/constraintLayout"
+        app:layout_constraintTop_toTopOf="@+id/textView16"
+        app:srcCompat="@drawable/ic_home_black_24dp" />
 </android.support.constraint.ConstraintLayout>

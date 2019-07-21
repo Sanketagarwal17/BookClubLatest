@@ -26,6 +26,7 @@ android {
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
+    //noinspection GradleCompatible
     implementation 'com.android.support:appcompat-v7:28.0.0'
     implementation 'com.android.support:support-v4:28.0.0'
     implementation 'com.android.support:design:28.0.0'
@@ -44,7 +45,9 @@ dependencies {
     implementation 'com.android.support:appcompat-v7:28.0.0'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
     implementation 'org.jetbrains:annotations-java5:15.0'
+
     implementation 'com.android.support:recyclerview-v7:28.0.0'
+
     implementation 'com.android.support:cardview-v7:28.0.0'
     implementation 'com.jakewharton:butterknife:8.5.1'
     annotationProcessor 'com.jakewharton:butterknife-compiler:8.5.1'
@@ -64,6 +67,7 @@ dependencies {
     implementation 'com.ss.bannerslider:bannerslider:2.0.0'
     implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
 
+    implementation 'com.mikhaellopez:circularimageview:3.2.0'
 
 }
 
