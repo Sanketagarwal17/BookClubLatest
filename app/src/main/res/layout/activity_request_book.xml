@@ -24,7 +24,7 @@
         <EditText
             android:id="@+id/additional_info"
             android:layout_width="0dp"
-            android:layout_height="51dp"
+            android:layout_height="41dp"
             android:layout_marginTop="16dp"
             android:layout_marginBottom="8dp"
             android:background="@drawable/rectangle2"
@@ -62,7 +62,7 @@
         <EditText
             android:id="@+id/request_book_name"
             android:layout_width="0dp"
-            android:layout_height="51dp"
+            android:layout_height="41dp"
             android:layout_marginTop="8dp"
             android:layout_marginBottom="16dp"
             android:background="@drawable/rectangle2"
@@ -84,7 +84,7 @@
         <EditText
             android:id="@+id/request_author_name"
             android:layout_width="0dp"
-            android:layout_height="51dp"
+            android:layout_height="41dp"
             android:layout_marginStart="16dp"
             android:layout_marginTop="8dp"
             android:layout_marginEnd="16dp"
@@ -109,13 +109,13 @@
         <EditText
             android:id="@+id/request_publication_name"
             android:layout_width="0dp"
-            android:layout_height="51dp"
+            android:layout_height="41dp"
             android:layout_marginTop="16dp"
             android:background="@drawable/rectangle2"
             android:ems="10"
             android:fontFamily="@font/josefin_slab_thin"
             android:gravity="center_vertical"
-            android:hint="Publication"
+            android:hint="Publication (optional)"
             android:inputType="textPersonName"
             android:paddingLeft="24dp"
             android:textColor="#7E7E7E"
