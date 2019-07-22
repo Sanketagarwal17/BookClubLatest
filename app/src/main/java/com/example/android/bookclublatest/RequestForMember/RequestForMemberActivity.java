@@ -31,13 +31,13 @@ public class RequestForMemberActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_request_for_member);
-sendrequest=findViewById(R.id.sendrequestformember);
+        sendrequest=findViewById(R.id.sendrequestformember);
 
         FirebaseAuth firebaseAuth=FirebaseAuth.getInstance();
         FirebaseUser firebaseUser=firebaseAuth.getCurrentUser();
 
 
- final String email1=firebaseUser.getEmail();
+        final String email1=firebaseUser.getEmail();
         final String email=email1.replace('.',',');
 
 

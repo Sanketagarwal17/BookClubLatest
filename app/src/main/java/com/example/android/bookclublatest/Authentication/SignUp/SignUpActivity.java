@@ -122,7 +122,6 @@ public class SignUpActivity extends BaseActivity implements SignUpContract.View
 
     private void startActivityUtil(Class activity)
     {
-
         SharedPref sharedPref=new SharedPref(this);
         sharedPref.setUsername(name.getText().toString());
         sharedPref.setEmail(email.getText().toString());
