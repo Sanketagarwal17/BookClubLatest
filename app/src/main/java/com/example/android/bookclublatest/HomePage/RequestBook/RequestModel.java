@@ -2,12 +2,13 @@ package com.example.android.bookclublatest.HomePage.RequestBook;
 
 public class RequestModel
 {
-    String book,author,publ;
+    String book,author,publ,info;
 
-    public RequestModel(String book, String author, String publ) {
+    public RequestModel(String book, String author, String publ, String info) {
         this.book = book;
         this.author = author;
         this.publ = publ;
+        this.info = info;
     }
 
     public String getBook() {
@@ -20,5 +21,9 @@ public class RequestModel
 
     public String getPubl() {
         return publ;
+    }
+
+    public String getInfo() {
+        return info;
     }
 }
