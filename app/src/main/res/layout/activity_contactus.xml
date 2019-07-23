@@ -1,155 +1,194 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    android:background="@drawable/activiy_bg">
 
-    <ImageView
+    <com.mikhaellopez.circularimageview.CircularImageView
         android:id="@+id/contact_image"
-        android:src="@drawable/contact2"
         android:layout_width="200dp"
         android:layout_height="200dp"
-        android:layout_centerHorizontal="true"
-        android:layout_margin="6dp"/>
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="8dp"
+        android:src="@drawable/contact2"
+        app:civ_border="true"
+        app:civ_border_color="#F76262"
+        app:civ_border_width="4dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/guideline17" />
 
-    <RelativeLayout
+    <android.support.constraint.ConstraintLayout
         android:id="@+id/relativeLayout2"
-        android:layout_width="match_parent"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
-        android:layout_below="@id/contact_image">
+        android:layout_below="@id/contact_image"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="16dp"
+        android:backgroundTint="#FFF"
+        android:elevation="10dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintCircleRadius="10dp"
+        app:layout_constraintEnd_toStartOf="@+id/guideline19"
+        app:layout_constraintStart_toStartOf="@+id/guideline18"
+        app:layout_constraintTop_toBottomOf="@+id/contact_image">
 
+        <TextView
+            android:id="@+id/contactemailtext"
+            android:layout_width="0dp"
+            android:layout_height="0sp"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"
+            android:fontFamily="@font/roboto_regular"
+            android:gravity="end|center_vertical"
+            android:text="rishabh.agarwal997@gmail.com"
+            android:textColor="#216583"
+            android:autoSizeMaxTextSize="20sp"
+            android:autoSizeMinTextSize="10sp"
+            android:autoSizeStepGranularity="1sp"
+            android:autoSizeTextType="uniform"
+            app:layout_constraintBottom_toBottomOf="@+id/textView28"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toEndOf="@+id/textView28"
+            app:layout_constraintTop_toTopOf="@+id/textView28" />
 
-        <LinearLayout
-            android:id="@+id/emailUsLayout"
-            android:layout_width="match_parent"
+        <Button
+            android:id="@+id/contactemailbutton"
+            android:layout_width="0dp"
+            android:layout_height="40sp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:background="@drawable/button_bg"
+            android:fontFamily="@font/roboto_regular"
+            android:drawableStart="@drawable/ic_mail_outline_black_24dp"
+            android:padding="0dp"
+            android:paddingStart="10dp"
+            android:paddingEnd="10dp"
+            android:text="Email us"
+            android:textColor="#FFF"
+            android:textSize="21sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/contactemailtext" />
+
+        <TextView
+            android:id="@+id/textView28"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_margin="8dp"
-            android:gravity="center">
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="20dp"
+            android:fontFamily="@font/roboto_regular"
+            android:text="E-mail :"
+            android:textColor="#000"
+            android:textSize="21sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-            <ImageView
-                android:layout_width="32dp"
-                android:layout_height="32dp"
-                android:layout_marginRight="12dp"
-                android:src="@drawable/email" />
-
-            <TextView
-                android:id="@+id/contactemailtext"
-                android:layout_width="200dp"
-                android:layout_height="wrap_content"
-                android:padding="4dp"
-                android:text="rishabh.agarwal997@gmail.com"
-                android:textAlignment="center"
-                android:textSize="12sp" />
-
-            <Button
-                android:id="@+id/contactemailbutton"
-                android:layout_width="80dp"
-                android:layout_height="32dp"
-                android:layout_marginLeft="16dp"
-                android:text="Email us"
-                android:textColor="#FFF"
-                android:textSize="12sp"
-                android:textStyle="bold"
-                android:background="@color/colorPrimaryDark"/>
-        </LinearLayout>
-
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:layout_below="@+id/emailUsLayout"
-            android:layout_marginLeft="12dp"
-            android:layout_marginRight="12dp"
-            android:background="#555" />
-
-
-        <LinearLayout
-            android:id="@+id/callUsLayout"
-            android:layout_width="match_parent"
+        <TextView
+            android:id="@+id/textView29"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/emailUsLayout"
-            android:layout_margin="8dp"
-            android:gravity="center">
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="24dp"
+            android:fontFamily="@font/roboto_regular"
+            android:text="Contact no. :"
+            android:textColor="#000"
+            android:textSize="21sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/contactemailbutton" />
 
-            <ImageView
-                android:layout_width="32dp"
-                android:layout_height="32dp"
-                android:layout_marginRight="12dp"
-                android:src="@drawable/mobile" />
+        <TextView
+            android:id="@+id/contact_mobile_text"
+            android:layout_width="wrap_content"
+            android:layout_height="0sp"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"
+            android:gravity="end|center_vertical"
+            android:text="9935685103"
+            android:fontFamily="@font/roboto_regular"
+            android:textColor="#216583"
+            android:textSize="21sp"
+            app:layout_constraintBottom_toBottomOf="@+id/textView29"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/textView29" />
 
-            <TextView
-                android:id="@+id/contact_mobile_text"
-                android:layout_width="200dp"
-                android:layout_height="wrap_content"
-                android:padding="4dp"
-                android:text="9935685103"
-                android:textAlignment="center"
-                android:textSize="12sp" />
+        <Button
+            android:id="@+id/contact_mobile_button"
+            android:layout_width="0dp"
+            android:layout_height="40sp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:background="@drawable/button_bg"
+            android:drawableStart="@drawable/ic_phone_android_black_24dp"
+            android:fontFamily="@font/roboto_regular"
+            android:paddingStart="10dp"
+            android:paddingEnd="10dp"
+            android:text="Call us"
+            android:textColor="#FFF"
+            android:textSize="21sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/contact_mobile_text" />
 
-            <Button
-                android:id="@+id/contact_mobile_button"
-                android:layout_width="80dp"
-                android:layout_marginLeft="16dp"
-                android:layout_height="32dp"
-                android:text="Call"
-                android:textColor="#FFF"
-                android:textSize="12sp"
-                android:textStyle="bold"
-                android:background="@color/colorPrimaryDark" />
-        </LinearLayout>
-
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:layout_below="@+id/callUsLayout"
-            android:layout_marginLeft="12dp"
-            android:layout_marginRight="12dp"
-            android:background="#555" />
-
-        <LinearLayout
-            android:id="@+id/workLayout"
-            android:layout_width="match_parent"
+        <TextView
+            android:id="@+id/textView30"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/callUsLayout"
-            android:layout_margin="8dp"
-            android:gravity="center">
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="24dp"
+            android:fontFamily="@font/roboto_regular"
+            android:text="Contact no. :"
+            android:textColor="#000"
+            android:textSize="21sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/contact_mobile_button" />
+<!--7527011030-->
 
-            <ImageView
-                android:layout_width="32dp"
-                android:layout_height="32dp"
-                android:layout_marginRight="12dp"
-                android:src="@drawable/telephone" />
+        <TextView
+            android:id="@+id/contact_phone_text"
+            android:layout_width="wrap_content"
+            android:layout_height="0sp"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"
+            android:gravity="end|center_vertical"
+            android:fontFamily="@font/roboto_regular"
+            android:text="6209274679"
+            android:textColor="#216583"
+            android:textSize="21sp"
+            app:layout_constraintBottom_toBottomOf="@+id/textView30"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/textView30" />
 
-            <TextView
-                android:id="@+id/contact_phone_text"
-                android:layout_width="200dp"
-                android:layout_height="wrap_content"
-                android:padding="4dp"
-                android:text="6209274679"
-                android:textAlignment="center"
-                android:textSize="12sp" />
+        <Button
+            android:id="@+id/contact_phone_button"
+            android:layout_width="0dp"
+            android:layout_height="40sp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:background="@drawable/button_bg"
+            android:drawableStart="@drawable/ic_phone_android_black_24dp"
+            android:padding="0dp"
+            android:paddingStart="10dp"
+            android:fontFamily="@font/roboto_regular"
+            android:paddingEnd="10dp"
+            android:text="Call us"
+            android:textColor="#FFF"
+            android:textSize="21sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/contact_phone_text" />
 
-            <Button
-                android:id="@+id/contact_phone_button"
-                android:layout_width="80dp"
-                android:layout_marginLeft="16dp"
-                android:layout_height="32dp"
-                android:text="Call"
-                android:textColor="#FFF"
-                android:textSize="12sp"
-                android:textStyle="bold"
-                android:background="@color/colorPrimaryDark" />
-        </LinearLayout>
-
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:layout_below="@id/workLayout"
-            android:layout_marginLeft="12dp"
-            android:layout_marginRight="12dp"
-            android:background="#555" />
-
-    </RelativeLayout>
+    </android.support.constraint.ConstraintLayout>
 
     <TextView
         android:layout_width="match_parent"
@@ -157,8 +196,52 @@
         android:layout_below="@id/relativeLayout2"
         android:text="We Are Always There To Help You"
         android:textAlignment="center"
-        android:layout_marginTop="50dp"
         android:textColor="@android:color/black"
-        android:textSize="15sp"/>
+        android:textSize="15sp"
+        app:layout_constraintTop_toBottomOf="parent" />
 
-</RelativeLayout>
+    <android.support.constraint.Guideline
+        android:id="@+id/guideline17"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.08" />
+
+    <TextView
+        android:id="@+id/textView27"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/roboto_regular"
+        android:text="CONTACT US"
+        android:textColor="#fff"
+        android:textSize="21sp"
+        app:layout_constraintBottom_toTopOf="@+id/guideline17"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <android.support.constraint.Guideline
+        android:id="@+id/guideline18"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.04" />
+
+    <ImageView
+        android:id="@+id/imageView10"
+        android:layout_width="32dp"
+        android:layout_height="32dp"
+        android:layout_marginStart="8dp"
+        app:layout_constraintBottom_toBottomOf="@+id/textView27"
+        app:layout_constraintStart_toStartOf="@+id/guideline18"
+        app:layout_constraintTop_toTopOf="@+id/textView27"
+        app:srcCompat="@drawable/ic_home_black_24dp" />
+
+    <android.support.constraint.Guideline
+        android:id="@+id/guideline19"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.96" />
+
+</android.support.constraint.ConstraintLayout>
