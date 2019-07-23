@@ -159,7 +159,7 @@
                                 <PersistentState>
                                   <option name="values">
                                     <map>
-                                      <entry key="url" value="jar:file:/home/narway/STUFF/android-studio-ide-182.5199772-linux/android-studio/plugins/android/lib/android.jar!/images/material_design_icons/action/ic_home_black_24dp.xml" />
+                                      <entry key="url" value="jar:file:/home/narway/STUFF/android-studio-ide-182.5199772-linux/android-studio/plugins/android/lib/android.jar!/images/material_design_icons/hardware/ic_phone_android_black_24dp.xml" />
                                     </map>
                                   </option>
                                 </PersistentState>
@@ -169,13 +169,12 @@
                         </option>
                         <option name="values">
                           <map>
-                            <entry key="assetSourceType" value="FILE" />
                             <entry key="color" value="ffffff" />
-                            <entry key="height" value="21" />
-                            <entry key="outputName" value="search_img" />
+                            <entry key="height" value="26" />
+                            <entry key="outputName" value="ic_phone_android_black_24dp" />
                             <entry key="overrideSize" value="true" />
                             <entry key="sourceFile" value="$PROJECT_DIR$/../Downloads/image 4.svg" />
-                            <entry key="width" value="21" />
+                            <entry key="width" value="26" />
                           </map>
                         </option>
                       </PersistentState>
