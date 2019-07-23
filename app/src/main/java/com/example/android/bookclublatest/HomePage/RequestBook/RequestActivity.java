@@ -15,11 +15,13 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.example.android.bookclublatest.Authentication.Login.LoginActivity;
 import com.example.android.bookclublatest.Authentication.Verification.VerificationActivity;
 import com.example.android.bookclublatest.Base.BaseActivity;
+import com.example.android.bookclublatest.HomePage.HomePageActivity;
 import com.example.android.bookclublatest.Member.AddBook.AddBookActivity;
 import com.example.android.bookclublatest.R;
 import com.google.firebase.auth.FirebaseAuth;
@@ -28,8 +30,8 @@ import com.google.firebase.auth.FirebaseUser;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-public class RequestActivity extends BaseActivity
-        implements RequestPageContract.View {
+public class RequestActivity extends AppCompatActivity implements RequestPageContract.View
+{
 
     @BindView(R.id.request_book_name)
     EditText book;
@@ -37,19 +39,24 @@ public class RequestActivity extends BaseActivity
     EditText author;
     @BindView(R.id.request_publication_name)
     EditText publication;
+    @BindView(R.id.additional_info)
+    EditText additional_info;
+    @BindView(R.id.imageView6)
+    ImageView home;
+
     @BindView(R.id.request_button)
     Button submit;
 
     FirebaseAuth firebaseAuth=FirebaseAuth.getInstance();
     FirebaseUser firebaseUser=firebaseAuth.getCurrentUser();
 
-    RequestPageContract.Presenter<RequestPageContract.View> presenter;
+    RequestPageContract.Presenter presenter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_request_book);
-        presenter= new RequestPagePresenter<>();
+        presenter= new RequestPagePresenter(this);
         ButterKnife.bind(this);
 
         submit.setOnClickListener(new View.OnClickListener() {
@@ -57,9 +64,32 @@ public class RequestActivity extends BaseActivity
             public void onClick(View v)
             {
                 if(firebaseUser.isEmailVerified())
-                    presenter.submit(book.getText().toString().trim(),author.getText().toString().trim(),publication.getText().toString().trim());
+                {
+                    if(book.getText().toString().isEmpty())
+                    {
+                        book.setError("Please fill !");
+                        book.requestFocus();
+                    }
+                    else if (author.getText().toString().isEmpty())
+                    {
+                        author.setError("Please fill !");
+                        author.requestFocus();
+                    }
+                    else
+                    {
+                        presenter.submit(book.getText().toString().trim(), author.getText().toString().trim(), publication.getText().toString().trim(), additional_info.getText().toString().trim());
+                    }
+                }
                 else
                     Toast.makeText(RequestActivity.this, "Please Verify Your email first", Toast.LENGTH_SHORT).show();
+            }
+        });
+
+        home.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(RequestActivity.this, HomePageActivity.class));
+                finish();
             }
         });
     }

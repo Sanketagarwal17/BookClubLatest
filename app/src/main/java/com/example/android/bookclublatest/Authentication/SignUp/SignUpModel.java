@@ -3,6 +3,9 @@ package com.example.android.bookclublatest.Authentication.SignUp;
 public class SignUpModel {
     String name,email,admissionnumber,phonenumber,status;
 
+    public SignUpModel() {
+    }
+
     public SignUpModel(String name, String email, String admissionnumber, String phonenumber, String status) {
         this.name = name;
         this.email = email;

@@ -113,7 +113,7 @@ public class HomePageActivity extends AppCompatActivity
         history.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(HomePageActivity.this, HistoryActivity.class));
+                startActivity(new Intent(HomePageActivity.this, ProfileActivity.class));
             }
         });
         returnbook.setOnClickListener(new View.OnClickListener() {
@@ -178,7 +178,7 @@ public class HomePageActivity extends AppCompatActivity
 
         if (id == R.id.nav_requestmenmber)
         {
-            if(sharedPref.getAccessLevel().equals("Student"))
+            if(!sharedPref.getAccessLevel().equals("Member"))
                 startActivity(new Intent(this,RequestForMemberActivity.class));
             else
                 Toast.makeText(this, "You are already a member", Toast.LENGTH_SHORT).show();

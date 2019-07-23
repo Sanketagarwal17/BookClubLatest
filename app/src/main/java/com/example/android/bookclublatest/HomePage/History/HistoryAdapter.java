@@ -26,7 +26,7 @@ public class HistoryAdapter extends RecyclerView.Adapter<HistoryAdapter.ViewHold
     @NonNull
     @Override
     public HistoryAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
-        View view= LayoutInflater.from(context).inflate(R.layout.card_history_list,viewGroup,false);
+        View view= LayoutInflater.from(context).inflate(R.layout.issue_history_book_card,viewGroup,false);
         return new ViewHolder(view);
     }
 
@@ -35,11 +35,10 @@ public class HistoryAdapter extends RecyclerView.Adapter<HistoryAdapter.ViewHold
     public void onBindViewHolder(@NonNull HistoryAdapter.ViewHolder viewHolder, int i)
     {
         HistoryModel model=list.get(i);
-        viewHolder.status.setText("Status : "+model.getStatus());
-        viewHolder.book.setText("BookName : "+model.getBookname());
-        viewHolder.isbn.setText("ISBN : "+model.getIsbn());
-        viewHolder.issue.setText("Issue Date : "+model.getIssue_date());
-        viewHolder.ret.setText("Return Date : "+model.getReturn_date());
+        viewHolder.status.setText(model.getStatus());
+        viewHolder.book.setText(model.getBookname());
+        viewHolder.issue.setText(model.getIssue_date());
+        viewHolder.ret.setText(model.getReturn_date());
 
     }
 
@@ -50,16 +49,15 @@ public class HistoryAdapter extends RecyclerView.Adapter<HistoryAdapter.ViewHold
 
     public class ViewHolder extends RecyclerView.ViewHolder
     {
-        TextView book,isbn,issue,ret,status;
+        TextView book,issue,ret,status;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
 
-            book=itemView.findViewById(R.id.history_book);
-            isbn=itemView.findViewById(R.id.history_isbn);
-            issue=itemView.findViewById(R.id.history_issue);
-            status=itemView.findViewById(R.id.history_status);
-            ret=itemView.findViewById(R.id.history_return);
+            book=itemView.findViewById(R.id.bookname_tv);
+            issue=itemView.findViewById(R.id.textView22);
+            status=itemView.findViewById(R.id.author_tv);
+            ret=itemView.findViewById(R.id.return_date_tv);
         }
     }
 }

@@ -31,6 +31,8 @@ public class IssueBook extends BaseActivity implements IssueBookContract.View {
     ArrayList<AddBookModel> arrayList;
     private DatabaseReference bookRef;
 
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -55,7 +57,6 @@ public class IssueBook extends BaseActivity implements IssueBookContract.View {
                         {
                             AddBookModel addBookModel = d3.getValue(AddBookModel.class);
                             arrayList.add(addBookModel);
-
                         }
                     }
                 }
