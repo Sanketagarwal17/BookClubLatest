@@ -107,4 +107,9 @@ public class IssueBookAdapter extends RecyclerView.Adapter<IssueBookAdapter.Issu
             bookCard = itemView.findViewById(R.id.book_card);
         }
     }
+    public void filterList(ArrayList<AddBookModel> addBookModels)
+    {
+        addBookModel=addBookModels;
+        notifyDataSetChanged();
+    }
 }
