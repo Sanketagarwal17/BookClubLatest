@@ -3,45 +3,51 @@
     xmlns:tools="http://schemas.android.com/tools"
     tools:showIn="navigation_view">
 
-    <group android:checkableBehavior="single">
 
-        <item
-            android:id="@+id/nav_history"
-            android:visible="false"
-            android:icon="@drawable/ic_menu_gallery"
-            android:title="My Borrow History" />
-        <item
-            android:id="@+id/nav_penalty"
-            android:icon="@drawable/ic_menu_slideshow"
-            android:title="Penalty" />
-        <item
-            android:id="@+id/nav_chnage_password"
-            android:icon="@drawable/ic_menu_manage"
-            android:title="ChangePsssword" />
-        <item
-            android:icon="@drawable/ic_menu_slideshow"
-            android:id="@+id/nav_requestmenmber"
-            android:title="Request For member" />
-        <item
-            android:icon="@drawable/ic_menu_slideshow"
-            android:id="@+id/nav_profile"
-            android:title="Profile" />
-    </group>
+    <item android:title="My Account">
+        <menu>
+
+            <item
+                android:id="@+id/nav_history"
+                android:visible="false"
+                android:icon="@drawable/ic_menu_gallery"
+                android:title="My Borrow History" />
+            <item
+                android:icon="@drawable/user_vect"
+                android:id="@+id/nav_profile"
+                android:title="Profile" />
+            <item
+                android:id="@+id/nav_chnage_password"
+                android:icon="@drawable/key_svg"
+                android:title="Change Password" />
+            <item
+                android:id="@+id/nav_penalty"
+                android:icon="@drawable/pen_al"
+                android:title="Penalty" />
+
+            <item
+                android:icon="@drawable/p_add"
+                android:id="@+id/nav_requestmenmber"
+                android:title="Request For member" />
+
+        </menu>
+    </item>item>
+
 
     <item android:title="Book Club">
         <menu>
             <item
                 android:id="@+id/nav_aboutus"
-                android:icon="@drawable/ic_menu_share"
+                android:icon="@drawable/info_club"
                 android:title="About Club" />
             <item
                 android:id="@+id/nav_contact"
-                android:icon="@drawable/ic_menu_send"
+                android:icon="@drawable/call"
                 android:title="Contact Us" />
 
             <item
                 android:id="@+id/nav_developers"
-                android:icon="@drawable/ic_menu_send"
+                android:icon="@drawable/dev_app"
                 android:title="Developers" />
             <item
                 android:id="@+id/nav_faq"
