@@ -5,9 +5,13 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.util.Log;
+import android.widget.EditText;
 
 import com.example.android.bookclublatest.Base.BaseActivity;
+import com.example.android.bookclublatest.HomePage.BrowseBooks.BrowseModel;
 import com.example.android.bookclublatest.Member.AddBook.AddBookModel;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -30,6 +34,8 @@ public class IssueBook extends BaseActivity implements IssueBookContract.View {
     IssueBookAdapter issueBookAdapter;
     ArrayList<AddBookModel> arrayList;
     private DatabaseReference bookRef;
+    @BindView(R.id.searchbox)
+    EditText searchBox;
 
 
 
@@ -67,6 +73,66 @@ public class IssueBook extends BaseActivity implements IssueBookContract.View {
 
             @Override
             public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
+        searchBox.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+                filter(s.toString());
+            }
+        });
+    }
+
+    private void filter( final String s) {
+        FirebaseDatabase.getInstance().getReference().child("Books_List").addValueEventListener(new ValueEventListener()
+        {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot)
+            {
+                ArrayList<AddBookModel> arrayList1 = new ArrayList<>();
+                for(DataSnapshot ds1:dataSnapshot.getChildren())
+                {
+                    for(DataSnapshot ds2:ds1.getChildren())
+                    {
+                        if(ds2.getKey().equals("Hard Copy")) {
+                            for (DataSnapshot ds3 : ds2.getChildren()) {
+                                AddBookModel model= ds3.getValue(AddBookModel.class);
+                                if((model.getBook().toLowerCase().contains(s.toLowerCase()))||
+                                        (model.getAuthor().toLowerCase().contains(s.toLowerCase()))||
+                                        (model.getPublisher().toLowerCase().contains(s.toLowerCase())))
+                                arrayList1.add(model);
+                            }
+                        }
+                        else
+                        {
+                            for (DataSnapshot ds3 : ds2.getChildren()) {
+                                AddBookModel model= ds3.getValue(AddBookModel.class);
+                                if((model.getBook().toLowerCase().contains(s.toLowerCase()))||
+                                        (model.getAuthor().toLowerCase().contains(s.toLowerCase()))||
+                                        (model.getPublisher().toLowerCase().contains(s.toLowerCase())))
+                                    arrayList1.add(model);
+                            }
+                        }
+                    }
+                }
+                issueBookAdapter.filterList(arrayList1);
+
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError)
+            {
 
             }
         });
