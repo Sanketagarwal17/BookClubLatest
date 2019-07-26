@@ -1,17 +1,26 @@
 package com.example.android.bookclublatest.Authentication.SignUp;
 
 public class SignUpModel {
-    String name,email,admissionnumber,phonenumber,status;
+    String name,email,admissionnumber,phonenumber,status,image_url;
 
     public SignUpModel() {
     }
 
-    public SignUpModel(String name, String email, String admissionnumber, String phonenumber, String status) {
+    public SignUpModel(String name, String email, String admissionnumber, String phonenumber, String status,String url) {
         this.name = name;
         this.email = email;
         this.admissionnumber = admissionnumber;
         this.phonenumber = phonenumber;
         this.status = status;
+        this.image_url=url;
+    }
+
+    public String getImage_url() {
+        return image_url;
+    }
+
+    public void setImage_url(String image_url) {
+        this.image_url = image_url;
     }
 
     public String getStatus() {

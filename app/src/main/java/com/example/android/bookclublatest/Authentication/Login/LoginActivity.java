@@ -163,6 +163,7 @@ public class LoginActivity extends BaseActivity implements LoginContract.View {
                         sharedPref.setMobile(signUpModel.getPhonenumber());
                         sharedPref.setAdmission(signUpModel.getAdmissionnumber());
                         sharedPref.setAccessLevel(signUpModel.getStatus());
+                        sharedPref.setImageUrl(signUpModel.getImage_url());
                     }
                 }
             }

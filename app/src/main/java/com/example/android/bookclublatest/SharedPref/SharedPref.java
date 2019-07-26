@@ -12,7 +12,7 @@ public class SharedPref
     private static final String EMAIL = "email";
     private static final String ACCESS_LEVEL = "level";
     private static final String USERNAME = "username";
-
+    private static final String IMAGE_URL = "image_url";
 
 
     int Private_mode=0;
@@ -73,6 +73,15 @@ public class SharedPref
     public void setAccessLevel(String level)
     {
         editor.putString(ACCESS_LEVEL,level);
+        editor.commit();
+    }
+    public String getImageUrl()
+    {
+        return pref.getString(IMAGE_URL,"");
+    }
+    public void setImageUrl(String url)
+    {
+        editor.putString(IMAGE_URL,url);
         editor.commit();
     }
 }
