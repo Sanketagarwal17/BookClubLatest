@@ -22,6 +22,7 @@ import com.example.android.bookclublatest.AboutClub.AboutUsActivity;
 import com.example.android.bookclublatest.Admin.RequestsForMember.RequestsForMember;
 import com.example.android.bookclublatest.Authentication.ChangePassword.ChangePasswordActivity;
 import com.example.android.bookclublatest.Authentication.Login.LoginActivity;
+import com.example.android.bookclublatest.Authentication.SignUp.SignUpModel;
 import com.example.android.bookclublatest.Authentication.Verification.VerificationActivity;
 import com.example.android.bookclublatest.ContactUs.ContactUsActivity;
 import com.example.android.bookclublatest.Developers.DevelopersActivity;
@@ -37,7 +38,11 @@ import com.example.android.bookclublatest.R;
 import com.example.android.bookclublatest.RequestForMember.RequestForMemberActivity;
 import com.example.android.bookclublatest.SharedPref.SharedPref;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -63,8 +68,9 @@ public class HomePageActivity extends AppCompatActivity
 
     SharedPref sharedPref;
 
-    DatabaseReference databaseReference;
-
+    FirebaseDatabase database=FirebaseDatabase.getInstance();
+    DatabaseReference databaseReference = database.getReference("Status");
+    SignUpModel signUpModel;
 
 
     @Override
@@ -116,6 +122,7 @@ public class HomePageActivity extends AppCompatActivity
                 startActivity(new Intent(HomePageActivity.this, ProfileActivity.class));
             }
         });
+
         returnbook.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -123,6 +130,27 @@ public class HomePageActivity extends AppCompatActivity
             }
         });
 
+        databaseReference.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot)
+            {
+                String email=sharedPref.getEmail();
+                String email1=email.replace('.',',');
+                for(DataSnapshot ds : dataSnapshot.getChildren())
+                {
+                    if(ds.getKey().equals(email1))
+                    {
+                        String status=ds.getValue().toString();
+                        sharedPref.setAccessLevel(status);
+                    }
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
     }
 
     @Override

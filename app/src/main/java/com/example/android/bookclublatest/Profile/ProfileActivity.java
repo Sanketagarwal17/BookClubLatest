@@ -24,6 +24,8 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.mikhaellopez.circularimageview.CircularImageView;
+import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -53,12 +55,14 @@ public class ProfileActivity extends BaseActivity implements ProfileContract.Vie
     ConstraintLayout constraintLayout;
     @BindView(R.id.textView13)
     TextView no_of_books;
-
+    @BindView(R.id.circularImageView)
+    CircularImageView circularImageView;
 
     HistoryAdapter adapter;
     List<HistoryModel> list=new ArrayList<>();
     SharedPref sharedPref;
 
+    String url;
 
 
     @Override
@@ -66,13 +70,20 @@ public class ProfileActivity extends BaseActivity implements ProfileContract.Vie
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_myprofile);
         ButterKnife.bind(this);
-        mpresenter = new ProfilePresenter<ProfileContract.View>();
+        mpresenter = new ProfilePresenter<>();
         sharedPref=new SharedPref(this);
         status.setText(sharedPref.getAccessLevel());
         mobile.setText(sharedPref.getMobile());
         admission.setText(sharedPref.getAdmission());
         email.setText(sharedPref.getEmail());
         name.setText(sharedPref.getUsername());
+
+        if(sharedPref.getImageUrl().isEmpty())
+            url="www.bookclub.com/";
+        else
+            url=sharedPref.getImageUrl();
+
+        Picasso.get().load(url).into(circularImageView);
 
         verify.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -86,7 +97,6 @@ public class ProfileActivity extends BaseActivity implements ProfileContract.Vie
 
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
-
 
         FirebaseDatabase firebaseDatabase=FirebaseDatabase.getInstance();
         DatabaseReference databaseReference=firebaseDatabase.getReference("Issue History");
