@@ -2,111 +2,346 @@
 <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/base"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".IssueBookDetailActivity">
-
-
-    <TextView
-        android:id="@+id/det_book"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="37dp"
-        android:layout_marginEnd="5dp"
-        android:text="End Game"
-        android:textColor="#000"
-        android:textSize="30sp"
-        android:textStyle="bold"
-        android:transitionName="ts_book"
-        app:layout_constraintEnd_toStartOf="@+id/det_author"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/det_author"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="35dp"
-        android:layout_marginEnd="34dp"
-        android:text="Stan Lee"
-        android:textColor="#000"
-        android:textSize="25sp"
-        android:transitionName="ts_author"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/det_book" />
-
-    <TextView
-        android:id="@+id/det_pub"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="36dp"
-        android:layout_marginEnd="16dp"
-        android:text="marvel studios"
-        android:textColor="#000"
-        android:textSize="20sp"
-        android:textStyle="bold"
-        android:transitionName="ts_pub"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/det_author" />
-
-    <TextView
-        android:id="@+id/det_isbn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="30dp"
-        android:text="ISBN NO"
-        android:textColor="#000"
-        android:textSize="20sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/det_ism"
-        app:layout_constraintStart_toStartOf="@+id/det_ism" />
-
-    <TextView
-        android:id="@+id/det_ism"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="29dp"
-        android:text="ISM NO"
-        android:textColor="#000"
-        android:textSize="20sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/det_tags"
-        app:layout_constraintStart_toStartOf="@+id/det_tags" />
-
-    <TextView
-        android:id="@+id/det_tags"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="27dp"
-        android:text="Tags"
-        android:textColor="#000"
-        android:textSize="20sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/det_hardsofy"
-        app:layout_constraintStart_toStartOf="@+id/det_hardsofy" />
-
-    <TextView
-        android:id="@+id/det_hardsofy"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="65dp"
-        android:layout_marginBottom="100dp"
-        android:text="HardSofy"
-        android:textColor="#000"
-        android:textSize="20sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+    android:background="@drawable/activiy_bg">
 
     <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginBottom="8dp"
-        android:text="ISSUE BOOK"
         android:id="@+id/btn_issue_book"
+        android:layout_width="0dp"
+        android:layout_height="60dp"
+        android:background="#F76262"
+        android:fontFamily="@font/quicksand_regular"
+        android:text="ISSUE BOOK"
+        android:textColor="#ffffff"
+        android:textSize="24sp"
+        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/textView26"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
+        android:fontFamily="@font/roboto_regular"
+        android:text="ISSUE BOOK"
+        android:textColor="#fff"
+        android:textSize="21sp"
+        app:layout_constraintBottom_toTopOf="@+id/guideline12"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/imageView9"
+        android:layout_width="32dp"
+        android:layout_height="32dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="8dp"
+        app:layout_constraintBottom_toTopOf="@+id/guideline12"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/ic_home_black_24dp" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline12"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_end="658dp" />
+
+    <ScrollView
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginBottom="4dp"
+        app:layout_constraintBottom_toTopOf="@+id/btn_issue_book"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/guideline12">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/constraintLayout2"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="12dp"
+            android:background="#FFFFFF"
+            android:paddingBottom="10dp"
+            app:layout_constraintBottom_toTopOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="parent"
+            app:layout_constraintVertical_bias="0.0">
+
+            <TextView
+                android:id="@+id/det_published_date"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/open_sans"
+                android:text="november 2029"
+                android:textColor="#216583"
+                android:textSize="12sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="@+id/guideline13"
+                app:layout_constraintTop_toBottomOf="@+id/det_tags" />
+
+            <TextView
+                android:id="@+id/det_language"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/open_sans"
+                android:text="English"
+                android:textColor="#216583"
+                android:textSize="12sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="@+id/guideline13"
+                app:layout_constraintTop_toBottomOf="@+id/det_hardsofy" />
+
+            <TextView
+                android:id="@+id/det_tags"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/open_sans"
+                android:text="Tags"
+                android:textColor="#216583"
+                android:textSize="12sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="@+id/guideline13"
+                app:layout_constraintTop_toBottomOf="@+id/det_language" />
+
+            <TextView
+                android:id="@+id/det_hardsofy"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:fontFamily="@font/open_sans"
+                android:text="HardSofy"
+                android:textColor="#216583"
+                android:textSize="12sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="@+id/guideline13"
+                app:layout_constraintTop_toBottomOf="@+id/imageView11" />
+
+            <TextView
+                android:id="@+id/textView27"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:fontFamily="@font/quicksand_regular"
+                android:text="Total no. of copies :"
+                android:textColor="#216583"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="@+id/guideline13"
+                app:layout_constraintTop_toBottomOf="@+id/imageView10" />
+
+            <TextView
+                android:id="@+id/textView28"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:autoSizeMaxTextSize="14sp"
+                android:autoSizeMinTextSize="7sp"
+                android:autoSizeStepGranularity="1sp"
+                android:autoSizeTextType="uniform"
+                android:fontFamily="@font/quicksand_regular"
+                android:text="Not Available"
+                android:textColor="#af0404"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="@+id/textView30"
+                app:layout_constraintStart_toEndOf="@+id/textView30" />
+
+            <TextView
+                android:id="@+id/textView29"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:fontFamily="@font/quicksand_regular"
+                android:text="0"
+                android:textColor="#000"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="@+id/textView27"
+                app:layout_constraintStart_toEndOf="@+id/textView27" />
+
+            <TextView
+                android:id="@+id/textView30"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:fontFamily="@font/quicksand_regular"
+                android:text="Availabilty status :"
+                android:textColor="#216583"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="@+id/guideline13"
+                app:layout_constraintTop_toBottomOf="@+id/textView27" />
+
+            <TextView
+                android:id="@+id/head_isbn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="8dp"
+                android:fontFamily="@font/open_sans"
+                android:text="ISBN NO"
+                android:textColor="#000"
+                android:textSize="11sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toStartOf="@+id/det_isbn"
+                app:layout_constraintTop_toTopOf="@+id/det_isbn" />
+
+            <TextView
+                android:id="@+id/head_ism"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="8dp"
+                android:fontFamily="@font/open_sans"
+                android:text="ISM NO"
+                android:textColor="#000"
+                android:textSize="11sp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="@+id/det_ism"
+                app:layout_constraintEnd_toStartOf="@+id/det_ism" />
+
+            <TextView
+                android:id="@+id/det_ism"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="8dp"
+                android:layout_marginBottom="8dp"
+                android:fontFamily="@font/open_sans"
+                android:text="ISM NO"
+                android:textColor="#000"
+                android:textSize="11sp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="@+id/imageView10"
+                app:layout_constraintEnd_toStartOf="@+id/guideline14" />
+
+            <TextView
+                android:id="@+id/det_isbn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="8dp"
+                android:layout_marginBottom="8dp"
+                android:fontFamily="@font/open_sans"
+                android:text="ISBN NO"
+                android:textColor="#000"
+                android:textSize="11sp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toTopOf="@+id/det_ism"
+                app:layout_constraintEnd_toStartOf="@+id/guideline14" />
+
+            <TextView
+                android:id="@+id/det_book"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="8dp"
+                android:fontFamily="@font/montserrat"
+                android:text="End Game"
+                android:textColor="#333333"
+                android:textSize="24sp"
+                android:textStyle="bold"
+                android:transitionName="ts_book"
+                app:layout_constraintEnd_toStartOf="@+id/guideline14"
+                app:layout_constraintTop_toTopOf="@+id/imageView10" />
+
+            <TextView
+                android:id="@+id/det_author"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:layout_marginEnd="8dp"
+                android:fontFamily="@font/quicksand_light"
+                android:text="Stan Lee"
+                android:textColor="#216583"
+                android:textSize="12sp"
+                android:textStyle="bold"
+                android:transitionName="ts_author"
+                app:layout_constraintEnd_toStartOf="@+id/guideline14"
+                app:layout_constraintTop_toBottomOf="@+id/det_book" />
+
+            <TextView
+                android:id="@+id/det_pub"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:layout_marginEnd="8dp"
+                android:fontFamily="@font/quicksand_light"
+                android:text="marvel studios"
+                android:textColor="#B0B0B0"
+                android:textSize="12sp"
+                android:textStyle="bold"
+                android:transitionName="ts_pub"
+                app:layout_constraintEnd_toStartOf="@+id/guideline14"
+                app:layout_constraintTop_toBottomOf="@+id/det_author" />
+
+            <ImageView
+                android:id="@+id/imageView10"
+                android:layout_width="120dp"
+                android:layout_height="170dp"
+                android:layout_marginTop="24dp"
+                app:layout_constraintStart_toStartOf="@+id/guideline13"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/test_book_img" />
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/guideline13"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_begin="35dp" />
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/guideline14"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="35dp"
+                android:orientation="vertical"
+                app:layout_constraintGuide_end="35dp"
+                app:layout_constraintStart_toEndOf="parent" />
+
+            <TextView
+                android:id="@+id/head_description"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                android:fontFamily="@font/quicksand_bold"
+                android:text="Description"
+                android:textColor="#000000"
+                android:textSize="12sp"
+                app:layout_constraintStart_toStartOf="@+id/guideline13"
+                app:layout_constraintTop_toBottomOf="@+id/textView30" />
+
+            <TextView
+                android:id="@+id/description"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="8dp"
+                android:fontFamily="@font/open_sans"
+                android:text="gggghjfujtrftdhthdjuyffttttttttttttttttttttttttttttttttttghgtfffffffffhtjjjjjjjjjjjjjjjjtkdddddddddddddddddddgggghjfujtrftdhthdjuyffttttttttttttttttttttttttttttttttttghgtfffffffffhtjjjjjjjjjjjjjjjjtkdddddddddddddddddddgggghjfujtrftdhthdjuyffttttttttttttttttttttttttttttttttttghgtfffffffffhtjjjjjjjjjjjjjjjjtkdddddddddddddddddddgggghjfujtrftdhthdjuyffttttttttttttttttttttttttttttttttttghgtfffffffffhtjjjjjjjjjjjjjjjjtkdddddddddddddddddddgggghjfujtrftdhthdjuyffttttttttttttttttttttttttttttttttttghgtfffffffffhtjjjjjjjjjjjjjjjjtkdddddddddddddddddddgggghjfujtrftdhthdjuyffttttttttttttttttttttttttttttttttttghgtfffffffffhtjjjjjjjjjjjjjjjjtkddddddddddddddddddd"
+                android:textColor="#838383"
+                app:layout_constraintEnd_toStartOf="@+id/guideline14"
+                app:layout_constraintStart_toStartOf="@+id/guideline13"
+                app:layout_constraintTop_toBottomOf="@+id/head_description" />
+
+            <ImageView
+                android:id="@+id/imageView11"
+                android:layout_width="0dp"
+                android:layout_height="1dp"
+                android:layout_marginTop="16dp"
+                android:background="#CACACA"
+                app:layout_constraintEnd_toStartOf="@+id/guideline14"
+                app:layout_constraintStart_toStartOf="@+id/guideline13"
+                app:layout_constraintTop_toBottomOf="@+id/description" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+
 </android.support.constraint.ConstraintLayout>
