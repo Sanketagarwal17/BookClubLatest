@@ -71,7 +71,6 @@ public class LoginActivity extends BaseActivity implements LoginContract.View {
         mPresenter = new LoginPresenter<LoginContract.View>();
         ((LoginPresenter<LoginContract.View>) mPresenter).onAttach(this);
 
-
         firebaseAuth = FirebaseAuth.getInstance();
         firebaseUser = firebaseAuth.getCurrentUser();
         if (firebaseUser != null) {
@@ -83,7 +82,6 @@ public class LoginActivity extends BaseActivity implements LoginContract.View {
                 startActivityUtil(HomePageActivity.class);
             }
             finish();
-
 
         }
 

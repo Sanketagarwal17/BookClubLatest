@@ -45,7 +45,6 @@
             android:textSize="15sp" />
     </RelativeLayout>
 
-
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -102,11 +101,11 @@
                 android:layout_marginLeft="15dp"
                 android:layout_toRightOf="@id/key_imageview"
                 android:backgroundTint="#ffffff"
-                android:hint="username"
+                android:hint="college e-mail ID"
                 android:fontFamily="sans-serif"
                 android:inputType="textPersonName"
                 android:textColor="#ffffff"
-                android:textColorHint="#ffffff"
+                android:textColorHint="#888888"
                 android:textSize="15sp"
                 android:textStyle="italic" />
 
@@ -135,7 +134,7 @@
                 android:fontFamily="sans-serif"
                 android:inputType="textPassword"
                 android:textColor="#ffffff"
-                android:textColorHint="#ffffff"
+                android:textColorHint="#888888"
                 android:textSize="15sp"
                 android:textStyle="italic" />
 

@@ -39,9 +39,8 @@ public class ReturnAdapter extends RecyclerView.Adapter<ReturnAdapter.ViewHolder
     public void onBindViewHolder(@NonNull ReturnAdapter.ViewHolder viewHolder, int i) {
         HistoryModel model = list.get(i);
         viewHolder.book.setText("BookName : " + model.getBookname());
-        viewHolder.isbn.setText("ISBN : " + model.getIsbn());
-        viewHolder.issue.setText("Issue Date : " + model.getIssue_date());
-        viewHolder.ret.setText("Return Date : " + model.getReturn_date());
+        viewHolder.issue.setText(model.getIssue_date());
+        viewHolder.ret.setText(model.getReturn_date());
 
     }
 
