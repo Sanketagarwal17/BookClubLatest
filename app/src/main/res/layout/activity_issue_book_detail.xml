@@ -39,7 +39,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
-        android:id="@+id/imageView9"
+        android:id="@+id/return_home"
         android:layout_width="32dp"
         android:layout_height="32dp"
         android:layout_marginStart="20dp"

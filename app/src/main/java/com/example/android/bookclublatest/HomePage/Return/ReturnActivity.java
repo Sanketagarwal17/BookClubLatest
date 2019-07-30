@@ -7,6 +7,8 @@ import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.view.View;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -37,6 +39,8 @@ public class ReturnActivity extends AppCompatActivity implements ReturnAdapter.C
     TextView emailtext;
     @BindView(R.id.return_recycler)
     RecyclerView recyclerView;
+    @BindView(R.id.return_home)
+    ImageView home;
 
     SharedPref sharedPref;
     List<HistoryModel> list=new ArrayList<>();
@@ -88,6 +92,14 @@ public class ReturnActivity extends AppCompatActivity implements ReturnAdapter.C
             @Override
             public void onCancelled(@NonNull DatabaseError databaseError) {
 
+            }
+        });
+
+        home.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(ReturnActivity.this,HomePageActivity.class));
+                finish();
             }
         });
     }

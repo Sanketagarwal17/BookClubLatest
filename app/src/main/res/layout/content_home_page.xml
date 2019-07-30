@@ -1,71 +1,83 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+<LinearLayout android:layout_width="match_parent"
+    android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".HomePage.HomePageActivity">
+    android:orientation="vertical"
+    xmlns:android="http://schemas.android.com/apk/res/android">
 
 
     <ss.com.bannerslider.Slider
         android:id="@+id/banner_slider1"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="0dp"
+        android:layout_weight="0.67"
         android:paddingTop="40dp"
         app:layout_constraintTop_toTopOf="parent"
         app:slider_interval="5000"
         tools:layout_editor_absoluteX="38dp" />
 
-    <Button
-        android:id="@+id/returnbook"
-        android:layout_width="120dp"
-        android:layout_height="120dp"
-        android:layout_marginBottom="36dp"
-        android:background="@drawable/rounded_corner"
-        android:text="RETURN"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.4"
-        app:layout_constraintStart_toStartOf="@+id/guideline" />
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="0.17"
+        android:background="@color/zxing_transparent"/>
 
-    <Button
-        android:id="@+id/request"
-        android:layout_width="120dp"
-        android:layout_height="120dp"
-        android:background="@drawable/rounded_corner"
-        android:text="REQUEST"
-        app:layout_constraintBottom_toBottomOf="@+id/returnbook"
-        app:layout_constraintEnd_toStartOf="@+id/guideline"
-        app:layout_constraintHorizontal_bias="0.6"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <Button
-        android:id="@+id/history"
-        android:layout_width="120dp"
-        android:layout_height="120dp"
-        android:background="@drawable/rounded_corner"
-        android:text="My History"
-        app:layout_constraintBottom_toBottomOf="@+id/issue"
-        app:layout_constraintEnd_toEndOf="@+id/returnbook"
-        app:layout_constraintStart_toStartOf="@+id/returnbook" />
-
-    <Button
-        android:id="@+id/issue"
-        android:layout_width="120dp"
-        android:layout_height="120dp"
-        android:layout_marginBottom="24dp"
-        android:background="@drawable/rounded_corner"
-        android:text="ISSUE"
-        app:layout_constraintBottom_toTopOf="@+id/request"
-        app:layout_constraintEnd_toEndOf="@+id/request"
-        app:layout_constraintStart_toStartOf="@+id/request" />
-
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
         android:orientation="vertical"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintGuide_begin="204dp"
-        app:layout_constraintStart_toStartOf="parent" />
-</android.support.constraint.ConstraintLayout>
+        tools:context=".HomePage.HomePageActivity">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <Button
+                android:layout_marginLeft="30dp"
+                android:id="@+id/issue"
+                android:layout_width="130dp"
+                android:layout_height="130dp"
+                android:layout_marginBottom="24dp"
+                android:background="@drawable/issue"
+                android:layout_alignParentStart="true"/>
+            <Button
+                android:id="@+id/history"
+                android:layout_width="130dp"
+                android:layout_height="130dp"
+                android:background="@drawable/historyhome"
+                android:layout_alignParentEnd="true"
+                android:layout_marginRight="30dp"/>
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/returnbook"
+                android:layout_width="130dp"
+                android:layout_height="130dp"
+                android:layout_marginBottom="36dp"
+                android:background="@drawable/returnhome"
+                android:layout_alignParentEnd="true"
+                android:layout_marginRight="30dp"/>
+
+            <Button
+                android:id="@+id/request"
+                android:layout_width="130dp"
+                android:layout_height="130dp"
+                android:background="@drawable/request"
+                android:layout_alignParentStart="true"
+                android:layout_marginLeft="30dp"/>
+
+        </RelativeLayout>
+
+</LinearLayout>
+</LinearLayout>
