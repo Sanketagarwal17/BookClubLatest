@@ -69,8 +69,6 @@ dependencies {
 
     implementation 'com.mikhaellopez:circularimageview:3.2.0'
 
-    //tensor flow
-    implementation 'org.tensorflow:tensorflow-android:1.13.1'
 
 }
 
