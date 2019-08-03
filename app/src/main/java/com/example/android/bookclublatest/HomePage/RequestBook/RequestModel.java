@@ -4,6 +4,9 @@ public class RequestModel
 {
     String book,author,publ,info;
 
+    public RequestModel() {
+    }
+
     public RequestModel(String book, String author, String publ, String info) {
         this.book = book;
         this.author = author;

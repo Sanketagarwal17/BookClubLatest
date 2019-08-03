@@ -49,6 +49,7 @@
         <activity android:name=".HomePage.Return.ReturnActivity"/>
         <activity android:name=".Member.ConfirmReturn.ConfirmActivity"/>
         <activity android:name=".Member.ConfirmReturn.ReturnProceed.ProceedReturnActivity"/>
+        <activity android:name=".Member.RequestedBooks.RequestBooksActivity"/>
 
         <meta-data
             android:name="preloaded_fonts"

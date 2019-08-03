@@ -1,61 +1,84 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout android:layout_width="match_parent"
+    android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".Member.MemberActivity">
+    android:orientation="vertical"
+    xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <Button
-        android:id="@+id/return_confirm"
-        android:layout_width="134dp"
-        android:layout_height="98dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginBottom="48dp"
-        android:background="@drawable/rounded_corner"
-        android:text="Confirm RETURN"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toEndOf="@+id/request" />
+    <include layout="@layout/toolbar_return"
+        android:id="@+id/toolbar"/>
 
-    <Button
-        android:id="@+id/request_confirm"
-        android:layout_width="134dp"
-        android:layout_height="98dp"
-        android:layout_marginStart="24dp"
-        android:layout_marginBottom="48dp"
-        android:background="@drawable/rounded_corner"
-        android:text="Confirm REQUEST(dont know function)"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <Button
-        android:id="@+id/addbook"
-        android:layout_width="134dp"
-        android:layout_height="98dp"
-        android:layout_marginTop="228dp"
-        android:layout_marginEnd="16dp"
-        android:background="@drawable/rounded_corner"
-        android:text="Add Book"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <Button
-        android:id="@+id/issue_confirm"
-        android:layout_width="134dp"
-        android:layout_height="98dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="228dp"
-        android:layout_marginEnd="66dp"
-        android:layout_marginBottom="8dp"
-        android:background="@drawable/rounded_corner"
-        android:text=" Confirm ISSUE"
-        app:layout_constraintBottom_toTopOf="@+id/request"
-        app:layout_constraintEnd_toStartOf="@+id/browse"
-        app:layout_constraintStart_toStartOf="parent"
+    <ss.com.bannerslider.Slider
+        android:id="@+id/banner_slider1"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="0.6"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0" />
+        app:slider_interval="5000"
+        tools:layout_editor_absoluteX="38dp" />
 
-</android.support.constraint.ConstraintLayout>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="0.1"
+        android:background="@color/zxing_transparent"/>
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="vertical"
+        tools:context=".HomePage.HomePageActivity">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/addbook"
+                android:background="@drawable/member_add"
+                android:layout_width="130dp"
+                android:layout_height="130dp"
+                android:layout_marginBottom="36dp"
+                android:layout_alignParentEnd="true"
+                android:layout_marginRight="30dp"/>
+
+            <Button
+                android:id="@+id/issue_confirm"
+                android:background="@drawable/member_issue"
+                android:layout_width="130dp"
+                android:layout_height="130dp"
+                android:layout_alignParentStart="true"
+                android:layout_marginLeft="30dp"/>
+
+        </RelativeLayout>
+
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/return_confirm"
+                android:background="@drawable/member_return"
+                android:layout_marginLeft="30dp"
+                android:layout_width="130dp"
+                android:layout_height="130dp"
+                android:layout_marginBottom="24dp"
+                android:layout_alignParentStart="true"/>
+            <Button
+                android:id="@+id/request_confirm"
+                android:background="@drawable/member_request"
+                android:layout_width="130dp"
+                android:layout_height="130dp"
+                android:layout_alignParentEnd="true"
+                android:layout_marginRight="30dp"/>
+        </RelativeLayout>
+
+    </LinearLayout>
+</LinearLayout>

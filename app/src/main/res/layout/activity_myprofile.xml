@@ -118,6 +118,7 @@
                 android:fontFamily="@font/quicksand_regular"
                 android:text="Edit Profile"
                 android:textStyle="bold"
+                android:visibility="invisible"
                 android:textColor="#F76262"
                 android:textSize="12sp"
                 app:layout_constraintEnd_toEndOf="parent"
