@@ -14,7 +14,7 @@
         <activity android:name=".IssueBookDetailActivity" />
         <activity android:name=".IssueBook" />
         <activity
-            android:name=".HomePage.HomePageActivity"
+            android:name=".Splash.SplashActivity"
             android:label="@string/app_name"
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
@@ -24,7 +24,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".Authentication.Login.LoginActivity" />
-        <activity android:name=".Splash.SplashActivity" />
+        <activity android:name=".HomePage.HomePageActivity" />
         <activity android:name=".Authentication.SignUp.SignUpActivity" />
         <activity android:name=".Authentication.Verification.VerificationActivity" />
         <activity android:name=".HomePage.RequestBook.RequestActivity" />
