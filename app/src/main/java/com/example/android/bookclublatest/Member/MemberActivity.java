@@ -9,6 +9,7 @@ import android.widget.Button;
 import com.example.android.bookclublatest.Member.AddBook.AddBookActivity;
 import com.example.android.bookclublatest.Member.ConfirmIssue.ConfirmIssueActivity;
 import com.example.android.bookclublatest.Member.ConfirmReturn.ConfirmActivity;
+import com.example.android.bookclublatest.Member.RequestedBooks.RequestBooksActivity;
 import com.example.android.bookclublatest.R;
 
 import butterknife.BindView;
@@ -49,6 +50,12 @@ public class MemberActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(MemberActivity.this, ConfirmActivity.class));
+            }
+        });
+        request_book.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(MemberActivity.this, RequestBooksActivity.class));
             }
         });
     }

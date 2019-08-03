@@ -13,8 +13,7 @@
         android:layout_marginStart="8dp"
         android:layout_marginEnd="16dp"
         android:layout_marginBottom="48dp"
-        android:background="@drawable/rounded_corner"
-        android:text="Confirm RETURN"
+        android:background="@drawable/member_return"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
@@ -26,8 +25,7 @@
         android:layout_height="98dp"
         android:layout_marginStart="24dp"
         android:layout_marginBottom="48dp"
-        android:background="@drawable/rounded_corner"
-        android:text="Confirm REQUEST(dont know function)"
+        android:background="@drawable/member_request"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
@@ -37,8 +35,7 @@
         android:layout_height="98dp"
         android:layout_marginTop="228dp"
         android:layout_marginEnd="16dp"
-        android:background="@drawable/rounded_corner"
-        android:text="Add Book"
+        android:background="@drawable/member_add"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -50,10 +47,8 @@
         android:layout_marginTop="228dp"
         android:layout_marginEnd="66dp"
         android:layout_marginBottom="8dp"
-        android:background="@drawable/rounded_corner"
-        android:text=" Confirm ISSUE"
+        android:background="@drawable/member_issue"
         app:layout_constraintBottom_toTopOf="@+id/request"
-        app:layout_constraintEnd_toStartOf="@+id/browse"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.0" />
