@@ -28,12 +28,14 @@
         <activity android:name=".Authentication.SignUp.SignUpActivity" />
         <activity android:name=".Authentication.Verification.VerificationActivity" />
         <activity android:name=".HomePage.RequestBook.RequestActivity" />
-        <activity android:name=".Member.AddBook.AddBookActivity" />
+        <activity android:name=".Member.AddBook.AddBookActivity"
+            android:screenOrientation="portrait"/>
         <activity android:name=".HomePage.BrowseBooks.BrowseActivity" />
         <activity android:name=".RequestForMember.RequestForMemberActivity" />
         <activity android:name=".Admin.RequestsForMember.RequestsForMember" />
         <activity android:name=".Member.MemberActivity" />
-        <activity android:name=".Member.ConfirmIssue.ConfirmIssueActivity" />
+        <activity android:name=".Member.ConfirmIssue.ConfirmIssueActivity"
+            android:screenOrientation="portrait" />
         <activity android:name=".Profile.ProfileActivity" />
         <activity android:name=".Faq.MVP.FAQActivity" />
         <activity android:name=".ContactUs.ContactUsActivity" />
@@ -43,13 +45,17 @@
             android:theme="@style/AppTheme.Dialog"/>
         <activity android:name=".Authentication.Verification.OtpActivity" />
         <activity android:name=".Admin.RequestsForMember.AdminActivity.AdminActivity" />
-        <activity android:name=".Member.ConfirmIssue.ConfirmProceed.ProceedActivity" />
+        <activity android:name=".Member.ConfirmIssue.ConfirmProceed.ProceedActivity"
+            android:screenOrientation="portrait"/>
         <activity android:name=".Penalty.PenaltyActivity" />
         <activity android:name=".HomePage.History.HistoryActivity"/>
         <activity android:name=".HomePage.Return.ReturnActivity"/>
-        <activity android:name=".Member.ConfirmReturn.ConfirmActivity"/>
-        <activity android:name=".Member.ConfirmReturn.ReturnProceed.ProceedReturnActivity"/>
-        <activity android:name=".Member.RequestedBooks.RequestBooksActivity"/>
+        <activity android:name=".Member.ConfirmReturn.ConfirmActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".Member.ConfirmReturn.ReturnProceed.ProceedReturnActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".Member.RequestedBooks.RequestBooksActivity"
+            android:screenOrientation="portrait"/>
 
         <meta-data
             android:name="preloaded_fonts"
