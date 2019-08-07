@@ -42,7 +42,7 @@ public class SplashActivity extends AppCompatActivity
                     //startActivity(new Intent(SplashActivity.this,HomePageActivity.class));
                     enterapp();
                 }
-            },1500);
+            },300);
         }
         else
         {
@@ -52,7 +52,7 @@ public class SplashActivity extends AppCompatActivity
                     finish();
                     startActivity(new Intent(SplashActivity.this, LoginActivity.class));
                 }
-            },1000);
+            },1500);
         }
 
 
