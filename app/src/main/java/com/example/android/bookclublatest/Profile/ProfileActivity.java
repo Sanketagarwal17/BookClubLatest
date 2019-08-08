@@ -8,6 +8,7 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -16,6 +17,8 @@ import com.example.android.bookclublatest.Base.BaseActivity;
 import com.example.android.bookclublatest.HomePage.History.HistoryActivity;
 import com.example.android.bookclublatest.HomePage.History.HistoryAdapter;
 import com.example.android.bookclublatest.HomePage.History.HistoryModel;
+import com.example.android.bookclublatest.HomePage.HomePageActivity;
+import com.example.android.bookclublatest.HomePage.RequestBook.RequestActivity;
 import com.example.android.bookclublatest.R;
 import com.example.android.bookclublatest.SharedPref.SharedPref;
 import com.google.firebase.auth.FirebaseAuth;
@@ -57,7 +60,8 @@ public class ProfileActivity extends BaseActivity implements ProfileContract.Vie
     TextView no_of_books;
     @BindView(R.id.circularImageView)
     CircularImageView circularImageView;
-
+    @BindView(R.id.imageView3)
+    ImageView home;
     HistoryAdapter adapter;
     List<HistoryModel> list=new ArrayList<>();
     SharedPref sharedPref;
@@ -129,6 +133,14 @@ public class ProfileActivity extends BaseActivity implements ProfileContract.Vie
             @Override
             public void onCancelled(@NonNull DatabaseError databaseError) {
 
+            }
+        });
+
+        home.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(ProfileActivity.this, HomePageActivity.class));
+                finish();
             }
         });
 

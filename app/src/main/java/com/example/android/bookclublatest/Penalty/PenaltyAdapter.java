@@ -10,10 +10,7 @@ import android.widget.TextView;
 
 import com.example.android.bookclublatest.R;
 
-import java.text.SimpleDateFormat;
-import java.util.Date;
 import java.util.List;
-import java.util.Locale;
 
 public class PenaltyAdapter extends RecyclerView.Adapter<PenaltyAdapter.ViewHolder> {
 
