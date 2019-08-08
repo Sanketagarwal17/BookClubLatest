@@ -1,5 +1,6 @@
 package com.example.android.bookclublatest;
 
+import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -8,10 +9,14 @@ import android.support.v7.widget.RecyclerView;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.util.Log;
+import android.view.View;
 import android.widget.EditText;
+import android.widget.ImageView;
 
 import com.example.android.bookclublatest.Base.BaseActivity;
 import com.example.android.bookclublatest.HomePage.BrowseBooks.BrowseModel;
+import com.example.android.bookclublatest.HomePage.HomePageActivity;
+import com.example.android.bookclublatest.HomePage.RequestBook.RequestActivity;
 import com.example.android.bookclublatest.Member.AddBook.AddBookModel;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -36,7 +41,8 @@ public class IssueBook extends BaseActivity implements IssueBookContract.View {
     private DatabaseReference bookRef;
     @BindView(R.id.searchbox)
     EditText searchBox;
-
+    @BindView(R.id.imageView7)
+    ImageView home;
 
 
     @Override
@@ -90,6 +96,14 @@ public class IssueBook extends BaseActivity implements IssueBookContract.View {
             @Override
             public void afterTextChanged(Editable s) {
                 filter(s.toString());
+            }
+        });
+
+        home.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(IssueBook.this, HomePageActivity.class));
+                finish();
             }
         });
     }

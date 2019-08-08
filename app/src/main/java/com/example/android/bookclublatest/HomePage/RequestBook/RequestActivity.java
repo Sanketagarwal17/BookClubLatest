@@ -16,6 +16,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.android.bookclublatest.Authentication.Login.LoginActivity;
@@ -26,6 +27,8 @@ import com.example.android.bookclublatest.Member.AddBook.AddBookActivity;
 import com.example.android.bookclublatest.R;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+
+import org.w3c.dom.Text;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -41,8 +44,10 @@ public class RequestActivity extends AppCompatActivity implements RequestPageCon
     EditText publication;
     @BindView(R.id.additional_info)
     EditText additional_info;
-    @BindView(R.id.imageView6)
+    @BindView(R.id.return_home)
     ImageView home;
+    @BindView(R.id.textView26)
+    TextView title;
 
     @BindView(R.id.request_button)
     Button submit;
@@ -84,7 +89,7 @@ public class RequestActivity extends AppCompatActivity implements RequestPageCon
                     Toast.makeText(RequestActivity.this, "Please Verify Your email first", Toast.LENGTH_SHORT).show();
             }
         });
-
+        title.setText("Request Book");
         home.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
