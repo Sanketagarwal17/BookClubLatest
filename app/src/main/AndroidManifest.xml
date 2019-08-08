@@ -11,8 +11,10 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="AllowBackup,GoogleAppIndexingWarning">
-        <activity android:name=".IssueBookDetailActivity" />
-        <activity android:name=".IssueBook" />
+        <activity android:name=".IssueBookDetailActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".IssueBook"
+            android:screenOrientation="portrait"/>
         <activity
             android:name=".Splash.SplashActivity"
             android:screenOrientation="portrait"
