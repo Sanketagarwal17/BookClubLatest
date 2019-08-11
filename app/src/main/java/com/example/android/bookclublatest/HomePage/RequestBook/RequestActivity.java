@@ -17,6 +17,9 @@ import com.example.android.bookclublatest.SharedPref.SharedPref;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
+import java.util.Calendar;
+import java.util.TimeZone;
+
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
@@ -45,6 +48,8 @@ public class RequestActivity extends AppCompatActivity implements RequestPageCon
     RequestPageContract.Presenter presenter;
     SharedPref sharedPref;
     android.os.Handler Handler = new Handler();
+    final static String[] months={"Jan","Feb","Mar","Apr","May","June","July","Aug","Sep","Oct","Nov","Dec"};
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,6 +58,10 @@ public class RequestActivity extends AppCompatActivity implements RequestPageCon
         presenter= new RequestPagePresenter(this);
         ButterKnife.bind(this);
         sharedPref = new SharedPref(this);
+
+        Calendar calendar2=Calendar.getInstance(TimeZone.getDefault());
+        final String current=calendar2.get(Calendar.DAY_OF_MONTH) + " " + months[(calendar2.get(Calendar.MONTH))]
+                + "," + calendar2.get(Calendar.YEAR);
 
         submit.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -72,7 +81,7 @@ public class RequestActivity extends AppCompatActivity implements RequestPageCon
                     }
                     else
                     {
-                        presenter.submit(book.getText().toString().trim(), author.getText().toString().trim(), publication.getText().toString().trim(), additional_info.getText().toString().trim(),sharedPref.getEmail());
+                        presenter.submit(book.getText().toString().trim(), author.getText().toString().trim(), publication.getText().toString().trim(), additional_info.getText().toString().trim(),sharedPref.getEmail(),current,current);
                     }
                 }
                 else
