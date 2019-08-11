@@ -29,7 +29,7 @@ public class RequestPagePresenter implements RequestPageContract.Presenter
             publication="Not Given";
         if(info.isEmpty())
             info="Not Given";
-        databaseReference.child(reqKey).setValue(new RequestModel(book,author,publication,info, email, "Pending",requested_date,approved_date))// generating a random key for each book request.
+        databaseReference.child(reqKey).setValue(new RequestModel(book,author,publication,info, email, "Pending",requested_date,approved_date,reqKey))// generating a random key for each book request.
                 .addOnCompleteListener(new OnCompleteListener<Void>() {
                     @Override
                     public void onComplete(@NonNull Task<Void> task) {
