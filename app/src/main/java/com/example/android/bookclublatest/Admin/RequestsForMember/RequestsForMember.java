@@ -67,10 +67,6 @@ RequetsForMemberContract.Presenter<RequetsForMemberContract.View> mPresenter;
                 for(DataSnapshot ds : dataSnapshot.getChildren())
                 {
                    String eamil = ds.getValue().toString();
-                   int index=eamil.indexOf('@');
-                   String before=eamil.substring(0,index);
-                   String after =eamil.substring(index);
-                   eamil = before +"\n\t\t"+after;
                    RequetsForMemberModel requetsForMemberModel = new RequetsForMemberModel(eamil);
                    arrayList.add(requetsForMemberModel);
                 }
