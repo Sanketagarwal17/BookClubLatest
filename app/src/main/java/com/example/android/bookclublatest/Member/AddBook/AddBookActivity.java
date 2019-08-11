@@ -49,6 +49,10 @@ public class AddBookActivity extends BaseActivity implements AddBookContract.Vie
     Button submit;
     @BindView(R.id.add_hard_soft)
     CheckBox checkBox;
+    @BindView(R.id.ism_added)
+    Button ismAddedBtn;
+    @BindView(R.id.isbn_added)
+    Button isbnAdded;
 
     private int check=0;
     private String mname,mauthor,mpublication,misbn,mism,mtags,mchecbox;
@@ -116,11 +120,13 @@ public class AddBookActivity extends BaseActivity implements AddBookContract.Vie
             {
                 if(check==1)
                 {
+                    isbnAdded.setVisibility(View.VISIBLE);
                     ISBN.setText(result.getContents());
                     misbn=result.getContents();
                 }
                 if(check==2)
                 {
+                    ismAddedBtn.setVisibility(View.VISIBLE);
                     ISM.setText(result.getContents());
                     mism=result.getContents();
                 }
