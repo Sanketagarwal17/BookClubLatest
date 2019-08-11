@@ -2,12 +2,12 @@ package com.example.android.bookclublatest.HomePage.RequestBook;
 
 public class RequestModel
 {
-    String book,author,publ,info,email,status,requested_date, approval_date;
+    String book,author,publ,info,email,status,requested_date, approval_date, id;
 
     public RequestModel() {
     }
 
-    public RequestModel(String book, String author, String publ, String info, String email, String status, String requested_date, String approval_date) {
+    public RequestModel(String book, String author, String publ, String info, String email, String status, String requested_date, String approval_date,String id) {
         this.book = book;
         this.author = author;
         this.publ = publ;
@@ -16,6 +16,7 @@ public class RequestModel
         this.status = status;
         this.requested_date = requested_date;
         this.approval_date = approval_date;
+        this.id = id;
     }
 
     public String getBook() {
@@ -48,5 +49,13 @@ public class RequestModel
 
     public String getApproval_date() {
         return approval_date;
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
     }
 }

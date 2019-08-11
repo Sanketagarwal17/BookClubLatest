@@ -3,58 +3,127 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="120dp"
+    android:layout_height="wrap_content"
     android:layout_margin="4dp"
     android:elevation="6dp"
     app:cardCornerRadius="5dp">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:background="@drawable/bookrequestcard_bg"
         android:orientation="vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="12dp"
+            android:layout_marginTop="8dp"
+            android:fontFamily="@font/roboto_regular"
+            android:text="Book details:"
+            android:textColor="@android:color/black"
+            android:textSize="16sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
             android:id="@+id/requested_name"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="8dp"
+            android:layout_marginTop="8dp"
             android:fontFamily="@font/roboto_regular"
             android:padding="3dp"
             android:text="Book name , author , publication , iiiiiiiiiiiiiiiiiiiiiiiiiiii"
             android:textColor="#216583"
-            android:textSize="12sp"
+            android:textSize="14sp"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="@+id/guideline32" />
+            app:layout_constraintStart_toStartOf="@+id/guideline32"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="12dp"
+            android:layout_marginTop="8dp"
+            android:fontFamily="@font/roboto_regular"
+            android:text="User details:"
+            android:textColor="@android:color/black"
+            android:textSize="16sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/requested_name" />
+
+        <TextView
+            android:id="@+id/requested_user"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:fontFamily="@font/roboto_regular"
+            android:padding="3dp"
+            android:text="requested by username ram gopal"
+            android:textColor="#216583"
+            android:textSize="14sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@+id/guideline32"
+            app:layout_constraintTop_toBottomOf="@+id/requested_name" />
 
         <TextView
             android:id="@+id/requested_author"
-            android:layout_width="match_parent"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:padding="3dp"
             android:textSize="15sp" />
 
         <TextView
             android:id="@+id/requested_publ"
-            android:layout_width="match_parent"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:padding="3dp"
             android:textSize="15sp" />
 
         <TextView
-            android:id="@+id/requested_info"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginStart="12dp"
+            android:layout_marginTop="8dp"
+            android:fontFamily="@font/roboto_regular"
+            android:text="Additional info:"
+            android:textColor="@android:color/black"
+            android:textSize="16sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/requested_user" />
+
+        <TextView
+            android:id="@+id/requested_info"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:fontFamily="@font/roboto_regular"
             android:padding="3dp"
-            android:textSize="15sp" />
+            android:text="hard cover with extraa large fonts thoda colourful bhi chalega"
+            android:textColor="#216583"
+            android:textSize="14sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@+id/guideline32"
+            app:layout_constraintTop_toBottomOf="@+id/requested_user" />
+        <!--<TextView-->
+        <!--android:id="@+id/requested_info"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:padding="3dp"-->
+        <!--android:textSize="15sp" />-->
 
         <ImageView
             android:id="@+id/imageView"
             android:layout_width="match_parent"
-
             android:layout_height="30dp"
+            android:layout_marginTop="8dp"
             android:src="@drawable/bottomofcard"
-            app:layout_constraintBottom_toBottomOf="parent" />
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/requested_info" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -71,12 +140,12 @@
         <RelativeLayout
             android:id="@+id/deny_button"
             android:layout_width="96dp"
-            android:layout_marginLeft="20dp"
             android:layout_height="20dp"
+            android:layout_marginLeft="20dp"
             android:background="@drawable/denybutton_bg"
+            app:layout_constraintBottom_toBottomOf="@id/imageView"
             app:layout_constraintStart_toStartOf="@id/guideline32"
-            app:layout_constraintTop_toTopOf="@id/imageView"
-            app:layout_constraintBottom_toBottomOf="@id/imageView">
+            app:layout_constraintTop_toTopOf="@id/imageView">
 
             <TextView
                 android:layout_width="wrap_content"
@@ -102,14 +171,13 @@
 
         <RelativeLayout
             android:id="@+id/done_button"
-            android:layout_marginRight="20dp"
             android:layout_width="96dp"
             android:layout_height="20dp"
+            android:layout_marginRight="20dp"
             android:background="@drawable/denybutton_bg"
-            app:layout_constraintEnd_toEndOf="@id/imageView"
-            app:layout_constraintTop_toTopOf="@id/imageView"
             app:layout_constraintBottom_toBottomOf="@id/imageView"
-            >
+            app:layout_constraintEnd_toEndOf="@id/imageView"
+            app:layout_constraintTop_toTopOf="@id/imageView">
 
             <TextView
                 android:layout_width="wrap_content"
@@ -132,6 +200,50 @@
 
                 />
         </RelativeLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/greenbar"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:background="@drawable/green_bar"
+            android:orientation="horizontal"
+            app:layout_constraintBottom_toBottomOf="@id/imageView"
+            app:layout_constraintEnd_toEndOf="@id/imageView"
+            app:layout_constraintStart_toStartOf="@id/guideline32"
+            app:layout_constraintTop_toTopOf="@id/imageView"
+            app:layout_constraintVertical_bias="0.0">
+
+
+            <ImageView
+                android:id="@+id/img3"
+                android:layout_width="16dp"
+                android:layout_height="16dp"
+                android:layout_centerVertical="true"
+
+                android:src="@drawable/checked"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.16"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/requestapprovedon"
+                android:layout_width="wrap_content"
+
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="20dp"
+                android:fontFamily="@font/roboto_regular"
+                android:text="Adden on 01 Jan 1970"
+                android:textColor="#E6E6E6"
+                android:textSize="12sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.69"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
         <androidx.constraintlayout.widget.Guideline
             android:id="@+id/guideline32"
