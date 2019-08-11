@@ -1,79 +1,155 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@drawable/activiy_bg">
 
+
+    <TextView
+        android:id="@+id/textView31"
+        android:layout_width="169dp"
+        android:layout_height="26dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
+        android:text="ADD BOOK"
+        android:textAlignment="center"
+        android:textColor="#fff"
+        android:textSize="21sp"
+        app:layout_constraintBottom_toTopOf="@+id/guideline32"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/add_book_return_home"
+        android:layout_width="32dp"
+        android:layout_height="32dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="8dp"
+        app:layout_constraintBottom_toTopOf="@+id/guideline32"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/ic_home_black_24dp" />
+    
+
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:background="#fff"
+        app:layout_constraintBottom_toTopOf="@+id/iv_add_book"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/guideline32">
+
+    </android.support.constraint.ConstraintLayout>
     <EditText
         android:id="@+id/add_pulication"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_margin="10dp"
         android:layout_below="@id/add_author"
-        android:hint="Add Publication Name" />
+        android:layout_margin="10dp"
+        android:layout_marginBottom="8dp"
+        android:hint="Add Publication Name"
+        app:layout_constraintBottom_toBottomOf="parent"
+        tools:layout_editor_absoluteX="94dp" />
 
     <Button
         android:id="@+id/add_isbn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
-        android:hint="Add ISBN code"/>
+        android:layout_marginBottom="8dp"
+        android:hint="Add ISBN code"
+        app:layout_constraintBottom_toBottomOf="parent"
+        tools:layout_editor_absoluteX="184dp" />
 
     <ImageView
+        android:id="@+id/iv_add_book"
         android:layout_width="100dp"
         android:layout_height="100dp"
-        android:id="@+id/iv_add_book"
-        android:layout_below="@id/add_submit"/>
+        android:layout_below="@id/add_submit"
+        android:layout_marginBottom="8dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        tools:layout_editor_absoluteX="49dp" />
+
     <Button
         android:id="@+id/add_ism"
-        android:text="Add ISM code"
-        android:layout_toRightOf="@id/add_isbn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_margin="10dp" />
+        android:layout_margin="10dp"
+        android:layout_marginBottom="8dp"
+        android:layout_toRightOf="@id/add_isbn"
+        android:text="Add ISM code"
+        app:layout_constraintBottom_toBottomOf="parent"
+        tools:layout_editor_absoluteX="16dp" />
 
     <EditText
         android:id="@+id/add_bookname"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_margin="10dp"
         android:layout_below="@id/add_isbn"
-        android:hint="Enter Bool Name"/>
+        android:layout_margin="10dp"
+        android:layout_marginBottom="8dp"
+        android:hint="Enter Bool Name"
+        app:layout_constraintBottom_toBottomOf="parent"
+        tools:layout_editor_absoluteX="206dp" />
 
     <EditText
         android:id="@+id/add_author"
-        android:hint="Add Author Name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_below="@id/add_bookname"
         android:layout_margin="10dp"
-        android:layout_below="@id/add_bookname"/>
+        android:layout_marginBottom="8dp"
+        android:hint="Add Author Name"
+        app:layout_constraintBottom_toBottomOf="parent"
+        tools:layout_editor_absoluteX="16dp" />
 
     <EditText
         android:id="@+id/add_tags"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_below="@id/add_pulication"
         android:layout_margin="10dp"
+        android:layout_marginBottom="8dp"
         android:hint="Add Tags"
-        android:layout_below="@id/add_pulication"/>
+        app:layout_constraintBottom_toBottomOf="parent"
+        tools:layout_editor_absoluteX="49dp" />
 
     <CheckBox
         android:id="@+id/add_hard_soft"
-        android:clickable="true"
-        android:layout_below="@id/add_tags"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_below="@id/add_tags"
         android:layout_margin="10dp"
+        android:layout_marginBottom="8dp"
+        android:clickable="true"
         android:focusable="auto"
-        android:text="is it hard copy"/>
+        android:text="is it hard copy"
+        app:layout_constraintBottom_toBottomOf="parent"
+        tools:layout_editor_absoluteX="226dp" />
 
     <Button
         android:id="@+id/add_submit"
-        android:text="Button"
-        android:layout_below="@id/add_hard_soft"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_margin="10dp"/>
+        android:layout_below="@id/add_hard_soft"
+        android:layout_margin="10dp"
+        android:layout_marginBottom="8dp"
+        android:text="Button"
+        app:layout_constraintBottom_toBottomOf="parent"
+        tools:layout_editor_absoluteX="207dp" />
 
-</RelativeLayout>
+    <android.support.constraint.Guideline
+        android:id="@+id/guideline32"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_begin="68dp" />
+
+</android.support.constraint.ConstraintLayout>
