@@ -21,6 +21,8 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
+import org.w3c.dom.Text;
+
 import java.util.ArrayList;
 
 public class RequestsForMemberAdapter extends RecyclerView.Adapter <RequestsForMemberAdapter.ViewHolder> {
@@ -32,8 +34,6 @@ public class RequestsForMemberAdapter extends RecyclerView.Adapter <RequestsForM
         this.arrayList = arrayList;
     }
 
-
-
     @NonNull
     @Override
     public RequestsForMemberAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
@@ -44,17 +44,15 @@ public class RequestsForMemberAdapter extends RecyclerView.Adapter <RequestsForM
     public void onBindViewHolder(@NonNull RequestsForMemberAdapter.ViewHolder viewHolder, int i) {
   final RequetsForMemberModel requetsForMemberModel=arrayList.get(i);
 
-       viewHolder.name.setText(requetsForMemberModel.getName());
-       viewHolder.admissionnumber.setText(requetsForMemberModel.getAdmissionnumber());
        viewHolder.email.setText(requetsForMemberModel.getEmail());
-       viewHolder.phone.setText(requetsForMemberModel.getPhonenumber());
         final  String email2=requetsForMemberModel.getEmail();
         final  String email1=email2.replace('.',',');
        viewHolder.makemember.setOnClickListener(new View.OnClickListener() {
            @Override
            public void onClick(View v) {
                AlertDialog.Builder alertdialog =new AlertDialog.Builder(context);
-               alertdialog.setTitle("Are You Sure You Want to make"+requetsForMemberModel.getName()+" a member of a bookCLub");
+               alertdialog.setTitle("Are You Sure ?");
+               alertdialog.setMessage(" Make him a member of a the BookCLub");
                alertdialog.setPositiveButton("YES", new DialogInterface.OnClickListener() {
                    @Override
                    public void onClick(DialogInterface dialog, int which) {
@@ -69,7 +67,6 @@ public class RequestsForMemberAdapter extends RecyclerView.Adapter <RequestsForM
                                if(task.isSuccessful())
                                {
                                   DatabaseReference databaseReference2=FirebaseDatabase.getInstance().getReference("requstsformember");
-
                                   databaseReference2.child(email1).removeValue();
                                }
                            }
@@ -88,7 +85,6 @@ public class RequestsForMemberAdapter extends RecyclerView.Adapter <RequestsForM
 
                    }
                });
-
                alertdialog.setNegativeButton("No", new DialogInterface.OnClickListener() {
                    @Override
                    public void onClick(DialogInterface dialog, int which) {
@@ -107,21 +103,11 @@ public class RequestsForMemberAdapter extends RecyclerView.Adapter <RequestsForM
            public void onClick(View v) {
                Toast.makeText(context ,"request rejected",Toast.LENGTH_LONG).show();
                final DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference();
-
                DatabaseReference databaseReference2=FirebaseDatabase.getInstance().getReference("requstsformember");
-
                databaseReference2.child(email1).removeValue();
 
            }
        });
-
-
-
-
-
-
-
-
 
 
     }
@@ -133,16 +119,12 @@ public class RequestsForMemberAdapter extends RecyclerView.Adapter <RequestsForM
 
 
     public class ViewHolder extends RecyclerView.ViewHolder {
-        TextView name,admissionnumber,email,phone;
-        Button makemember,rejectformember;
+        TextView email;
+        TextView makemember,rejectformember;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
-
-            name=itemView.findViewById(R.id.request_member_name);
-            admissionnumber=itemView.findViewById(R.id.request_member_admission);
             email=itemView.findViewById(R.id.requets_member_email);
-            phone=itemView.findViewById(R.id.requets_member_number);
             makemember=itemView.findViewById(R.id.make_him_member);
             rejectformember=itemView.findViewById(R.id.dont_make_him_member);
 
