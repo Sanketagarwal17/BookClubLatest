@@ -15,6 +15,7 @@ import android.widget.Toast;
 import com.example.android.bookclublatest.HomePage.BrowseBooks.BrowseAdapter;
 import com.example.android.bookclublatest.R;
 import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
@@ -62,8 +63,7 @@ public class RequestsForMemberAdapter extends RecyclerView.Adapter <RequestsForM
                         FirebaseDatabase firebaseDatabase = FirebaseDatabase.getInstance();
                         final DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference("Status");
 
-
-                       databaseReference.child(email1).setValue("Member").addOnCompleteListener(new OnCompleteListener<Void>() {
+                        databaseReference.child(email1).setValue("Member").addOnCompleteListener(new OnCompleteListener<Void>() {
                            @Override
                            public void onComplete(@NonNull Task<Void> task) {
                                if(task.isSuccessful())
@@ -71,12 +71,20 @@ public class RequestsForMemberAdapter extends RecyclerView.Adapter <RequestsForM
                                   DatabaseReference databaseReference2=FirebaseDatabase.getInstance().getReference("requstsformember");
 
                                   databaseReference2.child(email1).removeValue();
-
-
                                }
                            }
                        });
 
+                        DatabaseReference databaseReference1 = firebaseDatabase.getReference("users");
+                        databaseReference1.child(email1).child("status").setValue("Member").addOnCompleteListener(new OnCompleteListener<Void>() {
+                            @Override
+                            public void onComplete(@NonNull Task<Void> task) {
+                                if(task.isSuccessful())
+                                    Toast.makeText(context,"Successfully made member",Toast.LENGTH_LONG).show();
+                                else
+                                    Toast.makeText(context,"Try Again",Toast.LENGTH_LONG).show();
+                            }
+                        });
 
                    }
                });

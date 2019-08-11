@@ -69,13 +69,14 @@
         tools:layout_editor_absoluteX="184dp" />
 
     <ImageView
-        android:id="@+id/iv_add_book"
+
         android:layout_width="100dp"
         android:layout_height="100dp"
-        android:layout_below="@id/add_submit"
-        android:layout_marginBottom="8dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        tools:layout_editor_absoluteX="49dp" />
+
+        android:id="@+id/iv_add_book"
+        android:src="@drawable/test_book_img"
+        android:scaleType="centerCrop"
+        android:layout_below="@id/add_submit"/>
 
     <Button
         android:id="@+id/add_ism"

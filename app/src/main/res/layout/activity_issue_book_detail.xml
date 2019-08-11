@@ -4,73 +4,52 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/base"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@drawable/activiy_bg">
+    android:layout_height="match_parent">
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar2"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:contentInsetStart="0dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <include
+            layout="@layout/toolbar_return"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            tools:layout_editor_absoluteX="16dp" />
+    </android.support.v7.widget.Toolbar>
 
     <Button
         android:id="@+id/btn_issue_book"
         android:layout_width="0dp"
-        android:layout_height="60dp"
+        android:layout_height="39dp"
         android:background="#F76262"
         android:fontFamily="@font/quicksand_regular"
-        android:text="ISSUE BOOK"
+        android:text="ISSUE"
         android:textColor="#ffffff"
-        android:textSize="24sp"
+        android:textSize="22sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
-    <TextView
-        android:id="@+id/textView26"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginBottom="8dp"
-        android:fontFamily="@font/roboto_regular"
-        android:text="ISSUE BOOK"
-        android:textColor="#fff"
-        android:textSize="21sp"
-        app:layout_constraintBottom_toTopOf="@+id/guideline12"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <ImageView
-        android:id="@+id/return_home"
-        android:layout_width="32dp"
-        android:layout_height="32dp"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginBottom="8dp"
-        app:layout_constraintBottom_toTopOf="@+id/guideline12"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/ic_home_black_24dp" />
-
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline12"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        app:layout_constraintGuide_end="657dp" />
-
     <ScrollView
+        android:id="@+id/scrollView3"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginBottom="4dp"
-        app:layout_constraintBottom_toTopOf="@+id/btn_issue_book"
+        app:layout_constraintBottom_toTopOf="@+id/myCoordinatorLayout"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/guideline12">
+        app:layout_constraintTop_toBottomOf="@+id/toolbar2">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/constraintLayout2"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_marginTop="12dp"
             android:background="#FFFFFF"
             android:paddingBottom="10dp"
             app:layout_constraintBottom_toTopOf="parent"
@@ -296,7 +275,9 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
-                app:layout_constraintGuide_end="376dp" />
+
+                app:layout_constraintGuide_begin="30dp" />
+
 
             <androidx.constraintlayout.widget.Guideline
                 android:id="@+id/guideline14"
@@ -304,7 +285,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="35dp"
                 android:orientation="vertical"
-                app:layout_constraintGuide_end="35dp"
+                app:layout_constraintGuide_end="26dp"
                 app:layout_constraintStart_toEndOf="parent" />
 
             <TextView
@@ -325,7 +306,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="8dp"
                 android:fontFamily="@font/open_sans"
-                android:text="gggghjfujtrftdhthdjuyffttttttttttttttttttttttttttttttttttghgtfffffffffhtjjjjjjjjjjjjjjjjtkdddddddddddddddddddgggghjfujtrftdhthdjuyffttttttttttttttttttttttttttttttttttghgtfffffffffhtjjjjjjjjjjjjjjjjtkdddddddddddddddddddgggghjfujtrftdhthdjuyffttttttttttttttttttttttttttttttttttghgtfffffffffhtjjjjjjjjjjjjjjjjtkdddddddddddddddddddgggghjfujtrftdhthdjuyffttttttttttttttttttttttttttttttttttghgtfffffffffhtjjjjjjjjjjjjjjjjtkdddddddddddddddddddgggghjfujtrftdhthdjuyffttttttttttttttttttttttttttttttttttghgtfffffffffhtjjjjjjjjjjjjjjjjtkdddddddddddddddddddgggghjfujtrftdhthdjuyffttttttttttttttttttttttttttttttttttghgtfffffffffhtjjjjjjjjjjjjjjjjtkddddddddddddddddddd"
+                android:text="The Secret is a best-selling 2006 self-help book by Rhonda Byrne, based on the earlier film of the same name. It is based on the belief of the law of attraction, which claims that thoughts can change a person's life directly. The book has sold 30 million copies worldwide and has been translated into 50 languages "
                 android:textColor="#838383"
                 app:layout_constraintEnd_toStartOf="@+id/guideline14"
                 app:layout_constraintStart_toStartOf="@+id/guideline13"
@@ -343,5 +324,14 @@
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>
+
+    <android.support.design.widget.CoordinatorLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:id="@+id/myCoordinatorLayout"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/btn_issue_book">
+    </android.support.design.widget.CoordinatorLayout>
 
 </android.support.constraint.ConstraintLayout>
