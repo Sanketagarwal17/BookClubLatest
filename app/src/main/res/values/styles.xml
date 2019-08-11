@@ -30,7 +30,12 @@
         <item name="colorControlActivated">#293462</item>
         <item name="colorControlHighlight">#293462</item>
     </style>
-
+    <style name="MyCheckbox" parent="@style/Widget.AppCompat.CompoundButton.CheckBox">
+        <item name="android:colorControlNormal">#279525</item>
+        <item name="android:colorControlActivated">#279525</item>
+        <item name="android:colorControlHighlight">#279525</item>
+        <item name="android:textAppearance">@style/TextAppearance.AppCompat</item>
+    </style>
     <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
 
     <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
