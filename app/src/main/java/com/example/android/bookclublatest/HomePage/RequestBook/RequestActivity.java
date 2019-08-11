@@ -2,33 +2,20 @@ package com.example.android.bookclublatest.HomePage.RequestBook;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.NavigationView;
-import android.support.design.widget.Snackbar;
-import android.support.v4.view.GravityCompat;
-import android.support.v4.widget.DrawerLayout;
-import android.support.v7.app.ActionBarDrawerToggle;
+import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
-
-import com.example.android.bookclublatest.Authentication.Login.LoginActivity;
-import com.example.android.bookclublatest.Authentication.Verification.VerificationActivity;
-import com.example.android.bookclublatest.Base.BaseActivity;
 import com.example.android.bookclublatest.HomePage.HomePageActivity;
-import com.example.android.bookclublatest.Member.AddBook.AddBookActivity;
+import com.example.android.bookclublatest.Member.RequestedBooks.RequestBooksActivity;
 import com.example.android.bookclublatest.R;
+import com.example.android.bookclublatest.SharedPref.SharedPref;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
-
-import org.w3c.dom.Text;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -56,6 +43,8 @@ public class RequestActivity extends AppCompatActivity implements RequestPageCon
     FirebaseUser firebaseUser=firebaseAuth.getCurrentUser();
 
     RequestPageContract.Presenter presenter;
+    SharedPref sharedPref;
+    android.os.Handler Handler = new Handler();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -63,6 +52,7 @@ public class RequestActivity extends AppCompatActivity implements RequestPageCon
         setContentView(R.layout.activity_request_book);
         presenter= new RequestPagePresenter(this);
         ButterKnife.bind(this);
+        sharedPref = new SharedPref(this);
 
         submit.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -82,7 +72,7 @@ public class RequestActivity extends AppCompatActivity implements RequestPageCon
                     }
                     else
                     {
-                        presenter.submit(book.getText().toString().trim(), author.getText().toString().trim(), publication.getText().toString().trim(), additional_info.getText().toString().trim());
+                        presenter.submit(book.getText().toString().trim(), author.getText().toString().trim(), publication.getText().toString().trim(), additional_info.getText().toString().trim(),sharedPref.getEmail());
                     }
                 }
                 else
@@ -101,5 +91,23 @@ public class RequestActivity extends AppCompatActivity implements RequestPageCon
     @Override
     public void showToast(String message) {
         Toast.makeText(this, message, Toast.LENGTH_SHORT).show();
+    }
+
+    @Override
+    public void showSuccess(String s)
+    {
+        Toast.makeText(this, "SuccessFully Requested For The Book", Toast.LENGTH_LONG).show();
+        book.setText("");
+        author.setText("");
+        publication.setText("");
+        additional_info.setText("");
+
+        Handler.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                finish();
+                startActivity(new Intent(RequestActivity.this, HomePageActivity.class));
+            }
+        },700);
     }
 }
