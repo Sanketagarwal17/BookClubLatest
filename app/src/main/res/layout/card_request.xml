@@ -68,19 +68,19 @@
             app:layout_constraintStart_toStartOf="@+id/guideline32"
             app:layout_constraintTop_toBottomOf="@+id/requested_name" />
 
-        <TextView
-            android:id="@+id/requested_author"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:padding="3dp"
-            android:textSize="15sp" />
+        <!--<TextView-->
+            <!--android:id="@+id/requested_author"-->
+            <!--android:layout_width="0dp"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:padding="3dp"-->
+            <!--android:textSize="15sp" />-->
 
-        <TextView
-            android:id="@+id/requested_publ"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:padding="3dp"
-            android:textSize="15sp" />
+        <!--<TextView-->
+            <!--android:id="@+id/requested_publ"-->
+            <!--android:layout_width="0dp"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:padding="3dp"-->
+            <!--android:textSize="15sp" />-->
 
         <TextView
             android:layout_width="wrap_content"
@@ -126,6 +126,7 @@
             app:layout_constraintTop_toBottomOf="@id/requested_info" />
 
         <TextView
+            android:id="@+id/request_date"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="@font/roboto_regular"
