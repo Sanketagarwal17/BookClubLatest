@@ -89,8 +89,7 @@ public class HomePageActivity extends AppCompatActivity
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent=new Intent(HomePageActivity.this,RequestsForMember.class);
-                startActivity(intent);
+
             }
         });
 
@@ -238,6 +237,8 @@ public class HomePageActivity extends AppCompatActivity
             else
                 Toast.makeText(this, "You are not Authorized to access it", Toast.LENGTH_LONG).show();
         }
+        else if(id == R.id.nav_admin_make_member)
+            startActivity(new Intent(HomePageActivity.this,RequestsForMember.class));
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;

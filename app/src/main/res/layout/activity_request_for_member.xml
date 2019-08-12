@@ -4,25 +4,51 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".RequestForMember.RequestForMemberActivity">
+    tools:context=".RequestForMember.RequestForMemberActivity"
+    android:background="@drawable/activiy_bg">
 
-    <TextView
-        android:id="@+id/textView3"
-        android:layout_width="378dp"
-        android:layout_height="462dp"
-        android:layout_marginStart="1dp"
-        android:layout_marginEnd="5dp"
-        android:text="Terms And Condition"
-        app:layout_constraintEnd_toEndOf="parent"
+    <include layout="@layout/toolbar_return"
+        android:id="@+id/toolbar"/>
+
+    <ScrollView
+        android:id="@+id/scrollView2"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="12dp"
+        android:layout_marginStart="12dp"
+        android:layout_marginBottom="24dp"
+        android:background="@drawable/rectangle1"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/toolbar"
+        app:layout_constraintBottom_toTopOf="@id/sendrequestformember">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/quicksand_regular"
+            android:outlineProvider="none"
+            android:padding="12dp"
+            android:text="PLEASE READ THIS AGREEMENT CAREFULLY. By submitting your application and by your use of the Service, you agree to comply with all of the terms and conditions set out in this Agreement. Website.com may terminate your account at any time, with or without notice, for conduct that is in breach of this Agreement, for conduct that Website.com believes is harmful to its business, or for conduct where the use of the Service is harmful to any other party "
+            android:textAlignment="center"
+            android:textColor="#216583"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+    </ScrollView>
+
 
     <Button
         android:id="@+id/sendrequestformember"
-        android:layout_width="114dp"
-        android:layout_height="61dp"
-        android:layout_marginBottom="16dp"
-        android:text="Button"
+        android:layout_width="match_parent"
+        android:layout_height="39dp"
+        android:background="#F76262"
+        android:fontFamily="@font/quicksand_regular"
+        android:textColor="#ffffff"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:text="Request For Membership"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />

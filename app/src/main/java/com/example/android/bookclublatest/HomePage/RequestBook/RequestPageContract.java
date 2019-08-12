@@ -12,6 +12,6 @@ public class RequestPageContract
 
     public interface Presenter
     {
-        void submit(String book,String author, String publication,String info, String email);
+        void submit(String book,String author, String publication,String info, String email, String requested_date, String approved_date);
     }
 }
