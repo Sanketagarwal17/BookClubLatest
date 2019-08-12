@@ -34,8 +34,8 @@ public class PenaltyAdapter extends RecyclerView.Adapter<PenaltyAdapter.ViewHold
         viewHolder.book_name.setText(list.get(i).getBookname());
         String issuedate=list.get(i).getIssue_date();
         String returndate=list.get(i).getReturn_date();
-        viewHolder.issue_date.setText(list.get(i).getIssue_date());
-        viewHolder.return_date.setText(list.get(i).getReturn_date());
+        viewHolder.issue_date.setText("Issued on : "+list.get(i).getIssue_date());
+        viewHolder.return_date.setText("Returned On:     "+list.get(i).getReturn_date());
        viewHolder.penaltyi.setText("0");
 
         String[] months={"Jan","Feb","Mar","Apr","May","June","July","Aug","Sep","Oct","Nov","Dec"};
