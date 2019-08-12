@@ -1,83 +1,74 @@
 <?xml version="1.0" encoding="utf-8"?>
-
-<LinearLayout android:layout_width="match_parent"
-    android:layout_height="match_parent"
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:orientation="vertical"
-    xmlns:android="http://schemas.android.com/apk/res/android">
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
 
+    <Button
+        android:id="@+id/issue"
+        android:layout_width="130dp"
+        android:layout_height="130dp"
+        android:layout_alignParentStart="true"
+        android:background="@drawable/issue"
+        app:layout_constraintBottom_toTopOf="@+id/request"
+        app:layout_constraintEnd_toStartOf="@+id/guideline32"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/banner_slider" />
+
+    <Button
+        android:id="@+id/request"
+        android:layout_width="130dp"
+        android:layout_height="130dp"
+        android:layout_alignParentStart="true"
+        android:background="@drawable/requesthome"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/guideline32"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/issue" />
+
+    <Button
+        android:id="@+id/returnbook"
+        android:layout_width="130dp"
+        android:layout_height="130dp"
+        android:layout_alignParentEnd="true"
+        android:background="@drawable/returnhome"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="@+id/guideline32"
+        app:layout_constraintTop_toBottomOf="@+id/history" />
+
+    <Button
+        android:id="@+id/history"
+        android:layout_width="130dp"
+        android:layout_height="130dp"
+        android:layout_alignParentEnd="true"
+        android:background="@drawable/historyhome"
+        app:layout_constraintBottom_toTopOf="@+id/returnbook"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="@+id/guideline32"
+        app:layout_constraintTop_toBottomOf="@+id/banner_slider" />
 
     <ss.com.bannerslider.Slider
-        android:id="@+id/banner_slider1"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="0.67"
-        android:paddingTop="40dp"
+        android:id="@+id/banner_slider"
+        android:layout_width="0dp"
+        android:layout_height="250dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:slider_interval="5000"
-        tools:layout_editor_absoluteX="38dp" />
+        app:slider_interval="5000" />
 
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="0.17"
-        android:background="@color/zxing_transparent"/>
-
-    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
-        xmlns:tools="http://schemas.android.com/tools"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline32"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
         android:orientation="vertical"
-        tools:context=".HomePage.HomePageActivity">
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintGuide_percent=".5"
+        app:layout_constraintStart_toStartOf="parent" />
 
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
-
-            <Button
-                android:layout_marginLeft="30dp"
-                android:id="@+id/issue"
-                android:layout_width="130dp"
-                android:layout_height="130dp"
-                android:layout_marginBottom="24dp"
-                android:background="@drawable/issue"
-                android:layout_alignParentStart="true"/>
-            <Button
-                android:id="@+id/history"
-                android:layout_width="130dp"
-                android:layout_height="130dp"
-                android:background="@drawable/historyhome"
-                android:layout_alignParentEnd="true"
-                android:layout_marginRight="30dp"/>
-        </RelativeLayout>
-
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
-
-            <Button
-                android:id="@+id/returnbook"
-                android:layout_width="130dp"
-                android:layout_height="130dp"
-                android:layout_marginBottom="36dp"
-                android:background="@drawable/returnhome"
-                android:layout_alignParentEnd="true"
-                android:layout_marginRight="30dp"/>
-
-            <Button
-                android:id="@+id/request"
-                android:layout_width="130dp"
-                android:layout_height="130dp"
-                android:background="@drawable/request"
-                android:layout_alignParentStart="true"
-                android:layout_marginLeft="30dp"/>
-
-        </RelativeLayout>
-
-</LinearLayout>
-</LinearLayout>
+</android.support.constraint.ConstraintLayout>
