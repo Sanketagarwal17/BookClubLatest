@@ -4,8 +4,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
-import android.util.Log;
 import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -27,7 +25,6 @@ import com.example.android.bookclublatest.Authentication.Verification.Verificati
 import com.example.android.bookclublatest.ContactUs.ContactUsActivity;
 import com.example.android.bookclublatest.Developers.DevelopersActivity;
 import com.example.android.bookclublatest.Faq.MVP.FAQActivity;
-import com.example.android.bookclublatest.HomePage.History.HistoryActivity;
 import com.example.android.bookclublatest.HomePage.RequestBook.RequestActivity;
 import com.example.android.bookclublatest.HomePage.Return.ReturnActivity;
 import com.example.android.bookclublatest.IssueBook;
@@ -63,7 +60,7 @@ public class HomePageActivity extends AppCompatActivity
     @BindView(R.id.returnbook)
     Button returnbook;
 
-    @BindView(R.id.banner_slider1)
+    @BindView(R.id.banner_slider)
     Slider banner_slider;
 
     SharedPref sharedPref;

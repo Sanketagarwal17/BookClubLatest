@@ -8,7 +8,6 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.example.android.bookclublatest.HomePage.HomePageActivity;
 import com.example.android.bookclublatest.HomePage.MainSliderAdapter;
 import com.example.android.bookclublatest.HomePage.PicassoImageLoadingService;
 import com.example.android.bookclublatest.Member.AddBook.AddBookActivity;
@@ -31,15 +30,10 @@ public class MemberActivity extends AppCompatActivity {
     Button return_book;
     @BindView(R.id.addbook)
     Button addBook;
-    @BindView(R.id.banner_slider1)
-    Slider banner_slider;
     @BindView(R.id.textView26)
     TextView title;
     @BindView(R.id.return_home)
     ImageView home;
-
-    com.example.android.bookclublatest.HomePage.MainSliderAdapter MainSliderAdapter = new MainSliderAdapter();
-    com.example.android.bookclublatest.HomePage.PicassoImageLoadingService PicassoImageLoadingService =new PicassoImageLoadingService(MemberActivity.this);
 
 
     @Override
@@ -57,8 +51,6 @@ public class MemberActivity extends AppCompatActivity {
             }
         });
 
-        Slider.init(PicassoImageLoadingService);
-        banner_slider.setAdapter(MainSliderAdapter);
 
         addBook.setOnClickListener(new View.OnClickListener() {
             @Override
