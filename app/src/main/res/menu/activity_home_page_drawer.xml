@@ -67,4 +67,14 @@
         </menu>
     </item>
 
+    <item android:title="dmin">
+        <menu>
+            <item
+                android:id="@+id/nav_admin_make_member"
+                android:icon="@drawable/ic_card_membership_black_24dp"
+                android:title="Approve membership" />
+
+        </menu>
+    </item>
+
 </menu>

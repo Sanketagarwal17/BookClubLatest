@@ -19,9 +19,6 @@ import com.google.firebase.database.FirebaseDatabase;
 
 public class RequestForMemberActivity extends AppCompatActivity {
 
-    FirebaseDatabase firebaseDatabase;
-    FirebaseUser firebaseUser;
-    FirebaseAuth firebaseAuth;
     DatabaseReference databaseReference;
 
     Button sendrequest;
@@ -44,47 +41,26 @@ public class RequestForMemberActivity extends AppCompatActivity {
         databaseReference = FirebaseDatabase.getInstance().getReference(); // root node.
 
 
-    sendrequest.setOnClickListener(new View.OnClickListener() {
-        @Override
-        public void onClick(View v) {
+        sendrequest.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
 
-             databaseReference.child("requstsformember").child(email).setValue(email1).addOnCompleteListener(new OnCompleteListener<Void>() {
-                 @Override
-                 public void onComplete(@NonNull Task<Void> task) {
-                     if(task.isSuccessful())
-                     {
-                         Toast.makeText(RequestForMemberActivity.this,"Request Send",Toast.LENGTH_LONG).show();
+                 databaseReference.child("requstsformember").child(email).setValue(email1).addOnCompleteListener(new OnCompleteListener<Void>() {
+                     @Override
+                     public void onComplete(@NonNull Task<Void> task) {
+                         if(task.isSuccessful())
+                         {
+                             Toast.makeText(RequestForMemberActivity.this,"Request Send",Toast.LENGTH_LONG).show();
+                             onBackPressed();
+                         }
+                         else
+                         {
+                             Toast.makeText(RequestForMemberActivity.this,task.getException().getMessage(),Toast.LENGTH_LONG).show();
+
+                         }
                      }
-                     else
-                     {
-                         Toast.makeText(RequestForMemberActivity.this,task.getException().getMessage(),Toast.LENGTH_LONG).show();
-
-                     }
-                 }
-             });
-
-
-
-
-        }
-    });
-
-
-
-
-
-
-
-
+                 });
+            }
+        });
     }
-
-
-
-
-
-
-
-
-
-
 }
