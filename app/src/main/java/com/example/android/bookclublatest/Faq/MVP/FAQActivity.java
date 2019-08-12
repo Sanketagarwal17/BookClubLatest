@@ -32,11 +32,10 @@ import java.util.List;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-public class FAQActivity extends AppCompatActivity implements View.OnClickListener {
+public class FAQActivity extends AppCompatActivity {
     @BindView(R.id.faq_recycler)
     RecyclerView recyclerView;
-    @BindView(R.id.button2)
-    Button addfaq;
+
     FirebaseDatabase firebaseDatabase;
     DatabaseReference databaseReference;
 
@@ -56,7 +55,6 @@ public class FAQActivity extends AppCompatActivity implements View.OnClickListen
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         firebaseDatabase=FirebaseDatabase.getInstance();
         databaseReference=firebaseDatabase.getReference("FAQ");
-        addfaq.setOnClickListener(this);
         //getjson();
         loaddata();
     }
@@ -119,13 +117,5 @@ public class FAQActivity extends AppCompatActivity implements View.OnClickListen
         });
 
 
-    }
-    @Override
-    public void onClick(View v) {
-        if(v==addfaq)
-        {
-            Intent i=new Intent(getApplicationContext(), AddFaqActivity.class);
-            startActivity(i);
-        }
     }
 }

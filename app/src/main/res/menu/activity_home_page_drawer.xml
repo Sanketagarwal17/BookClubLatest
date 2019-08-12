@@ -72,13 +72,16 @@
         </menu>
     </item>
 
-    <item android:title="dmin">
+    <item android:title="admin">
         <menu>
             <item
                 android:id="@+id/nav_admin_make_member"
                 android:icon="@drawable/ic_card_membership_black_24dp"
                 android:title="Approve membership" />
-
+            <item
+                android:id="@+id/nav_admin_faq"
+                android:icon="@drawable/ic_question_answer_black_24dp"
+                android:title="Create Faq's"/>
         </menu>
     </item>
 
