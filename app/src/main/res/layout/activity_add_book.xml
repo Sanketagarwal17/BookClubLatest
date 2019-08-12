@@ -1,81 +1,328 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@drawable/activiy_bg">
 
-    <EditText
-        android:id="@+id/add_pulication"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_margin="10dp"
-        android:layout_below="@id/add_author"
-        android:hint="Add Publication Name" />
 
-    <Button
-        android:id="@+id/add_isbn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_margin="10dp"
-        android:hint="Add ISBN code"/>
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginBottom="8dp"
+        android:background="#B5BFCD"
+        android:translationZ="1dp"
+        app:layout_constraintBottom_toTopOf="@+id/guideline36"
+        app:layout_constraintEnd_toStartOf="@+id/guideline34"
+        app:layout_constraintStart_toStartOf="@+id/guideline33"
+        app:layout_constraintTop_toTopOf="@+id/guideline35">
+
+        <EditText
+            android:id="@+id/add_bookname"
+            android:layout_width="0dp"
+            android:layout_height="26dp"
+            android:layout_margin="10dp"
+            android:layout_marginTop="36dp"
+            android:layout_marginEnd="8dp"
+            android:background="@drawable/et_bg_add"
+            android:hint=" Enter book name"
+            android:textColor="#216583"
+            android:textColorHint="#216583"
+            android:textSize="12dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <EditText
+            android:id="@+id/add_author"
+            android:layout_width="0dp"
+            android:layout_height="26dp"
+            android:layout_margin="10dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"
+            android:background="@drawable/et_bg_add"
+            android:hint=" Enter author name"
+            android:textColor="#216583"
+            android:textColorHint="#216583"
+            android:textSize="12dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/add_bookname" />
+
+        <EditText
+            android:id="@+id/add_pulication"
+            android:layout_width="0dp"
+            android:layout_height="26dp"
+            android:layout_margin="10dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:background="@drawable/et_bg_add"
+            android:hint=" Enter publication name"
+            android:textColor="#216583"
+            android:textColorHint="#216583"
+            android:textSize="12dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/add_author" />
+
+        <EditText
+            android:id="@+id/add_tags"
+            android:layout_width="0dp"
+            android:layout_height="52dp"
+            android:layout_margin="10dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:background="@drawable/et_bg_add"
+            android:hint="  Add tags :"
+           android:gravity="start"
+            android:textColor="#216583"
+            android:textColorHint="#216583"
+            android:textSize="12dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/add_pulication" />
+
+        <EditText
+            android:id="@+id/add_description"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_margin="10dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="8dp"
+            android:background="@drawable/et_bg_add"
+            android:gravity="start"
+            android:hint="  Add description :"
+            android:textColor="#216583"
+            android:textColorHint="#216583"
+            android:textSize="12dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/add_tags" />
+
+
+    </android.support.constraint.ConstraintLayout>
+
+    <android.support.constraint.ConstraintLayout
+        android:id="@+id/constraintLayout4"
+        android:layout_width="0dp"
+        android:layout_height="35dp"
+        android:background="#B5BFCD"
+        android:translationZ="2dp"
+        app:layout_constraintEnd_toStartOf="@+id/guideline34"
+        app:layout_constraintStart_toStartOf="@+id/guideline33"
+        app:layout_constraintTop_toTopOf="@+id/guideline36">
+
+        <CheckBox
+            android:id="@+id/add_hard_soft"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="8dp"
+            android:clickable="true"
+            android:focusable="auto"
+            android:text="is it hard copy ?"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:theme="@style/MyCheckbox"/>
+    </android.support.constraint.ConstraintLayout>
+
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="0dp"
+        android:layout_height="112dp"
+        android:layout_marginTop="8dp"
+        android:background="#B5BFCD"
+        android:translationZ="1dp"
+        app:layout_constraintEnd_toStartOf="@+id/guideline34"
+        app:layout_constraintStart_toStartOf="@+id/guideline33"
+        app:layout_constraintTop_toBottomOf="@+id/constraintLayout4">
+
+        <android.support.constraint.ConstraintLayout
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginBottom="8dp"
+            android:background="#E6E6E6"
+            android:translationZ="1dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <Button
+                android:id="@+id/add_ism"
+                android:layout_width="0dp"
+                android:layout_height="38dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="8dp"
+                android:background="@drawable/btn_add"
+                android:drawableLeft="@drawable/barcode"
+                android:text="Add ISM Code"
+                android:textColor="#fff"
+                app:layout_constraintEnd_toStartOf="@+id/ism_added"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <Button
+                android:id="@+id/ism_added"
+                android:layout_width="wrap_content"
+                android:layout_height="38dp"
+                android:layout_marginEnd="8dp"
+                android:background="@drawable/btn_add_green"
+                android:text="Added"
+                android:textColor="#fff"
+                android:visibility="gone"
+                app:layout_constraintBottom_toBottomOf="@+id/add_ism"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/add_ism" />
+
+            <Button
+                android:id="@+id/add_isbn"
+                android:layout_width="0dp"
+                android:layout_height="38dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginBottom="8dp"
+                android:background="@drawable/btn_add"
+                android:drawableLeft="@drawable/barcode"
+                android:text="Add ISBN Code"
+                android:textColor="#fff"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/isbn_added"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/add_ism" />
+
+            <Button
+                android:id="@+id/isbn_added"
+                android:layout_width="wrap_content"
+                android:layout_height="38dp"
+                android:layout_marginEnd="8dp"
+                android:background="@drawable/btn_add_green"
+                android:text="Added"
+                android:textColor="#fff"
+                android:visibility="gone"
+                app:layout_constraintBottom_toBottomOf="@+id/add_isbn"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/add_isbn" />
+
+        </android.support.constraint.ConstraintLayout>
+    </android.support.constraint.ConstraintLayout>
+    <TextView
+        android:id="@+id/textView31"
+        android:layout_width="169dp"
+        android:layout_height="26dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
+        android:text="ADD BOOK"
+        android:textAlignment="center"
+        android:textColor="#fff"
+        android:textSize="21sp"
+        app:layout_constraintBottom_toTopOf="@+id/guideline32"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
-        android:layout_width="100dp"
-        android:layout_height="100dp"
+        android:id="@+id/add_book_return_home"
+        android:layout_width="32dp"
+        android:layout_height="32dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="8dp"
+        app:layout_constraintBottom_toTopOf="@+id/guideline32"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/ic_home_black_24dp" />
+
+    <android.support.constraint.Guideline
+        android:id="@+id/guideline33"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.04" />
+
+    <android.support.constraint.Guideline
+        android:id="@+id/guideline34"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.96" />
+
+    <android.support.constraint.Guideline
+        android:id="@+id/guideline35"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.18" />
+
+    <android.support.constraint.Guideline
+        android:id="@+id/guideline36"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_begin="440dp" />
+    <android.support.constraint.ConstraintLayout
+        android:id="@+id/constraintLayout3"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="8dp"
+        android:background="#fff"
+        app:layout_constraintBottom_toTopOf="@+id/add_submit"
+        app:layout_constraintTop_toTopOf="@+id/guideline32">
+
+
+
+    </android.support.constraint.ConstraintLayout>
+
+
+
+
+    <ImageView
+
         android:id="@+id/iv_add_book"
-        android:src="@drawable/test_book_img"
+        android:layout_width="100dp"
+        android:visibility="gone"
+        android:layout_height="100dp"
+        android:layout_below="@id/add_submit"
         android:scaleType="centerCrop"
-        android:layout_below="@id/add_submit"/>
-    <Button
-        android:id="@+id/add_ism"
-        android:text="Add ISM code"
-        android:layout_toRightOf="@id/add_isbn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_margin="10dp" />
+        android:src="@drawable/test_book_img"
+        tools:layout_editor_absoluteX="32dp"
+        tools:layout_editor_absoluteY="157dp" />
 
-    <EditText
-        android:id="@+id/add_bookname"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_margin="10dp"
-        android:layout_below="@id/add_isbn"
-        android:hint="Enter Bool Name"/>
-
-    <EditText
-        android:id="@+id/add_author"
-        android:hint="Add Author Name"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_margin="10dp"
-        android:layout_below="@id/add_bookname"/>
-
-    <EditText
-        android:id="@+id/add_tags"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_margin="10dp"
-        android:hint="Add Tags"
-        android:layout_below="@id/add_pulication"/>
-
-    <CheckBox
-        android:id="@+id/add_hard_soft"
-        android:clickable="true"
-        android:layout_below="@id/add_tags"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_margin="10dp"
-        android:focusable="auto"
-        android:text="is it hard copy"/>
 
     <Button
         android:id="@+id/add_submit"
-        android:text="Button"
-        android:layout_below="@id/add_hard_soft"
+        android:layout_width="0dp"
+        android:layout_height="39dp"
+        android:background="#F76262"
+        android:fontFamily="@font/quicksand_regular"
+        android:text="ADD BOOK"
+        android:textColor="#ffffff"
+        android:textSize="22sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+
+
+    <android.support.constraint.Guideline
+        android:id="@+id/guideline32"
+        android:translationZ="2dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_margin="10dp"/>
+        android:orientation="horizontal"
+        app:layout_constraintGuide_begin="68dp" />
 
-</RelativeLayout>
+</android.support.constraint.ConstraintLayout>

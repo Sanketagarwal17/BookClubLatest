@@ -7,4 +7,6 @@
     <string name="nav_header_desc">Navigation header</string>
     <string name="action_verify">Verify</string>
     <string name="action_settings_logout">LogOut</string>
+    <string name="add_book">
+</string>
 </resources>
