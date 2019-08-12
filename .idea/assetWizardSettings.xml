@@ -159,7 +159,7 @@
                                 <PersistentState>
                                   <option name="values">
                                     <map>
-                                      <entry key="url" value="jar:file:/home/narway/STUFF/android-studio-ide-182.5199772-linux/android-studio/plugins/android/lib/android.jar!/images/material_design_icons/action/ic_info_black_24dp.xml" />
+                                      <entry key="url" value="jar:file:/home/rishabh/Downloads/android-studio-ide-182.5264788-linux/android-studio/plugins/android/lib/android.jar!/images/material_design_icons/action/ic_card_membership_black_24dp.xml" />
                                     </map>
                                   </option>
                                 </PersistentState>
@@ -169,8 +169,7 @@
                         </option>
                         <option name="values">
                           <map>
-                            <entry key="assetSourceType" value="FILE" />
-                            <entry key="outputName" value="dev_app" />
+                            <entry key="outputName" value="ic_card_membership_black_24dp" />
                             <entry key="overrideSize" value="true" />
                             <entry key="sourceFile" value="$PROJECT_DIR$/../Downloads/af95b29392f02283277537105732c952.svg" />
                           </map>

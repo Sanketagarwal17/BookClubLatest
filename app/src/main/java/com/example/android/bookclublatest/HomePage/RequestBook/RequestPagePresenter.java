@@ -23,18 +23,18 @@ public class RequestPagePresenter implements RequestPageContract.Presenter
     }
 
     @Override
-    public void submit(String book, String author, String publication,String info) {
+    public void submit(String book, String author, String publication,String info, String email, String requested_date, String approved_date) {
         String reqKey = databaseReference.push().getKey();
         if(publication.isEmpty())
             publication="Not Given";
         if(info.isEmpty())
             info="Not Given";
-        databaseReference.child(reqKey).setValue(new RequestModel(book,author,publication,info))// generating a random key for each book request.
+        databaseReference.child(reqKey).setValue(new RequestModel(book,author,publication,info, email, "Pending",requested_date,approved_date,reqKey))// generating a random key for each book request.
                 .addOnCompleteListener(new OnCompleteListener<Void>() {
                     @Override
                     public void onComplete(@NonNull Task<Void> task) {
                         if(task.isSuccessful())
-                            getMvpView.showToast("Submitted !");
+                            getMvpView.showSuccess("Submitted !");
                         else
                             getMvpView.showToast(task.getException().getMessage());
                     }
