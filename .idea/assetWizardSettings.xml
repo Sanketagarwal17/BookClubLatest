@@ -159,7 +159,7 @@
                                 <PersistentState>
                                   <option name="values">
                                     <map>
-                                      <entry key="url" value="jar:file:/home/rishabh/Downloads/android-studio-ide-182.5264788-linux/android-studio/plugins/android/lib/android.jar!/images/material_design_icons/action/ic_card_membership_black_24dp.xml" />
+                                      <entry key="url" value="jar:file:/C:/Program%20Files/Android/Android%20Studio/plugins/android/lib/android.jar!/images/material_design_icons/content/ic_add_circle_black_24dp.xml" />
                                     </map>
                                   </option>
                                 </PersistentState>
@@ -169,9 +169,9 @@
                         </option>
                         <option name="values">
                           <map>
-                            <entry key="outputName" value="ic_card_membership_black_24dp" />
+                            <entry key="outputName" value="ic_add_circle" />
                             <entry key="overrideSize" value="true" />
-                            <entry key="sourceFile" value="$PROJECT_DIR$/../Downloads/af95b29392f02283277537105732c952.svg" />
+                            <entry key="sourceFile" value="G:\Android apps\Downloads\af95b29392f02283277537105732c952.svg" />
                           </map>
                         </option>
                       </PersistentState>

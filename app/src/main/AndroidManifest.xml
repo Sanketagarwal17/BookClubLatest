@@ -11,14 +11,17 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="AllowBackup,GoogleAppIndexingWarning">
-        <activity android:name=".IssueBookDetailActivity"
-            android:screenOrientation="portrait"/>
-        <activity android:name=".IssueBook"
-            android:screenOrientation="portrait"/>
+        <activity android:name=".Faq.AddFaqActivity"></activity>
+        <activity
+            android:name=".IssueBookDetailActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".IssueBook"
+            android:screenOrientation="portrait" />
         <activity
             android:name=".Splash.SplashActivity"
-            android:screenOrientation="portrait"
             android:label="@string/app_name"
+            android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -26,59 +29,85 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".Authentication.Login.LoginActivity"
-            android:screenOrientation="portrait"/>
-        <activity android:name=".HomePage.HomePageActivity"
+        <activity
+            android:name=".Authentication.Login.LoginActivity"
             android:screenOrientation="portrait" />
-        <activity android:name=".Authentication.SignUp.SignUpActivity"
-            android:screenOrientation="portrait"/>
-        <activity android:name=".Authentication.Verification.VerificationActivity"
+        <activity
+            android:name=".HomePage.HomePageActivity"
             android:screenOrientation="portrait" />
-        <activity android:name=".HomePage.RequestBook.RequestActivity"
-            android:screenOrientation="portrait"/>
-        <activity android:name=".Member.AddBook.AddBookActivity"
-            android:screenOrientation="portrait"/>
-        <activity android:name=".HomePage.BrowseBooks.BrowseActivity"
-            android:screenOrientation="portrait"/>
-        <activity android:name=".RequestForMember.RequestForMemberActivity"
+        <activity
+            android:name=".Authentication.SignUp.SignUpActivity"
             android:screenOrientation="portrait" />
-        <activity android:name=".Admin.RequestsForMember.RequestsForMember"
-            android:screenOrientation="portrait"/>
-        <activity android:name=".Member.MemberActivity"
+        <activity
+            android:name=".Authentication.Verification.VerificationActivity"
             android:screenOrientation="portrait" />
-        <activity android:name=".Member.ConfirmIssue.ConfirmIssueActivity"
+        <activity
+            android:name=".HomePage.RequestBook.RequestActivity"
             android:screenOrientation="portrait" />
-        <activity android:name=".Profile.ProfileActivity"
-            android:screenOrientation="portrait"/>
-        <activity android:name=".Faq.MVP.FAQActivity"
-            android:screenOrientation="portrait"/>
-        <activity android:name=".ContactUs.ContactUsActivity"
-            android:screenOrientation="portrait"/>
-        <activity android:name=".Developers.DevelopersActivity"
+        <activity
+            android:name=".Member.AddBook.AddBookActivity"
             android:screenOrientation="portrait" />
-        <activity android:name=".AboutClub.AboutUsActivity"
-            android:screenOrientation="portrait"/>
-        <activity android:name=".Authentication.ChangePassword.ChangePasswordActivity"
+        <activity
+            android:name=".HomePage.BrowseBooks.BrowseActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".RequestForMember.RequestForMemberActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Admin.RequestsForMember.RequestsForMember"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Member.MemberActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Member.ConfirmIssue.ConfirmIssueActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Profile.ProfileActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Faq.MVP.FAQActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ContactUs.ContactUsActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Developers.DevelopersActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".AboutClub.AboutUsActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Authentication.ChangePassword.ChangePasswordActivity"
             android:screenOrientation="portrait"
-            android:theme="@style/AppTheme.Dialog"/>
-        <activity android:name=".Authentication.Verification.OtpActivity"
-            android:screenOrientation="portrait"/>
-        <activity android:name=".Admin.RequestsForMember.AdminActivity.AdminActivity"
-            android:screenOrientation="portrait"/>
-        <activity android:name=".Member.ConfirmIssue.ConfirmProceed.ProceedActivity"
-            android:screenOrientation="portrait"/>
-        <activity android:name=".Penalty.PenaltyActivity"
+            android:theme="@style/AppTheme.Dialog" />
+        <activity
+            android:name=".Authentication.Verification.OtpActivity"
             android:screenOrientation="portrait" />
-        <activity android:name=".HomePage.History.HistoryActivity"
-            android:screenOrientation="portrait"/>
-        <activity android:name=".HomePage.Return.ReturnActivity"
-            android:screenOrientation="portrait"/>
-        <activity android:name=".Member.ConfirmReturn.ConfirmActivity"
-            android:screenOrientation="portrait"/>
-        <activity android:name=".Member.ConfirmReturn.ReturnProceed.ProceedReturnActivity"
-            android:screenOrientation="portrait"/>
-        <activity android:name=".Member.RequestedBooks.RequestBooksActivity"
-            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".Admin.RequestsForMember.AdminActivity.AdminActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Member.ConfirmIssue.ConfirmProceed.ProceedActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Penalty.PenaltyActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".HomePage.History.HistoryActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".HomePage.Return.ReturnActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Member.ConfirmReturn.ConfirmActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Member.ConfirmReturn.ReturnProceed.ProceedReturnActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Member.RequestedBooks.RequestBooksActivity"
+            android:screenOrientation="portrait" />
 
         <meta-data
             android:name="preloaded_fonts"
