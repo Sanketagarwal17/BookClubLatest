@@ -1,55 +1,99 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.v7.widget.CardView
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/cardView2"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_margin="6dp"
-    android:elevation="12dp">
+    android:elevation="12dp" >
 
-    <LinearLayout
-        android:layout_width="match_parent"
+    <android.support.v7.widget.CardView
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:orientation="vertical">
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" >
 
-        <TextView
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="name"
-            android:id="@+id/isuuelist_name"
+            android:background="@drawable/group">
 
-            android:textSize="14sp"
-            android:textColor="@android:color/black"
-            android:padding="3dp"/>
+            <TextView
+                android:id="@+id/isuuelist_name"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="9dp"
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="name"
-            android:id="@+id/isuuelist_email"
-            android:textSize="14sp"
-            android:textColor="@android:color/black"
-            android:padding="3dp"/>
+                android:fontFamily="@font/quicksand_regular"
+                android:padding="3dp"
+                android:text="46546465"
+                android:textColor="#000000"
+                android:textSize="15sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="@+id/guideline37"
+                app:layout_constraintTop_toTopOf="parent" />
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="name"
-            android:id="@+id/isuuelist_isbn"
-            android:textSize="14sp"
-            android:textColor="@android:color/black"
-            android:padding="3dp"/>
+            <TextView
+                android:id="@+id/isuuelist_email"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/quicksand_regular"
+                android:padding="3dp"
+                android:text="name"
+                android:textColor="#216583"
+                android:textSize="11sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="@+id/guideline37"
+                app:layout_constraintTop_toBottomOf="@+id/isuuelist_isbn" />
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="name"
-            android:textAlignment="center"
-            android:id="@+id/isuuelist_button"
-            android:textSize="14sp"
-            android:textColor="@android:color/black"
-            android:padding="3dp"
-            android:background="@android:color/darker_gray"/>
+            <TextView
+                android:id="@+id/isuuelist_isbn"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/quicksand_regular"
+                android:gravity="fill_horizontal|top"
+                android:padding="3dp"
+                android:text="name"
+                android:textColor="#B0B0B0"
+                android:textSize="11sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="@+id/guideline37"
+                app:layout_constraintTop_toBottomOf="@+id/isuuelist_name" />
 
-    </LinearLayout>
+            <ImageView
+                android:id="@+id/imageView13"
+                android:layout_width="54sp"
+                android:layout_height="74dp"
+                android:layout_marginLeft="25dp"
+                android:layout_marginTop="18dp"
+                android:layout_marginBottom="12dp"
+                android:src="@drawable/test_book_img"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
-</android.support.v7.widget.CardView>
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/guideline37"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_percent=".35" />
+
+            <TextView
+                android:id="@+id/isuuelist_button"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="6dp"
+                android:fontFamily="@font/quicksand_regular"
+                android:gravity="center"
+                android:text="Approve"
+                android:textColor="#FFFFFF"
+                android:textSize="12sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="@+id/guideline37" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </android.support.v7.widget.CardView>
+</androidx.constraintlayout.widget.ConstraintLayout>
