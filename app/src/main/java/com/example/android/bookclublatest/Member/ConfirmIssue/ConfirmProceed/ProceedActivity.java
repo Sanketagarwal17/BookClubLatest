@@ -195,8 +195,9 @@ public class ProceedActivity extends AppCompatActivity implements DatePickerDial
         //Create Issue History
         FirebaseDatabase database=FirebaseDatabase.getInstance();
         DatabaseReference reference=database.getReference("Issue History");
-        ProceedModel model=new ProceedModel(bookname,isbn,issue_date,return_date,"Not Returned",ism_code);
-        reference.child(email).child(Calendar.getInstance().getTimeInMillis()+"").setValue(model);
+
+        ProceedModel model=new ProceedModel(bookname,isbn,issue_date,return_date,"Not Returned",ism_code,"pending");
+        reference.child(email).child(isbn).setValue(model);
 
         Toast.makeText(this, "Successfully Updated", Toast.LENGTH_SHORT).show();
 

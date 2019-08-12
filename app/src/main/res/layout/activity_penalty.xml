@@ -6,10 +6,15 @@
     android:layout_height="match_parent"
     tools:context=".Penalty.PenaltyActivity">
 
+    <include
+        android:id="@+id/toolbar"
+        layout="@layout/toolbar_penalty"
+      />
 
     <android.support.v7.widget.RecyclerView
+        android:id="@+id/penalty_recycler"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:id="@+id/penalty_recycler"></android.support.v7.widget.RecyclerView>
+        android:layout_height="611dp"
+        android:layout_marginTop="63dp"></android.support.v7.widget.RecyclerView>
 
 </RelativeLayout>
