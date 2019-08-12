@@ -48,6 +48,7 @@ public class RequestBooksRecycler extends RecyclerView.Adapter<RequestBooksRecyc
     @Override
     public void onBindViewHolder(@NonNull RequestBooksRecycler.ViewHolder viewHolder, int i) {
          model = list.get(i);
+         final int pos = i;
         if(model.getPubl().isEmpty())
             viewHolder.name.setText(model.getBook() + ", "+model.getAuthor());
         else
@@ -72,7 +73,7 @@ public class RequestBooksRecycler extends RecyclerView.Adapter<RequestBooksRecyc
         viewHolder.done.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                DatabaseReference idRef = FirebaseDatabase.getInstance().getReference("Request Book").child(model.getId());
+                DatabaseReference idRef = FirebaseDatabase.getInstance().getReference("Request Book").child(list.get(pos).getId());
                 Calendar calendar2=Calendar.getInstance(TimeZone.getDefault());
                 final String current=calendar2.get(Calendar.DAY_OF_MONTH) + " " + months[(calendar2.get(Calendar.MONTH))]
                         + "," + calendar2.get(Calendar.YEAR);
@@ -86,7 +87,7 @@ public class RequestBooksRecycler extends RecyclerView.Adapter<RequestBooksRecyc
             @Override
             public void onClick(View v) {
                 Toast.makeText(context,"Deleting request",Toast.LENGTH_SHORT).show();
-                DatabaseReference idRef = FirebaseDatabase.getInstance().getReference("Request Book").child(model.getId());
+                DatabaseReference idRef = FirebaseDatabase.getInstance().getReference("Request Book").child(list.get(pos).getId());
                 idRef.removeValue(new DatabaseReference.CompletionListener() {
                     @Override
                     public void onComplete(@Nullable DatabaseError databaseError, @NonNull DatabaseReference databaseReference) {
