@@ -20,6 +20,8 @@ import com.example.android.bookclublatest.Member.MemberActivity;
 import com.example.android.bookclublatest.R;
 import com.example.android.bookclublatest.SharedPref.SharedPref;
 import com.example.android.bookclublatest.Student.StudentActivity;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
@@ -73,6 +75,8 @@ public class LoginActivity extends BaseActivity implements LoginContract.View {
 
         firebaseAuth = FirebaseAuth.getInstance();
         firebaseUser = firebaseAuth.getCurrentUser();
+
+
         if (firebaseUser != null) {
             if (BuildConfig.FLAVOR.equals("admin")) {
                 startActivityUtil(AdminActivity.class);
@@ -130,6 +134,40 @@ public class LoginActivity extends BaseActivity implements LoginContract.View {
             @Override
             public void onClick(View v) {
                 //startActivity(new Intent(LoginActivity.this, ForgetPasswordActivity.class));
+
+                String user = email.getText().toString().trim();
+                if (user.isEmpty()) {
+                    email.setError("Please Enter Your Mail");
+                    Toast.makeText(LoginActivity.this, "Please Enter your mail", Toast.LENGTH_SHORT).show();
+                }
+
+                //Toast.makeText(LoginActivity.this, ""+user, Toast.LENGTH_SHORT).show();
+                else {
+
+                    if (!(email.getText().toString().contains("iitism.ac.in") || email.getText().toString().contains("ism.ac.in"))) {
+                        email.setError("Please enter College ID");
+                        email.requestFocus();
+                    }
+                    else {
+                    FirebaseAuth auth = FirebaseAuth.getInstance();
+                    auth.sendPasswordResetEmail(email.getText().toString().trim()).addOnCompleteListener(new OnCompleteListener<Void>() {
+                        @Override
+                        public void onComplete(@NonNull Task<Void> task) {
+                            //Toast.makeText(LoginActivity.this, "5456", Toast.LENGTH_SHORT).show();
+                            if (task.isSuccessful()) {
+                                Toast.makeText(LoginActivity.this, "Please check your mail", Toast.LENGTH_LONG).show();
+
+                            } else {
+                                Toast.makeText(LoginActivity.this, "Error Please try again later", Toast.LENGTH_LONG).show();
+                            }
+
+                        }
+                    });
+
+                }
+                }
+
+
             }
         });
 

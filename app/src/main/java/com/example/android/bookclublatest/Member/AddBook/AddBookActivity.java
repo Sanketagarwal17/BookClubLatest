@@ -20,7 +20,6 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.example.android.bookclublatest.Authentication.Login.LoginActivity;
-import com.example.android.bookclublatest.Authentication.Verification.VerificationActivity;
 import com.example.android.bookclublatest.Base.BaseActivity;
 import com.example.android.bookclublatest.R;
 import com.google.firebase.auth.FirebaseAuth;
