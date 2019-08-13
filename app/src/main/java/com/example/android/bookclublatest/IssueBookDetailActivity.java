@@ -15,7 +15,6 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.android.bookclublatest.Authentication.Verification.VerificationActivity;
 import com.example.android.bookclublatest.HomePage.HomePageActivity;
 import com.example.android.bookclublatest.SharedPref.SharedPref;
 import com.google.android.gms.tasks.OnCompleteListener;
