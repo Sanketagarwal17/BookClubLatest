@@ -32,6 +32,7 @@ import com.example.android.bookclublatest.Member.MemberActivity;
 import com.example.android.bookclublatest.Penalty.PenaltyActivity;
 import com.example.android.bookclublatest.Profile.ProfileActivity;
 import com.example.android.bookclublatest.R;
+import com.example.android.bookclublatest.RemoveBookActivity;
 import com.example.android.bookclublatest.RequestForMember.RequestForMemberActivity;
 import com.example.android.bookclublatest.SharedPref.SharedPref;
 import com.google.firebase.auth.FirebaseAuth;
@@ -235,6 +236,8 @@ public class HomePageActivity extends AppCompatActivity
             startActivity(new Intent(HomePageActivity.this,RequestsForMember.class));
         else if(id == R.id.nav_admin_faq)
             startActivity(new Intent(HomePageActivity.this, AddFaqActivity.class));
+        else if(id==R.id.nav_admin_remove_books)
+            startActivity(new Intent(HomePageActivity.this, RemoveBookActivity.class));
 
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);

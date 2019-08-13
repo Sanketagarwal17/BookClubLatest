@@ -11,11 +11,15 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="AllowBackup,GoogleAppIndexingWarning">
+        <activity android:name=".RemoveBookActivity"
+            android:screenOrientation="portrait"
+            ></activity>
         <activity
             android:name="com.journeyapps.barcodescanner.CaptureActivity"
             android:screenOrientation="portrait"
             tools:replace="android:screenOrientation"
             android:stateNotNeeded="true"/>
+
         <activity
             android:name=".Faq.AddFaqActivity"
             android:screenOrientation="portrait"
