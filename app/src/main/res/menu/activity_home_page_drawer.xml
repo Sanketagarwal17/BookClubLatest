@@ -72,7 +72,8 @@
         </menu>
     </item>
 
-    <item android:title="admin">
+
+    <item android:title="Admin">
         <menu>
             <item
                 android:id="@+id/nav_admin_make_member"

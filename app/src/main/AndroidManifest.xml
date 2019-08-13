@@ -44,9 +44,6 @@
             android:name=".Authentication.SignUp.SignUpActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".Authentication.Verification.VerificationActivity"
-            android:screenOrientation="portrait" />
-        <activity
             android:name=".HomePage.RequestBook.RequestActivity"
             android:screenOrientation="portrait" />
         <activity
@@ -86,9 +83,7 @@
             android:name=".Authentication.ChangePassword.ChangePasswordActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.Dialog" />
-        <activity
-            android:name=".Authentication.Verification.OtpActivity"
-            android:screenOrientation="portrait" />
+
         <activity
             android:name=".Admin.RequestsForMember.AdminActivity.AdminActivity"
             android:screenOrientation="portrait" />
