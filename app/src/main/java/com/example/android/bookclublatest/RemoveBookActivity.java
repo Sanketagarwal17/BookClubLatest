@@ -6,6 +6,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.Spinner;
 
@@ -27,6 +28,10 @@ public class RemoveBookActivity extends AppCompatActivity {
     EditText ism;
     @BindView(R.id.btn_remove)
     Button remove;
+    @BindView(R.id.hardcopy)
+    CheckBox hard;
+    @BindView(R.id.softcopy)
+    CheckBox soft;
 //    @BindView(R.id.spinner)
 //    Spinner spinner;
     String xisbn,xism;
@@ -48,8 +53,17 @@ public class RemoveBookActivity extends AppCompatActivity {
                 xisbn=isbn.getText().toString().trim();
                 xism=ism.getText().toString().trim();
 
-              databaseReference.child(xisbn).child("Hard Copy").child(xism).removeValue();
-              databaseReference.child(xisbn).child("Soft Copy").child(xism).removeValue();
+                if(hard.isChecked())
+                {
+
+                    databaseReference.child(xisbn).child("Hard Copy").child(xism).removeValue();
+                }
+    if (soft.isChecked())
+    {
+        databaseReference.child(xisbn).child("Soft Copy").child(xism).removeValue();
+    }
+
+
                 Intent i=new Intent(getApplicationContext(), HomePageActivity.class);
                 finish();
                 startActivity(i);

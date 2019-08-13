@@ -69,12 +69,12 @@
 
         <EditText
             android:id="@+id/edt_txt_ism"
-            android:layout_width="match_parent"
+            android:layout_width="411dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
             android:layout_marginTop="8dp"
             android:layout_marginEnd="8dp"
-            android:layout_marginBottom="516dp"
+            android:layout_marginBottom="8dp"
             android:background="@android:color/transparent"
             android:ems="10"
             android:fontFamily="@font/roboto_regular"
@@ -84,10 +84,30 @@
             android:theme="@style/EditTextTheme" />
     </android.support.design.widget.TextInputLayout>
 
-    <!--<android.support.v7.widget.AppCompatSpinner-->
-        <!--android:layout_width="match_parent"-->
-        <!--android:layout_height="wrap_content"-->
-        <!--android:id="@+id/spinner"/>-->
+    <android.support.v7.widget.AppCompatCheckBox
+        android:id="@+id/hardcopy"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="28dp"
+        android:text="Hard Copy"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textInputLayoutremove2" />
+
+
+    <android.support.v7.widget.AppCompatCheckBox
+        android:id="@+id/softcopy"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="8dp"
+        android:text="Soft Copy"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/hardcopy" />
 
     <Button
         android:id="@+id/btn_remove"

@@ -12,7 +12,7 @@
         android:theme="@style/AppTheme"
         tools:ignore="AllowBackup,GoogleAppIndexingWarning">
         <activity android:name=".RemoveBookActivity"
-            android:theme="@style/AppTheme.Dialog"></activity>
+            ></activity>
         <activity
             android:name=".Faq.AddFaqActivity"
             android:screenOrientation="portrait"
