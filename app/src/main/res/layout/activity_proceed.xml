@@ -1,257 +1,421 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical">
+    android:orientation="vertical"
 
+    android:id="@+id/linearLayout">
 
-        <TextView
-            android:id="@+id/proceed_scan"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textColor="@android:color/black"
-            android:text="Click to Scan The Unique Code"
-            android:textSize="15sp"
-            android:padding="6dp"
-            android:background="@android:color/darker_gray"
-            android:gravity="center"/>
-        <TextView
-            android:id="@+id/proceed_code"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textSize="15sp"
-            android:padding="6dp"/>
+    <TextView
+        android:id="@+id/proceed_date"
+        android:layout_width="142dp"
+        android:layout_height="20dp"
+        android:hint="Date"
+        app:layout_constraintEnd_toStartOf="@+id/proceed_date_image"
+        app:layout_constraintTop_toBottomOf="@+id/textView32" />
+
+    <ImageView
+        android:id="@+id/proceed_date_image"
+        android:layout_width="23dp"
+        android:layout_height="20dp"
+        android:layout_marginEnd="36dp"
+        android:background="@drawable/cl"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView32" />
+
+    <ImageView
+        android:id="@+id/return_home"
+        android:layout_width="415dp"
+        android:layout_height="?attr/actionBarSize"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:background="@drawable/group5"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.4"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <View
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:background="@android:color/darker_gray"/>
+        android:layout_width="fill_parent"
+        android:layout_height="2dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="36dp"
+        android:background="#BEBEBE"
+        app:layout_constraintBottom_toTopOf="@+id/textView31"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/book_img"
+        app:layout_constraintVertical_bias="1.0"
+        tools:layout_conversion_absoluteHeight="0.5dp"
+        tools:layout_conversion_absoluteWidth="411dp" />
+
 
     <TextView
-        android:layout_width="match_parent"
+        android:id="@+id/textView5"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textColor="@android:color/black"
-        android:text="Select Return Date"
-        android:textSize="15sp"
-        android:padding="6dp"
-        android:background="@android:color/darker_gray"
-        android:gravity="center"/>
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="4dp"
+        android:layout_marginEnd="2dp"
+        android:fontFamily="@font/roboto_regular"
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
+        android:text="ISSUE DETAILS"
+        android:textColor="#fff"
+        android:textSize="25sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.486"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:layout_conversion_absoluteHeight="34dp"
+        tools:layout_conversion_absoluteWidth="171dp" />
 
-        <TextView
-            android:layout_width="0dp"
-            android:layout_weight="1"
-            android:layout_height="35dp"
-            android:text="Return Date"
-            android:textSize="20sp"
-            android:layout_gravity="center"
-            android:textColor="@android:color/black"
-            android:padding="2dp"/>
-
-        <TextView
-            android:layout_width="0dp"
-            android:layout_height="35dp"
-            android:layout_weight="1"
-            android:text="Select Date"
-            android:textSize="20sp"
-            android:layout_gravity="center"
-            android:textColor="@color/colorAccent"
-            android:padding="2dp"
-            android:id="@+id/proceed_date"/>
-
-        <ImageView
-            android:layout_width="0dp"
-            android:layout_weight="0.5"
-            android:layout_gravity="center_horizontal"
-            android:layout_height="35sp"
-            android:src="@drawable/ic_date_range_black_24dp"
-            android:id="@+id/proceed_date_image"/>
-    </LinearLayout>
+    <Button
+        android:id="@+id/imageView3"
+        android:layout_width="45dp"
+        android:layout_height="39dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="2dp"
+        android:layout_marginEnd="320dp"
+        android:layout_marginBottom="8dp"
+        android:background="@drawable/ic_home_black_24dp"
+        android:padding="10dp"
+        app:layout_constraintBottom_toTopOf="@+id/book_img"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/return_home"
+        app:layout_constraintVertical_bias="0.0"
+        tools:layout_conversion_absoluteHeight="50dp"
+        tools:layout_conversion_absoluteWidth="40dp" />
 
     <TextView
-        android:layout_width="match_parent"
+        android:id="@+id/textView32"
+        android:layout_width="166dp"
+        android:layout_height="30dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:background="#216583"
+        android:text="     Select Return Date"
+        android:textColor="#FFFFFF"
+        android:textSize="15dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.617"
+        app:layout_constraintStart_toEndOf="@+id/book_img"
+        app:layout_constraintTop_toBottomOf="@+id/proceed_scan" />
+
+
+    <ImageView
+        android:id="@+id/proceed_scan"
+        android:layout_width="166dp"
+        android:layout_height="40dp"
+
+        android:layout_marginStart="52dp"
+
+        android:layout_marginTop="56dp"
+        android:layout_marginEnd="8dp"
+        android:background="@drawable/grp"
+        android:scaleType="fitStart"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/book_img"
+        app:layout_constraintTop_toBottomOf="@+id/textView5"
+        tools:layout_conversion_absoluteHeight="40dp"
+        tools:layout_conversion_absoluteWidth="123dp" />
+
+    <ImageView
+        android:id="@+id/book_img"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="92dp"
+        android:layout_marginEnd="8dp"
+        android:background="@drawable/bk"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.028"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:layout_conversion_absoluteHeight="200dp"
+        tools:layout_conversion_absoluteWidth="150dp" />
+
+
+    <TextView
+        android:id="@+id/textView38"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="8dp"
+        android:fontFamily="@font/quicksand_bold"
+        android:padding="2dp"
+        android:text="Book Name"
         android:textColor="@android:color/black"
-        android:text="Confirm Before Proceed"
         android:textSize="15sp"
-        android:padding="6dp"
-        android:background="@android:color/darker_gray"
-        android:gravity="center"/>
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.823"
+        app:layout_constraintStart_toEndOf="@+id/book_img"
+        app:layout_constraintTop_toBottomOf="@+id/proceed_date"
+        tools:layout_conversion_absoluteHeight="25dp"
+        tools:layout_conversion_absoluteWidth="100dp" />
 
-    <LinearLayout
-        android:layout_width="match_parent"
+    <TextView
+        android:id="@+id/confirm_name"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:orientation="horizontal">
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="12dp"
+        android:layout_marginEnd="8dp"
+        android:fontFamily="@font/quicksand_bold"
+        android:padding="2dp"
+        android:text="Return"
+        android:textColor="@android:color/darker_gray"
+        android:textSize="30sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.962"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView38"
+        tools:layout_conversion_absoluteHeight="42dp"
+        tools:layout_conversion_absoluteWidth="143dp" />
 
-        <TextView
-            android:layout_width="0dp"
-            android:layout_weight="1"
-            android:layout_height="wrap_content"
-            android:text="Email"
-            android:textSize="15sp"
-            android:layout_gravity="center"
-            android:textColor="@android:color/black"
-            android:padding="2dp"/>
 
-        <TextView
-            android:id="@+id/confirm_email"
-            android:layout_width="0dp"
-            android:layout_weight="3"
-            android:layout_height="wrap_content"
-            android:text="Return"
-            android:textSize="15sp"
-            android:layout_gravity="center"
-            android:textColor="@android:color/darker_gray"
-            android:padding="2dp"/>
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
+    <TextView
+        android:id="@+id/textView31"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:orientation="horizontal">
+        android:layout_marginStart="8dp"
+        android:fontFamily="@font/quicksand_bold"
+        android:padding="2dp"
+        android:text="Email"
+        android:textColor="@android:color/black"
+        android:textSize="15sp"
+        app:layout_constraintBottom_toTopOf="@+id/textView41"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:layout_conversion_absoluteHeight="25dp"
+        tools:layout_conversion_absoluteWidth="103dp" />
 
-        <TextView
-            android:layout_width="0dp"
-            android:layout_weight="1"
-            android:layout_height="wrap_content"
-            android:text="Book Name"
-            android:textSize="15sp"
-            android:layout_gravity="center"
-            android:textColor="@android:color/black"
-            android:padding="2dp"/>
-
-        <TextView
-            android:id="@+id/confirm_name"
-            android:layout_width="0dp"
-            android:layout_weight="3"
-            android:layout_height="wrap_content"
-            android:text="Return"
-            android:textSize="15sp"
-            android:layout_gravity="center"
-            android:textColor="@android:color/darker_gray"
-            android:padding="2dp"/>
-    </LinearLayout>
-    <LinearLayout
-        android:layout_width="match_parent"
+    <TextView
+        android:id="@+id/confirm_email"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:orientation="horizontal">
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:fontFamily="@font/quicksand_bold"
+        android:padding="2dp"
+        android:text="Return"
+        android:textColor="@android:color/darker_gray"
+        android:textSize="15sp"
+        app:layout_constraintBottom_toTopOf="@+id/confirm_issue"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.199"
+        app:layout_constraintStart_toEndOf="@+id/textView31"
+        tools:layout_conversion_absoluteHeight="25dp"
+        tools:layout_conversion_absoluteWidth="309dp" />
 
-        <TextView
-            android:layout_width="0dp"
-            android:layout_weight="1"
-            android:layout_height="wrap_content"
-            android:text="Issue Date"
-            android:textSize="15sp"
-            android:layout_gravity="center"
-            android:textColor="@android:color/black"
-            android:padding="2dp"/>
 
-        <TextView
-            android:id="@+id/confirm_issue"
-            android:layout_width="0dp"
-            android:layout_weight="3"
-            android:layout_height="wrap_content"
-            android:text="Issue Date"
-            android:textSize="15sp"
-            android:layout_gravity="center"
-            android:textColor="@android:color/darker_gray"
-            android:padding="2dp"/>
-    </LinearLayout>
-    <LinearLayout
-        android:layout_width="match_parent"
+    <TextView
+        android:id="@+id/textView41"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:orientation="horizontal">
+        android:layout_marginStart="8dp"
+        android:padding="2dp"
+        android:text="Issue Date"
+        android:fontFamily="@font/quicksand_bold"
+        android:textColor="@android:color/black"
+        android:textSize="15sp"
+        app:layout_constraintBottom_toTopOf="@+id/textView40"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:layout_conversion_absoluteHeight="24dp"
+        tools:layout_conversion_absoluteWidth="103dp" />
 
-        <TextView
-            android:layout_width="0dp"
-            android:layout_weight="1"
-            android:layout_height="wrap_content"
-            android:text="Return Date"
-            android:textSize="15sp"
-            android:layout_gravity="center"
-            android:textColor="@android:color/black"
-            android:padding="2dp"/>
-
-        <TextView
-            android:id="@+id/confirm_return"
-            android:layout_width="0dp"
-            android:layout_weight="3"
-            android:layout_height="wrap_content"
-            android:text="Return"
-            android:textSize="15sp"
-            android:layout_gravity="center"
-            android:textColor="@android:color/darker_gray"
-            android:padding="2dp"/>
-    </LinearLayout>
-    <LinearLayout
-        android:layout_width="match_parent"
+    <TextView
+        android:id="@+id/confirm_issue"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:orientation="horizontal">
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
 
-        <TextView
-            android:layout_width="0dp"
-            android:layout_weight="1"
-            android:layout_height="wrap_content"
-            android:text="ISBN"
-            android:textSize="15sp"
-            android:layout_gravity="center"
-            android:textColor="@android:color/black"
-            android:padding="2dp"/>
+        android:fontFamily="@font/quicksand_bold"
+        android:padding="2dp"
+        android:text="Issue Date"
+        android:textColor="@android:color/darker_gray"
+        android:textSize="15sp"
+        app:layout_constraintBottom_toTopOf="@+id/confirm_return"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.096"
+        app:layout_constraintStart_toEndOf="@+id/textView41"
+        tools:layout_conversion_absoluteHeight="25dp"
+        tools:layout_conversion_absoluteWidth="309dp" />
 
-        <TextView
-            android:id="@+id/confirm_isbn"
-            android:layout_width="0dp"
-            android:layout_weight="3"
-            android:layout_height="wrap_content"
-            android:text="Return"
-            android:textSize="15sp"
-            android:layout_gravity="center"
-            android:textColor="@android:color/darker_gray"
-            android:padding="2dp"/>
-    </LinearLayout>
-    <LinearLayout
-        android:layout_width="match_parent"
+
+    <TextView
+        android:id="@+id/textView40"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:orientation="horizontal">
+        android:layout_marginStart="8dp"
+        android:padding="2dp"
+        android:text="Return Date"
+        android:textColor="@android:color/black"
+        android:fontFamily="@font/quicksand_bold"
+        android:textSize="15sp"
+        app:layout_constraintBottom_toTopOf="@+id/textView39"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:layout_conversion_absoluteHeight="24dp"
+        tools:layout_conversion_absoluteWidth="103dp" />
 
-        <TextView
-            android:layout_width="0dp"
-            android:layout_weight="1"
-            android:layout_height="wrap_content"
-            android:text="Unique Code"
-            android:textSize="15sp"
-            android:layout_gravity="center"
-            android:textColor="@android:color/black"
-            android:padding="2dp"/>
+    <TextView
+        android:id="@+id/confirm_return"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:fontFamily="@font/quicksand_bold"
+        android:padding="2dp"
+        android:text="Return"
+        android:textColor="@android:color/darker_gray"
+        android:textSize="15sp"
+        app:layout_constraintBottom_toTopOf="@+id/confirm_isbn"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.037"
+        app:layout_constraintStart_toEndOf="@+id/textView40"
+        tools:layout_conversion_absoluteHeight="25dp"
+        tools:layout_conversion_absoluteWidth="309dp" />
 
-        <TextView
-            android:id="@+id/confirm_ism"
-            android:layout_width="0dp"
-            android:layout_weight="3"
-            android:layout_height="wrap_content"
-            android:text="Return"
-            android:textSize="15sp"
-            android:layout_gravity="center"
-            android:textColor="@android:color/darker_gray"
-            android:padding="2dp"/>
-    </LinearLayout>
+
+    <TextView
+        android:id="@+id/textView39"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:padding="2dp"
+        android:text="ISBN"
+        android:fontFamily="@font/quicksand_bold"
+        android:textColor="@android:color/black"
+        android:textSize="15sp"
+        app:layout_constraintBottom_toTopOf="@+id/textView37"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:layout_conversion_absoluteHeight="24dp"
+        tools:layout_conversion_absoluteWidth="103dp" />
+
+    <TextView
+        android:id="@+id/confirm_isbn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:fontFamily="@font/quicksand_bold"
+        android:padding="2dp"
+        android:text="Return"
+        android:textColor="@android:color/darker_gray"
+        android:textSize="15sp"
+        app:layout_constraintBottom_toTopOf="@+id/confirm_ism"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.212"
+        app:layout_constraintStart_toEndOf="@+id/textView39"
+        tools:layout_conversion_absoluteHeight="25dp"
+        tools:layout_conversion_absoluteWidth="309dp" />
+
+
+    <TextView
+        android:id="@+id/textView37"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:padding="2dp"
+        android:fontFamily="@font/quicksand_bold"
+        android:text="Unique Code"
+        android:textColor="@android:color/black"
+        android:textSize="15sp"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:layout_conversion_absoluteHeight="24dp"
+        tools:layout_conversion_absoluteWidth="103dp"
+        tools:layout_editor_absoluteY="461dp" />
+
+    <TextView
+        android:id="@+id/confirm_ism"
+        android:layout_width="54dp"
+        android:layout_height="24dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:fontFamily="@font/quicksand_bold"
+        android:padding="2dp"
+        android:text="Return"
+        android:textColor="@android:color/darker_gray"
+        android:textSize="15sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.028"
+        app:layout_constraintStart_toEndOf="@+id/textView37"
+        tools:layout_conversion_absoluteHeight="25dp"
+        tools:layout_conversion_absoluteWidth="309dp"
+        tools:layout_editor_absoluteY="461dp" />
+
+    <View
+        android:layout_width="389dp"
+        android:layout_height="2dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
+        android:background="#BEBEBE"
+        app:layout_constraintBottom_toTopOf="@+id/proceed_checkbox"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView37"
+        app:layout_constraintVertical_bias="0.675"
+        tools:layout_conversion_absoluteHeight="0.5dp"
+        tools:layout_conversion_absoluteWidth="411dp" />
 
     <CheckBox
         android:id="@+id/proceed_checkbox"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Hard Cover ?"/>
+
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:fontFamily="@font/roboto_regular"
+        android:text="Hard Cover ?"
+        app:layout_constraintBottom_toTopOf="@+id/confirm_checkbox"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:layout_conversion_absoluteHeight="32dp"
+        tools:layout_conversion_absoluteWidth="411dp" />
+
+    <CheckBox
+        android:id="@+id/confirm_checkbox"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="32dp"
+        android:fontFamily="@font/roboto_regular"
+        android:text="Confirm before proceed"
+        app:layout_constraintBottom_toTopOf="@+id/proceed_issue"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:layout_conversion_absoluteHeight="32dp"
+        tools:layout_conversion_absoluteWidth="411dp" />
 
     <Button
         android:id="@+id/proceed_issue"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="ISSUE"
-        android:layout_gravity="center_horizontal"
-        android:layout_marginTop="50dp"/>
+        android:layout_width="419dp"
+        android:layout_height="46dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:background="#F76262"
+        android:text="APPROVE"
+        android:textColor="@android:color/white"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.333"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:layout_conversion_absoluteHeight="48dp"
+        tools:layout_conversion_absoluteWidth="411dp" />
 
-</LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
+
