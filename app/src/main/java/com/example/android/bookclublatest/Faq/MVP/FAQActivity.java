@@ -109,13 +109,10 @@ public class FAQActivity extends AppCompatActivity {
                 adapter = new FAQAdapter(arrayList, getApplicationContext());
                 recyclerView.setAdapter(adapter);
             }
-
             @Override
             public void onCancelled(@NonNull DatabaseError databaseError) {
 
             }
         });
-
-
     }
 }
