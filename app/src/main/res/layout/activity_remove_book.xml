@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".RemoveBookActivity">
+
+    <include layout="@layout/toolbar_return"
+        android:id="@+id/toolbar"/>
+
+    <android.support.design.widget.TextInputLayout
+        android:id="@+id/textInputLayoutremove1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="8dp"
+        android:background="@drawable/ic_rectangle31"
+        android:layout_marginStart="8dp"
+        app:hintTextAppearance="@style/TextAppearance.App.TextInputLayout"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="8dp"
+        android:paddingHorizontal="16dp"
+        app:boxBackgroundColor="#293462"
+        app:boxStrokeColor="#293462"
+        app:layout_constraintBottom_toTopOf="@+id/textInputLayoutfaq2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/toolbar"
+        app:layout_constraintVertical_bias="0.231">
+
+        <EditText
+            android:id="@+id/edt_txt_isbn"
+            android:layout_width="411dp"
+            android:layout_height="wrap_content"
+            android:theme="@style/EditTextTheme"
+            android:background="@android:color/transparent"
+            android:ems="10"
+            android:fontFamily="@font/roboto_regular"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginBottom="8dp"
+            android:layout_marginStart="8dp"
+            android:inputType="textLongMessage"
+            android:hint="Enter ISBN"
+            android:textColor="#216583"
+            />
+    </android.support.design.widget.TextInputLayout>
+
+
+    <android.support.design.widget.TextInputLayout
+        android:id="@+id/textInputLayoutremove2"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="8dp"
+        android:background="@drawable/ic_rectangle31"
+        android:paddingHorizontal="16dp"
+        android:paddingTop="8dp"
+        app:boxBackgroundColor="#293462"
+        app:boxStrokeColor="#293462"
+        app:hintTextAppearance="@style/TextAppearance.App.TextInputLayout"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+
+        app:layout_constraintTop_toBottomOf="@+id/textInputLayoutremove1">
+
+        <EditText
+            android:id="@+id/edt_txt_ism"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginBottom="516dp"
+            android:background="@android:color/transparent"
+            android:ems="10"
+            android:fontFamily="@font/roboto_regular"
+            android:hint="Enter ISM"
+            android:inputType="textPassword"
+            android:textColor="#216583"
+            android:theme="@style/EditTextTheme" />
+    </android.support.design.widget.TextInputLayout>
+
+    <!--<android.support.v7.widget.AppCompatSpinner-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:id="@+id/spinner"/>-->
+
+    <Button
+        android:id="@+id/btn_remove"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="24dp"
+        android:layout_marginBottom="24dp"
+        android:background="@drawable/button_bg"
+        android:fontFamily="@font/roboto_regular"
+        android:padding="0dp"
+        android:paddingStart="10dp"
+        android:paddingEnd="10dp"
+        android:text="REMOVE"
+        android:textColor="#FFF"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textInputLayoutfaq2"
+        app:layout_constraintVertical_bias="0.977" />
+
+</android.support.constraint.ConstraintLayout>

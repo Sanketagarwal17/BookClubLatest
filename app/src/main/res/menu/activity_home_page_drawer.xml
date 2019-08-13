@@ -82,6 +82,9 @@
                 android:id="@+id/nav_admin_faq"
                 android:icon="@drawable/ic_question_answer_black_24dp"
                 android:title="Create Faq's"/>
+            <item
+                android:id="@+id/nav_admin_remove_books"
+                android:title="Remove Books" />
         </menu>
     </item>
 
