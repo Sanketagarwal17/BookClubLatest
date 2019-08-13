@@ -4,8 +4,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
-import android.util.Log;
 import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -23,11 +21,10 @@ import com.example.android.bookclublatest.Admin.RequestsForMember.RequestsForMem
 import com.example.android.bookclublatest.Authentication.ChangePassword.ChangePasswordActivity;
 import com.example.android.bookclublatest.Authentication.Login.LoginActivity;
 import com.example.android.bookclublatest.Authentication.SignUp.SignUpModel;
-import com.example.android.bookclublatest.Authentication.Verification.VerificationActivity;
 import com.example.android.bookclublatest.ContactUs.ContactUsActivity;
 import com.example.android.bookclublatest.Developers.DevelopersActivity;
+import com.example.android.bookclublatest.Faq.AddFaqActivity;
 import com.example.android.bookclublatest.Faq.MVP.FAQActivity;
-import com.example.android.bookclublatest.HomePage.History.HistoryActivity;
 import com.example.android.bookclublatest.HomePage.RequestBook.RequestActivity;
 import com.example.android.bookclublatest.HomePage.Return.ReturnActivity;
 import com.example.android.bookclublatest.IssueBook;
@@ -63,7 +60,7 @@ public class HomePageActivity extends AppCompatActivity
     @BindView(R.id.returnbook)
     Button returnbook;
 
-    @BindView(R.id.banner_slider1)
+    @BindView(R.id.banner_slider)
     Slider banner_slider;
 
     SharedPref sharedPref;
@@ -177,10 +174,7 @@ public class HomePageActivity extends AppCompatActivity
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
-        if (id == R.id.action_verify)
-        {
-            startActivity(new Intent(this, VerificationActivity.class));
-        }
+
         if(id==R.id.action_logout)
         {
             firebaseAuth=FirebaseAuth.getInstance();
@@ -239,6 +233,9 @@ public class HomePageActivity extends AppCompatActivity
         }
         else if(id == R.id.nav_admin_make_member)
             startActivity(new Intent(HomePageActivity.this,RequestsForMember.class));
+        else if(id == R.id.nav_admin_faq)
+            startActivity(new Intent(HomePageActivity.this, AddFaqActivity.class));
+
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
