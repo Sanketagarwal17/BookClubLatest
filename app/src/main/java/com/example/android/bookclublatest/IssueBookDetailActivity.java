@@ -15,7 +15,6 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.android.bookclublatest.Authentication.Verification.VerificationActivity;
 import com.example.android.bookclublatest.HomePage.HomePageActivity;
 import com.example.android.bookclublatest.SharedPref.SharedPref;
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -103,7 +102,6 @@ public class IssueBookDetailActivity extends AppCompatActivity {
                         public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                             for(DataSnapshot dataSnapshot1 : dataSnapshot.getChildren())
                             {
-                                Log.d(TAG, "onDataChange: " + dataSnapshot1.child("Client Gmail").getValue());
                                 if(dataSnapshot1.getKey().equals(isbn) )
                                 {
                                     IssueBookDetailActivity.this.setSend(0);
@@ -125,6 +123,10 @@ public class IssueBookDetailActivity extends AppCompatActivity {
                                 .child("Name").setValue(book);
                         FirebaseDatabase.getInstance().getReference().child("Issue Requests").child(email).child(ism)
                                 .child("Timestamp").setValue(Calendar.getInstance().getTimeInMillis());
+                        FirebaseDatabase.getInstance().getReference().child("Issue Requests").child(email).child(ism)
+                                .child("ISBN").setValue(isbn);
+                        FirebaseDatabase.getInstance().getReference().child("Issue Requests").child(email).child(ism)
+                                .child("ISM").setValue(ism);
 
                         Toast.makeText(IssueBookDetailActivity.this, book + "requested for you", Toast.LENGTH_SHORT).show();
                     }

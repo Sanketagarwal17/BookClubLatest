@@ -64,6 +64,25 @@
                 android:icon="@drawable/ic_menu_share"
                 android:title="For Members Only" />
 
+            <item
+                android:id="@+id/nav_admin_page"
+                android:icon="@drawable/ic_menu_share"
+                android:title="For Admin Only" />
+
+        </menu>
+    </item>
+
+
+    <item android:title="Admin">
+        <menu>
+            <item
+                android:id="@+id/nav_admin_make_member"
+                android:icon="@drawable/ic_card_membership_black_24dp"
+                android:title="Approve membership" />
+            <item
+                android:id="@+id/nav_admin_faq"
+                android:icon="@drawable/ic_question_answer_black_24dp"
+                android:title="Create Faq's"/>
         </menu>
     </item>
 

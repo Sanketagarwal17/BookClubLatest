@@ -14,13 +14,14 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.Toast;
 
 import com.example.android.bookclublatest.Authentication.Login.LoginActivity;
-import com.example.android.bookclublatest.Authentication.Verification.VerificationActivity;
 import com.example.android.bookclublatest.Base.BaseActivity;
 import com.example.android.bookclublatest.R;
 import com.google.firebase.auth.FirebaseAuth;
@@ -49,6 +50,10 @@ public class AddBookActivity extends BaseActivity implements AddBookContract.Vie
     Button submit;
     @BindView(R.id.add_hard_soft)
     CheckBox checkBox;
+    @BindView(R.id.ism_added)
+    Button ismAddedBtn;
+    @BindView(R.id.isbn_added)
+    Button isbnAdded;
 
     private int check=0;
     private String mname,mauthor,mpublication,misbn,mism,mtags,mchecbox;
@@ -64,9 +69,12 @@ public class AddBookActivity extends BaseActivity implements AddBookContract.Vie
         presenter=new AddBookPresenter<>();
         presenter.onAttach(this);
         intentIntegrator=new IntentIntegrator(this);
+       // intentIntegrator.setCaptureActivity(CaptureActivityPortrait.class);
         ISBN.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                //Animation sgAnimation = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.anim);
+                //ISBN.startAnimation(sgAnimation);
                 check=1;
                 intentIntegrator.initiateScan();
             }
@@ -116,11 +124,13 @@ public class AddBookActivity extends BaseActivity implements AddBookContract.Vie
             {
                 if(check==1)
                 {
+                    isbnAdded.setVisibility(View.VISIBLE);
                     ISBN.setText(result.getContents());
                     misbn=result.getContents();
                 }
                 if(check==2)
                 {
+                    ismAddedBtn.setVisibility(View.VISIBLE);
                     ISM.setText(result.getContents());
                     mism=result.getContents();
                 }

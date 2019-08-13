@@ -58,12 +58,12 @@
                 android:layout_width="0dp"
                 android:layout_height="36dp"
                 android:layout_marginStart="21dp"
-                android:layout_marginTop="10dp"
                 android:layout_marginEnd="192dp"
                 android:text="TextView"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/browse_bookauthor" />
+                app:layout_constraintTop_toBottomOf="@+id/browse_bookauthor"
+                cardview:layout_constraintHorizontal_bias="1.0" />
 
             <TextView
                 android:id="@+id/browse_bookhard"
