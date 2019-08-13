@@ -11,7 +11,15 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="AllowBackup,GoogleAppIndexingWarning">
-        <activity android:name=".Faq.AddFaqActivity"></activity>
+        <activity
+            android:name="com.journeyapps.barcodescanner.CaptureActivity"
+            android:screenOrientation="portrait"
+            tools:replace="android:screenOrientation"
+            android:stateNotNeeded="true"/>
+        <activity
+            android:name=".Faq.AddFaqActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.Dialog"></activity>
         <activity
             android:name=".IssueBookDetailActivity"
             android:screenOrientation="portrait" />
@@ -21,8 +29,7 @@
         <activity
             android:name=".Splash.SplashActivity"
             android:label="@string/app_name"
-            android:screenOrientation="portrait"
-            android:theme="@style/AppTheme.NoActionBar">
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -37,9 +44,6 @@
             android:screenOrientation="portrait" />
         <activity
             android:name=".Authentication.SignUp.SignUpActivity"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name=".Authentication.Verification.VerificationActivity"
             android:screenOrientation="portrait" />
         <activity
             android:name=".HomePage.RequestBook.RequestActivity"
@@ -81,9 +85,6 @@
             android:name=".Authentication.ChangePassword.ChangePasswordActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.Dialog" />
-        <activity
-            android:name=".Authentication.Verification.OtpActivity"
-            android:screenOrientation="portrait" />
         <activity
             android:name=".Admin.RequestsForMember.AdminActivity.AdminActivity"
             android:screenOrientation="portrait" />

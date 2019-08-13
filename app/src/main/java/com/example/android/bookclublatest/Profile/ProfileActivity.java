@@ -12,7 +12,6 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.android.bookclublatest.Authentication.Verification.VerificationActivity;
 import com.example.android.bookclublatest.Base.BaseActivity;
 import com.example.android.bookclublatest.HomePage.History.HistoryActivity;
 import com.example.android.bookclublatest.HomePage.History.HistoryAdapter;
@@ -88,7 +87,7 @@ public class ProfileActivity extends BaseActivity implements ProfileContract.Vie
             url=sharedPref.getImageUrl();
 
         Picasso.get().load(url).into(circularImageView);
-
+/*
         verify.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -97,7 +96,7 @@ public class ProfileActivity extends BaseActivity implements ProfileContract.Vie
                 else
                     startActivity(new Intent(ProfileActivity.this, VerificationActivity.class));
             }
-        });
+        });*/
 
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));

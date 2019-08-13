@@ -191,6 +191,10 @@ public class ProceedActivity extends AppCompatActivity implements DatePickerDial
         DatabaseReference databaseReference=firebaseDatabase.getReference("Issue Requests");
         databaseReference.child(email).child(ism).child("Status").setValue("Issued");
 
+
+
+
+
         //Create Issue History
         FirebaseDatabase database=FirebaseDatabase.getInstance();
         DatabaseReference reference=database.getReference("Issue History");
