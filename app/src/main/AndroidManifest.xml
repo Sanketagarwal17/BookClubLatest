@@ -11,11 +11,15 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="AllowBackup,GoogleAppIndexingWarning">
-        <activity android:name=".Faq.AddFaqActivity"
-            android:theme="@style/AppTheme.Dialog"
-            android:screenOrientation="portrait">
-
-        </activity>
+        <activity
+            android:name="com.journeyapps.barcodescanner.CaptureActivity"
+            android:screenOrientation="portrait"
+            tools:replace="android:screenOrientation"
+            android:stateNotNeeded="true"/>
+        <activity
+            android:name=".Faq.AddFaqActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.Dialog"></activity>
         <activity
             android:name=".IssueBookDetailActivity"
             android:screenOrientation="portrait" />
@@ -82,7 +86,6 @@
             android:name=".Authentication.ChangePassword.ChangePasswordActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.Dialog" />
-
         <activity
             android:name=".Admin.RequestsForMember.AdminActivity.AdminActivity"
             android:screenOrientation="portrait" />
