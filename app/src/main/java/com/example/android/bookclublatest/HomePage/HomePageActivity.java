@@ -24,6 +24,7 @@ import com.example.android.bookclublatest.Authentication.SignUp.SignUpModel;
 import com.example.android.bookclublatest.Authentication.Verification.VerificationActivity;
 import com.example.android.bookclublatest.ContactUs.ContactUsActivity;
 import com.example.android.bookclublatest.Developers.DevelopersActivity;
+import com.example.android.bookclublatest.Faq.AddFaqActivity;
 import com.example.android.bookclublatest.Faq.MVP.FAQActivity;
 import com.example.android.bookclublatest.HomePage.RequestBook.RequestActivity;
 import com.example.android.bookclublatest.HomePage.Return.ReturnActivity;
@@ -236,6 +237,9 @@ public class HomePageActivity extends AppCompatActivity
         }
         else if(id == R.id.nav_admin_make_member)
             startActivity(new Intent(HomePageActivity.this,RequestsForMember.class));
+        else if(id == R.id.nav_admin_faq)
+            startActivity(new Intent(HomePageActivity.this, AddFaqActivity.class));
+
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;

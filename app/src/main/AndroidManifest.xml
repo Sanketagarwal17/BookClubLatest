@@ -11,7 +11,11 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="AllowBackup,GoogleAppIndexingWarning">
-        <activity android:name=".Faq.AddFaqActivity"></activity>
+        <activity android:name=".Faq.AddFaqActivity"
+            android:theme="@style/AppTheme.Dialog"
+            android:screenOrientation="portrait">
+
+        </activity>
         <activity
             android:name=".IssueBookDetailActivity"
             android:screenOrientation="portrait" />
