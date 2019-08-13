@@ -158,7 +158,6 @@ public class ProceedActivity extends AppCompatActivity implements DatePickerDial
 
                     }
                 }
-
             }
 
             @Override
@@ -197,11 +196,10 @@ public class ProceedActivity extends AppCompatActivity implements DatePickerDial
         DatabaseReference reference=database.getReference("Issue History");
 
         ProceedModel model=new ProceedModel(bookname,isbn,issue_date,return_date,"Not Returned",ism_code,"pending");
-        reference.child(email).child(isbn).setValue(model);
+        reference.child(email).child(ism).setValue(model);
 
         Toast.makeText(this, "Successfully Updated", Toast.LENGTH_SHORT).show();
 
-        //close this tab and go o list
         finish();
         startActivity(new Intent(this, ConfirmIssueActivity.class));
     }

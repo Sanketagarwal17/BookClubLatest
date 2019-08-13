@@ -9,6 +9,7 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.ProgressBar;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.android.bookclublatest.Member.ConfirmIssue.ConfirmProceed.ProceedActivity;
@@ -40,6 +41,8 @@ public class ConfirmIssueActivity extends AppCompatActivity implements ConfirmIs
 
     String email,name,isbn,ism,status,time;
 
+    TextView title;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -48,6 +51,9 @@ public class ConfirmIssueActivity extends AppCompatActivity implements ConfirmIs
 
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.setHasFixedSize(true);
+
+        title = (TextView) findViewById(R.id.textView26);
+        title.setText("ISSUE REQUESTS");
 
         databaseReference.addValueEventListener(new ValueEventListener() {
             @Override
