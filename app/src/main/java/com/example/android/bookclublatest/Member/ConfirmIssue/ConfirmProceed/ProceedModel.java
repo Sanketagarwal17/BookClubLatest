@@ -2,15 +2,24 @@ package com.example.android.bookclublatest.Member.ConfirmIssue.ConfirmProceed;
 
 public class ProceedModel
 {
-    String bookname,isbn,issue_date,return_date,status,ism;
+    String bookname,isbn,issue_date,return_date,status,ism,book_returned_on;
 
-    public ProceedModel(String bookname, String isbn, String issue_date, String return_date, String status, String ism) {
+    public ProceedModel(String bookname, String isbn, String issue_date, String return_date, String status, String ism, String book_returned_on) {
         this.bookname = bookname;
         this.isbn = isbn;
         this.issue_date = issue_date;
         this.return_date = return_date;
         this.status = status;
         this.ism = ism;
+        this.book_returned_on = book_returned_on;
+    }
+
+    public String getBook_returned_on() {
+        return book_returned_on;
+    }
+
+    public void setBook_returned_on(String book_returned_on) {
+        this.book_returned_on = book_returned_on;
     }
 
     public String getIsm() {
