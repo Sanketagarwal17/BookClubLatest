@@ -30,8 +30,13 @@
                 android:id="@+id/nav_requestmenmber"
                 android:title="Request For member" />
 
+
         </menu>
+
+
     </item>
+
+
 
 
     <item android:title="Book Club">
@@ -63,11 +68,6 @@
                 android:id="@+id/nav_member_page"
                 android:icon="@drawable/ic_menu_share"
                 android:title="For Members Only" />
-
-            <item
-                android:id="@+id/nav_admin_page"
-                android:icon="@drawable/ic_menu_share"
-                android:title="For Admin Only" />
 
         </menu>
     </item>

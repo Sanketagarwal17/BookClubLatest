@@ -28,11 +28,12 @@ public class AddFaqActivity extends AppCompatActivity implements View.OnClickLis
     EditText faq;
     @BindView(R.id.edt_txt_add_faq_answer)
      EditText answer;
-String mfaq,mans;
-@BindView(R.id.btn_add_faq)
-Button add;
-FirebaseDatabase firebaseDatabase;
-DatabaseReference databaseReference;
+    String mfaq,mans;
+    @BindView(R.id.btn_add_faq)
+    Button add;
+    FirebaseDatabase firebaseDatabase;
+    DatabaseReference databaseReference;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

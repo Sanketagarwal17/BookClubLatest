@@ -10,25 +10,25 @@
 
     <TextView
         android:id="@+id/proceed_date"
-        android:layout_width="142dp"
-        android:layout_height="20dp"
+        android:layout_width="127dp"
+        android:layout_height="23dp"
         android:hint="Date"
         app:layout_constraintEnd_toStartOf="@+id/proceed_date_image"
         app:layout_constraintTop_toBottomOf="@+id/textView32" />
 
     <ImageView
         android:id="@+id/proceed_date_image"
-        android:layout_width="23dp"
-        android:layout_height="20dp"
-        android:layout_marginEnd="36dp"
+        android:layout_width="27dp"
+        android:layout_height="23dp"
+        android:layout_marginEnd="24dp"
         android:background="@drawable/cl"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView32" />
 
     <ImageView
         android:id="@+id/return_home"
-        android:layout_width="415dp"
-        android:layout_height="?attr/actionBarSize"
+        android:layout_width="410dp"
+        android:layout_height="47dp"
         android:layout_marginStart="8dp"
         android:layout_marginEnd="8dp"
         android:background="@drawable/group5"
@@ -38,19 +38,17 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <View
+        android:id="@+id/view2"
         android:layout_width="fill_parent"
         android:layout_height="2dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="40dp"
         android:layout_marginEnd="8dp"
-        android:layout_marginBottom="36dp"
         android:background="#BEBEBE"
-        app:layout_constraintBottom_toTopOf="@+id/textView31"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/book_img"
-        app:layout_constraintVertical_bias="1.0"
         tools:layout_conversion_absoluteHeight="0.5dp"
         tools:layout_conversion_absoluteWidth="411dp" />
 
@@ -76,8 +74,8 @@
 
     <Button
         android:id="@+id/imageView3"
-        android:layout_width="45dp"
-        android:layout_height="39dp"
+        android:layout_width="32dp"
+        android:layout_height="32dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="2dp"
         android:layout_marginEnd="320dp"
@@ -95,34 +93,27 @@
 
     <TextView
         android:id="@+id/textView32"
-        android:layout_width="166dp"
-        android:layout_height="30dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginEnd="8dp"
+        android:layout_width="155dp"
+        android:layout_height="22dp"
+        android:layout_marginEnd="24dp"
         android:background="#216583"
         android:text="     Select Return Date"
         android:textColor="#FFFFFF"
         android:textSize="15dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.617"
-        app:layout_constraintStart_toEndOf="@+id/book_img"
         app:layout_constraintTop_toBottomOf="@+id/proceed_scan" />
 
 
     <ImageView
         android:id="@+id/proceed_scan"
-        android:layout_width="166dp"
-        android:layout_height="40dp"
+        android:layout_width="171dp"
+        android:layout_height="44dp"
 
-        android:layout_marginStart="52dp"
-
-        android:layout_marginTop="56dp"
-        android:layout_marginEnd="8dp"
+        android:layout_marginTop="40dp"
+        android:layout_marginEnd="16dp"
         android:background="@drawable/grp"
         android:scaleType="fitStart"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toEndOf="@+id/book_img"
         app:layout_constraintTop_toBottomOf="@+id/textView5"
         tools:layout_conversion_absoluteHeight="40dp"
         tools:layout_conversion_absoluteWidth="123dp" />
@@ -132,11 +123,11 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="4dp"
-        android:layout_marginTop="92dp"
+        android:layout_marginTop="76dp"
         android:layout_marginEnd="8dp"
         android:background="@drawable/bk"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.028"
+        app:layout_constraintHorizontal_bias="0.048"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         tools:layout_conversion_absoluteHeight="200dp"
@@ -148,7 +139,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="24dp"
         android:layout_marginEnd="8dp"
         android:fontFamily="@font/quicksand_bold"
         android:padding="2dp"
@@ -167,7 +158,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="12dp"
+        android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
         android:fontFamily="@font/quicksand_bold"
         android:padding="2dp"
@@ -187,13 +178,14 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
+        android:layout_marginTop="12dp"
         android:fontFamily="@font/quicksand_bold"
         android:padding="2dp"
         android:text="Email"
         android:textColor="@android:color/black"
         android:textSize="15sp"
-        app:layout_constraintBottom_toTopOf="@+id/textView41"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/view2"
         tools:layout_conversion_absoluteHeight="25dp"
         tools:layout_conversion_absoluteWidth="103dp" />
 
@@ -201,17 +193,15 @@
         android:id="@+id/confirm_email"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginEnd="8dp"
+        android:layout_marginStart="68dp"
+        android:layout_marginTop="12dp"
         android:fontFamily="@font/quicksand_bold"
         android:padding="2dp"
         android:text="Return"
         android:textColor="@android:color/darker_gray"
         android:textSize="15sp"
-        app:layout_constraintBottom_toTopOf="@+id/confirm_issue"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.199"
         app:layout_constraintStart_toEndOf="@+id/textView31"
+        app:layout_constraintTop_toBottomOf="@+id/view2"
         tools:layout_conversion_absoluteHeight="25dp"
         tools:layout_conversion_absoluteWidth="309dp" />
 
@@ -221,13 +211,13 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
+        android:fontFamily="@font/quicksand_bold"
         android:padding="2dp"
         android:text="Issue Date"
-        android:fontFamily="@font/quicksand_bold"
         android:textColor="@android:color/black"
         android:textSize="15sp"
-        app:layout_constraintBottom_toTopOf="@+id/textView40"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView31"
         tools:layout_conversion_absoluteHeight="24dp"
         tools:layout_conversion_absoluteWidth="103dp" />
 
@@ -235,18 +225,15 @@
         android:id="@+id/confirm_issue"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginEnd="8dp"
+        android:layout_marginStart="32dp"
 
         android:fontFamily="@font/quicksand_bold"
         android:padding="2dp"
         android:text="Issue Date"
         android:textColor="@android:color/darker_gray"
         android:textSize="15sp"
-        app:layout_constraintBottom_toTopOf="@+id/confirm_return"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.096"
         app:layout_constraintStart_toEndOf="@+id/textView41"
+        app:layout_constraintTop_toBottomOf="@+id/confirm_email"
         tools:layout_conversion_absoluteHeight="25dp"
         tools:layout_conversion_absoluteWidth="309dp" />
 
@@ -256,13 +243,13 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
+        android:fontFamily="@font/quicksand_bold"
         android:padding="2dp"
         android:text="Return Date"
         android:textColor="@android:color/black"
-        android:fontFamily="@font/quicksand_bold"
         android:textSize="15sp"
-        app:layout_constraintBottom_toTopOf="@+id/textView39"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView41"
         tools:layout_conversion_absoluteHeight="24dp"
         tools:layout_conversion_absoluteWidth="103dp" />
 
@@ -270,17 +257,14 @@
         android:id="@+id/confirm_return"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginEnd="8dp"
+        android:layout_marginStart="20dp"
         android:fontFamily="@font/quicksand_bold"
         android:padding="2dp"
         android:text="Return"
         android:textColor="@android:color/darker_gray"
         android:textSize="15sp"
-        app:layout_constraintBottom_toTopOf="@+id/confirm_isbn"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.037"
         app:layout_constraintStart_toEndOf="@+id/textView40"
+        app:layout_constraintTop_toBottomOf="@+id/confirm_issue"
         tools:layout_conversion_absoluteHeight="25dp"
         tools:layout_conversion_absoluteWidth="309dp" />
 
@@ -290,13 +274,13 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
+        android:fontFamily="@font/quicksand_bold"
         android:padding="2dp"
         android:text="ISBN"
-        android:fontFamily="@font/quicksand_bold"
         android:textColor="@android:color/black"
         android:textSize="15sp"
-        app:layout_constraintBottom_toTopOf="@+id/textView37"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView40"
         tools:layout_conversion_absoluteHeight="24dp"
         tools:layout_conversion_absoluteWidth="103dp" />
 
@@ -304,17 +288,14 @@
         android:id="@+id/confirm_isbn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginEnd="8dp"
+        android:layout_marginStart="72dp"
         android:fontFamily="@font/quicksand_bold"
         android:padding="2dp"
         android:text="Return"
         android:textColor="@android:color/darker_gray"
         android:textSize="15sp"
-        app:layout_constraintBottom_toTopOf="@+id/confirm_ism"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.212"
         app:layout_constraintStart_toEndOf="@+id/textView39"
+        app:layout_constraintTop_toBottomOf="@+id/confirm_return"
         tools:layout_conversion_absoluteHeight="25dp"
         tools:layout_conversion_absoluteWidth="309dp" />
 
@@ -324,13 +305,14 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
-        android:padding="2dp"
         android:fontFamily="@font/quicksand_bold"
+        android:padding="2dp"
         android:text="Unique Code"
         android:textColor="@android:color/black"
         android:textSize="15sp"
         app:layout_constraintStart_toStartOf="parent"
         tools:layout_conversion_absoluteHeight="24dp"
+        app:layout_constraintTop_toBottomOf="@+id/textView39"
         tools:layout_conversion_absoluteWidth="103dp"
         tools:layout_editor_absoluteY="461dp" />
 
@@ -338,33 +320,29 @@
         android:id="@+id/confirm_ism"
         android:layout_width="54dp"
         android:layout_height="24dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginEnd="8dp"
+        android:layout_marginStart="16dp"
         android:fontFamily="@font/quicksand_bold"
         android:padding="2dp"
         android:text="Return"
         android:textColor="@android:color/darker_gray"
         android:textSize="15sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.028"
         app:layout_constraintStart_toEndOf="@+id/textView37"
+        app:layout_constraintTop_toBottomOf="@+id/confirm_isbn"
         tools:layout_conversion_absoluteHeight="25dp"
-        tools:layout_conversion_absoluteWidth="309dp"
-        tools:layout_editor_absoluteY="461dp" />
+        tools:layout_conversion_absoluteWidth="309dp" />
 
     <View
+        android:id="@+id/view3"
         android:layout_width="389dp"
         android:layout_height="2dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="32dp"
         android:layout_marginEnd="8dp"
-        android:layout_marginBottom="8dp"
         android:background="#BEBEBE"
-        app:layout_constraintBottom_toTopOf="@+id/proceed_checkbox"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView37"
-        app:layout_constraintVertical_bias="0.675"
         tools:layout_conversion_absoluteHeight="0.5dp"
         tools:layout_conversion_absoluteWidth="411dp" />
 
@@ -374,13 +352,14 @@
         android:layout_height="wrap_content"
 
         android:layout_marginStart="8dp"
+        android:layout_marginTop="12dp"
         android:layout_marginEnd="8dp"
         android:fontFamily="@font/roboto_regular"
         android:text="Hard Cover ?"
-        app:layout_constraintBottom_toTopOf="@+id/confirm_checkbox"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/view3"
         tools:layout_conversion_absoluteHeight="32dp"
         tools:layout_conversion_absoluteWidth="411dp" />
 
@@ -390,14 +369,14 @@
         android:layout_height="wrap_content"
 
         android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
-        android:layout_marginBottom="32dp"
         android:fontFamily="@font/roboto_regular"
         android:text="Confirm before proceed"
-        app:layout_constraintBottom_toTopOf="@+id/proceed_issue"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/proceed_checkbox"
         tools:layout_conversion_absoluteHeight="32dp"
         tools:layout_conversion_absoluteWidth="411dp" />
 
@@ -406,6 +385,7 @@
         android:layout_width="419dp"
         android:layout_height="46dp"
         android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
         android:background="#F76262"
         android:text="APPROVE"
@@ -414,6 +394,8 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.333"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/confirm_checkbox"
+        app:layout_constraintVertical_bias="1.0"
         tools:layout_conversion_absoluteHeight="48dp"
         tools:layout_conversion_absoluteWidth="411dp" />
 

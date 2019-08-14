@@ -114,6 +114,7 @@
         android:textAlignment="center"
         android:textColor="@android:color/white"
         android:textSize="12sp"
+        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="@id/guideline15" />
