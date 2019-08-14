@@ -32,7 +32,7 @@
     <Button
 
         android:id="@+id/issue_confirm"
-        android:background="@drawable/member_issue"
+        android:background="@mipmap/member_issue"
         android:layout_width="130dp"
         android:layout_height="130dp"
         app:layout_constraintBottom_toTopOf="@+id/return_confirm"
@@ -46,7 +46,7 @@
         android:id="@+id/return_confirm"
         android:layout_width="130dp"
         android:layout_height="130dp"
-        android:background="@drawable/member_return"
+        android:background="@mipmap/member_return"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintDimensionRatio="1:1"
         app:layout_constraintEnd_toStartOf="@+id/guideline32"
@@ -58,7 +58,7 @@
         android:id="@+id/request_confirm"
         android:layout_width="130dp"
         android:layout_height="130dp"
-        android:background="@drawable/member_request"
+        android:background="@mipmap/member_request"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintDimensionRatio="1:1"
         app:layout_constraintEnd_toEndOf="parent"
@@ -68,7 +68,7 @@
 
     <Button
         android:id="@+id/addbook"
-        android:background="@drawable/member_add"
+        android:background="@mipmap/member_add"
         android:layout_width="130dp"
         android:layout_height="130dp"
         app:layout_constraintBottom_toTopOf="@+id/request_confirm"
