@@ -12,8 +12,9 @@
         android:id="@+id/proceed_date"
         android:layout_width="142dp"
         android:layout_height="20dp"
+        android:layout_marginStart="8dp"
         android:hint="Date"
-        app:layout_constraintEnd_toStartOf="@+id/proceed_date_image"
+        app:layout_constraintStart_toEndOf="@+id/book_img"
         app:layout_constraintTop_toBottomOf="@+id/textView32" />
 
     <ImageView
