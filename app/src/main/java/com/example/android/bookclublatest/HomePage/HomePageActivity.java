@@ -21,9 +21,9 @@ import com.example.android.bookclublatest.Admin.RequestsForMember.RequestsForMem
 import com.example.android.bookclublatest.Authentication.ChangePassword.ChangePasswordActivity;
 import com.example.android.bookclublatest.Authentication.Login.LoginActivity;
 import com.example.android.bookclublatest.Authentication.SignUp.SignUpModel;
-import com.example.android.bookclublatest.Authentication.Verification.VerificationActivity;
 import com.example.android.bookclublatest.ContactUs.ContactUsActivity;
 import com.example.android.bookclublatest.Developers.DevelopersActivity;
+import com.example.android.bookclublatest.Faq.AddFaqActivity;
 import com.example.android.bookclublatest.Faq.MVP.FAQActivity;
 import com.example.android.bookclublatest.HomePage.RequestBook.RequestActivity;
 import com.example.android.bookclublatest.HomePage.Return.ReturnActivity;
@@ -32,6 +32,7 @@ import com.example.android.bookclublatest.Member.MemberActivity;
 import com.example.android.bookclublatest.Penalty.PenaltyActivity;
 import com.example.android.bookclublatest.Profile.ProfileActivity;
 import com.example.android.bookclublatest.R;
+import com.example.android.bookclublatest.RemoveBookActivity;
 import com.example.android.bookclublatest.RequestForMember.RequestForMemberActivity;
 import com.example.android.bookclublatest.SharedPref.SharedPref;
 import com.google.firebase.auth.FirebaseAuth;
@@ -174,10 +175,7 @@ public class HomePageActivity extends AppCompatActivity
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
-        if (id == R.id.action_verify)
-        {
-            startActivity(new Intent(this, VerificationActivity.class));
-        }
+
         if(id==R.id.action_logout)
         {
             firebaseAuth=FirebaseAuth.getInstance();
@@ -236,6 +234,11 @@ public class HomePageActivity extends AppCompatActivity
         }
         else if(id == R.id.nav_admin_make_member)
             startActivity(new Intent(HomePageActivity.this,RequestsForMember.class));
+        else if(id == R.id.nav_admin_faq)
+            startActivity(new Intent(HomePageActivity.this, AddFaqActivity.class));
+        else if(id==R.id.nav_admin_remove_books)
+            startActivity(new Intent(HomePageActivity.this, RemoveBookActivity.class));
+
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;

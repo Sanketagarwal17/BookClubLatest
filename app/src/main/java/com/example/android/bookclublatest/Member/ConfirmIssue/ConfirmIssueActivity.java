@@ -39,7 +39,7 @@ public class ConfirmIssueActivity extends AppCompatActivity implements ConfirmIs
     List<ConfirmIssueModel> list=new ArrayList<>();
     ConfirmIssueAdapter adapter;
 
-    String email,name,isbn,status,time;
+    String email,name,isbn,ism,status,time;
 
     TextView title;
 
@@ -69,10 +69,11 @@ public class ConfirmIssueActivity extends AppCompatActivity implements ConfirmIs
                         status=ds2.child("Status").getValue().toString();
                         if(status.equals("pending"))
                         {
-                            isbn=ds2.getKey();
                             name=ds2.child("Name").getValue().toString();
-                            time=ds2.child("Timestamp").toString();
-                            list.add(new ConfirmIssueModel(email,isbn,name,time));
+                            time=ds2.child("Timestamp").getValue().toString();
+                            isbn=ds2.child("ISBN").getValue().toString();
+                            ism=ds2.child("ISM").getValue().toString();
+                            list.add(new ConfirmIssueModel(email,isbn,name,time,ism));
                         }
                     }
                 }
@@ -96,6 +97,7 @@ public class ConfirmIssueActivity extends AppCompatActivity implements ConfirmIs
         intent.putExtra("Email",list.get(pos).getEmail());
         intent.putExtra("Book",list.get(pos).getName());
         intent.putExtra("isbn",list.get(pos).getIsbn());
+        intent.putExtra("ism",list.get(pos).getIsm());
         finish();
         startActivity(intent);
     }
