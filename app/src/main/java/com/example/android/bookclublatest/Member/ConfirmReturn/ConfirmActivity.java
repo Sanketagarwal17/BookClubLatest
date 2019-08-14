@@ -32,7 +32,6 @@ public class ConfirmActivity extends AppCompatActivity implements ConfirmAdapter
 
     List<ConfirmModel> list=new ArrayList<>();
     ConfirmAdapter adapter;
-
     String email,status,isbn,ism,bookname,issuedate,returndate;
 
     @Override
@@ -65,7 +64,6 @@ public class ConfirmActivity extends AppCompatActivity implements ConfirmAdapter
                             issuedate=ds2.child("issue_date").getValue().toString();
                             returndate=ds2.child("return_date").getValue().toString();
                             status=ds2.child("status").getValue().toString();
-
                             ConfirmModel model=new ConfirmModel(email,bookname,isbn,ism,issuedate,returndate,status);
                             list.add(model);
                         }
@@ -74,7 +72,6 @@ public class ConfirmActivity extends AppCompatActivity implements ConfirmAdapter
                 adapter=new ConfirmAdapter(list, ConfirmActivity.this,ConfirmActivity.this);
                 recyclerView.setAdapter(adapter);
             }
-
             @Override
             public void onCancelled(@NonNull DatabaseError databaseError) {
 
