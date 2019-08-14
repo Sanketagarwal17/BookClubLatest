@@ -37,9 +37,7 @@ public class ProceedActivity extends AppCompatActivity implements DatePickerDial
     @BindView(R.id.proceed_checkbox)
     CheckBox checkBox;
     @BindView(R.id.proceed_scan)
-    TextView scan;
-    @BindView(R.id.proceed_code)
-    TextView unique_code;
+    ImageView scan;
     @BindView(R.id.proceed_date)
     TextView date;
     @BindView(R.id.proceed_date_image)
@@ -63,7 +61,7 @@ public class ProceedActivity extends AppCompatActivity implements DatePickerDial
     DatePickerDialog datePickerDialog;
     final static String[] months={"Jan","Feb","Mar","Apr","May","June","July","Aug","Sep","Oct","Nov","Dec"};
 
-    String email,bookname,isbn,issue_date,return_date,ism_code,hard_soft="Hard Copy";
+    String email,bookname,isbn,ism,issue_date,return_date,ism_code,hard_soft="Hard Copy";
 
     int correct=0;
 
@@ -72,12 +70,13 @@ public class ProceedActivity extends AppCompatActivity implements DatePickerDial
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_proceed);
-        intentIntegrator=new IntentIntegrator(this);
         ButterKnife.bind(this);
+        intentIntegrator=new IntentIntegrator(this);
 
         email=getIntent().getStringExtra("Email");
         bookname=getIntent().getStringExtra("Book");
         isbn=getIntent().getStringExtra("isbn");
+        ism=getIntent().getStringExtra("ism");
 
         Calendar calendar=Calendar.getInstance(TimeZone.getDefault());
         datePickerDialog = new DatePickerDialog(this,this,calendar.get(Calendar.YEAR),calendar.get(Calendar.MONTH),calendar.get(Calendar.DATE));
@@ -109,7 +108,7 @@ public class ProceedActivity extends AppCompatActivity implements DatePickerDial
         issue_final.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(date.getText().toString().equals("Select Date") || unique_code.getText().toString().equals(""))
+                if(date.getText().toString().equals("Select Date") || cism.getText().toString().equals(""))
                 {
                     Toast.makeText(ProceedActivity.this, "Make Sure that all credentials are Checked", Toast.LENGTH_SHORT).show();
                 }
@@ -157,7 +156,6 @@ public class ProceedActivity extends AppCompatActivity implements DatePickerDial
 
                     }
                 }
-
             }
 
             @Override
@@ -189,7 +187,7 @@ public class ProceedActivity extends AppCompatActivity implements DatePickerDial
         //update request
         FirebaseDatabase firebaseDatabase=FirebaseDatabase.getInstance();
         DatabaseReference databaseReference=firebaseDatabase.getReference("Issue Requests");
-        databaseReference.child(email).child(isbn).child("Status").setValue("Issued");
+        databaseReference.child(email).child(ism).child("Status").setValue("Issued");
 
 
 
@@ -198,12 +196,12 @@ public class ProceedActivity extends AppCompatActivity implements DatePickerDial
         //Create Issue History
         FirebaseDatabase database=FirebaseDatabase.getInstance();
         DatabaseReference reference=database.getReference("Issue History");
+
         ProceedModel model=new ProceedModel(bookname,isbn,issue_date,return_date,"Not Returned",ism_code,"pending");
-        reference.child(email).child(isbn).setValue(model);
+        reference.child(email).child(ism).setValue(model);
 
         Toast.makeText(this, "Successfully Updated", Toast.LENGTH_SHORT).show();
 
-        //close this tab and go o list
         finish();
         startActivity(new Intent(this, ConfirmIssueActivity.class));
     }
@@ -225,7 +223,6 @@ public class ProceedActivity extends AppCompatActivity implements DatePickerDial
         {
             if(result.getContents()!=null)
             {
-                    unique_code.setText(result.getContents());
                     cism.setText(result.getContents());
                     ism_code=result.getContents();
             }

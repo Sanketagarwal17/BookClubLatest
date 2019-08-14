@@ -106,7 +106,6 @@ public class IssueBookDetailActivity extends AppCompatActivity {
                         public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                             for(DataSnapshot dataSnapshot1 : dataSnapshot.getChildren())
                             {
-                                Log.d(TAG, "onDataChange: " + dataSnapshot1.child("Client Gmail").getValue());
                                 if(dataSnapshot1.getKey().equals(isbn) )
                                 {
                                     IssueBookDetailActivity.this.setSend(0);
@@ -122,12 +121,16 @@ public class IssueBookDetailActivity extends AppCompatActivity {
                     });
                     if(send != 0)
                     {
-                        FirebaseDatabase.getInstance().getReference().child("Issue Requests").child(email).child(ism)
+                        FirebaseDatabase.getInstance().getReference().child("Issue Requests").child(email).child(isbn)
                                 .child("Status").setValue("pending");
-                        FirebaseDatabase.getInstance().getReference().child("Issue Requests").child(email).child(ism)
+                        FirebaseDatabase.getInstance().getReference().child("Issue Requests").child(email).child(isbn)
                                 .child("Name").setValue(book);
-                        FirebaseDatabase.getInstance().getReference().child("Issue Requests").child(email).child(ism)
+                        FirebaseDatabase.getInstance().getReference().child("Issue Requests").child(email).child(isbn)
                                 .child("Timestamp").setValue(Calendar.getInstance().getTimeInMillis());
+                        FirebaseDatabase.getInstance().getReference().child("Issue Requests").child(email).child(isbn)
+                                .child("ISBN").setValue(isbn);
+                        FirebaseDatabase.getInstance().getReference().child("Issue Requests").child(email).child(isbn)
+                                .child("ISM").setValue(ism);
 
                         Toast.makeText(IssueBookDetailActivity.this, book + "requested for you", Toast.LENGTH_SHORT).show();
                     }
@@ -147,7 +150,6 @@ public class IssueBookDetailActivity extends AppCompatActivity {
                 startActivity(new Intent(IssueBookDetailActivity.this, HomePageActivity.class));
             }
         });
-
     }
 
     private void showSnackBar()

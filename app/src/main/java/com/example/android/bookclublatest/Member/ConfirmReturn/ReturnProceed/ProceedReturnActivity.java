@@ -1,6 +1,5 @@
 package com.example.android.bookclublatest.Member.ConfirmReturn.ReturnProceed;
 
-import android.app.DatePickerDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -9,9 +8,6 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
-
-import com.example.android.bookclublatest.Member.ConfirmIssue.ConfirmIssueActivity;
-import com.example.android.bookclublatest.Member.ConfirmIssue.ConfirmProceed.ProceedModel;
 import com.example.android.bookclublatest.Member.ConfirmReturn.ConfirmActivity;
 import com.example.android.bookclublatest.Member.ConfirmReturn.ConfirmModel;
 import com.example.android.bookclublatest.R;
@@ -36,7 +32,6 @@ public class ProceedReturnActivity extends AppCompatActivity
     TextView unique_code;
     @BindView(R.id.proceed_issue)
     Button issue_final;
-
     @BindView(R.id.confirm_email)
     TextView cemail;
     @BindView(R.id.confirm_name)
@@ -96,16 +91,16 @@ public class ProceedReturnActivity extends AppCompatActivity
 
     private void updateDatabase()
     {
-        //updtae return request
+        //update return request
         String email=model.getEmail().replace('.',',');
         FirebaseDatabase firebaseDatabase=FirebaseDatabase.getInstance();
         DatabaseReference databaseReference=firebaseDatabase.getReference("Return Requests");
         databaseReference.child(email).child(model.getIsbn()).child("status").setValue("returned");
 
-        //updtae issue history
+        //update issue history
         FirebaseDatabase database=FirebaseDatabase.getInstance();
         DatabaseReference reference=database.getReference("Issue History");
-        reference.child(email).child(model.getIsbn()).child("status").setValue("returned");
+        reference.child(email).child(model.getIsmcode()).child("status").setValue("returned");
 
         Toast.makeText(this, "Successfully Returned", Toast.LENGTH_SHORT).show();
         finish();
