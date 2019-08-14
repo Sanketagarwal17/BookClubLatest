@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     tools:context=".Faq.AddFaqActivity">
 
-    <include layout="@layout/toolbar_return"
+    <include layout="@layout/toolbar_addfaq"
         android:id="@+id/toolbar"/>
 
     <android.support.design.widget.TextInputLayout

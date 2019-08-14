@@ -19,6 +19,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 import butterknife.BindView;
@@ -66,6 +67,7 @@ public class RequestBooksActivity extends AppCompatActivity
                     RequestModel model = ds.getValue(RequestModel.class);
                     list.add(model);
                 }
+                Collections.reverse(list);
                 adapter = new RequestBooksRecycler(list,RequestBooksActivity.this);
                 recyclerView.setAdapter(adapter);
 
