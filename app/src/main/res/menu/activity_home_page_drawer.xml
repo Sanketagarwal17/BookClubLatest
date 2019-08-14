@@ -64,11 +64,6 @@
                 android:icon="@drawable/ic_menu_share"
                 android:title="For Members Only" />
 
-            <item
-                android:id="@+id/nav_admin_page"
-                android:icon="@drawable/ic_menu_share"
-                android:title="For Admin Only" />
-
         </menu>
     </item>
 

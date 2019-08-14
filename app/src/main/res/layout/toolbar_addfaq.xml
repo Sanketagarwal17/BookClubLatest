@@ -22,7 +22,8 @@
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/ic_home_black_24dp"
         tools:layout_conversion_wrapHeight="84"
-        tools:layout_conversion_wrapWidth="84" />
+        tools:layout_conversion_wrapWidth="84"
+        android:visibility="invisible"/>
 
     <TextView
         android:id="@+id/textView2465"

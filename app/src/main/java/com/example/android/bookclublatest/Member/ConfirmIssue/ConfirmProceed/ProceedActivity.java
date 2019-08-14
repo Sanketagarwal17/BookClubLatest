@@ -37,9 +37,7 @@ public class ProceedActivity extends AppCompatActivity implements DatePickerDial
     @BindView(R.id.proceed_checkbox)
     CheckBox checkBox;
     @BindView(R.id.proceed_scan)
-    TextView scan;
-    @BindView(R.id.proceed_code)
-    TextView unique_code;
+    ImageView scan;
     @BindView(R.id.proceed_date)
     TextView date;
     @BindView(R.id.proceed_date_image)
@@ -72,8 +70,8 @@ public class ProceedActivity extends AppCompatActivity implements DatePickerDial
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_proceed);
-        intentIntegrator=new IntentIntegrator(this);
         ButterKnife.bind(this);
+        intentIntegrator=new IntentIntegrator(this);
 
         email=getIntent().getStringExtra("Email");
         bookname=getIntent().getStringExtra("Book");
@@ -110,7 +108,7 @@ public class ProceedActivity extends AppCompatActivity implements DatePickerDial
         issue_final.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(date.getText().toString().equals("Select Date") || unique_code.getText().toString().equals(""))
+                if(date.getText().toString().equals("Select Date") || cism.getText().toString().equals(""))
                 {
                     Toast.makeText(ProceedActivity.this, "Make Sure that all credentials are Checked", Toast.LENGTH_SHORT).show();
                 }
@@ -225,7 +223,6 @@ public class ProceedActivity extends AppCompatActivity implements DatePickerDial
         {
             if(result.getContents()!=null)
             {
-                    unique_code.setText(result.getContents());
                     cism.setText(result.getContents());
                     ism_code=result.getContents();
             }
