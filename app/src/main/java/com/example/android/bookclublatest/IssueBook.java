@@ -113,8 +113,7 @@ public class IssueBook extends BaseActivity implements IssueBookContract.View {
         home.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(IssueBook.this, HomePageActivity.class));
-                finish();
+                onBackPressed();
             }
         });
     }
@@ -144,7 +143,6 @@ public class IssueBook extends BaseActivity implements IssueBookContract.View {
                             ,addBookModel.getHardsofy(),addBookModel.getIsm(),addBookModel.getIsbn()
                             ,addBookModel.getStatus(),String.valueOf(count));
                     arrayList.add(addBookModel1);
-
                 }
                 Log.d(TAG, "onDataChange: " + arrayList.size());
 

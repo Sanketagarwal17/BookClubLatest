@@ -8,7 +8,9 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.Spinner;
+import android.widget.TextView;
 
 import com.example.android.bookclublatest.HomePage.HomePageActivity;
 import com.google.firebase.database.DataSnapshot;
@@ -32,6 +34,11 @@ public class RemoveBookActivity extends AppCompatActivity {
     CheckBox hard;
     @BindView(R.id.softcopy)
     CheckBox soft;
+
+    @BindView(R.id.return_home)
+    ImageView home;
+    @BindView(R.id.textView26)
+    TextView title;
 //    @BindView(R.id.spinner)
 //    Spinner spinner;
     String xisbn,xism;
@@ -46,6 +53,15 @@ public class RemoveBookActivity extends AppCompatActivity {
 
         firebaseDatabase=FirebaseDatabase.getInstance();
         databaseReference=firebaseDatabase.getReference("Books_List");
+
+
+        title.setText("Remove Books");
+        home.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onBackPressed();
+            }
+        });
 
         remove.setOnClickListener(new View.OnClickListener() {
             @Override
