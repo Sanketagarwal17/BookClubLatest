@@ -36,16 +36,12 @@ import butterknife.ButterKnife;
 public class IssueBookDetailActivity extends AppCompatActivity {
 
     SharedPref  sharedPref;
-    @BindView(R.id.det_book)
+    @BindView(R.id.textView28)
     TextView tvBook;
     @BindView(R.id.det_author)
     TextView tvAuthor;
-    @BindView(R.id.det_hardsofy)
-    TextView tvHardSofy;
     @BindView(R.id.det_isbn)
     TextView tvIsbn;
-    @BindView(R.id.det_ism)
-    TextView tvIsm;
     @BindView(R.id.det_pub)
     TextView tvPub;
     @BindView(R.id.det_tags)
@@ -54,11 +50,14 @@ public class IssueBookDetailActivity extends AppCompatActivity {
     Button issueBookButton;
     @BindView(R.id.myCoordinatorLayout)
     View coordinatorlayout;
-
+    @BindView(R.id.textView29)
+    TextView noCopies;
     @BindView(R.id.textView26)
     TextView title;
     @BindView(R.id.return_home)
     ImageView home;
+    @BindView(R.id.det_book)
+    TextView booktv;
 
     int send = 1;
     private static final String TAG = "IssueBookDetailActivity";
@@ -77,14 +76,19 @@ public class IssueBookDetailActivity extends AppCompatActivity {
         final String ism = getIntent().getStringExtra("ism");
         final String publisher = getIntent().getStringExtra("publisher");
         final String tags = getIntent().getStringExtra("tags");
+        final String stat = getIntent().getStringExtra("status");
+        final String no = getIntent().getStringExtra("no");
         ButterKnife.bind(this);
-        tvBook.setText(book);
+        tvBook.setText(stat);
+        booktv.setText(book);
         tvAuthor.setText(author);
-        tvHardSofy.setText(hardsofy);
+        //tvHardSofy.setText(hardsofy);
         tvIsbn.setText(isbn);
-        tvIsm.setText(ism);
+        //tvIsm.setText(ism);
         tvPub.setText(publisher);
         tvTags.setText(tags);
+        //status.setText(stat);
+        noCopies.setText(no);
         issueBookButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

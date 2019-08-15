@@ -14,9 +14,11 @@ import android.util.Pair;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.AnimationUtils;
 import android.widget.TextView;
 
 import com.example.android.bookclublatest.Member.AddBook.AddBookModel;
+import com.example.android.bookclublatest.Member.AddBook.AddBookModel1;
 
 import java.util.ArrayList;
 
@@ -24,9 +26,9 @@ public class IssueBookAdapter extends RecyclerView.Adapter<IssueBookAdapter.Issu
 
     private static final String TAG = "IssueBookAdapter";
     Context context;
-    ArrayList<AddBookModel> addBookModel;
+    ArrayList<AddBookModel1> addBookModel;
 
-    public IssueBookAdapter(Context context, ArrayList<AddBookModel> addBookModel) {
+    public IssueBookAdapter(Context context, ArrayList<AddBookModel1> addBookModel) {
         this.context = context;
         this.addBookModel = addBookModel;
     }
@@ -62,21 +64,26 @@ public class IssueBookAdapter extends RecyclerView.Adapter<IssueBookAdapter.Issu
 
     @Override
     public void onBindViewHolder(@NonNull final IssueBookViewHolder issueBookViewHolder, final int i) {
-        AddBookModel addBookModel1 = addBookModel.get(i);
+       final AddBookModel1 addBookModel1 = addBookModel.get(i);
         issueBookViewHolder.book.setText(addBookModel1.getBook());
         issueBookViewHolder.author.setText(addBookModel1.getAuthor());
         issueBookViewHolder.pub.setText(addBookModel1.getPublisher());
+        issueBookViewHolder.status.setText(addBookModel1.getStatus());
+        issueBookViewHolder.no.setText(addBookModel1.getNo());
+        issueBookViewHolder.bookCard.setAnimation(AnimationUtils.loadAnimation(context,R.anim.anim));
         issueBookViewHolder.bookCard.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(context,IssueBookDetailActivity.class);
-                intent.putExtra("author",addBookModel.get(i).getAuthor());
-                intent.putExtra("book",addBookModel.get(i).getBook());
-                intent.putExtra("hardsofy",addBookModel.get(i).getHardsofy());
-                intent.putExtra("isbn",addBookModel.get(i).getIsbn());
-                intent.putExtra("ism",addBookModel.get(i).getIsm());
-                intent.putExtra("publisher",addBookModel.get(i).getPublisher());
-                intent.putExtra("tags",addBookModel.get(i).getTags());
+                intent.putExtra("author",addBookModel1.getAuthor());
+                intent.putExtra("book",addBookModel1.getBook());
+                intent.putExtra("hardsofy",addBookModel1.getHardsofy());
+                intent.putExtra("isbn",addBookModel1.getIsbn());
+                intent.putExtra("ism",addBookModel1.getIsm());
+                intent.putExtra("publisher",addBookModel1.getPublisher());
+                intent.putExtra("tags",addBookModel1.getTags());
+                intent.putExtra("status",addBookModel1.getStatus());
+                intent.putExtra("no",addBookModel1.getNo());
                 Log.d(TAG, "onClick: " + i);
                 Pair[] pairs = new Pair[3];
                 pairs[0] = new Pair<View,String>(issueBookViewHolder.book,"ts_book");
@@ -97,7 +104,7 @@ public class IssueBookAdapter extends RecyclerView.Adapter<IssueBookAdapter.Issu
 
     public class IssueBookViewHolder extends RecyclerView.ViewHolder
     {
-        TextView book,pub,author;
+        TextView book,pub,author,status,no;
         ConstraintLayout bookCard;
         public IssueBookViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -105,9 +112,11 @@ public class IssueBookAdapter extends RecyclerView.Adapter<IssueBookAdapter.Issu
             pub = itemView.findViewById(R.id.tv_pub);
             author = itemView.findViewById(R.id.tv_author);
             bookCard = itemView.findViewById(R.id.book_card);
+            status=itemView.findViewById(R.id.textView24);
+            no = itemView.findViewById(R.id.textView25);
         }
     }
-    public void filterList(ArrayList<AddBookModel> addBookModels)
+    public void filterList(ArrayList<AddBookModel1> addBookModels)
     {
         addBookModel=addBookModels;
         notifyDataSetChanged();

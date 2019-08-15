@@ -18,6 +18,7 @@ import com.example.android.bookclublatest.HomePage.BrowseBooks.BrowseModel;
 import com.example.android.bookclublatest.HomePage.HomePageActivity;
 import com.example.android.bookclublatest.HomePage.RequestBook.RequestActivity;
 import com.example.android.bookclublatest.Member.AddBook.AddBookModel;
+import com.example.android.bookclublatest.Member.AddBook.AddBookModel1;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -37,7 +38,7 @@ public class IssueBook extends BaseActivity implements IssueBookContract.View {
 
     IssueBookContract.Presenter<IssueBookContract.View> presenter;
     IssueBookAdapter issueBookAdapter;
-    ArrayList<AddBookModel> arrayList;
+    ArrayList<AddBookModel1> arrayList;
     private DatabaseReference bookRef;
     @BindView(R.id.searchbox)
     EditText searchBox;
@@ -63,14 +64,24 @@ public class IssueBook extends BaseActivity implements IssueBookContract.View {
                 arrayList.clear();
                 for(DataSnapshot d1 : dataSnapshot.getChildren())
                 {
+                    AddBookModel addBookModel = null;
+                    int count =0;
                     for(DataSnapshot d2 : d1.getChildren())
                     {
                         for(DataSnapshot d3 : d2.getChildren())
                         {
-                            AddBookModel addBookModel = d3.getValue(AddBookModel.class);
-                            arrayList.add(addBookModel);
+                             addBookModel = d3.getValue(AddBookModel.class);
+
+                            count++;
                         }
                     }
+                    AddBookModel1 addBookModel1 = new AddBookModel1(addBookModel.getBook()
+                    ,addBookModel.getAuthor(),addBookModel.getPublisher(),addBookModel.getTags()
+                    ,addBookModel.getHardsofy(),addBookModel.getIsm(),addBookModel.getIsbn()
+                    ,addBookModel.getStatus(),String.valueOf(count));
+                    Log.d(TAG, "onDataChange: " + count);
+                    arrayList.add(addBookModel1);
+
                 }
                 Log.d(TAG, "onDataChange: " + arrayList.size());
 
@@ -114,33 +125,30 @@ public class IssueBook extends BaseActivity implements IssueBookContract.View {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot)
             {
-                ArrayList<AddBookModel> arrayList1 = new ArrayList<>();
-                for(DataSnapshot ds1:dataSnapshot.getChildren())
+                arrayList.clear();
+                for(DataSnapshot d1 : dataSnapshot.getChildren())
                 {
-                    for(DataSnapshot ds2:ds1.getChildren())
+                    AddBookModel addBookModel = null;
+                    int count =0;
+                    for(DataSnapshot d2 : d1.getChildren())
                     {
-                        if(ds2.getKey().equals("Hard Copy")) {
-                            for (DataSnapshot ds3 : ds2.getChildren()) {
-                                AddBookModel model= ds3.getValue(AddBookModel.class);
-                                if((model.getBook().toLowerCase().contains(s.toLowerCase()))||
-                                        (model.getAuthor().toLowerCase().contains(s.toLowerCase()))||
-                                        (model.getPublisher().toLowerCase().contains(s.toLowerCase())))
-                                arrayList1.add(model);
-                            }
-                        }
-                        else
+                        for(DataSnapshot d3 : d2.getChildren())
                         {
-                            for (DataSnapshot ds3 : ds2.getChildren()) {
-                                AddBookModel model= ds3.getValue(AddBookModel.class);
-                                if((model.getBook().toLowerCase().contains(s.toLowerCase()))||
-                                        (model.getAuthor().toLowerCase().contains(s.toLowerCase()))||
-                                        (model.getPublisher().toLowerCase().contains(s.toLowerCase())))
-                                    arrayList1.add(model);
-                            }
+                            addBookModel = d3.getValue(AddBookModel.class);
+
+                            count++;
                         }
                     }
+                    AddBookModel1 addBookModel1 = new AddBookModel1(addBookModel.getBook()
+                            ,addBookModel.getAuthor(),addBookModel.getPublisher(),addBookModel.getTags()
+                            ,addBookModel.getHardsofy(),addBookModel.getIsm(),addBookModel.getIsbn()
+                            ,addBookModel.getStatus(),String.valueOf(count));
+                    arrayList.add(addBookModel1);
                 }
-                issueBookAdapter.filterList(arrayList1);
+                Log.d(TAG, "onDataChange: " + arrayList.size());
+
+                issueBookAdapter.notifyDataSetChanged();
+                issueBookAdapter.filterList(arrayList);
 
             }
 
