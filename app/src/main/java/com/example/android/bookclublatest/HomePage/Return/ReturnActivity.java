@@ -93,8 +93,7 @@ public class ReturnActivity extends AppCompatActivity implements ReturnAdapter.C
         home.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(ReturnActivity.this,HomePageActivity.class));
-                finish();
+                onBackPressed();
             }
         });
     }

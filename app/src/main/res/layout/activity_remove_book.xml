@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     tools:context=".RemoveBookActivity">
 
-    <include layout="@layout/toolbar_remove"
+    <include layout="@layout/toolbar_return"
         android:id="@+id/toolbar"/>
 
     <android.support.design.widget.TextInputLayout

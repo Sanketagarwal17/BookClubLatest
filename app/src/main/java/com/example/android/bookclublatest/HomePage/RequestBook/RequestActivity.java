@@ -92,8 +92,7 @@ public class RequestActivity extends AppCompatActivity implements RequestPageCon
         home.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(RequestActivity.this, HomePageActivity.class));
-                finish();
+                onBackPressed();
             }
         });
     }

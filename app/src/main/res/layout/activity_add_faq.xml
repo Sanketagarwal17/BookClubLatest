@@ -31,8 +31,6 @@
         android:id="@+id/edt_txt_add_faq"
         android:layout_width="411dp"
         android:layout_height="wrap_content"
-        android:theme="@style/EditTextTheme"
-        android:ems="10"
         android:fontFamily="@font/roboto_regular"
         android:inputType="textLongMessage"
         android:hint="Enter Question"
@@ -62,11 +60,9 @@
             android:id="@+id/edt_txt_add_faq_answer"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:ems="10"
             android:fontFamily="@font/roboto_regular"
             android:hint="Enter Answer"
-            android:textColor="#216583"
-            android:theme="@style/EditTextTheme" />
+            android:textColor="#216583"/>
     </android.support.design.widget.TextInputLayout>
 
     <Button

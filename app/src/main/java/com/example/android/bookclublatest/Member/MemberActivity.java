@@ -8,6 +8,7 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.example.android.bookclublatest.Faq.AddFaqActivity;
 import com.example.android.bookclublatest.HomePage.MainSliderAdapter;
 import com.example.android.bookclublatest.HomePage.PicassoImageLoadingService;
 import com.example.android.bookclublatest.Member.AddBook.AddBookActivity;
@@ -15,6 +16,7 @@ import com.example.android.bookclublatest.Member.ConfirmIssue.ConfirmIssueActivi
 import com.example.android.bookclublatest.Member.ConfirmReturn.ConfirmActivity;
 import com.example.android.bookclublatest.Member.RequestedBooks.RequestBooksActivity;
 import com.example.android.bookclublatest.R;
+import com.example.android.bookclublatest.RemoveBookActivity;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -30,6 +32,10 @@ public class MemberActivity extends AppCompatActivity {
     Button return_book;
     @BindView(R.id.addbook)
     Button addBook;
+    @BindView(R.id.remove_book)
+    Button remove_book;
+    @BindView(R.id.post_faqs)
+    Button post_faqs;
     @BindView(R.id.textView26)
     TextView title;
     @BindView(R.id.return_home)
@@ -75,6 +81,18 @@ public class MemberActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(MemberActivity.this, RequestBooksActivity.class));
+            }
+        });
+        remove_book.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(MemberActivity.this, RemoveBookActivity.class));
+            }
+        });
+        post_faqs.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(MemberActivity.this, AddFaqActivity.class));
             }
         });
     }

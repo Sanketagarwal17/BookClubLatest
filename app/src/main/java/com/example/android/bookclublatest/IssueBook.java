@@ -113,8 +113,7 @@ public class IssueBook extends BaseActivity implements IssueBookContract.View {
         home.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(IssueBook.this, HomePageActivity.class));
-                finish();
+                onBackPressed();
             }
         });
     }

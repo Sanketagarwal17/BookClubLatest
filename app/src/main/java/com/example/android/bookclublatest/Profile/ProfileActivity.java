@@ -138,8 +138,7 @@ public class ProfileActivity extends BaseActivity implements ProfileContract.Vie
         home.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(ProfileActivity.this, HomePageActivity.class));
-                finish();
+                onBackPressed();
             }
         });
 

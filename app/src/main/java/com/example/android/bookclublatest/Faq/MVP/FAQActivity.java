@@ -10,6 +10,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.example.android.bookclublatest.Base.MvpContract;
 import com.example.android.bookclublatest.Faq.AddFaqActivity;
@@ -43,6 +44,8 @@ public class FAQActivity extends AppCompatActivity {
 
     @BindView(R.id.return_home)
     ImageView home;
+    @BindView(R.id.textView26)
+    TextView title;
 
     FAQAdapter adapter;
     ArrayList<FAQModel> arrayList;
@@ -58,6 +61,14 @@ public class FAQActivity extends AppCompatActivity {
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         firebaseDatabase=FirebaseDatabase.getInstance();
         databaseReference=firebaseDatabase.getReference("FAQ");
+
+        title.setText("FAQ's");
+        home.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onBackPressed();
+            }
+        });
         //getjson();
         loaddata();
     }

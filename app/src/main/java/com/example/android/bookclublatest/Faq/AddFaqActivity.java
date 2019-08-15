@@ -31,9 +31,6 @@ public class AddFaqActivity extends AppCompatActivity implements View.OnClickLis
     String mfaq,mans;
     @BindView(R.id.btn_add_faq)
     Button add;
-
-
-
     FirebaseDatabase firebaseDatabase;
     DatabaseReference databaseReference;
 
