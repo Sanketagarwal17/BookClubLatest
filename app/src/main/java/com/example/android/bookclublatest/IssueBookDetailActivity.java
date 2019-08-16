@@ -136,6 +136,8 @@ public class IssueBookDetailActivity extends AppCompatActivity {
                                 .child("ISBN").setValue(isbn);
                         FirebaseDatabase.getInstance().getReference().child("Issue Requests").child(email).child(isbn)
                                 .child("ISM").setValue(ism);
+                        FirebaseDatabase.getInstance().getReference().child("Issue Requests").child(email).child(isbn)
+                                .child("url").setValue(url);
 
                         Toast.makeText(IssueBookDetailActivity.this, book + "requested for you", Toast.LENGTH_SHORT).show();
                     }

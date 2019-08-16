@@ -7,9 +7,11 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.android.bookclublatest.R;
+import com.squareup.picasso.Picasso;
 
 import java.util.List;
 
@@ -40,6 +42,7 @@ public class ConfirmAdapter extends RecyclerView.Adapter<ConfirmAdapter.ViewHold
         viewHolder.request.setText("Proceed to Return");
         viewHolder.book.setText(model.getBookname());
         viewHolder.email.setText(model.getEmail());
+        Picasso.get().load(model.getUrl()).into(viewHolder.imageView);
         viewHolder.date.setText("Supposed to be returned on  "+model.getReturn_date());
 
     }
@@ -53,6 +56,7 @@ public class ConfirmAdapter extends RecyclerView.Adapter<ConfirmAdapter.ViewHold
     {
         Clicklistener listener;
         TextView book, date, email, request;
+        ImageView imageView;
 
         public ViewHolder(@NonNull View itemView, Clicklistener clickListener)
         {
@@ -62,7 +66,7 @@ public class ConfirmAdapter extends RecyclerView.Adapter<ConfirmAdapter.ViewHold
             email=itemView.findViewById(R.id.returnlist_email);
             date=itemView.findViewById(R.id.returnlist_date);
             request=itemView.findViewById(R.id.returnlist_button);
-
+            imageView=itemView.findViewById(R.id.imageView13);
             request.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {

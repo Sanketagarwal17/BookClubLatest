@@ -11,6 +11,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.android.bookclublatest.R;
+import com.squareup.picasso.Picasso;
 
 import java.util.List;
 
@@ -40,7 +41,7 @@ public class HistoryAdapter extends RecyclerView.Adapter<HistoryAdapter.ViewHold
         viewHolder.book.setText(model.getBookname());
         viewHolder.issue.setText(model.getIssue_date());
         viewHolder.ret.setText(model.getReturn_date());
-
+        Picasso.get().load(model.getUrl()).into(viewHolder.imageView);
     }
 
     @Override

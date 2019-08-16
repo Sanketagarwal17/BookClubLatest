@@ -37,7 +37,7 @@ public class ConfirmActivity extends AppCompatActivity implements ConfirmAdapter
 
     List<ConfirmModel> list=new ArrayList<>();
     ConfirmAdapter adapter;
-    String email,status,isbn,ism,bookname,issuedate,returndate;
+    String email,status,isbn,ism,bookname,issuedate,returndate,url;
 
     @BindView(R.id.return_home )
     ImageView home;
@@ -75,7 +75,9 @@ public class ConfirmActivity extends AppCompatActivity implements ConfirmAdapter
                             issuedate=ds2.child("issue_date").getValue().toString();
                             returndate=ds2.child("return_date").getValue().toString();
                             status=ds2.child("status").getValue().toString();
-                            ConfirmModel model=new ConfirmModel(email,bookname,isbn,ism,issuedate,returndate,status);
+                            url = ds2.child("url").getValue().toString();
+
+                            ConfirmModel model=new ConfirmModel(email,bookname,isbn,ism,issuedate,returndate,status,url);
                             list.add(model);
                         }
                     }

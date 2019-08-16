@@ -11,8 +11,11 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.android.bookclublatest.HomePage.HomePageActivity;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -39,8 +42,6 @@ public class RemoveBookActivity extends AppCompatActivity {
     ImageView home;
     @BindView(R.id.textView26)
     TextView title;
-//    @BindView(R.id.spinner)
-//    Spinner spinner;
     String xisbn,xism;
     FirebaseDatabase firebaseDatabase;
     DatabaseReference databaseReference;
@@ -71,18 +72,26 @@ public class RemoveBookActivity extends AppCompatActivity {
 
                 if(hard.isChecked())
                 {
-
                     databaseReference.child(xisbn).child("Hard Copy").child(xism).removeValue();
                 }
     if (soft.isChecked())
     {
-        databaseReference.child(xisbn).child("Soft Copy").child(xism).removeValue();
+        databaseReference.child(xisbn).child("Soft Copy").child(xism).removeValue().addOnCompleteListener(new OnCompleteListener<Void>() {
+            @Override
+            public void onComplete(@NonNull Task<Void> task) {
+                if(task.isSuccessful()){
+                    Intent i=new Intent(getApplicationContext(), HomePageActivity.class);
+                    finish();
+                    startActivity(i);
+                }
+                else
+                {
+                    Toast.makeText(RemoveBookActivity.this, "Try again", Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
     }
 
-
-                Intent i=new Intent(getApplicationContext(), HomePageActivity.class);
-                finish();
-                startActivity(i);
             }
         });
     }
