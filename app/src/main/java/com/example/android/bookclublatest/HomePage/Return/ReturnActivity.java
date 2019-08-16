@@ -111,7 +111,7 @@ public class ReturnActivity extends AppCompatActivity implements ReturnAdapter.C
         HistoryModel model=new HistoryModel(book,isbn,ismcode,issuedate,returndtae,status);
 
         //Create a request to return
-        FirebaseDatabase.getInstance().getReference().child("Return Requests").child(email).child(isbn).setValue(model).addOnCompleteListener(new OnCompleteListener<Void>() {
+        FirebaseDatabase.getInstance().getReference().child("Return Requests").child(email).child(ismcode).setValue(model).addOnCompleteListener(new OnCompleteListener<Void>() {
             @Override
             public void onComplete(@NonNull Task<Void> task) {
                 if(task.isSuccessful())

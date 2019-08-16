@@ -71,14 +71,13 @@ public class IssueBook extends BaseActivity implements IssueBookContract.View {
                         for(DataSnapshot d3 : d2.getChildren())
                         {
                              addBookModel = d3.getValue(AddBookModel.class);
-
-                            count++;
+                             count++;
                         }
                     }
                     AddBookModel1 addBookModel1 = new AddBookModel1(addBookModel.getBook()
                     ,addBookModel.getAuthor(),addBookModel.getPublisher(),addBookModel.getTags()
                     ,addBookModel.getHardsofy(),addBookModel.getIsm(),addBookModel.getIsbn()
-                    ,addBookModel.getStatus(),String.valueOf(count));
+                    ,addBookModel.getStatus(),String.valueOf(count),addBookModel.getUrl());
                     Log.d(TAG, "onDataChange: " + count);
                     arrayList.add(addBookModel1);
 
@@ -141,7 +140,7 @@ public class IssueBook extends BaseActivity implements IssueBookContract.View {
                     AddBookModel1 addBookModel1 = new AddBookModel1(addBookModel.getBook()
                             ,addBookModel.getAuthor(),addBookModel.getPublisher(),addBookModel.getTags()
                             ,addBookModel.getHardsofy(),addBookModel.getIsm(),addBookModel.getIsbn()
-                            ,addBookModel.getStatus(),String.valueOf(count));
+                            ,addBookModel.getStatus(),String.valueOf(count),addBookModel.getUrl());
                     arrayList.add(addBookModel1);
                 }
                 Log.d(TAG, "onDataChange: " + arrayList.size());
