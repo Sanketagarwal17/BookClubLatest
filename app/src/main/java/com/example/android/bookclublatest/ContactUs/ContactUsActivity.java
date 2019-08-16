@@ -7,6 +7,7 @@ import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -25,16 +26,20 @@ public class ContactUsActivity extends AppCompatActivity
     @BindView(R.id.contact_phone_text)
     TextView phone_text;
     @BindView(R.id.contactemailbutton)
-    Button email_button;
+    TextView email_button;
     @BindView(R.id.contact_mobile_button)
-    Button mobile_button;
+    TextView mobile_button;
     @BindView(R.id.contact_phone_button)
-    Button phone_button;
+    TextView phone_button;
+    @BindView(R.id.return_home)
+    ImageView home;
+    @BindView(R.id.textView26)
+    TextView title;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_contactus);
+        setContentView(R.layout.activity_contactus_main);
         ButterKnife.bind(this);
 
 
@@ -54,6 +59,15 @@ public class ContactUsActivity extends AppCompatActivity
             @Override
             public void onClick(View v) {
                 callPhone();
+            }
+        });
+
+
+        title.setText("Contact Us");
+        home.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onBackPressed();
             }
         });
     }
