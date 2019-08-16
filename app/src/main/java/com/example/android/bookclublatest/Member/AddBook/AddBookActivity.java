@@ -26,6 +26,8 @@ import android.webkit.MimeTypeMap;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
+import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.android.bookclublatest.Authentication.Login.LoginActivity;
@@ -72,6 +74,12 @@ public class AddBookActivity extends BaseActivity implements AddBookContract.Vie
     Button isbnAdded;
     @BindView(R.id.add_book_image)
     Button addbookimage;
+
+    @BindView(R.id.return_home)
+    ImageView home;
+    @BindView(R.id.textView26)
+    TextView title;
+
     FirebaseStorage firebasestorage= FirebaseStorage.getInstance();
     StorageReference storageReference=firebasestorage.getReference().child("Books/"+System.currentTimeMillis()+".jpg");
     int capture = 10;
@@ -127,6 +135,14 @@ public class AddBookActivity extends BaseActivity implements AddBookContract.Vie
             }
         });
 
+        title.setText("Add Book");
+        home.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onBackPressed();
+            }
+        });
+
         submit.setOnClickListener(new View.OnClickListener() {
 
             @Override
@@ -152,7 +168,7 @@ public class AddBookActivity extends BaseActivity implements AddBookContract.Vie
                     Toast.makeText(AddBookActivity.this, "Please Upload Photo", Toast.LENGTH_SHORT).show();
                 }
                 else {
-                    presenter.submit(mauthor, mname, mchecbox, misbn, mism, mpublication, mtags, link);
+                    presenter.submit(mname, mauthor, mpublication, misbn, mism, mtags, mchecbox, link);
                 }
             }
         });
@@ -187,6 +203,7 @@ public class AddBookActivity extends BaseActivity implements AddBookContract.Vie
         super.onActivityResult(requestCode, resultCode, data);
         if((requestCode==capture)&&(resultCode==RESULT_OK)&&(data!=null)&&(data.getData()!=null))
         {
+            Toast.makeText(this, "Uploading ...", Toast.LENGTH_SHORT).show();
             progressDialog.show();
             doc_data=data.getData();
             storageReference.putFile(doc_data).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
@@ -198,6 +215,7 @@ public class AddBookActivity extends BaseActivity implements AddBookContract.Vie
                             Uri data=uri;
                             doc_url = data.toString();
                             link=doc_url;
+                            Toast.makeText(AddBookActivity.this, "Photo added Successfully", Toast.LENGTH_SHORT).show();
                         }
                     });
                 }

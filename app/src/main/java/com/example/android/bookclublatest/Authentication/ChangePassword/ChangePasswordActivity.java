@@ -64,4 +64,9 @@ public class ChangePasswordActivity extends BaseActivity implements ChangePasswo
         Toast.makeText(ChangePasswordActivity.this, error, Toast.LENGTH_SHORT).show();
 
     }
+
+    @Override
+    public void close() {
+        finish();
+    }
 }
