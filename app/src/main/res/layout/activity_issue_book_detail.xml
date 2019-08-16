@@ -120,7 +120,7 @@
                 android:textSize="14sp"
                 android:textStyle="bold"
                 app:layout_constraintStart_toStartOf="@+id/guideline13"
-                app:layout_constraintTop_toBottomOf="@+id/imageView10" />
+                app:layout_constraintTop_toBottomOf="@+id/issue_book_image" />
 
             <TextView
                 android:id="@+id/textView28"
@@ -203,7 +203,7 @@
                 android:textColor="#000"
                 android:textSize="11sp"
                 android:textStyle="bold"
-                app:layout_constraintBottom_toBottomOf="@+id/imageView10"
+                app:layout_constraintBottom_toBottomOf="@+id/issue_book_image"
                 app:layout_constraintEnd_toStartOf="@+id/guideline14" />
 
             <TextView
@@ -232,7 +232,7 @@
                 android:textStyle="bold"
                 android:transitionName="ts_book"
                 app:layout_constraintEnd_toStartOf="@+id/guideline14"
-                app:layout_constraintTop_toTopOf="@+id/imageView10" />
+                app:layout_constraintTop_toTopOf="@+id/issue_book_image" />
 
             <TextView
                 android:id="@+id/det_author"
@@ -265,13 +265,14 @@
                 app:layout_constraintTop_toBottomOf="@+id/det_author" />
 
             <ImageView
-                android:id="@+id/imageView10"
+                android:id="@+id/issue_book_image"
                 android:layout_width="120dp"
                 android:layout_height="170dp"
                 android:layout_marginTop="24dp"
                 app:layout_constraintStart_toStartOf="@+id/guideline13"
                 app:layout_constraintTop_toTopOf="parent"
-                app:srcCompat="@drawable/test_book_img" />
+                app:srcCompat="@drawable/test_book_img"
+                android:scaleType="centerCrop"/>
 
             <androidx.constraintlayout.widget.Guideline
                 android:id="@+id/guideline13"

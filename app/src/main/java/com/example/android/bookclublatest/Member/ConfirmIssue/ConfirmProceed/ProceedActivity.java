@@ -25,6 +25,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.google.zxing.integration.android.IntentIntegrator;
 import com.google.zxing.integration.android.IntentResult;
+import com.squareup.picasso.Picasso;
 
 import java.util.Calendar;
 import java.util.TimeZone;
@@ -56,12 +57,14 @@ public class ProceedActivity extends AppCompatActivity implements DatePickerDial
     TextView cissue;
     @BindView(R.id.confirm_return)
     TextView creturn;
+    @BindView(R.id.book_img)
+    ImageView imageView;
 
     IntentIntegrator intentIntegrator;
     DatePickerDialog datePickerDialog;
     final static String[] months={"Jan","Feb","Mar","Apr","May","June","July","Aug","Sep","Oct","Nov","Dec"};
 
-    String email,bookname,isbn,ism,issue_date,return_date,ism_code,hard_soft="Hard Copy";
+    String email,bookname,isbn,ism,issue_date,return_date,ism_code,hard_soft="Hard Copy",url;
 
     int correct=0;
 
@@ -77,6 +80,7 @@ public class ProceedActivity extends AppCompatActivity implements DatePickerDial
         bookname=getIntent().getStringExtra("Book");
         isbn=getIntent().getStringExtra("isbn");
         ism=getIntent().getStringExtra("ism");
+        url=getIntent().getStringExtra("url");
 
         Calendar calendar=Calendar.getInstance(TimeZone.getDefault());
         datePickerDialog = new DatePickerDialog(this,this,calendar.get(Calendar.YEAR),calendar.get(Calendar.MONTH),calendar.get(Calendar.DATE));
@@ -98,7 +102,7 @@ public class ProceedActivity extends AppCompatActivity implements DatePickerDial
         cname.setText(bookname);
         cemail.setText(email);
         cisbn.setText(isbn);
-
+        Picasso.get().load(url).into(imageView);
         Calendar calendar2=Calendar.getInstance(TimeZone.getDefault());
         String current=calendar2.get(Calendar.DAY_OF_MONTH) + " " + months[(calendar2.get(Calendar.MONTH))]
                 + "," + calendar2.get(Calendar.YEAR);
@@ -187,18 +191,14 @@ public class ProceedActivity extends AppCompatActivity implements DatePickerDial
         //update request
         FirebaseDatabase firebaseDatabase=FirebaseDatabase.getInstance();
         DatabaseReference databaseReference=firebaseDatabase.getReference("Issue Requests");
-        databaseReference.child(email).child(ism).child("Status").setValue("Issued");
-
-
-
-
+        databaseReference.child(email).child(isbn).child("Status").setValue("Issued");
 
         //Create Issue History
         FirebaseDatabase database=FirebaseDatabase.getInstance();
         DatabaseReference reference=database.getReference("Issue History");
 
-        ProceedModel model=new ProceedModel(bookname,isbn,issue_date,return_date,"Not Returned",ism_code,"pending");
-        reference.child(email).child(ism).setValue(model);
+        ProceedModel model=new ProceedModel(bookname,isbn,issue_date,return_date,"Not Returned",ism_code,"pending",url);
+        reference.child(email).child(Calendar.getInstance().getTimeInMillis()+"").setValue(model);
 
         Toast.makeText(this, "Successfully Updated", Toast.LENGTH_SHORT).show();
 

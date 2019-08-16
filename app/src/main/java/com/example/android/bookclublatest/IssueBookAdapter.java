@@ -15,10 +15,13 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.AnimationUtils;
+import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
 import com.example.android.bookclublatest.Member.AddBook.AddBookModel;
 import com.example.android.bookclublatest.Member.AddBook.AddBookModel1;
+import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 
@@ -65,6 +68,7 @@ public class IssueBookAdapter extends RecyclerView.Adapter<IssueBookAdapter.Issu
     @Override
     public void onBindViewHolder(@NonNull final IssueBookViewHolder issueBookViewHolder, final int i) {
        final AddBookModel1 addBookModel1 = addBookModel.get(i);
+        Picasso.get().load(addBookModel1.getUrl()).into(issueBookViewHolder.book_image);
         issueBookViewHolder.book.setText(addBookModel1.getBook());
         issueBookViewHolder.author.setText(addBookModel1.getAuthor());
         issueBookViewHolder.pub.setText(addBookModel1.getPublisher());
@@ -84,6 +88,7 @@ public class IssueBookAdapter extends RecyclerView.Adapter<IssueBookAdapter.Issu
                 intent.putExtra("tags",addBookModel1.getTags());
                 intent.putExtra("status",addBookModel1.getStatus());
                 intent.putExtra("no",addBookModel1.getNo());
+                intent.putExtra("url",addBookModel1.getUrl());
                 Log.d(TAG, "onClick: " + i);
                 Pair[] pairs = new Pair[3];
                 pairs[0] = new Pair<View,String>(issueBookViewHolder.book,"ts_book");
@@ -106,6 +111,8 @@ public class IssueBookAdapter extends RecyclerView.Adapter<IssueBookAdapter.Issu
     {
         TextView book,pub,author,status,no;
         ConstraintLayout bookCard;
+        ImageView book_image;
+
         public IssueBookViewHolder(@NonNull View itemView) {
             super(itemView);
             book = itemView.findViewById(R.id.tv_book);
@@ -114,6 +121,7 @@ public class IssueBookAdapter extends RecyclerView.Adapter<IssueBookAdapter.Issu
             bookCard = itemView.findViewById(R.id.book_card);
             status=itemView.findViewById(R.id.textView24);
             no = itemView.findViewById(R.id.textView25);
+            book_image = itemView.findViewById(R.id.issue_card_book_image);
         }
     }
     public void filterList(ArrayList<AddBookModel1> addBookModels)

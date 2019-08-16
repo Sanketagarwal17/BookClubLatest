@@ -1,9 +1,12 @@
 package com.example.android.bookclublatest.HomePage;
 
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.FloatingActionButton;
+import android.support.v7.app.AlertDialog;
 import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -87,7 +90,14 @@ public class HomePageActivity extends AppCompatActivity
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+                Intent i = new Intent(Intent.ACTION_SENDTO);
+                String mailTo = "mailto:".concat("rishabh.agarwal997@gmail.com");
+                i.setData(Uri.parse(mailTo));
+                try {
+                    startActivity(i);
+                } catch (android.content.ActivityNotFoundException ex) {
+                    Toast.makeText(HomePageActivity.this, "There are no email clients installed.", Toast.LENGTH_SHORT).show();
+                }
             }
         });
 
@@ -156,7 +166,29 @@ public class HomePageActivity extends AppCompatActivity
         if (drawer.isDrawerOpen(GravityCompat.START)) {
             drawer.closeDrawer(GravityCompat.START);
         } else {
-            super.onBackPressed();
+
+            final AlertDialog alertDialog=new AlertDialog.Builder(this).create();
+            alertDialog.setTitle("EXIT");
+            alertDialog.setMessage("Are You Sure you want to exit ?");
+            alertDialog.setCancelable(false);
+
+            alertDialog.setButton(DialogInterface.BUTTON_POSITIVE, "Yes", new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialog, int which) {
+                    alertDialog.dismiss();
+                    finish();
+                    HomePageActivity.super.onBackPressed();
+                }
+            });
+            alertDialog.setButton(DialogInterface.BUTTON_NEGATIVE, "No", new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialog, int which) {
+                    alertDialog.dismiss();
+                }
+            });
+            alertDialog.show();
+
+
         }
     }
 
@@ -178,16 +210,36 @@ public class HomePageActivity extends AppCompatActivity
 
         if(id==R.id.action_logout)
         {
-            firebaseAuth=FirebaseAuth.getInstance();
-            firebaseAuth.signOut();
+            final AlertDialog alertDialog=new AlertDialog.Builder(this).create();
+            alertDialog.setTitle("LOGOUT");
+            alertDialog.setMessage("Are You Sure you want to logout ?");
+            alertDialog.setCancelable(false);
 
-            sharedPref.setAdmission("");
-            sharedPref.setMobile("");
-            sharedPref.setUsername("");
-            sharedPref.setEmail("");
+            alertDialog.setButton(DialogInterface.BUTTON_POSITIVE, "Yes", new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialog, int which) {
+                    alertDialog.dismiss();
+                    firebaseAuth=FirebaseAuth.getInstance();
+                    firebaseAuth.signOut();
 
-            finish();
-            startActivity(new Intent(this, LoginActivity.class));
+                    sharedPref.setAdmission("");
+                    sharedPref.setMobile("");
+                    sharedPref.setUsername("");
+                    sharedPref.setEmail("");
+
+                    finish();
+                    startActivity(new Intent(HomePageActivity.this, LoginActivity.class));
+                }
+            });
+            alertDialog.setButton(DialogInterface.BUTTON_NEGATIVE, "No", new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialog, int which) {
+                    alertDialog.dismiss();
+                }
+            });
+            alertDialog.show();
+
+
         }
         return super.onOptionsItemSelected(item);
     }
@@ -234,10 +286,6 @@ public class HomePageActivity extends AppCompatActivity
         }
         else if(id == R.id.nav_admin_make_member)
             startActivity(new Intent(HomePageActivity.this,RequestsForMember.class));
-        else if(id == R.id.nav_admin_faq)
-            startActivity(new Intent(HomePageActivity.this, AddFaqActivity.class));
-        else if(id==R.id.nav_admin_remove_books)
-            startActivity(new Intent(HomePageActivity.this, RemoveBookActivity.class));
 
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);

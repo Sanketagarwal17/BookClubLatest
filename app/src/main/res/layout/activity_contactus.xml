@@ -228,7 +228,7 @@
         app:layout_constraintGuide_percent="0.04" />
 
     <ImageView
-        android:id="@+id/imageView10"
+        android:id="@+id/issue_book_image"
         android:layout_width="32dp"
         android:layout_height="32dp"
         android:layout_marginStart="8dp"

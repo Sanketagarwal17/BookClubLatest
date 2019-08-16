@@ -7,12 +7,14 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.android.bookclublatest.HomePage.History.HistoryAdapter;
 import com.example.android.bookclublatest.HomePage.History.HistoryModel;
 import com.example.android.bookclublatest.Member.ConfirmIssue.ConfirmIssueAdapter;
 import com.example.android.bookclublatest.R;
+import com.squareup.picasso.Picasso;
 
 import java.util.List;
 
@@ -41,7 +43,7 @@ public class ReturnAdapter extends RecyclerView.Adapter<ReturnAdapter.ViewHolder
         viewHolder.book.setText("BookName : " + model.getBookname());
         viewHolder.issue.setText(model.getIssue_date());
         viewHolder.ret.setText(model.getReturn_date());
-
+        Picasso.get().load(model.getUrl()).into(viewHolder.imageView);
     }
 
     @Override
@@ -52,6 +54,7 @@ public class ReturnAdapter extends RecyclerView.Adapter<ReturnAdapter.ViewHolder
     public class ViewHolder extends RecyclerView.ViewHolder {
         TextView book, isbn, issue, ret, request;
         Clicklistener listener;
+        ImageView imageView;
 
         public ViewHolder(@NonNull View itemView,Clicklistener clicklistener) {
             super(itemView);
@@ -62,6 +65,7 @@ public class ReturnAdapter extends RecyclerView.Adapter<ReturnAdapter.ViewHolder
             issue = itemView.findViewById(R.id.history_issue);
             request = itemView.findViewById(R.id.history_returnRequest);
             ret = itemView.findViewById(R.id.history_return);
+            imageView= itemView.findViewById(R.id.return_book_image);
 
             request.setOnClickListener(new View.OnClickListener() {
                 @Override

@@ -7,8 +7,13 @@ import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.view.View;
+import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.android.bookclublatest.HomePage.HomePageActivity;
+import com.example.android.bookclublatest.IssueBook;
 import com.example.android.bookclublatest.Member.ConfirmIssue.ConfirmProceed.ProceedActivity;
 import com.example.android.bookclublatest.Member.ConfirmReturn.ReturnProceed.ProceedReturnActivity;
 import com.example.android.bookclublatest.R;
@@ -32,8 +37,12 @@ public class ConfirmActivity extends AppCompatActivity implements ConfirmAdapter
 
     List<ConfirmModel> list=new ArrayList<>();
     ConfirmAdapter adapter;
+    String email,status,isbn,ism,bookname,issuedate,returndate,url;
 
-    String email,status,isbn,ism,bookname,issuedate,returndate;
+    @BindView(R.id.return_home )
+    ImageView home;
+    @BindView(R.id.textView26)
+    TextView titlebar;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState)
@@ -43,6 +52,7 @@ public class ConfirmActivity extends AppCompatActivity implements ConfirmAdapter
         ButterKnife.bind(this);
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        titlebar.setText("Return Books");
 
         FirebaseDatabase firebaseDatabase=FirebaseDatabase.getInstance();
         DatabaseReference databaseReference=firebaseDatabase.getReference("Return Requests");
@@ -65,8 +75,9 @@ public class ConfirmActivity extends AppCompatActivity implements ConfirmAdapter
                             issuedate=ds2.child("issue_date").getValue().toString();
                             returndate=ds2.child("return_date").getValue().toString();
                             status=ds2.child("status").getValue().toString();
+                            url = ds2.child("url").getValue().toString();
 
-                            ConfirmModel model=new ConfirmModel(email,bookname,isbn,ism,issuedate,returndate,status);
+                            ConfirmModel model=new ConfirmModel(email,bookname,isbn,ism,issuedate,returndate,status,url);
                             list.add(model);
                         }
                     }
@@ -74,10 +85,17 @@ public class ConfirmActivity extends AppCompatActivity implements ConfirmAdapter
                 adapter=new ConfirmAdapter(list, ConfirmActivity.this,ConfirmActivity.this);
                 recyclerView.setAdapter(adapter);
             }
-
             @Override
             public void onCancelled(@NonNull DatabaseError databaseError) {
 
+            }
+        });
+
+        home.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(ConfirmActivity.this, HomePageActivity.class));
+                finish();
             }
         });
 
