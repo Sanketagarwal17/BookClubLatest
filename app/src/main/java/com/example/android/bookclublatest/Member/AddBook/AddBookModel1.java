@@ -2,7 +2,7 @@ package com.example.android.bookclublatest.Member.AddBook;
 
 public class AddBookModel1
 {
-    String book,author,publisher,tags,hardsofy,ism,isbn,status,no;
+    String book,author,publisher,tags,hardsofy,ism,isbn,status,no,url;
 
     public String getBook() {
         return book;
@@ -76,7 +76,11 @@ public class AddBookModel1
         this.no = no;
     }
 
-    public AddBookModel1(String book, String author, String publisher, String tags, String hardsofy, String ism, String isbn, String status, String no) {
+    public String getUrl() {
+        return url;
+    }
+
+    public AddBookModel1(String book, String author, String publisher, String tags, String hardsofy, String ism, String isbn, String status, String no, String url) {
         this.book = book;
         this.author = author;
         this.publisher = publisher;
@@ -86,5 +90,6 @@ public class AddBookModel1
         this.isbn = isbn;
         this.status = status;
         this.no = no;
+        this.url = url;
     }
 }

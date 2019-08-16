@@ -26,6 +26,7 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.squareup.picasso.Picasso;
 
 import java.util.Calendar;
 import java.util.Date;
@@ -58,6 +59,8 @@ public class IssueBookDetailActivity extends AppCompatActivity {
     ImageView home;
     @BindView(R.id.det_book)
     TextView booktv;
+    @BindView(R.id.issue_book_image)
+    ImageView book_image;
 
     int send = 1;
     private static final String TAG = "IssueBookDetailActivity";
@@ -78,6 +81,7 @@ public class IssueBookDetailActivity extends AppCompatActivity {
         final String tags = getIntent().getStringExtra("tags");
         final String stat = getIntent().getStringExtra("status");
         final String no = getIntent().getStringExtra("no");
+        final String url = getIntent().getStringExtra("url");
         ButterKnife.bind(this);
         tvBook.setText(stat);
         booktv.setText(book);
@@ -89,6 +93,7 @@ public class IssueBookDetailActivity extends AppCompatActivity {
         tvTags.setText(tags);
         //status.setText(stat);
         noCopies.setText(no);
+        Picasso.get().load(url).into(book_image);
         issueBookButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

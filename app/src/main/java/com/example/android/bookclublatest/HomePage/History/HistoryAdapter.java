@@ -7,6 +7,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.android.bookclublatest.R;
@@ -50,6 +51,7 @@ public class HistoryAdapter extends RecyclerView.Adapter<HistoryAdapter.ViewHold
     public class ViewHolder extends RecyclerView.ViewHolder
     {
         TextView book,issue,ret,status;
+        ImageView imageView;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -58,6 +60,7 @@ public class HistoryAdapter extends RecyclerView.Adapter<HistoryAdapter.ViewHold
             issue=itemView.findViewById(R.id.textView22);
             status=itemView.findViewById(R.id.author_tv);
             ret=itemView.findViewById(R.id.return_date_tv);
+            imageView = itemView.findViewById(R.id.imageView5);
         }
     }
 }
