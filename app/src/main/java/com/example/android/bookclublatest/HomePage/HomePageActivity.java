@@ -210,16 +210,36 @@ public class HomePageActivity extends AppCompatActivity
 
         if(id==R.id.action_logout)
         {
-            firebaseAuth=FirebaseAuth.getInstance();
-            firebaseAuth.signOut();
+            final AlertDialog alertDialog=new AlertDialog.Builder(this).create();
+            alertDialog.setTitle("LOGOUT");
+            alertDialog.setMessage("Are You Sure you want to logout ?");
+            alertDialog.setCancelable(false);
 
-            sharedPref.setAdmission("");
-            sharedPref.setMobile("");
-            sharedPref.setUsername("");
-            sharedPref.setEmail("");
+            alertDialog.setButton(DialogInterface.BUTTON_POSITIVE, "Yes", new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialog, int which) {
+                    alertDialog.dismiss();
+                    firebaseAuth=FirebaseAuth.getInstance();
+                    firebaseAuth.signOut();
 
-            finish();
-            startActivity(new Intent(this, LoginActivity.class));
+                    sharedPref.setAdmission("");
+                    sharedPref.setMobile("");
+                    sharedPref.setUsername("");
+                    sharedPref.setEmail("");
+
+                    finish();
+                    startActivity(new Intent(HomePageActivity.this, LoginActivity.class));
+                }
+            });
+            alertDialog.setButton(DialogInterface.BUTTON_NEGATIVE, "No", new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialog, int which) {
+                    alertDialog.dismiss();
+                }
+            });
+            alertDialog.show();
+
+
         }
         return super.onOptionsItemSelected(item);
     }

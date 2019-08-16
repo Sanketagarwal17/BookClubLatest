@@ -67,14 +67,15 @@ public class ReturnActivity extends AppCompatActivity implements ReturnAdapter.C
                     {
                         for(DataSnapshot ds2:ds.getChildren())
                         {
-                            String bookname,isbn,issue_date,return_date,status,ism;
+                            String bookname,isbn,issue_date,return_date,status,ism,url;
                             bookname=ds2.child("bookname").getValue().toString();
                             isbn=ds2.child("isbn").getValue().toString();
                             ism=ds2.child("ism").getValue().toString();
                             issue_date=ds2.child("issue_date").getValue().toString();
                             return_date=ds2.child("return_date").getValue().toString();
                             status=ds2.child("status").getValue().toString();
-                            HistoryModel model=new HistoryModel(bookname,isbn,ism,issue_date,return_date,status);
+                            url = ds2.child("url").getValue().toString();
+                            HistoryModel model=new HistoryModel(bookname,isbn,ism,issue_date,return_date,status,url);
                             if(model.getStatus().equals("Not Returned"))
                                 list.add(model);
                         }
@@ -106,9 +107,10 @@ public class ReturnActivity extends AppCompatActivity implements ReturnAdapter.C
         String issuedate=list.get(pos).getIssue_date();
         String returndtae=list.get(pos).getReturn_date();
         String ismcode=list.get(pos).getIsmcode();
+        String url = list.get(pos).getUrl();
         final String status="pending";
 
-        HistoryModel model=new HistoryModel(book,isbn,ismcode,issuedate,returndtae,status);
+        HistoryModel model=new HistoryModel(book,isbn,ismcode,issuedate,returndtae,status,url);
 
         //Create a request to return
         FirebaseDatabase.getInstance().getReference().child("Return Requests").child(email).child(ismcode).setValue(model).addOnCompleteListener(new OnCompleteListener<Void>() {

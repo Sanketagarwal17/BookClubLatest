@@ -6,10 +6,12 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.android.bookclublatest.ContactUs.ContactUsActivity;
 import com.example.android.bookclublatest.R;
+import com.squareup.picasso.Picasso;
 
 import org.w3c.dom.Text;
 
@@ -44,6 +46,7 @@ public class ConfirmIssueAdapter extends RecyclerView.Adapter<ConfirmIssueAdapte
         viewHolder.email.setText(model.getEmail());
         viewHolder.isbn.setText(model.getIsbn());
         viewHolder.send.setText("Proceed to issue book");
+        Picasso.get().load(model.getUrl()).into(viewHolder.imageView);
     }
 
     @Override
@@ -55,6 +58,7 @@ public class ConfirmIssueAdapter extends RecyclerView.Adapter<ConfirmIssueAdapte
     {
         TextView name,email,isbn,send;
         Clicklistener listener;
+        ImageView imageView;
 
         public ViewHolder(@NonNull View itemView,Clicklistener clicklistener) {
             super(itemView);
@@ -64,7 +68,7 @@ public class ConfirmIssueAdapter extends RecyclerView.Adapter<ConfirmIssueAdapte
             email=itemView.findViewById(R.id.isuuelist_email);
             isbn=itemView.findViewById(R.id.isuuelist_isbn);
             send=itemView.findViewById(R.id.isuuelist_button);
-
+            imageView=itemView.findViewById(R.id.imageView13);
             send.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
