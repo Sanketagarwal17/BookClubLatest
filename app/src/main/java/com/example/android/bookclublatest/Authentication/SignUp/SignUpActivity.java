@@ -64,7 +64,7 @@ public class SignUpActivity extends BaseActivity implements SignUpContract.View
     Button createaccount;
 
     @BindView(R.id.add_profilepic_iv)
-    CircularImageView add_profile_pic;
+    ImageView add_profile_pic;
 
     SignUpContract.Presenter<SignUpContract.View> mPresenter;
     FirebaseStorage firebasestorage= FirebaseStorage.getInstance();
@@ -122,15 +122,15 @@ public class SignUpActivity extends BaseActivity implements SignUpContract.View
             }
         });
 
-        add_profile_pic.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent=new Intent();
-                intent.setType("image/*");
-                intent.setAction(Intent.ACTION_GET_CONTENT);
-                startActivityForResult(intent,capture);
-            }
-        });
+//        add_profile_pic.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                Intent intent=new Intent();
+//                intent.setType("image/*");
+//                intent.setAction(Intent.ACTION_GET_CONTENT);
+//                startActivityForResult(intent,capture);
+//            }
+//        });
     }
 
     @Override
