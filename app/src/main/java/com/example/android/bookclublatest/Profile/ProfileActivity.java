@@ -57,8 +57,6 @@ public class ProfileActivity extends BaseActivity implements ProfileContract.Vie
     ConstraintLayout constraintLayout;
     @BindView(R.id.textView13)
     TextView no_of_books;
-    @BindView(R.id.circularImageView)
-    CircularImageView circularImageView;
     @BindView(R.id.imageView3)
     ImageView home;
     HistoryAdapter adapter;
@@ -86,7 +84,6 @@ public class ProfileActivity extends BaseActivity implements ProfileContract.Vie
         else
             url=sharedPref.getImageUrl();
 
-        Picasso.get().load(url).into(circularImageView);
 /*
         verify.setOnClickListener(new View.OnClickListener() {
             @Override
