@@ -58,13 +58,15 @@
                 android:fontFamily="@font/quicksand_regular"
                 android:gravity="fill_horizontal|top"
                 android:padding="3dp"
-                android:text="name"
+                android:text="supposed to be returned on 22 august"
                 android:textColor="#B0B0B0"
                 android:textSize="11sp"
+                app:layout_constraintBottom_toTopOf="@id/returnlist_button"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="1.0"
                 app:layout_constraintStart_toStartOf="@+id/guideline37"
-                app:layout_constraintTop_toBottomOf="@id/returnlist_name"/>
+                app:layout_constraintTop_toBottomOf="@id/returnlist_name" />
+
 
             <ImageView
                 android:id="@+id/imageView13"

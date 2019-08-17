@@ -112,6 +112,7 @@ public class FAQActivity extends AppCompatActivity {
         databaseReference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                arrayList.clear();
                 for(DataSnapshot ds:dataSnapshot.getChildren())
                 {
                    String ques=ds.child("question").getValue(String.class);
