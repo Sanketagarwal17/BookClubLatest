@@ -79,12 +79,12 @@ public class IssueBookAdapter extends RecyclerView.Adapter<IssueBookAdapter.Issu
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(context,IssueBookDetailActivity.class);
-                intent.putExtra("author",addBookModel1.getAuthor());
-                intent.putExtra("book",addBookModel1.getBook());
+                intent.putExtra("author",addBookModel1.getAuthor().toString());
+                intent.putExtra("book",addBookModel1.getBook().toString());
                 intent.putExtra("hardsofy",addBookModel1.getHardsofy());
                 intent.putExtra("isbn",addBookModel1.getIsbn());
                 intent.putExtra("ism",addBookModel1.getIsm());
-                intent.putExtra("publisher",addBookModel1.getPublisher());
+                intent.putExtra("publisher",addBookModel1.getPublisher().toString());
                 intent.putExtra("tags",addBookModel1.getTags());
                 intent.putExtra("status",addBookModel1.getStatus());
                 intent.putExtra("no",addBookModel1.getNo());
