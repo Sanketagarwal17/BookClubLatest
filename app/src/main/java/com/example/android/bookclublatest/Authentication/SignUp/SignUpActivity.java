@@ -16,6 +16,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.android.bookclublatest.Admin.RequestsForMember.AdminActivity.AdminActivity;
@@ -65,6 +66,9 @@ public class SignUpActivity extends BaseActivity implements SignUpContract.View
 
     @BindView(R.id.add_profilepic_iv)
     ImageView add_profile_pic;
+
+    @BindView(R.id.have_an_account_textview)
+    TextView have_account;
 
     SignUpContract.Presenter<SignUpContract.View> mPresenter;
     FirebaseStorage firebasestorage= FirebaseStorage.getInstance();
@@ -122,15 +126,14 @@ public class SignUpActivity extends BaseActivity implements SignUpContract.View
             }
         });
 
-//        add_profile_pic.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                Intent intent=new Intent();
-//                intent.setType("image/*");
-//                intent.setAction(Intent.ACTION_GET_CONTENT);
-//                startActivityForResult(intent,capture);
-//            }
-//        });
+        have_account.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(SignUpActivity.this, LoginActivity.class));
+                finish();
+            }
+        });
+
     }
 
     @Override

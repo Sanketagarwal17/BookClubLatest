@@ -397,6 +397,7 @@
         android:fontFamily="sans-serif"
         android:gravity="center"
         android:text="Forgot Password?"
+        android:visibility="gone"
         android:textColor="#EF8D5E"
         android:textSize="13sp"
         app:layout_constraintBottom_toTopOf="@+id/guideline25"
