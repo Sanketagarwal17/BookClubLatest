@@ -1,236 +1,392 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
 
+    <include
+        android:id="@+id/tool2"
+        layout="@layout/toolbar_return" />
 
-    <TextView
-        android:id="@+id/proceed_scan"
-        android:layout_width="match_parent"
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/admin_access_view2"
+        android:layout_width="140dp"
         android:layout_height="wrap_content"
-        android:textColor="@android:color/black"
-        android:text="Click to Scan The Unique Code"
-        android:textSize="15sp"
-        android:padding="6dp"
-        android:background="@android:color/darker_gray"
-        android:gravity="center"/>
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tool2">
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+
+            android:src="@drawable/adminaccess_bg"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/imageView6"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="6dp"
+            android:layout_marginTop="8dp"
+            android:src="@drawable/folder"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/textView31"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="sans-serif"
+            android:text="admin access"
+            android:textColor="@android:color/white"
+            android:textSize="12sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/imageView6"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/proceed_scan"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        app:layout_constraintEnd_toEndOf="@id/guideline41"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintTop_toBottomOf="@id/admin_access_view2">
+
+        <ImageView
+            android:layout_width="150dp"
+            android:layout_height="30dp"
+            android:src="@drawable/scanbutton_bg"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/barcode_proceedreturn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/barcode"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.08"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/quicksand_bold"
+            android:gravity="center"
+            android:padding="6dp"
+            android:text="Scan Code"
+            android:textColor="@android:color/white"
+            android:textSize="15sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.82"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <ImageView
+        android:id="@+id/book_photo_proceedreturn"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="16dp"
+        android:adjustViewBounds="true"
+        android:maxWidth="90dp"
+        android:maxHeight="120dp"
+        android:scaleType="centerCrop"
+        android:src="@drawable/bk"
+        app:layout_constraintBottom_toTopOf="@+id/guideline38"
+        app:layout_constraintEnd_toStartOf="@+id/guideline42"
+        app:layout_constraintStart_toStartOf="@+id/guideline40"
+        app:layout_constraintTop_toBottomOf="@id/admin_access_view2" />
+
     <TextView
         android:id="@+id/proceed_code"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:padding="6dp"
         android:textSize="15sp"
-        android:padding="6dp"/>
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:background="@android:color/darker_gray"/>
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="565dp" />
 
+    <View
+        android:layout_width="0dp"
+        android:layout_height="1dp"
+        android:background="@android:color/darker_gray"
+        app:layout_constraintBottom_toTopOf="@+id/guideline39"
+        app:layout_constraintEnd_toStartOf="@+id/guideline41"
+        app:layout_constraintStart_toStartOf="@+id/guideline40" />
+
+    <View
+        android:layout_width="0dp"
+        android:layout_height="1dp"
+        android:background="@android:color/darker_gray"
+        app:layout_constraintBottom_toTopOf="@+id/guideline38"
+        app:layout_constraintEnd_toStartOf="@+id/guideline41"
+        app:layout_constraintStart_toStartOf="@+id/guideline40" />
+
+
+    <!--<CheckBox-->
+        <!--android:id="@+id/confirm_before_proceed_checkbox"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:buttonTint="@android:color/holo_green_dark"-->
+        <!--android:fontFamily="@font/roboto_regular"-->
+        <!--android:text="Confirm before proceed"-->
+        <!--android:textColor="#010101"-->
+        <!--app:layout_constraintStart_toStartOf="@+id/guideline40"-->
+        <!--app:layout_constraintTop_toBottomOf="@+id/isHardCopy_checkbox" />-->
+
+    <!--<CheckBox-->
+        <!--android:id="@+id/isHardCopy_checkbox"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_marginTop="16dp"-->
+        <!--android:buttonTint="@android:color/holo_green_dark"-->
+        <!--android:fontFamily="@font/roboto_regular"-->
+        <!--android:text="Hard Cover?"-->
+        <!--android:textColor="#010101"-->
+        <!--app:layout_constraintStart_toStartOf="@+id/guideline40"-->
+        <!--app:layout_constraintTop_toTopOf="@+id/guideline39" />-->
 
 
     <TextView
-        android:layout_width="match_parent"
+        android:id="@+id/textView44"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textColor="@android:color/black"
-        android:text="Confirm Before Proceed"
+        android:fontFamily="@font/open_sans"
+        android:text="details"
+        android:textColor="#A9A9A9"
+        android:textSize="12sp"
+        app:layout_constraintStart_toStartOf="@+id/guideline40"
+        app:layout_constraintTop_toTopOf="@+id/guideline38" />
+
+    <TextView
+        android:id="@+id/confirm_email"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:fontFamily="@font/quicksand_bold"
+        android:text="Return"
+        android:textColor="#216583"
         android:textSize="15sp"
-        android:padding="6dp"
-        android:background="@android:color/darker_gray"
-        android:gravity="center"/>
+        app:layout_constraintStart_toStartOf="@+id/guideline40"
+        app:layout_constraintTop_toBottomOf="@+id/textView44" />
 
-    <LinearLayout
-        android:layout_width="match_parent"
+
+    <TextView
+        android:id="@+id/confirm_name"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:orientation="horizontal">
+        android:layout_marginBottom="16dp"
+        android:fontFamily="@font/montserrat"
+        android:text="Return"
+        android:textAllCaps="true"
+        android:textColor="#333333"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toTopOf="@+id/guideline38"
+        app:layout_constraintEnd_toStartOf="@+id/guideline41" />
 
-        <TextView
-            android:layout_width="0dp"
-            android:layout_weight="1"
-            android:layout_height="wrap_content"
-            android:text="Email"
-            android:textSize="15sp"
-            android:layout_gravity="center"
-            android:textColor="@android:color/black"
-            android:padding="2dp"/>
+    <!--<TextView-->
+        <!--android:id="@+id/textView45"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_marginBottom="16dp"-->
+        <!--android:fontFamily="@font/quicksand_bold"-->
+        <!--android:text="Author's Name"-->
+        <!--android:textColor="#216583"-->
+        <!--android:textSize="14sp"-->
+        <!--app:layout_constraintBottom_toTopOf="@+id/guideline38"-->
+        <!--app:layout_constraintEnd_toStartOf="@+id/guideline41" />-->
 
-        <TextView
-            android:id="@+id/confirm_email"
-            android:layout_width="0dp"
-            android:layout_weight="3"
-            android:layout_height="wrap_content"
-            android:text="Return"
-            android:textSize="15sp"
-            android:layout_gravity="center"
-            android:textColor="@android:color/darker_gray"
-            android:padding="2dp"/>
-    </LinearLayout>
 
-    <LinearLayout
-        android:layout_width="match_parent"
+    <TextView
+        android:id="@+id/textView43"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:orientation="horizontal">
+        android:layout_marginBottom="8dp"
+        android:fontFamily="@font/quicksand_bold"
+        android:text="Issue Date :"
+        android:textColor="@android:color/black"
+        android:textSize="15sp"
+        app:layout_constraintBottom_toTopOf="@+id/textView42"
+        app:layout_constraintStart_toStartOf="@+id/guideline40" />
 
-        <TextView
-            android:layout_width="0dp"
-            android:layout_weight="1"
-            android:layout_height="wrap_content"
-            android:text="Book Name"
-            android:textSize="15sp"
-            android:layout_gravity="center"
-            android:textColor="@android:color/black"
-            android:padding="2dp"/>
-
-        <TextView
-            android:id="@+id/confirm_name"
-            android:layout_width="0dp"
-            android:layout_weight="3"
-            android:layout_height="wrap_content"
-            android:text="Return"
-            android:textSize="15sp"
-            android:layout_gravity="center"
-            android:textColor="@android:color/darker_gray"
-            android:padding="2dp"/>
-    </LinearLayout>
-    <LinearLayout
-        android:layout_width="match_parent"
+    <TextView
+        android:id="@+id/confirm_issue"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:orientation="horizontal">
+        android:layout_marginStart="24dp"
+        android:layout_marginBottom="8dp"
+        android:fontFamily="@font/roboto_regular"
+        android:text="Issue Date"
+        android:textColor="#707070"
+        android:textSize="15sp"
+        app:layout_constraintBottom_toTopOf="@+id/textView42"
+        app:layout_constraintStart_toEndOf="@+id/textView42" />
 
-        <TextView
-            android:layout_width="0dp"
-            android:layout_weight="1"
-            android:layout_height="wrap_content"
-            android:text="Issue Date"
-            android:textSize="15sp"
-            android:layout_gravity="center"
-            android:textColor="@android:color/black"
-            android:padding="2dp"/>
 
-        <TextView
-            android:id="@+id/confirm_issue"
-            android:layout_width="0dp"
-            android:layout_weight="3"
-            android:layout_height="wrap_content"
-            android:text="Issue Date"
-            android:textSize="15sp"
-            android:layout_gravity="center"
-            android:textColor="@android:color/darker_gray"
-            android:padding="2dp"/>
-    </LinearLayout>
-    <LinearLayout
-        android:layout_width="match_parent"
+    <TextView
+        android:id="@+id/textView36"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:orientation="horizontal">
+        android:layout_marginBottom="8dp"
+        android:fontFamily="@font/quicksand_bold"
+        android:text="Return Date :"
+        android:textColor="@android:color/black"
+        android:textSize="15sp"
+        app:layout_constraintBottom_toTopOf="@+id/textView34"
+        app:layout_constraintStart_toStartOf="@+id/guideline40" />
 
-        <TextView
-            android:layout_width="0dp"
-            android:layout_weight="1"
-            android:layout_height="wrap_content"
-            android:text="Return Date"
-            android:textSize="15sp"
-            android:layout_gravity="center"
-            android:textColor="@android:color/black"
-            android:padding="2dp"/>
-
-        <TextView
-            android:id="@+id/confirm_return"
-            android:layout_width="0dp"
-            android:layout_weight="3"
-            android:layout_height="wrap_content"
-            android:text="Return"
-            android:textSize="15sp"
-            android:layout_gravity="center"
-            android:textColor="@android:color/darker_gray"
-            android:padding="2dp"/>
-    </LinearLayout>
-    <LinearLayout
-        android:layout_width="match_parent"
+    <TextView
+        android:id="@+id/confirm_return"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:orientation="horizontal">
+        android:layout_marginStart="24dp"
+        android:layout_marginBottom="8dp"
+        android:fontFamily="@font/roboto_regular"
+        android:text="Return Date"
+        android:textColor="#707070"
+        android:textSize="15sp"
+        app:layout_constraintBottom_toTopOf="@+id/textView34"
+        app:layout_constraintStart_toEndOf="@+id/textView42" />
 
-        <TextView
-            android:layout_width="0dp"
-            android:layout_weight="1"
-            android:layout_height="wrap_content"
-            android:text="Today's Date"
-            android:textSize="15sp"
-            android:layout_gravity="center"
-            android:textColor="@android:color/black"
-            android:padding="2dp"/>
 
-        <TextView
-            android:id="@+id/confirm_today"
-            android:layout_width="0dp"
-            android:layout_weight="3"
-            android:layout_height="wrap_content"
-            android:text="Return"
-            android:textSize="15sp"
-            android:layout_gravity="center"
-            android:textColor="@android:color/darker_gray"
-            android:padding="2dp"/>
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
+    <TextView
+        android:id="@+id/textView42"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:orientation="horizontal">
+        android:layout_marginBottom="8dp"
+        android:fontFamily="@font/quicksand_bold"
+        android:text="Today's Date"
+        android:textColor="@android:color/black"
+        android:textSize="15sp"
+        app:layout_constraintBottom_toTopOf="@+id/textView36"
+        app:layout_constraintStart_toStartOf="@+id/guideline40" />
 
-        <TextView
-            android:layout_width="0dp"
-            android:layout_weight="1"
-            android:layout_height="wrap_content"
-            android:text="ISBN"
-            android:textSize="15sp"
-            android:layout_gravity="center"
-            android:textColor="@android:color/black"
-            android:padding="2dp"/>
-
-        <TextView
-            android:id="@+id/confirm_isbn"
-            android:layout_width="0dp"
-            android:layout_weight="3"
-            android:layout_height="wrap_content"
-            android:text="Return"
-            android:textSize="15sp"
-            android:layout_gravity="center"
-            android:textColor="@android:color/darker_gray"
-            android:padding="2dp"/>
-    </LinearLayout>
-    <LinearLayout
-        android:layout_width="match_parent"
+    <TextView
+        android:id="@+id/confirm_today"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:orientation="horizontal">
+        android:layout_marginStart="24dp"
+        android:layout_marginBottom="8dp"
+        android:fontFamily="@font/roboto_regular"
+        android:text="Today Date"
+        android:textColor="#707070"
+        android:textSize="15sp"
+        app:layout_constraintBottom_toTopOf="@+id/textView36"
+        app:layout_constraintStart_toEndOf="@+id/textView42" />
 
-        <TextView
-            android:layout_width="0dp"
-            android:layout_weight="1"
-            android:layout_height="wrap_content"
-            android:text="Unique Code"
-            android:textSize="15sp"
-            android:layout_gravity="center"
-            android:textColor="@android:color/black"
-            android:padding="2dp"/>
+    <TextView
+        android:id="@+id/textView34"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:fontFamily="@font/quicksand_bold"
+        android:text="ISBN :"
+        android:textColor="@android:color/black"
+        android:textSize="15sp"
+        app:layout_constraintBottom_toTopOf="@+id/textView35"
+        app:layout_constraintStart_toStartOf="@+id/guideline40" />
 
-        <TextView
-            android:id="@+id/confirm_ism"
-            android:layout_width="0dp"
-            android:layout_weight="3"
-            android:layout_height="wrap_content"
-            android:text="Return"
-            android:textSize="15sp"
-            android:layout_gravity="center"
-            android:textColor="@android:color/darker_gray"
-            android:padding="2dp"/>
-    </LinearLayout>
+    <TextView
+        android:id="@+id/confirm_isbn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginBottom="8dp"
+        android:fontFamily="@font/roboto_regular"
+        android:text="ISBN code"
+        android:textColor="#707070"
+        android:textSize="15sp"
+        app:layout_constraintBottom_toTopOf="@+id/textView35"
+        app:layout_constraintStart_toEndOf="@+id/textView42" />
+
+
+    <TextView
+        android:id="@+id/textView35"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:fontFamily="@font/quicksand_bold"
+        android:text="Unique Code :"
+        android:textColor="@android:color/black"
+        android:textSize="15sp"
+        app:layout_constraintBottom_toTopOf="@+id/guideline39"
+        app:layout_constraintStart_toStartOf="@+id/guideline40" />
+
+    <TextView
+        android:id="@+id/confirm_ism"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginBottom="16dp"
+        android:fontFamily="@font/roboto_regular"
+        android:text="Unique code"
+        android:textColor="#707070"
+        android:textSize="15sp"
+        app:layout_constraintBottom_toTopOf="@+id/guideline39"
+        app:layout_constraintStart_toEndOf="@+id/textView42" />
 
 
     <Button
         android:id="@+id/proceed_issue"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="RETURN"
-        android:layout_gravity="center_horizontal"
-        android:layout_marginTop="50dp"/>
+        android:layout_height="50dp"
+        android:background="@drawable/approvebutton_bg"
+        android:fontFamily="@font/open_sans"
+        android:text="Approve"
+        android:textColor="@android:color/white"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="parent" />
 
-</LinearLayout>
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline38"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.42" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline39"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.8" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline40"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.06" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline41"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.94" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline42"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.45" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
