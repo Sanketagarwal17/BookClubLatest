@@ -9,6 +9,9 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import androidx.constraintlayout.widget.ConstraintLayout;
+
 import com.example.android.bookclublatest.Member.ConfirmReturn.ConfirmActivity;
 import com.example.android.bookclublatest.Member.ConfirmReturn.ConfirmModel;
 import com.example.android.bookclublatest.R;
@@ -31,7 +34,7 @@ public class ProceedReturnActivity extends AppCompatActivity
     ConfirmModel model;
 
     @BindView(R.id.proceed_scan)
-    TextView scan;
+    ConstraintLayout scan;
     @BindView(R.id.proceed_code)
     TextView unique_code;
     @BindView(R.id.proceed_issue)
