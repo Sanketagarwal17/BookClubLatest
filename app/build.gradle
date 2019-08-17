@@ -70,7 +70,6 @@ dependencies {
 
     implementation 'com.mikhaellopez:circularimageview:3.2.0'
     implementation 'com.jpardogo.googleprogressbar:library:1.2.0'
-
 }
 
 

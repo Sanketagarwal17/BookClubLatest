@@ -149,6 +149,22 @@ public class HomePageActivity extends AppCompatActivity
                     {
                         String status=ds.getValue().toString();
                         sharedPref.setAccessLevel(status);
+
+                        NavigationView navigationView = findViewById(R.id.nav_view);
+                        Menu nav_menu = navigationView.getMenu();
+
+                        if(sharedPref.getAccessLevel().equals("Student")){
+                            nav_menu.findItem(R.id.member_access).setVisible(false);
+                            nav_menu.findItem(R.id.admin_access).setVisible(false);
+                        }
+                        else if(sharedPref.getAccessLevel().equals("Member")){
+                            nav_menu.findItem(R.id.member_access).setVisible(true);
+                            nav_menu.findItem(R.id.admin_access).setVisible(false);
+                        }
+                        else if( sharedPref.getAccessLevel().equals("Admin")){
+                            nav_menu.findItem(R.id.member_access).setVisible(true);
+                            nav_menu.findItem(R.id.admin_access).setVisible(true);
+                        }
                     }
                 }
             }
