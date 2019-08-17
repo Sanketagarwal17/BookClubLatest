@@ -1,13 +1,17 @@
 package com.example.android.bookclublatest;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.text.Editable;
+import android.text.SpannableStringBuilder;
+import android.text.Spanned;
 import android.text.TextWatcher;
+import android.text.style.BackgroundColorSpan;
 import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
@@ -74,8 +78,8 @@ public class IssueBook extends BaseActivity implements IssueBookContract.View {
                              count++;
                         }
                     }
-                    AddBookModel1 addBookModel1 = new AddBookModel1(addBookModel.getBook()
-                    ,addBookModel.getAuthor(),addBookModel.getPublisher(),addBookModel.getTags()
+                    AddBookModel1 addBookModel1 = new AddBookModel1( new SpannableStringBuilder(addBookModel.getBook())
+                    ,new SpannableStringBuilder(addBookModel.getAuthor()),new SpannableStringBuilder(addBookModel.getPublisher()),addBookModel.getTags()
                     ,addBookModel.getHardsofy(),addBookModel.getIsm(),addBookModel.getIsbn()
                     ,addBookModel.getStatus(),String.valueOf(count),addBookModel.getUrl(),addBookModel.getDesc());
                     Log.d(TAG, "onDataChange: " + count);
@@ -136,10 +140,38 @@ public class IssueBook extends BaseActivity implements IssueBookContract.View {
                     }
                     if (addBookModel.getBook().contains(s) || addBookModel.getPublisher().contains(s) || addBookModel.getAuthor().contains(s))
                     {
-                        AddBookModel1 addBookModel1 = new AddBookModel1(addBookModel.getBook()
-                                , addBookModel.getAuthor(), addBookModel.getPublisher(), addBookModel.getTags()
-                                , addBookModel.getHardsofy(), addBookModel.getIsm(), addBookModel.getIsbn()
-                                , addBookModel.getStatus(), String.valueOf(count), addBookModel.getUrl(), addBookModel.getDesc());
+                        AddBookModel1 addBookModel1 = new AddBookModel1( new SpannableStringBuilder(addBookModel.getBook())
+                                ,new SpannableStringBuilder(addBookModel.getAuthor()),new SpannableStringBuilder(addBookModel.getPublisher()),addBookModel.getTags()
+                                ,addBookModel.getHardsofy(),addBookModel.getIsm(),addBookModel.getIsbn()
+                                ,addBookModel.getStatus(),String.valueOf(count),addBookModel.getUrl(),addBookModel.getDesc());
+                        BackgroundColorSpan bcsYellow = new BackgroundColorSpan(Color.YELLOW);
+                        if(addBookModel.getBook().contains(s))
+                        {
+                            SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder(addBookModel.getBook());
+                            spannableStringBuilder.setSpan(bcsYellow
+                                    ,addBookModel.getBook().indexOf(s),
+                                    addBookModel.getBook().indexOf(s)+s.length(),
+                                    Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+                            addBookModel1.setBook(spannableStringBuilder);
+                        }
+                        if(addBookModel.getPublisher().contains(s))
+                        {
+                            SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder(addBookModel.getPublisher());
+                            spannableStringBuilder.setSpan(bcsYellow
+                                    ,addBookModel.getPublisher().indexOf(s),
+                                    addBookModel.getPublisher().indexOf(s)+s.length(),
+                                    Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+                            addBookModel1.setPublisher(spannableStringBuilder);
+                        }
+                        if(addBookModel.getAuthor().contains(s))
+                        {
+                            SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder(addBookModel.getAuthor());
+                            spannableStringBuilder.setSpan(bcsYellow
+                                    ,addBookModel.getAuthor().indexOf(s),
+                                    addBookModel.getAuthor().indexOf(s)+s.length(),
+                                    Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+                            addBookModel1.setAuthor(spannableStringBuilder);
+                        }
                     arrayList.add(addBookModel1);
                 }
                 }

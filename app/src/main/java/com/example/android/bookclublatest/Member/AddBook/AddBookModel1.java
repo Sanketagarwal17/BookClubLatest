@@ -1,30 +1,33 @@
 package com.example.android.bookclublatest.Member.AddBook;
 
+import android.text.SpannableStringBuilder;
+
 public class AddBookModel1
 {
-    String book,author,publisher,tags,hardsofy,ism,isbn,status,no,url,desc;
+    SpannableStringBuilder book,author,publisher;
+    String tags,hardsofy,ism,isbn,status,no,url,desc;
 
-    public String getBook() {
+    public SpannableStringBuilder getBook() {
         return book;
     }
 
-    public void setBook(String book) {
+    public void setBook(SpannableStringBuilder book) {
         this.book = book;
     }
 
-    public String getAuthor() {
+    public SpannableStringBuilder getAuthor() {
         return author;
     }
 
-    public void setAuthor(String author) {
+    public void setAuthor(SpannableStringBuilder author) {
         this.author = author;
     }
 
-    public String getPublisher() {
+    public SpannableStringBuilder getPublisher() {
         return publisher;
     }
 
-    public void setPublisher(String publisher) {
+    public void setPublisher(SpannableStringBuilder publisher) {
         this.publisher = publisher;
     }
 
@@ -92,7 +95,7 @@ public class AddBookModel1
         this.desc = desc;
     }
 
-    public AddBookModel1(String book, String author, String publisher, String tags, String hardsofy, String ism, String isbn, String status, String no, String url, String desc) {
+    public AddBookModel1(SpannableStringBuilder book, SpannableStringBuilder author, SpannableStringBuilder publisher, String tags, String hardsofy, String ism, String isbn, String status, String no, String url, String desc) {
         this.book = book;
         this.author = author;
         this.publisher = publisher;
