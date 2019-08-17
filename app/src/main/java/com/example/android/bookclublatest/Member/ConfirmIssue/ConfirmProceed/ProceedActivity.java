@@ -59,6 +59,10 @@ public class ProceedActivity extends AppCompatActivity implements DatePickerDial
     TextView creturn;
     @BindView(R.id.book_img)
     ImageView imageView;
+    @BindView(R.id.return_home)
+    ImageView home;
+    @BindView(R.id.textView26)
+    TextView title;
 
     IntentIntegrator intentIntegrator;
     DatePickerDialog datePickerDialog;
@@ -118,6 +122,15 @@ public class ProceedActivity extends AppCompatActivity implements DatePickerDial
                 }
                 else
                     checkCode();
+            }
+        });
+
+
+        title.setText("Confirm Issue");
+        home.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onBackPressed();
             }
         });
     }
