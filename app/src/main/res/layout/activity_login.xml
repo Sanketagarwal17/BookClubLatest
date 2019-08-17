@@ -7,188 +7,249 @@
     android:background="@drawable/background"
     tools:context=".Authentication.Login.LoginActivity">
 
-
-    <RelativeLayout
-        android:id="@+id/relativeLayout"
+    <ImageView
+        android:id="@+id/imageView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:adjustViewBounds="true"
+        android:src="@drawable/logo"
+        android:paddingRight="16dp"
+        android:maxWidth="225dp"
+        android:maxHeight="120dp"
+        app:layout_constraintBottom_toTopOf="@+id/guideline51"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.52"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.16000003">
+        app:layout_constraintTop_toTopOf="@+id/guideline52" />
 
-        <ImageView
-            android:id="@+id/imageView2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/logo" />
-
-        <ImageView
-            android:id="@+id/textView"
-            android:layout_width="170dp"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/imageView2"
-            android:layout_marginLeft="18dp"
-            android:layout_marginTop="30dp"
-            android:src="@drawable/logotext" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/textView"
-            android:layout_marginLeft="110dp"
-            android:layout_marginTop="8dp"
-            android:text="iit(ism)Dhanbad"
-            android:textColor="#ffffff"
-            android:textSize="15sp" />
-    </RelativeLayout>
-
-    <LinearLayout
+    <ImageView
+        android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:maxWidth="160dp"
+        android:maxHeight="30dp"
+        android:adjustViewBounds="true"
+        android:layout_below="@id/imageView2"
+        android:src="@drawable/logotext"
+        app:layout_constraintBottom_toTopOf="@+id/guideline56"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.6">
+        app:layout_constraintTop_toTopOf="@+id/guideline51" />
 
-        <RelativeLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:paddingBottom="20dp">
+    <TextView
+        android:id="@+id/textView33"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/textView"
+        android:text="IIT(ISM)Dhanbad"
+        android:textColor="#ffffff"
+        android:textSize="15sp"
+        app:layout_constraintStart_toStartOf="@+id/guideline55"
+        app:layout_constraintTop_toTopOf="@+id/guideline56" />
 
-            <TextView
-                android:id="@+id/textView4"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:fontFamily="sans-serif"
-                android:text="Welcome Back"
-                android:textColor="#5899DB"
-                android:textSize="18sp"
-                android:textStyle="bold" />
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:paddingTop="19dp"
-                android:layout_marginTop="8dp"
-                android:fontFamily="sans-serif"
-                android:text="sign in to continue"
-                android:textColor="#868686"
-                android:textSize="12sp"
-                />
-        </RelativeLayout>
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:fontFamily="sans-serif"
+        android:text="Welcome Back"
+        android:textColor="#5899DB"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/guideline49"
+        app:layout_constraintStart_toStartOf="@+id/guideline53" />
 
-        <RelativeLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content">
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="4dp"
+        android:fontFamily="sans-serif"
+        android:text="sign in to continue"
+        android:textColor="#868686"
+        android:textSize="12sp"
+        app:layout_constraintStart_toStartOf="@+id/guideline53"
+        app:layout_constraintTop_toTopOf="@+id/guideline49" />
 
-            <ImageView
-                android:id="@+id/key_imageview"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="25dp"
-                android:src="@drawable/user" />
 
-            <EditText
-                android:id="@+id/login_email"
-                android:layout_width="275dp"
-                android:layout_height="60dp"
-                android:layout_marginLeft="15dp"
-                android:layout_toRightOf="@id/key_imageview"
-                android:backgroundTint="#ffffff"
-                android:hint="college e-mail ID"
-                android:fontFamily="sans-serif"
-                android:inputType="textPersonName"
-                android:textColor="#ffffff"
-                android:textColorHint="#888888"
-                android:textSize="15sp"
-                android:textStyle="italic" />
+    <ImageView
+        android:id="@+id/key_imageview"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="12dp"
+        android:src="@drawable/key"
+        app:layout_constraintBottom_toBottomOf="@+id/login_password"
+        app:layout_constraintStart_toStartOf="@+id/guideline53"
+        app:layout_constraintTop_toTopOf="@+id/login_password" />
 
-        </RelativeLayout>
+    <EditText
+        android:id="@+id/login_email"
+        android:layout_width="0dp"
+        android:layout_height="60dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_toRightOf="@id/key_imageview"
+        android:backgroundTint="#ffffff"
+        android:fontFamily="sans-serif"
+        android:hint="college e-mail ID"
+        android:inputType="textPersonName"
+        android:textColor="#ffffff"
+        android:textColorHint="#888888"
+        android:textSize="15sp"
+        android:textStyle="italic"
+        app:layout_constraintBottom_toTopOf="@+id/guideline48"
+        app:layout_constraintEnd_toStartOf="@+id/guideline54"
+        app:layout_constraintStart_toEndOf="@+id/user_imageview" />
 
-        <RelativeLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="15dp">
 
-            <ImageView
-                android:id="@+id/user_imageview"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="25dp"
-                android:src="@drawable/key" />
+    <ImageView
+        android:id="@+id/user_imageview"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="12dp"
+        android:src="@drawable/user"
+        app:layout_constraintBottom_toBottomOf="@+id/login_email"
+        app:layout_constraintStart_toStartOf="@+id/guideline53"
+        app:layout_constraintTop_toTopOf="@+id/login_email" />
 
-            <EditText
-                android:id="@+id/login_password"
-                android:layout_width="275dp"
-                android:layout_height="60dp"
-                android:layout_marginLeft="15dp"
-                android:layout_toRightOf="@id/user_imageview"
-                android:backgroundTint="#ffffff"
-                android:hint="password"
-                android:fontFamily="sans-serif"
-                android:inputType="textPassword"
-                android:textColor="#ffffff"
-                android:textColorHint="#888888"
-                android:textSize="15sp"
-                android:textStyle="italic" />
+    <EditText
+        android:id="@+id/login_password"
+        android:layout_width="0dp"
+        android:layout_height="60dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_toRightOf="@id/user_imageview"
+        android:backgroundTint="#ffffff"
+        android:fontFamily="sans-serif"
+        android:hint="password"
+        android:inputType="textPassword"
+        android:textColor="#ffffff"
+        android:textColorHint="#888888"
+        android:textSize="15sp"
+        android:textStyle="italic"
+        app:layout_constraintBottom_toTopOf="@+id/guideline47"
+        app:layout_constraintEnd_toStartOf="@+id/guideline54"
+        app:layout_constraintStart_toEndOf="@+id/key_imageview" />
 
-        </RelativeLayout>
-
-    </LinearLayout>
 
     <Button
         android:id="@+id/login"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:background="@drawable/roundedbuttonbg"
         android:text="Sign In"
         android:textColor="#ffffff"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.82" />
+        app:layout_constraintBottom_toTopOf="@+id/guideline45"
+        app:layout_constraintEnd_toStartOf="@+id/guideline54"
+        app:layout_constraintStart_toStartOf="@+id/guideline53" />
 
 
     <TextView
         android:id="@+id/sign_up"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
         android:background="@drawable/createacbg"
         android:fontFamily="sans-serif"
         android:gravity="center"
         android:text="Create Account"
         android:textColor="#EF8D5E"
         android:textSize="13sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.83"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.9" />
+        app:layout_constraintBottom_toTopOf="@+id/guideline46"
+        app:layout_constraintEnd_toStartOf="@+id/guideline54" />
 
     <TextView
         android:id="@+id/forget_password"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
         android:fontFamily="sans-serif"
         android:gravity="center"
         android:text="Forgot Password?"
         android:textColor="#EF8D5E"
         android:textSize="13sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.2"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.9" />
+        app:layout_constraintBottom_toTopOf="@+id/guideline46"
+        app:layout_constraintStart_toStartOf="@+id/guideline53" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline45"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.84" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline46"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.92" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline47"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.7" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline48"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.6" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline49"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.46" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline51"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.26" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline52"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.05" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline53"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.08" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline54"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.92" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline55"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.5" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline56"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.32" />
 
 
 </android.support.constraint.ConstraintLayout>

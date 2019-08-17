@@ -33,7 +33,6 @@ public class ConfirmAdapter extends RecyclerView.Adapter<ConfirmAdapter.ViewHold
         View view= LayoutInflater.from(context).inflate(R.layout.card_confirm_return,viewGroup,false);
         return new ViewHolder(view,clickListener);
     }
-
     @SuppressLint("SetTextI18n")
     @Override
     public void onBindViewHolder(@NonNull ConfirmAdapter.ViewHolder viewHolder, int i)
@@ -43,8 +42,7 @@ public class ConfirmAdapter extends RecyclerView.Adapter<ConfirmAdapter.ViewHold
         viewHolder.book.setText(model.getBookname());
         viewHolder.email.setText(model.getEmail());
         Picasso.get().load(model.getUrl()).into(viewHolder.imageView);
-        viewHolder.date.setText("Supposed to be returned on  "+model.getReturn_date());
-
+        viewHolder.date.setText("Required return on  "+model.getReturn_date());
     }
 
     @Override
