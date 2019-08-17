@@ -20,9 +20,9 @@ public class AddBookPresenter<V extends AddBookContract.View> extends BasePresen
     DatabaseReference databaseReference=firebaseDatabase.getReference().child("Books_List");
 
     @Override
-    public void submit(String book, String author, String publisher,String isbn, String ism, String tags, String hardsofy,String url)
+    public void submit(String book, String author, String publisher,String isbn, String ism, String tags, String hardsofy,String url,String desc)
     {
-        final AddBookModel model=new AddBookModel(book,author,publisher,tags,hardsofy,ism,isbn,"not issued",url);
+        final AddBookModel model=new AddBookModel(book,author,publisher,tags,hardsofy,ism,isbn,"not issued",url,desc);
         databaseReference.child(isbn).child(hardsofy).child(ism).setValue(model).addOnCompleteListener(new OnCompleteListener<Void>() {
             @Override
             public void onComplete(@NonNull Task<Void> task) {

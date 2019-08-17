@@ -54,6 +54,8 @@ public class AddBookActivity extends BaseActivity implements AddBookContract.Vie
     private static final String TAG = "AddBookActivity";
     @BindView(R.id.add_bookname)
     EditText name;
+    @BindView(R.id.add_description)
+    EditText desc;
     @BindView(R.id.add_author)
     EditText author;
     @BindView(R.id.add_pulication)
@@ -168,7 +170,7 @@ public class AddBookActivity extends BaseActivity implements AddBookContract.Vie
                     Toast.makeText(AddBookActivity.this, "Please Upload Photo", Toast.LENGTH_SHORT).show();
                 }
                 else {
-                    presenter.submit(mname, mauthor, mpublication, misbn, mism, mtags, mchecbox, link);
+                    presenter.submit(mname, mauthor, mpublication, misbn, mism, mtags, mchecbox, link,desc.getText().toString());
                 }
             }
         });
