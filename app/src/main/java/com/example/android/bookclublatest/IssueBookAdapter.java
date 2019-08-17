@@ -89,6 +89,7 @@ public class IssueBookAdapter extends RecyclerView.Adapter<IssueBookAdapter.Issu
                 intent.putExtra("status",addBookModel1.getStatus());
                 intent.putExtra("no",addBookModel1.getNo());
                 intent.putExtra("url",addBookModel1.getUrl());
+                intent.putExtra("desc",addBookModel1.getDesc());
                 Log.d(TAG, "onClick: " + i);
                 Pair[] pairs = new Pair[3];
                 pairs[0] = new Pair<View,String>(issueBookViewHolder.book,"ts_book");
@@ -118,6 +119,7 @@ public class IssueBookAdapter extends RecyclerView.Adapter<IssueBookAdapter.Issu
             book = itemView.findViewById(R.id.tv_book);
             pub = itemView.findViewById(R.id.tv_pub);
             author = itemView.findViewById(R.id.tv_author);
+           // desc=itemView.findViewById(R.id.add_description);
             bookCard = itemView.findViewById(R.id.book_card);
             status=itemView.findViewById(R.id.textView24);
             no = itemView.findViewById(R.id.textView25);
