@@ -140,28 +140,28 @@
         app:layout_constraintStart_toStartOf="@+id/guideline40" />
 
 
-    <CheckBox
-        android:id="@+id/confirm_before_proceed_checkbox"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:buttonTint="@android:color/holo_green_dark"
-        android:fontFamily="@font/roboto_regular"
-        android:text="Confirm before proceed"
-        android:textColor="#010101"
-        app:layout_constraintStart_toStartOf="@+id/guideline40"
-        app:layout_constraintTop_toBottomOf="@+id/isHardCopy_checkbox" />
+    <!--<CheckBox-->
+        <!--android:id="@+id/confirm_before_proceed_checkbox"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:buttonTint="@android:color/holo_green_dark"-->
+        <!--android:fontFamily="@font/roboto_regular"-->
+        <!--android:text="Confirm before proceed"-->
+        <!--android:textColor="#010101"-->
+        <!--app:layout_constraintStart_toStartOf="@+id/guideline40"-->
+        <!--app:layout_constraintTop_toBottomOf="@+id/isHardCopy_checkbox" />-->
 
-    <CheckBox
-        android:id="@+id/isHardCopy_checkbox"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:buttonTint="@android:color/holo_green_dark"
-        android:fontFamily="@font/roboto_regular"
-        android:text="Hard Cover?"
-        android:textColor="#010101"
-        app:layout_constraintStart_toStartOf="@+id/guideline40"
-        app:layout_constraintTop_toTopOf="@+id/guideline39" />
+    <!--<CheckBox-->
+        <!--android:id="@+id/isHardCopy_checkbox"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_marginTop="16dp"-->
+        <!--android:buttonTint="@android:color/holo_green_dark"-->
+        <!--android:fontFamily="@font/roboto_regular"-->
+        <!--android:text="Hard Cover?"-->
+        <!--android:textColor="#010101"-->
+        <!--app:layout_constraintStart_toStartOf="@+id/guideline40"-->
+        <!--app:layout_constraintTop_toTopOf="@+id/guideline39" />-->
 
 
     <TextView
@@ -192,26 +192,26 @@
         android:id="@+id/confirm_name"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="2dp"
+        android:layout_marginBottom="16dp"
         android:fontFamily="@font/montserrat"
         android:text="Return"
         android:textAllCaps="true"
         android:textColor="#333333"
         android:textSize="24sp"
-        app:layout_constraintBottom_toTopOf="@+id/textView45"
-        app:layout_constraintEnd_toStartOf="@+id/guideline41" />
-
-    <TextView
-        android:id="@+id/textView45"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="16dp"
-        android:fontFamily="@font/quicksand_bold"
-        android:text="Author's Name"
-        android:textColor="#216583"
-        android:textSize="14sp"
         app:layout_constraintBottom_toTopOf="@+id/guideline38"
         app:layout_constraintEnd_toStartOf="@+id/guideline41" />
+
+    <!--<TextView-->
+        <!--android:id="@+id/textView45"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_marginBottom="16dp"-->
+        <!--android:fontFamily="@font/quicksand_bold"-->
+        <!--android:text="Author's Name"-->
+        <!--android:textColor="#216583"-->
+        <!--android:textSize="14sp"-->
+        <!--app:layout_constraintBottom_toTopOf="@+id/guideline38"-->
+        <!--app:layout_constraintEnd_toStartOf="@+id/guideline41" />-->
 
 
     <TextView
@@ -346,7 +346,7 @@
     <Button
         android:id="@+id/proceed_issue"
         android:layout_width="match_parent"
-        android:layout_height="60dp"
+        android:layout_height="50dp"
         android:background="@drawable/approvebutton_bg"
         android:fontFamily="@font/open_sans"
         android:text="Approve"
