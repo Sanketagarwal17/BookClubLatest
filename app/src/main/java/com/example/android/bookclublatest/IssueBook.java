@@ -77,7 +77,7 @@ public class IssueBook extends BaseActivity implements IssueBookContract.View {
                     AddBookModel1 addBookModel1 = new AddBookModel1(addBookModel.getBook()
                     ,addBookModel.getAuthor(),addBookModel.getPublisher(),addBookModel.getTags()
                     ,addBookModel.getHardsofy(),addBookModel.getIsm(),addBookModel.getIsbn()
-                    ,addBookModel.getStatus(),String.valueOf(count),addBookModel.getUrl());
+                    ,addBookModel.getStatus(),String.valueOf(count),addBookModel.getUrl(),addBookModel.getDesc());
                     Log.d(TAG, "onDataChange: " + count);
                     arrayList.add(addBookModel1);
 
@@ -124,29 +124,30 @@ public class IssueBook extends BaseActivity implements IssueBookContract.View {
             public void onDataChange(@NonNull DataSnapshot dataSnapshot)
             {
                 arrayList.clear();
-                for(DataSnapshot d1 : dataSnapshot.getChildren())
-                {
+                for(DataSnapshot d1 : dataSnapshot.getChildren()) {
                     AddBookModel addBookModel = null;
-                    int count =0;
-                    for(DataSnapshot d2 : d1.getChildren())
-                    {
-                        for(DataSnapshot d3 : d2.getChildren())
-                        {
+                    int count = 0;
+                    for (DataSnapshot d2 : d1.getChildren()) {
+                        for (DataSnapshot d3 : d2.getChildren()) {
                             addBookModel = d3.getValue(AddBookModel.class);
 
                             count++;
                         }
                     }
-                    AddBookModel1 addBookModel1 = new AddBookModel1(addBookModel.getBook()
-                            ,addBookModel.getAuthor(),addBookModel.getPublisher(),addBookModel.getTags()
-                            ,addBookModel.getHardsofy(),addBookModel.getIsm(),addBookModel.getIsbn()
-                            ,addBookModel.getStatus(),String.valueOf(count),addBookModel.getUrl());
+                    if (addBookModel.getBook().contains(s) || addBookModel.getPublisher().contains(s) || addBookModel.getAuthor().contains(s))
+                    {
+                        AddBookModel1 addBookModel1 = new AddBookModel1(addBookModel.getBook()
+                                , addBookModel.getAuthor(), addBookModel.getPublisher(), addBookModel.getTags()
+                                , addBookModel.getHardsofy(), addBookModel.getIsm(), addBookModel.getIsbn()
+                                , addBookModel.getStatus(), String.valueOf(count), addBookModel.getUrl(), addBookModel.getDesc());
                     arrayList.add(addBookModel1);
+                }
                 }
                 Log.d(TAG, "onDataChange: " + arrayList.size());
 
-                issueBookAdapter.notifyDataSetChanged();
+
                 issueBookAdapter.filterList(arrayList);
+                issueBookAdapter.notifyDataSetChanged();
 
             }
 

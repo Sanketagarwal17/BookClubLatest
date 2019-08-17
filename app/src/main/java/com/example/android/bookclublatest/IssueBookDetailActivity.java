@@ -37,6 +37,8 @@ import butterknife.ButterKnife;
 public class IssueBookDetailActivity extends AppCompatActivity {
 
     SharedPref  sharedPref;
+    @BindView(R.id.description)
+    TextView desc;
     @BindView(R.id.textView28)
     TextView tvBook;
     @BindView(R.id.det_author)
@@ -82,6 +84,7 @@ public class IssueBookDetailActivity extends AppCompatActivity {
         final String stat = getIntent().getStringExtra("status");
         final String no = getIntent().getStringExtra("no");
         final String url = getIntent().getStringExtra("url");
+        final String descString = getIntent().getStringExtra("desc");
         ButterKnife.bind(this);
         tvBook.setText(stat);
         booktv.setText(book);
@@ -92,6 +95,7 @@ public class IssueBookDetailActivity extends AppCompatActivity {
         tvPub.setText(publisher);
         tvTags.setText(tags);
         //status.setText(stat);
+        desc.setText(descString);
         noCopies.setText(no);
         Picasso.get().load(url).into(book_image);
         issueBookButton.setOnClickListener(new View.OnClickListener() {
@@ -138,6 +142,8 @@ public class IssueBookDetailActivity extends AppCompatActivity {
                                 .child("ISM").setValue(ism);
                         FirebaseDatabase.getInstance().getReference().child("Issue Requests").child(email).child(isbn)
                                 .child("url").setValue(url);
+                        FirebaseDatabase.getInstance().getReference().child("Issue Requests").child(email).child(isbn)
+                                .child("desc").setValue(descString);
 
                         Toast.makeText(IssueBookDetailActivity.this, book + "requested for you", Toast.LENGTH_SHORT).show();
                     }
