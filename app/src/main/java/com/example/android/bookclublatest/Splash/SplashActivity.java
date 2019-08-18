@@ -81,7 +81,7 @@ public class SplashActivity extends AppCompatActivity
                                 public void run() {
                                     finish();
                                     progressBar.setVisibility(View.GONE);
-                                    startActivity(new Intent(SplashActivity.this, LoginActivity.class));
+                                    startActivity(new Intent(SplashActivity.this, HomePageActivity.class));
                                 }
                             }, 1500);
                         }
