@@ -12,6 +12,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.android.bookclublatest.Authentication.Login.LoginActivity;
 import com.example.android.bookclublatest.Base.BaseActivity;
 import com.example.android.bookclublatest.HomePage.History.HistoryActivity;
 import com.example.android.bookclublatest.HomePage.History.HistoryAdapter;
@@ -71,6 +72,11 @@ public class ProfileActivity extends BaseActivity implements ProfileContract.Vie
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_myprofile);
         ButterKnife.bind(this);
+        if(FirebaseAuth.getInstance().getCurrentUser()==null){
+            Toast.makeText(ProfileActivity.this, "Please Login First", Toast.LENGTH_SHORT).show();
+            startActivity(new Intent(ProfileActivity.this, LoginActivity.class));
+            finish();
+        }
         mpresenter = new ProfilePresenter<>();
         sharedPref=new SharedPref(this);
         status.setText(sharedPref.getAccessLevel());

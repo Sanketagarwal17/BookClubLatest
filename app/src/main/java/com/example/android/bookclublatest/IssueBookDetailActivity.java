@@ -101,22 +101,24 @@ public class IssueBookDetailActivity extends AppCompatActivity {
         issueBookButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(!FirebaseAuth.getInstance().getCurrentUser().isEmailVerified())
+                if (FirebaseAuth.getInstance().getCurrentUser() == null) {
+                    Toast.makeText(IssueBookDetailActivity.this, "Please login First to Issue Book", Toast.LENGTH_SHORT).show();
+                }
+                else{
+
+                if (!FirebaseAuth.getInstance().getCurrentUser().isEmailVerified())
                     showSnackBar();
-                else
-                {
-                    String email=sharedPref.getEmail();
-                    email=email.replace('.',',');
+                else {
+                    String email = sharedPref.getEmail();
+                    email = email.replace('.', ',');
 
                     DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference().child("Issue Requests").
                             child(email);
                     databaseReference.addValueEventListener(new ValueEventListener() {
                         @Override
                         public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                            for(DataSnapshot dataSnapshot1 : dataSnapshot.getChildren())
-                            {
-                                if(dataSnapshot1.getKey().equals(isbn) )
-                                {
+                            for (DataSnapshot dataSnapshot1 : dataSnapshot.getChildren()) {
+                                if (dataSnapshot1.getKey().equals(isbn)) {
                                     IssueBookDetailActivity.this.setSend(0);
                                     break;
                                 }
@@ -128,8 +130,7 @@ public class IssueBookDetailActivity extends AppCompatActivity {
 
                         }
                     });
-                    if(send != 0)
-                    {
+                    if (send != 0) {
                         FirebaseDatabase.getInstance().getReference().child("Issue Requests").child(email).child(isbn)
                                 .child("Status").setValue("pending");
                         FirebaseDatabase.getInstance().getReference().child("Issue Requests").child(email).child(isbn)
@@ -146,13 +147,12 @@ public class IssueBookDetailActivity extends AppCompatActivity {
                                 .child("desc").setValue(descString);
 
                         Toast.makeText(IssueBookDetailActivity.this, book + "requested for you", Toast.LENGTH_SHORT).show();
-                    }
-                    else
-                    {
+                    } else {
                         Toast.makeText(IssueBookDetailActivity.this, "You have already requested for this book please wait while we process your request", Toast.LENGTH_SHORT).show();
                     }
 
                 }
+            }
             }
         });
 
