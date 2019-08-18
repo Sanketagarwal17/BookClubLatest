@@ -295,7 +295,7 @@ public class HomePageActivity extends AppCompatActivity
         }
         else if(id==R.id.nav_member_page)
         {
-            if(sharedPref.getAccessLevel().equals("Member"))
+            if(sharedPref.getAccessLevel().equals("Member") || sharedPref.getAccessLevel().equals("Admin"))
                 startActivity(new Intent(this, MemberActivity.class));
             else
                 Toast.makeText(this, "You are not Authorized to access it", Toast.LENGTH_LONG).show();
