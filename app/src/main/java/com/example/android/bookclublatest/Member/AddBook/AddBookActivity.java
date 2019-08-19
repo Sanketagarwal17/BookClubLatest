@@ -169,6 +169,13 @@ public class AddBookActivity extends BaseActivity implements AddBookContract.Vie
                 if(link.equals("null")){
                     Toast.makeText(AddBookActivity.this, "Please Upload Photo", Toast.LENGTH_SHORT).show();
                 }
+                else if(misbn.equals("null"))
+                {
+                    Toast.makeText(AddBookActivity.this, "Please Add the ISBN code", Toast.LENGTH_SHORT).show();
+                }
+                else if (mism.equals("null")){
+                    Toast.makeText(AddBookActivity.this, "Please Add the ISM unique code", Toast.LENGTH_SHORT).show();
+                }
                 else {
                     presenter.submit(mname, mauthor, mpublication, misbn, mism, mtags, mchecbox, link,desc.getText().toString());
                 }

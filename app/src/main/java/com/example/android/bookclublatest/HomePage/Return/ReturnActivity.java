@@ -9,6 +9,7 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 import com.example.android.bookclublatest.HomePage.History.HistoryModel;
@@ -30,8 +31,8 @@ import butterknife.ButterKnife;
 
 public class ReturnActivity extends AppCompatActivity implements ReturnAdapter.Clicklistener
 {
-    @BindView(R.id.return_email)
-    TextView emailtext;
+    @BindView(R.id.no_return_layout)
+    RelativeLayout relativeLayout;
     @BindView(R.id.return_recycler)
     RecyclerView recyclerView;
     @BindView(R.id.return_home)
@@ -50,7 +51,6 @@ public class ReturnActivity extends AppCompatActivity implements ReturnAdapter.C
         ButterKnife.bind(this);
         sharedPref=new SharedPref(this);
         email=sharedPref.getEmail();
-        emailtext.setText(email);
         email=email.replace('.',',');
 
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
@@ -81,8 +81,13 @@ public class ReturnActivity extends AppCompatActivity implements ReturnAdapter.C
                         }
                     }
                 }
-                adapter=new ReturnAdapter(ReturnActivity.this,list,ReturnActivity.this);
-                recyclerView.setAdapter(adapter);
+                if (list.size()==0)
+                    relativeLayout.setVisibility(View.VISIBLE);
+                else {
+                    relativeLayout.setVisibility(View.GONE);
+                    adapter = new ReturnAdapter(ReturnActivity.this, list, ReturnActivity.this);
+                    recyclerView.setAdapter(adapter);
+                }
             }
 
             @Override

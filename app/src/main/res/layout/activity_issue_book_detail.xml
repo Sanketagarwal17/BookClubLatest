@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/base"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="#FFFFFF">
 
     <android.support.v7.widget.Toolbar
         android:id="@+id/toolbar2"
@@ -64,7 +65,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/open_sans"
-                android:text="november 2029"
+                android:text="IIT(ISM) Dhanbad"
                 android:textColor="#216583"
                 android:textSize="12sp"
                 android:textStyle="bold"
@@ -77,6 +78,7 @@
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/open_sans"
                 android:text="English"
+                android:visibility="gone"
                 android:textColor="#216583"
                 android:textSize="12sp"
                 android:textStyle="bold"
