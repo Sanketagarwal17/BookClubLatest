@@ -43,6 +43,7 @@ import com.mikhaellopez.circularimageview.CircularImageView;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import es.dmoral.toasty.Toasty;
 
 public class SignUpActivity extends BaseActivity implements SignUpContract.View
 {
@@ -192,7 +193,7 @@ public class SignUpActivity extends BaseActivity implements SignUpContract.View
 
     @Override
     public void erroronLoading(String error) {
-        Toast.makeText(SignUpActivity.this,"OOPS Something Wrong Happen"+error,Toast.LENGTH_LONG).show();
+        Toasty.error(SignUpActivity.this, "OOPS Something Wrong Happen" + error, Toast.LENGTH_LONG,false).show();
 
 
     }

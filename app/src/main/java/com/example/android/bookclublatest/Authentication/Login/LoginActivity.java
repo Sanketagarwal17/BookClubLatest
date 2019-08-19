@@ -32,6 +32,7 @@ import com.google.firebase.database.ValueEventListener;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import es.dmoral.toasty.Toasty;
 
 import static android.provider.Telephony.Carriers.PASSWORD;
 
@@ -138,7 +139,6 @@ public class LoginActivity extends BaseActivity implements LoginContract.View {
                 String user = email.getText().toString().trim();
                 if (user.isEmpty()) {
                     email.setError("Please Enter Your Mail");
-                    Toast.makeText(LoginActivity.this, "Please Enter your mail", Toast.LENGTH_SHORT).show();
                 }
 
                 //Toast.makeText(LoginActivity.this, ""+user, Toast.LENGTH_SHORT).show();
@@ -155,10 +155,10 @@ public class LoginActivity extends BaseActivity implements LoginContract.View {
                         public void onComplete(@NonNull Task<Void> task) {
                             //Toast.makeText(LoginActivity.this, "5456", Toast.LENGTH_SHORT).show();
                             if (task.isSuccessful()) {
-                                Toast.makeText(LoginActivity.this, "Please check your mail", Toast.LENGTH_LONG).show();
+                                Toasty.success(LoginActivity.this, "Link to reset your password has been sent on given link", Toast.LENGTH_LONG,false).show();
 
                             } else {
-                                Toast.makeText(LoginActivity.this, "Error Please try again later", Toast.LENGTH_LONG).show();
+                                Toasty.error(LoginActivity.this, "Error Please try again later", Toast.LENGTH_LONG,true).show();
                             }
 
                         }

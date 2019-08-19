@@ -48,6 +48,7 @@ import java.io.IOException;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import es.dmoral.toasty.Toasty;
 
 public class AddBookActivity extends BaseActivity implements AddBookContract.View {
 
@@ -167,7 +168,14 @@ public class AddBookActivity extends BaseActivity implements AddBookContract.Vie
                     mism = "null" ;
                 }
                 if(link.equals("null")){
-                    Toast.makeText(AddBookActivity.this, "Please Upload Photo", Toast.LENGTH_SHORT).show();
+                    Toasty.warning(AddBookActivity.this, "Please Upload Photo", Toast.LENGTH_SHORT,true).show();
+                }
+                else if(misbn.equals("null"))
+                {
+                    Toasty.error(AddBookActivity.this, "Please Add the ISBN code", Toast.LENGTH_SHORT,true).show();
+                }
+                else if (mism.equals("null")){
+                    Toasty.error(AddBookActivity.this, "Please Add the ISM unique code", Toast.LENGTH_SHORT,true).show();
                 }
                 else {
                     presenter.submit(mname, mauthor, mpublication, misbn, mism, mtags, mchecbox, link,desc.getText().toString());
@@ -200,7 +208,7 @@ public class AddBookActivity extends BaseActivity implements AddBookContract.Vie
                 }
             }
             else
-                Toast.makeText(this, "Error Scanning. Try Again !", Toast.LENGTH_SHORT).show();
+                Toasty.warning(this, "Error Scanning. Try Again !", Toast.LENGTH_SHORT,true).show();
         }
         super.onActivityResult(requestCode, resultCode, data);
         if((requestCode==capture)&&(resultCode==RESULT_OK)&&(data!=null)&&(data.getData()!=null))
@@ -217,7 +225,7 @@ public class AddBookActivity extends BaseActivity implements AddBookContract.Vie
                             Uri data=uri;
                             doc_url = data.toString();
                             link=doc_url;
-                            Toast.makeText(AddBookActivity.this, "Photo added Successfully", Toast.LENGTH_SHORT).show();
+                            Toasty.success(AddBookActivity.this, "Photo added Successfully", Toast.LENGTH_SHORT,true).show();
                         }
                     });
                 }

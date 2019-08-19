@@ -14,6 +14,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.constraintlayout.widget.ConstraintLayout;
+import es.dmoral.toasty.Toasty;
 
 import com.example.android.bookclublatest.HomePage.RequestBook.RequestModel;
 import com.example.android.bookclublatest.R;
@@ -86,12 +87,11 @@ public class RequestBooksRecycler extends RecyclerView.Adapter<RequestBooksRecyc
         viewHolder.deny.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(context,"Deleting request",Toast.LENGTH_SHORT).show();
                 DatabaseReference idRef = FirebaseDatabase.getInstance().getReference("Request Book").child(list.get(pos).getId());
                 idRef.removeValue(new DatabaseReference.CompletionListener() {
                     @Override
                     public void onComplete(@Nullable DatabaseError databaseError, @NonNull DatabaseReference databaseReference) {
-                        Toast.makeText(context,"Request denied",Toast.LENGTH_SHORT).show();
+                        Toasty.success(context, "Request denied", Toast.LENGTH_SHORT,true).show();
                         notifyDataSetChanged();
 
                     }

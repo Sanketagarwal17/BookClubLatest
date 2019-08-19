@@ -30,6 +30,7 @@ import java.util.TimeZone;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import es.dmoral.toasty.Toasty;
 
 public class ProceedReturnActivity extends AppCompatActivity
 {
@@ -110,7 +111,7 @@ public class ProceedReturnActivity extends AppCompatActivity
                     updateDatabase();
                 }
                 else
-                    Toast.makeText(ProceedReturnActivity.this, "The Scanned Code does not matches with Issued Code", Toast.LENGTH_SHORT).show();
+                    Toasty.error(ProceedReturnActivity.this, "The Scanned Code does not matches with Issued Code", Toast.LENGTH_SHORT,false).show();
             }
         });
     }
@@ -152,7 +153,7 @@ public class ProceedReturnActivity extends AppCompatActivity
             }
         });
 
-        Toast.makeText(this, "Successfully Returned", Toast.LENGTH_SHORT).show();
+        Toasty.success(this, "Successfully Returned", Toast.LENGTH_SHORT,true).show();
         finish();
         startActivity(new Intent(this, ConfirmActivity.class));
     }

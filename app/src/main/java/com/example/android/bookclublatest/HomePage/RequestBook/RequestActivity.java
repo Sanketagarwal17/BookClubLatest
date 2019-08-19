@@ -22,6 +22,7 @@ import java.util.TimeZone;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import es.dmoral.toasty.Toasty;
 
 public class RequestActivity extends AppCompatActivity implements RequestPageContract.View
 {
@@ -85,7 +86,7 @@ public class RequestActivity extends AppCompatActivity implements RequestPageCon
                     }
                 }
                 else
-                    Toast.makeText(RequestActivity.this, "Please Verify Your email first", Toast.LENGTH_SHORT).show();
+                    Toasty.warning(RequestActivity.this, "Please Verify Your email first", Toast.LENGTH_SHORT,true).show();
             }
         });
         title.setText("Request Book");
@@ -104,7 +105,7 @@ public class RequestActivity extends AppCompatActivity implements RequestPageCon
     @Override
     public void showSuccess(String s)
     {
-        Toast.makeText(this, "SuccessFully Requested For The Book", Toast.LENGTH_LONG).show();
+        Toasty.success(this, "SuccessFully Requested For The Book", Toast.LENGTH_LONG,false).show();
         book.setText("");
         author.setText("");
         publication.setText("");

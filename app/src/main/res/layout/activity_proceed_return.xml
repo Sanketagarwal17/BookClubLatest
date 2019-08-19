@@ -346,7 +346,7 @@
     <Button
         android:id="@+id/proceed_issue"
         android:layout_width="match_parent"
-        android:layout_height="50dp"
+        android:layout_height="44dp"
         android:background="@drawable/approvebutton_bg"
         android:fontFamily="@font/open_sans"
         android:text="Approve"
