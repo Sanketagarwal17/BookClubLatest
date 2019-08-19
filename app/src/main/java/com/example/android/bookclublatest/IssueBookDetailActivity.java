@@ -33,6 +33,7 @@ import java.util.Date;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import es.dmoral.toasty.Toasty;
 
 public class IssueBookDetailActivity extends AppCompatActivity {
 
@@ -102,7 +103,7 @@ public class IssueBookDetailActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 if (FirebaseAuth.getInstance().getCurrentUser() == null) {
-                    Toast.makeText(IssueBookDetailActivity.this, "Please login First to Issue Book", Toast.LENGTH_SHORT).show();
+                    Toasty.error(IssueBookDetailActivity.this, "Please login First to Issue Book", Toast.LENGTH_SHORT,true).show();
                 }
                 else{
 
@@ -146,9 +147,9 @@ public class IssueBookDetailActivity extends AppCompatActivity {
                         FirebaseDatabase.getInstance().getReference().child("Issue Requests").child(email).child(isbn)
                                 .child("desc").setValue(descString);
 
-                        Toast.makeText(IssueBookDetailActivity.this, book + "requested for you", Toast.LENGTH_SHORT).show();
+                        Toasty.success(IssueBookDetailActivity.this, book + "requested for you", Toast.LENGTH_SHORT,true).show();
                     } else {
-                        Toast.makeText(IssueBookDetailActivity.this, "You have already requested for this book please wait while we process your request", Toast.LENGTH_SHORT).show();
+                        Toasty.warning(IssueBookDetailActivity.this, "You have already requested for this book please wait while we process your request", Toast.LENGTH_SHORT,true).show();
                     }
 
                 }

@@ -32,6 +32,7 @@ import java.util.TimeZone;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import es.dmoral.toasty.Toasty;
 
 public class ProceedActivity extends AppCompatActivity implements DatePickerDialog.OnDateSetListener
 {
@@ -121,7 +122,7 @@ public class ProceedActivity extends AppCompatActivity implements DatePickerDial
             public void onClick(View v) {
                 if(date.getText().toString().equals("Select Date") || cism.getText().toString().equals(""))
                 {
-                    Toast.makeText(ProceedActivity.this, "Make Sure that all credentials are Checked", Toast.LENGTH_SHORT).show();
+                    Toasty.warning(ProceedActivity.this, "Make Sure that all credentials are Checked", Toast.LENGTH_SHORT,true).show();
                 }
                 else
                     checkCode();
@@ -192,7 +193,7 @@ public class ProceedActivity extends AppCompatActivity implements DatePickerDial
         }
         else
         {
-            Toast.makeText(this, "Try Again  OR \nThe Scanned Code didn't matched with any of the Books in Database", Toast.LENGTH_LONG).show();
+            Toasty.error(this, "Try Again  OR \nThe Scanned Code didn't matched with any of the Books in Database", Toast.LENGTH_LONG,false).show();
         }
     }
 
@@ -216,7 +217,7 @@ public class ProceedActivity extends AppCompatActivity implements DatePickerDial
         ProceedModel model=new ProceedModel(bookname,isbn,issue_date,return_date,"Not Returned",ism_code,"pending",url);
         reference.child(email).child(Calendar.getInstance().getTimeInMillis()+"").setValue(model);
 
-        Toast.makeText(this, "Successfully Updated", Toast.LENGTH_SHORT).show();
+        Toasty.success(this, "Successfully Updated", Toast.LENGTH_SHORT,true).show();
 
         finish();
         startActivity(new Intent(this, ConfirmIssueActivity.class));
@@ -243,7 +244,7 @@ public class ProceedActivity extends AppCompatActivity implements DatePickerDial
                     ism_code=result.getContents();
             }
             else
-                Toast.makeText(this, "Error Scanning. Try Again !", Toast.LENGTH_SHORT).show();
+                Toasty.error(this, "Error Scanning. Try Again !", Toast.LENGTH_SHORT,false).show();
         }
     }
 }

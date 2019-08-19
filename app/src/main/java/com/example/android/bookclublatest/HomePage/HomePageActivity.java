@@ -47,6 +47,7 @@ import com.google.firebase.database.ValueEventListener;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import es.dmoral.toasty.Toasty;
 import ss.com.bannerslider.Slider;
 
 public class HomePageActivity extends AppCompatActivity
@@ -127,7 +128,7 @@ public class HomePageActivity extends AppCompatActivity
             @Override
             public void onClick(View v) {
                 if(FirebaseAuth.getInstance().getCurrentUser()==null){
-                    Toast.makeText(HomePageActivity.this, "Please Login First", Toast.LENGTH_SHORT).show();
+                    Toasty.error(HomePageActivity.this, "Please Login First", Toast.LENGTH_SHORT,true).show();
                 startActivity(new Intent(HomePageActivity.this,LoginActivity.class));
 
                 }
@@ -140,7 +141,7 @@ public class HomePageActivity extends AppCompatActivity
             @Override
             public void onClick(View v) {
                 if(FirebaseAuth.getInstance().getCurrentUser()==null){
-                    Toast.makeText(HomePageActivity.this, "Please Login First", Toast.LENGTH_SHORT).show();
+                    Toasty.error(HomePageActivity.this, "Please Login First", Toast.LENGTH_SHORT,true).show();
                     startActivity(new Intent(HomePageActivity.this,LoginActivity.class));
 
                      }
@@ -153,7 +154,7 @@ public class HomePageActivity extends AppCompatActivity
             @Override
             public void onClick(View v) {
                 if(FirebaseAuth.getInstance().getCurrentUser()==null){
-                    Toast.makeText(HomePageActivity.this, "Please Login First", Toast.LENGTH_SHORT).show();
+                    Toasty.error(HomePageActivity.this, "Please Login First", Toast.LENGTH_SHORT,true).show();
                     //startActivity(new Intent(HomePageActivity.this,LoginActivity.class));
                 }
                 startActivity(new Intent(HomePageActivity.this, ReturnActivity.class));
@@ -301,7 +302,7 @@ public class HomePageActivity extends AppCompatActivity
             if(!sharedPref.getAccessLevel().equals("Member"))
                 startActivity(new Intent(this,RequestForMemberActivity.class));
             else
-                Toast.makeText(this, "You are already a member", Toast.LENGTH_SHORT).show();
+                Toasty.warning(this, "You are already a member", Toast.LENGTH_SHORT,true).show();
 
         }
 
@@ -328,7 +329,7 @@ public class HomePageActivity extends AppCompatActivity
             if(sharedPref.getAccessLevel().equals("Member") || sharedPref.getAccessLevel().equals("Admin"))
                 startActivity(new Intent(this, MemberActivity.class));
             else
-                Toast.makeText(this, "You are not Authorized to access it", Toast.LENGTH_LONG).show();
+                Toasty.warning(this, "You are not Authorized to access it", Toast.LENGTH_LONG,true).show();
         }
         else if(id == R.id.nav_admin_make_member)
             startActivity(new Intent(HomePageActivity.this,RequestsForMember.class));

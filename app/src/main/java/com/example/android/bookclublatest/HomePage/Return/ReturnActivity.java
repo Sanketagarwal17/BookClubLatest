@@ -28,6 +28,7 @@ import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import es.dmoral.toasty.Toasty;
 
 public class ReturnActivity extends AppCompatActivity implements ReturnAdapter.Clicklistener
 {
@@ -123,13 +124,13 @@ public class ReturnActivity extends AppCompatActivity implements ReturnAdapter.C
             public void onComplete(@NonNull Task<Void> task) {
                 if(task.isSuccessful())
                 {
-                    Toast.makeText(ReturnActivity.this, "Your Request Has Been Recieved, Return the Book To the Club", Toast.LENGTH_LONG).show();
+                    Toasty.success(ReturnActivity.this, "Your Request Has Been Recieved, Return the Book To the Club", Toast.LENGTH_LONG,false).show();
                     startActivity(new Intent(ReturnActivity.this, HomePageActivity.class));
                     finish();
                 }
                 else
                 {
-                    Toast.makeText(ReturnActivity.this, "Something went wrong, try again", Toast.LENGTH_SHORT).show();
+                    Toasty.error(ReturnActivity.this, "Something went wrong, try again", Toast.LENGTH_SHORT,true).show();
                 }
             }
         });
