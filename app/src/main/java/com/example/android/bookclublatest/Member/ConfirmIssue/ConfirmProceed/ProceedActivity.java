@@ -63,6 +63,8 @@ public class ProceedActivity extends AppCompatActivity implements DatePickerDial
     ImageView home;
     @BindView(R.id.textView26)
     TextView title;
+    @BindView(R.id.textView38)
+    TextView author_name;
 
     IntentIntegrator intentIntegrator;
     DatePickerDialog datePickerDialog;
@@ -106,6 +108,7 @@ public class ProceedActivity extends AppCompatActivity implements DatePickerDial
         cname.setText(bookname);
         cemail.setText(email);
         cisbn.setText(isbn);
+        cism.setText(ism);
         Picasso.get().load(url).into(imageView);
         Calendar calendar2=Calendar.getInstance(TimeZone.getDefault());
         String current=calendar2.get(Calendar.DAY_OF_MONTH) + " " + months[(calendar2.get(Calendar.MONTH))]
