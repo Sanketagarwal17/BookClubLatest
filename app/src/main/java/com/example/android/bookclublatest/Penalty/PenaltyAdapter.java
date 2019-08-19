@@ -40,6 +40,7 @@ public class PenaltyAdapter extends RecyclerView.Adapter<PenaltyAdapter.ViewHold
     @Override
     public void onBindViewHolder(@NonNull PenaltyAdapter.ViewHolder viewHolder, int i) {
 
+
         viewHolder.book_name.setText(list.get(i).getBookname());
         String issuedate = list.get(i).getIssue_date();
         String returndate = list.get(i).getReturned_on();

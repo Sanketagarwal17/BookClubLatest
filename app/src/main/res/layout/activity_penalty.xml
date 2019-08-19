@@ -17,4 +17,7 @@
         android:layout_height="611dp"
         android:layout_marginTop="63dp"></android.support.v7.widget.RecyclerView>
 
+    
+
+
 </RelativeLayout>
