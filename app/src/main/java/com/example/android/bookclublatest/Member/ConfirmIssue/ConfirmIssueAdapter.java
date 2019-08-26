@@ -15,6 +15,7 @@ import com.squareup.picasso.Picasso;
 
 import org.w3c.dom.Text;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class ConfirmIssueAdapter extends RecyclerView.Adapter<ConfirmIssueAdapter.ViewHolder>
@@ -52,6 +53,10 @@ public class ConfirmIssueAdapter extends RecyclerView.Adapter<ConfirmIssueAdapte
     @Override
     public int getItemCount() {
         return list.size();
+    }
+    public void filterList(ArrayList<ConfirmIssueModel> filteredList) {
+        list = filteredList;
+        notifyDataSetChanged();
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder
