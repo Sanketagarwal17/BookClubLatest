@@ -30,8 +30,13 @@
                 android:id="@+id/nav_requestmenmber"
                 android:title="Request For member" />
 
+
         </menu>
+
+
     </item>
+
+
 
 
     <item android:title="Book Club">
@@ -56,36 +61,24 @@
         </menu>
     </item>
 
-
-    <item android:title="Member">
+    <item android:title="Member"
+        android:id="@+id/member_access">
         <menu>
             <item
                 android:id="@+id/nav_member_page"
                 android:icon="@drawable/ic_menu_share"
                 android:title="For Members Only" />
 
-            <item
-                android:id="@+id/nav_admin_page"
-                android:icon="@drawable/ic_menu_share"
-                android:title="For Admin Only" />
-
         </menu>
     </item>
 
-
-    <item android:title="Admin">
+    <item android:title="Admin"
+        android:id="@+id/admin_access">
         <menu>
             <item
                 android:id="@+id/nav_admin_make_member"
                 android:icon="@drawable/ic_card_membership_black_24dp"
                 android:title="Approve membership" />
-            <item
-                android:id="@+id/nav_admin_faq"
-                android:icon="@drawable/ic_question_answer_black_24dp"
-                android:title="Create Faq's"/>
-            <item
-                android:id="@+id/nav_admin_remove_books"
-                android:title="Remove Books" />
         </menu>
     </item>
 

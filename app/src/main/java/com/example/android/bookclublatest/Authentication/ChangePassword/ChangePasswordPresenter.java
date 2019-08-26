@@ -20,7 +20,6 @@ public class ChangePasswordPresenter<V extends ChangePasswordContract.View> exte
     public void changePassword(String email, String password, final String newpassword) {
         AuthCredential credential = EmailAuthProvider.getCredential(email,password);
 
-
         user.reauthenticate(credential).addOnCompleteListener(new OnCompleteListener<Void>() {
             @Override
             public void onComplete(@NonNull Task<Void> task) {
@@ -32,6 +31,8 @@ public class ChangePasswordPresenter<V extends ChangePasswordContract.View> exte
                                 getMvpView().errorOnLoading(task.getException().getMessage().toString());
                             }else {
                                 getMvpView().errorOnLoading("Password Change Successfully");
+                                getMvpView().close();
+
 
                             }
                         }

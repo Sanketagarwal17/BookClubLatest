@@ -9,6 +9,8 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.example.android.bookclublatest.Base.MvpContract;
 import com.example.android.bookclublatest.Faq.AddFaqActivity;
@@ -40,6 +42,10 @@ public class FAQActivity extends AppCompatActivity {
     DatabaseReference databaseReference;
 
 
+    @BindView(R.id.return_home)
+    ImageView home;
+    @BindView(R.id.textView26)
+    TextView title;
 
     FAQAdapter adapter;
     ArrayList<FAQModel> arrayList;
@@ -55,10 +61,17 @@ public class FAQActivity extends AppCompatActivity {
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         firebaseDatabase=FirebaseDatabase.getInstance();
         databaseReference=firebaseDatabase.getReference("FAQ");
+
+        title.setText("FAQ's");
+        home.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onBackPressed();
+            }
+        });
         //getjson();
         loaddata();
     }
-
 
     void getjson() {
         String json;
@@ -99,6 +112,7 @@ public class FAQActivity extends AppCompatActivity {
         databaseReference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                arrayList.clear();
                 for(DataSnapshot ds:dataSnapshot.getChildren())
                 {
                    String ques=ds.child("question").getValue(String.class);

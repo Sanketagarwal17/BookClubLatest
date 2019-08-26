@@ -7,18 +7,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <include layout="@layout/toolbar_return"/>
-
-    <TextView
-        android:visibility="gone"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/return_email"
-        android:textSize="18sp"
-        android:textColor="@android:color/black"
-        android:background="@android:color/darker_gray"
-        android:padding="3dp"
-        android:textAlignment="center"/>
+    <include layout="@layout/toolbar_return"
+        android:id="@+id/toolbar"/>
 
     <android.support.v7.widget.RecyclerView
         android:layout_width="match_parent"
@@ -29,5 +19,30 @@
         android:id="@+id/return_recycler">
 
     </android.support.v7.widget.RecyclerView>
+
+    <RelativeLayout
+        android:id="@+id/no_return_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/toolbar"
+        android:layout_margin="4dp">
+
+        <ImageView
+            android:id="@+id/image"
+            android:layout_width="match_parent"
+            android:layout_height="350dp"
+            android:src="@mipmap/no_return"
+            android:layout_centerInParent="true"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/image"
+            android:text="No book to return"
+            android:textSize="18sp"
+            android:textColor="@android:color/black"
+            android:gravity="center"
+            android:fontFamily="@font/quicksand_regular"/>
+
+    </RelativeLayout>
 
 </RelativeLayout>

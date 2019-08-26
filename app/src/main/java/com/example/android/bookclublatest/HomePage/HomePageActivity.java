@@ -1,9 +1,12 @@
 package com.example.android.bookclublatest.HomePage;
 
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.FloatingActionButton;
+import android.support.v7.app.AlertDialog;
 import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -44,6 +47,7 @@ import com.google.firebase.database.ValueEventListener;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import es.dmoral.toasty.Toasty;
 import ss.com.bannerslider.Slider;
 
 public class HomePageActivity extends AppCompatActivity
@@ -87,7 +91,14 @@ public class HomePageActivity extends AppCompatActivity
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+                Intent i = new Intent(Intent.ACTION_SENDTO);
+                String mailTo = "mailto:".concat("rishabh.agarwal997@gmail.com");
+                i.setData(Uri.parse(mailTo));
+                try {
+                    startActivity(i);
+                } catch (android.content.ActivityNotFoundException ex) {
+                    Toast.makeText(HomePageActivity.this, "There are no email clients installed.", Toast.LENGTH_SHORT).show();
+                }
             }
         });
 
@@ -99,7 +110,14 @@ public class HomePageActivity extends AppCompatActivity
 
         NavigationView navigationView = findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
-
+        if(FirebaseAuth.getInstance().getCurrentUser()==null){
+            Menu nav_menu = navigationView.getMenu();
+            nav_menu.findItem(R.id.member_access).setVisible(false);
+            nav_menu.findItem(R.id.admin_access).setVisible(false);
+            nav_menu.findItem(R.id.nav_chnage_password).setVisible(false);
+            nav_menu.findItem(R.id.nav_penalty).setVisible(false);
+            nav_menu.findItem(R.id.nav_requestmenmber).setVisible(false);
+        }
         issue.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -109,6 +127,12 @@ public class HomePageActivity extends AppCompatActivity
         request.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                if(FirebaseAuth.getInstance().getCurrentUser()==null){
+                    Toasty.error(HomePageActivity.this, "Please Login First", Toast.LENGTH_SHORT,true).show();
+                startActivity(new Intent(HomePageActivity.this,LoginActivity.class));
+
+                }
+                else
                 startActivity(new Intent(HomePageActivity.this, RequestActivity.class));
             }
         });
@@ -116,6 +140,12 @@ public class HomePageActivity extends AppCompatActivity
         history.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                if(FirebaseAuth.getInstance().getCurrentUser()==null){
+                    Toasty.error(HomePageActivity.this, "Please Login First", Toast.LENGTH_SHORT,true).show();
+                    startActivity(new Intent(HomePageActivity.this,LoginActivity.class));
+
+                     }
+                else
                 startActivity(new Intent(HomePageActivity.this, ProfileActivity.class));
             }
         });
@@ -123,6 +153,10 @@ public class HomePageActivity extends AppCompatActivity
         returnbook.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                if(FirebaseAuth.getInstance().getCurrentUser()==null){
+                    Toasty.error(HomePageActivity.this, "Please Login First", Toast.LENGTH_SHORT,true).show();
+                    //startActivity(new Intent(HomePageActivity.this,LoginActivity.class));
+                }
                 startActivity(new Intent(HomePageActivity.this, ReturnActivity.class));
             }
         });
@@ -139,6 +173,22 @@ public class HomePageActivity extends AppCompatActivity
                     {
                         String status=ds.getValue().toString();
                         sharedPref.setAccessLevel(status);
+
+                        NavigationView navigationView = findViewById(R.id.nav_view);
+                        Menu nav_menu = navigationView.getMenu();
+
+                        if(sharedPref.getAccessLevel().equals("Student")){
+                            nav_menu.findItem(R.id.member_access).setVisible(false);
+                            nav_menu.findItem(R.id.admin_access).setVisible(false);
+                        }
+                        else if(sharedPref.getAccessLevel().equals("Member")){
+                            nav_menu.findItem(R.id.member_access).setVisible(true);
+                            nav_menu.findItem(R.id.admin_access).setVisible(false);
+                        }
+                        else if( sharedPref.getAccessLevel().equals("Admin")){
+                            nav_menu.findItem(R.id.member_access).setVisible(true);
+                            nav_menu.findItem(R.id.admin_access).setVisible(true);
+                        }
                     }
                 }
             }
@@ -156,7 +206,29 @@ public class HomePageActivity extends AppCompatActivity
         if (drawer.isDrawerOpen(GravityCompat.START)) {
             drawer.closeDrawer(GravityCompat.START);
         } else {
-            super.onBackPressed();
+
+            final AlertDialog alertDialog=new AlertDialog.Builder(this).create();
+            alertDialog.setTitle("EXIT");
+            alertDialog.setMessage("Are You Sure you want to exit ?");
+            alertDialog.setCancelable(false);
+
+            alertDialog.setButton(DialogInterface.BUTTON_POSITIVE, "Yes", new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialog, int which) {
+                    alertDialog.dismiss();
+                    finish();
+                    HomePageActivity.super.onBackPressed();
+                }
+            });
+            alertDialog.setButton(DialogInterface.BUTTON_NEGATIVE, "No", new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialog, int which) {
+                    alertDialog.dismiss();
+                }
+            });
+            alertDialog.show();
+
+
         }
     }
 
@@ -173,21 +245,48 @@ public class HomePageActivity extends AppCompatActivity
         // automatically handle clicks on the Home/Up button, so long
         // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
+        if(FirebaseAuth.getInstance().getCurrentUser()==null){
+            item.setTitle("Login");
 
-        //noinspection SimplifiableIfStatement
-
-        if(id==R.id.action_logout)
+            if(id==R.id.action_logout)
+            {
+                startActivity(new Intent(HomePageActivity.this,LoginActivity.class));
+            }
+        }else
         {
-            firebaseAuth=FirebaseAuth.getInstance();
-            firebaseAuth.signOut();
+            item.setTitle("Logout");
+            if (id == R.id.action_logout) {
+                final AlertDialog alertDialog = new AlertDialog.Builder(this).create();
+                alertDialog.setTitle("LOGOUT");
+                alertDialog.setMessage("Are You Sure you want to logout ?");
+                alertDialog.setCancelable(false);
 
-            sharedPref.setAdmission("");
-            sharedPref.setMobile("");
-            sharedPref.setUsername("");
-            sharedPref.setEmail("");
+                alertDialog.setButton(DialogInterface.BUTTON_POSITIVE, "Yes", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        alertDialog.dismiss();
+                        firebaseAuth = FirebaseAuth.getInstance();
+                        firebaseAuth.signOut();
 
-            finish();
-            startActivity(new Intent(this, LoginActivity.class));
+                        sharedPref.setAdmission("");
+                        sharedPref.setMobile("");
+                        sharedPref.setUsername("");
+                        sharedPref.setEmail("");
+
+                        finish();
+                        startActivity(new Intent(HomePageActivity.this, LoginActivity.class));
+                    }
+                });
+                alertDialog.setButton(DialogInterface.BUTTON_NEGATIVE, "No", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        alertDialog.dismiss();
+                    }
+                });
+                alertDialog.show();
+
+
+            }
         }
         return super.onOptionsItemSelected(item);
     }
@@ -203,7 +302,7 @@ public class HomePageActivity extends AppCompatActivity
             if(!sharedPref.getAccessLevel().equals("Member"))
                 startActivity(new Intent(this,RequestForMemberActivity.class));
             else
-                Toast.makeText(this, "You are already a member", Toast.LENGTH_SHORT).show();
+                Toasty.warning(this, "You are already a member", Toast.LENGTH_SHORT,true).show();
 
         }
 
@@ -227,17 +326,13 @@ public class HomePageActivity extends AppCompatActivity
         }
         else if(id==R.id.nav_member_page)
         {
-            if(sharedPref.getAccessLevel().equals("Member"))
+            if(sharedPref.getAccessLevel().equals("Member") || sharedPref.getAccessLevel().equals("Admin"))
                 startActivity(new Intent(this, MemberActivity.class));
             else
-                Toast.makeText(this, "You are not Authorized to access it", Toast.LENGTH_LONG).show();
+                Toasty.warning(this, "You are not Authorized to access it", Toast.LENGTH_LONG,true).show();
         }
         else if(id == R.id.nav_admin_make_member)
             startActivity(new Intent(HomePageActivity.this,RequestsForMember.class));
-        else if(id == R.id.nav_admin_faq)
-            startActivity(new Intent(HomePageActivity.this, AddFaqActivity.class));
-        else if(id==R.id.nav_admin_remove_books)
-            startActivity(new Intent(HomePageActivity.this, RemoveBookActivity.class));
 
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);

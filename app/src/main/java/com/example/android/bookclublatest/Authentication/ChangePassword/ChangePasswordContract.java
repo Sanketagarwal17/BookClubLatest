@@ -10,7 +10,7 @@ public class ChangePasswordContract {
         void errorOnLoading(String error);
 
 
-
+        void close();
     }
 
     public interface Presenter<V extends View> //extends MvpContract.Presenter<V>//

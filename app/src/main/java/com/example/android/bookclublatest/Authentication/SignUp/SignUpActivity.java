@@ -16,6 +16,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.android.bookclublatest.Admin.RequestsForMember.AdminActivity.AdminActivity;
@@ -42,6 +43,7 @@ import com.mikhaellopez.circularimageview.CircularImageView;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import es.dmoral.toasty.Toasty;
 
 public class SignUpActivity extends BaseActivity implements SignUpContract.View
 {
@@ -64,7 +66,10 @@ public class SignUpActivity extends BaseActivity implements SignUpContract.View
     Button createaccount;
 
     @BindView(R.id.add_profilepic_iv)
-    CircularImageView add_profile_pic;
+    ImageView add_profile_pic;
+
+    @BindView(R.id.have_an_account_textview)
+    TextView have_account;
 
     SignUpContract.Presenter<SignUpContract.View> mPresenter;
     FirebaseStorage firebasestorage= FirebaseStorage.getInstance();
@@ -122,15 +127,14 @@ public class SignUpActivity extends BaseActivity implements SignUpContract.View
             }
         });
 
-        add_profile_pic.setOnClickListener(new View.OnClickListener() {
+        have_account.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent=new Intent();
-                intent.setType("image/*");
-                intent.setAction(Intent.ACTION_GET_CONTENT);
-                startActivityForResult(intent,capture);
+                startActivity(new Intent(SignUpActivity.this, LoginActivity.class));
+                finish();
             }
         });
+
     }
 
     @Override
@@ -189,7 +193,7 @@ public class SignUpActivity extends BaseActivity implements SignUpContract.View
 
     @Override
     public void erroronLoading(String error) {
-        Toast.makeText(SignUpActivity.this,"OOPS Something Wrong Happen"+error,Toast.LENGTH_LONG).show();
+        Toasty.error(SignUpActivity.this, "OOPS Something Wrong Happen" + error, Toast.LENGTH_LONG,false).show();
 
 
     }

@@ -22,17 +22,19 @@ import com.google.firebase.database.ValueEventListener;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import es.dmoral.toasty.Toasty;
 
 public class AddFaqActivity extends AppCompatActivity implements View.OnClickListener {
     @BindView(R.id.edt_txt_add_faq)
     EditText faq;
     @BindView(R.id.edt_txt_add_faq_answer)
      EditText answer;
-String mfaq,mans;
-@BindView(R.id.btn_add_faq)
-Button add;
-FirebaseDatabase firebaseDatabase;
-DatabaseReference databaseReference;
+    String mfaq,mans;
+    @BindView(R.id.btn_add_faq)
+    Button add;
+    FirebaseDatabase firebaseDatabase;
+    DatabaseReference databaseReference;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -65,7 +67,7 @@ DatabaseReference databaseReference;
               String id=databaseReference.push().getKey();
                 FAQModel faqModel=new FAQModel(mfaq,mans);
                 databaseReference.child(id).setValue(faqModel);
-                Toast.makeText(getApplicationContext(),"Uploaded",Toast.LENGTH_LONG).show();
+                Toasty.success(getApplicationContext(), "Uploaded", Toast.LENGTH_LONG,true).show();
                 Intent i=new Intent(getApplicationContext(), FAQActivity.class);
                 finish();
                 startActivity(i);

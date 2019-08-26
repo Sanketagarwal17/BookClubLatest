@@ -2,9 +2,9 @@ package com.example.android.bookclublatest.Member.ConfirmIssue.ConfirmProceed;
 
 public class ProceedModel
 {
-    String bookname,isbn,issue_date,return_date,status,ism,book_returned_on;
+    String bookname,isbn,issue_date,return_date,status,ism,book_returned_on,url;
 
-    public ProceedModel(String bookname, String isbn, String issue_date, String return_date, String status, String ism, String book_returned_on) {
+    public ProceedModel(String bookname, String isbn, String issue_date, String return_date, String status, String ism, String book_returned_on, String url) {
         this.bookname = bookname;
         this.isbn = isbn;
         this.issue_date = issue_date;
@@ -12,6 +12,7 @@ public class ProceedModel
         this.status = status;
         this.ism = ism;
         this.book_returned_on = book_returned_on;
+        this.url = url;
     }
 
     public String getBook_returned_on() {
@@ -44,5 +45,9 @@ public class ProceedModel
 
     public String getStatus() {
         return status;
+    }
+
+    public String getUrl() {
+        return url;
     }
 }

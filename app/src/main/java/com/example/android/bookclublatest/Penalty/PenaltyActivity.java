@@ -6,6 +6,8 @@ import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
+import android.view.View;
+import android.widget.RelativeLayout;
 
 import com.example.android.bookclublatest.R;
 import com.google.firebase.auth.FirebaseAuth;
@@ -23,14 +25,15 @@ import butterknife.ButterKnife;
 
 public class PenaltyActivity extends AppCompatActivity {
 
-@BindView(R.id.penalty_recycler)
+    @BindView(R.id.penalty_recycler)
     RecyclerView recyclerView;
-    //PenaltyContract.Presenter<PenaltyContract.View>mPresenter;
+    @BindView(R.id.no_penalty_layout)
+    RelativeLayout relativeLayout;
 
+    PenaltyModel penaltyModel;
+    PenaltyAdapter penaltyAdapter;
+    List<PenaltyModel> penaltyModelList=new ArrayList<>();
 
-
-PenaltyModel penaltyModel;
-PenaltyAdapter penaltyAdapter;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -40,21 +43,17 @@ PenaltyAdapter penaltyAdapter;
         recyclerView.setHasFixedSize(false);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
-
-    //    mPresenter=new PenaltyPresenter<PenaltyContract.View>();
-      //  ((PenaltyPresenter<PenaltyContract.View>)mPresenter).onAttach((PenaltyContract.View) PenaltyActivity.this);
-
-
         DatabaseReference databaseReference=FirebaseDatabase.getInstance().getReference("Issue History");
         final String email1=FirebaseAuth.getInstance().getCurrentUser().getEmail();
         final  String email=email1.replace('.',',');
 
         databaseReference.addValueEventListener(new ValueEventListener() {
             @Override
-            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot)
+            {
+                penaltyModelList.clear();
               for (DataSnapshot dataSnapshot1: dataSnapshot.getChildren())
               {
-                  List<PenaltyModel> penaltyModelList=new ArrayList<>();
                   Log.e("checkin",dataSnapshot1.getKey().toString());
                   Log.e("checkinm", String.valueOf((boolean)dataSnapshot1.getKey().equals(email)));
                    if(dataSnapshot1.getKey().equals(email))
@@ -71,45 +70,24 @@ PenaltyAdapter penaltyAdapter;
                                penaltyModelList.add(penaltyModel);
                                Log.e("issuech", String.valueOf(penaltyModelList.size()));
                            }
-                           }
-                       penaltyAdapter=new PenaltyAdapter(penaltyModelList,PenaltyActivity.this);
-                       penaltyAdapter.notifyDataSetChanged();
-                       recyclerView.setAdapter(penaltyAdapter);
+                       }
                    }
-
+                  if(penaltyModelList.size()==0)
+                  {
+                      relativeLayout.setVisibility(View.VISIBLE);
+                  }
+                  else {
+                      relativeLayout.setVisibility(View.GONE);
+                      penaltyAdapter=new PenaltyAdapter(penaltyModelList,PenaltyActivity.this);
+                      penaltyAdapter.notifyDataSetChanged();
+                      recyclerView.setAdapter(penaltyAdapter);
+                  }
               }
-
             }
-
             @Override
             public void onCancelled(@NonNull DatabaseError databaseError) {
 
             }
         });
-
-
-
-
-
-
-
-
-
-
-
-
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
 }

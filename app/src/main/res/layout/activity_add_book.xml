@@ -1,11 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/activiy_bg">
+    android:fillViewport="true">
 
+<android.support.constraint.ConstraintLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <include layout="@layout/toolbar_return"/>
 
     <android.support.constraint.ConstraintLayout
         android:layout_width="0dp"
@@ -87,20 +92,40 @@
         <EditText
             android:id="@+id/add_description"
             android:layout_width="0dp"
-            android:layout_height="0dp"
+            android:layout_height="91dp"
             android:layout_margin="10dp"
+            android:layout_marginStart="8dp"
             android:layout_marginTop="8dp"
-            android:layout_marginBottom="8dp"
+            android:layout_marginEnd="8dp"
             android:background="@drawable/et_bg_add"
             android:gravity="start"
             android:hint="  Add description :"
             android:textColor="#216583"
             android:textColorHint="#216583"
             android:textSize="12dp"
-            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.684"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/add_tags" />
+
+        <Button
+            android:id="@+id/add_book_image"
+            android:layout_width="0dp"
+            android:layout_height="38dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginBottom="8dp"
+            android:background="@drawable/btn_add_green"
+            android:drawableLeft="@drawable/barcode"
+            android:text="Add Photo"
+            android:textColor="#fff"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/add_description"
+            app:layout_constraintVertical_bias="1.0" />
 
 
     </android.support.constraint.ConstraintLayout>
@@ -215,34 +240,6 @@
 
         </android.support.constraint.ConstraintLayout>
     </android.support.constraint.ConstraintLayout>
-    <TextView
-        android:id="@+id/textView31"
-        android:layout_width="169dp"
-        android:layout_height="26dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginBottom="8dp"
-        android:text="ADD BOOK"
-        android:textAlignment="center"
-        android:textColor="#fff"
-        android:textSize="21sp"
-        app:layout_constraintBottom_toTopOf="@+id/guideline32"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <ImageView
-        android:id="@+id/add_book_return_home"
-        android:layout_width="32dp"
-        android:layout_height="32dp"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginBottom="8dp"
-        app:layout_constraintBottom_toTopOf="@+id/guideline32"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/ic_home_black_24dp" />
 
     <android.support.constraint.Guideline
         android:id="@+id/guideline33"
@@ -263,7 +260,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.18" />
+        app:layout_constraintGuide_percent="0.12" />
 
     <android.support.constraint.Guideline
         android:id="@+id/guideline36"
@@ -271,6 +268,7 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         app:layout_constraintGuide_begin="440dp" />
+
     <android.support.constraint.ConstraintLayout
         android:id="@+id/constraintLayout3"
         android:layout_width="match_parent"
@@ -279,9 +277,10 @@
         android:layout_marginBottom="8dp"
         android:background="#fff"
         app:layout_constraintBottom_toTopOf="@+id/add_submit"
-        app:layout_constraintTop_toTopOf="@+id/guideline32">
-
-
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/guideline32"
+        app:layout_constraintVertical_bias="1.0">
 
     </android.support.constraint.ConstraintLayout>
 
@@ -326,3 +325,4 @@
         app:layout_constraintGuide_begin="68dp" />
 
 </android.support.constraint.ConstraintLayout>
+</ScrollView>

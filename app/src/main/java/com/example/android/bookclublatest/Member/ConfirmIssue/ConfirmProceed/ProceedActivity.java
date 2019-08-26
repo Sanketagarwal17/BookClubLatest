@@ -25,21 +25,21 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.google.zxing.integration.android.IntentIntegrator;
 import com.google.zxing.integration.android.IntentResult;
+import com.squareup.picasso.Picasso;
 
 import java.util.Calendar;
 import java.util.TimeZone;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import es.dmoral.toasty.Toasty;
 
 public class ProceedActivity extends AppCompatActivity implements DatePickerDialog.OnDateSetListener
 {
     @BindView(R.id.proceed_checkbox)
     CheckBox checkBox;
     @BindView(R.id.proceed_scan)
-    TextView scan;
-    @BindView(R.id.proceed_code)
-    TextView unique_code;
+    ImageView scan;
     @BindView(R.id.proceed_date)
     TextView date;
     @BindView(R.id.proceed_date_image)
@@ -58,12 +58,20 @@ public class ProceedActivity extends AppCompatActivity implements DatePickerDial
     TextView cissue;
     @BindView(R.id.confirm_return)
     TextView creturn;
+    @BindView(R.id.book_img)
+    ImageView imageView;
+    @BindView(R.id.return_home)
+    ImageView home;
+    @BindView(R.id.textView26)
+    TextView title;
+    @BindView(R.id.textView38)
+    TextView author_name;
 
     IntentIntegrator intentIntegrator;
     DatePickerDialog datePickerDialog;
     final static String[] months={"Jan","Feb","Mar","Apr","May","June","July","Aug","Sep","Oct","Nov","Dec"};
 
-    String email,bookname,isbn,ism,issue_date,return_date,ism_code,hard_soft="Hard Copy";
+    String email,bookname,isbn,ism,issue_date,return_date,ism_code,hard_soft="Hard Copy",url;
 
     int correct=0;
 
@@ -72,13 +80,14 @@ public class ProceedActivity extends AppCompatActivity implements DatePickerDial
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_proceed);
-        intentIntegrator=new IntentIntegrator(this);
         ButterKnife.bind(this);
+        intentIntegrator=new IntentIntegrator(this);
 
         email=getIntent().getStringExtra("Email");
         bookname=getIntent().getStringExtra("Book");
         isbn=getIntent().getStringExtra("isbn");
         ism=getIntent().getStringExtra("ism");
+        url=getIntent().getStringExtra("url");
 
         Calendar calendar=Calendar.getInstance(TimeZone.getDefault());
         datePickerDialog = new DatePickerDialog(this,this,calendar.get(Calendar.YEAR),calendar.get(Calendar.MONTH),calendar.get(Calendar.DATE));
@@ -100,7 +109,8 @@ public class ProceedActivity extends AppCompatActivity implements DatePickerDial
         cname.setText(bookname);
         cemail.setText(email);
         cisbn.setText(isbn);
-
+        cism.setText(ism);
+        Picasso.get().load(url).into(imageView);
         Calendar calendar2=Calendar.getInstance(TimeZone.getDefault());
         String current=calendar2.get(Calendar.DAY_OF_MONTH) + " " + months[(calendar2.get(Calendar.MONTH))]
                 + "," + calendar2.get(Calendar.YEAR);
@@ -110,12 +120,21 @@ public class ProceedActivity extends AppCompatActivity implements DatePickerDial
         issue_final.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(date.getText().toString().equals("Select Date") || unique_code.getText().toString().equals(""))
+                if(date.getText().toString().equals("Select Date") || cism.getText().toString().equals(""))
                 {
-                    Toast.makeText(ProceedActivity.this, "Make Sure that all credentials are Checked", Toast.LENGTH_SHORT).show();
+                    Toasty.warning(ProceedActivity.this, "Make Sure that all credentials are Checked", Toast.LENGTH_SHORT,true).show();
                 }
                 else
                     checkCode();
+            }
+        });
+
+
+        title.setText("Confirm Issue");
+        home.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onBackPressed();
             }
         });
     }
@@ -174,7 +193,7 @@ public class ProceedActivity extends AppCompatActivity implements DatePickerDial
         }
         else
         {
-            Toast.makeText(this, "Try Again  OR \nThe Scanned Code didn't matched with any of the Books in Database", Toast.LENGTH_LONG).show();
+            Toasty.error(this, "Try Again  OR \nThe Scanned Code didn't matched with any of the Books in Database", Toast.LENGTH_LONG,false).show();
         }
     }
 
@@ -189,20 +208,16 @@ public class ProceedActivity extends AppCompatActivity implements DatePickerDial
         //update request
         FirebaseDatabase firebaseDatabase=FirebaseDatabase.getInstance();
         DatabaseReference databaseReference=firebaseDatabase.getReference("Issue Requests");
-        databaseReference.child(email).child(ism).child("Status").setValue("Issued");
-
-
-
-
+        databaseReference.child(email).child(isbn).child("Status").setValue("Issued");
 
         //Create Issue History
         FirebaseDatabase database=FirebaseDatabase.getInstance();
         DatabaseReference reference=database.getReference("Issue History");
 
-        ProceedModel model=new ProceedModel(bookname,isbn,issue_date,return_date,"Not Returned",ism_code,"pending");
-        reference.child(email).child(ism).setValue(model);
+        ProceedModel model=new ProceedModel(bookname,isbn,issue_date,return_date,"Not Returned",ism_code,"pending",url);
+        reference.child(email).child(Calendar.getInstance().getTimeInMillis()+"").setValue(model);
 
-        Toast.makeText(this, "Successfully Updated", Toast.LENGTH_SHORT).show();
+        Toasty.success(this, "Successfully Updated", Toast.LENGTH_SHORT,true).show();
 
         finish();
         startActivity(new Intent(this, ConfirmIssueActivity.class));
@@ -225,12 +240,11 @@ public class ProceedActivity extends AppCompatActivity implements DatePickerDial
         {
             if(result.getContents()!=null)
             {
-                    unique_code.setText(result.getContents());
                     cism.setText(result.getContents());
                     ism_code=result.getContents();
             }
             else
-                Toast.makeText(this, "Error Scanning. Try Again !", Toast.LENGTH_SHORT).show();
+                Toasty.error(this, "Error Scanning. Try Again !", Toast.LENGTH_SHORT,false).show();
         }
     }
 }

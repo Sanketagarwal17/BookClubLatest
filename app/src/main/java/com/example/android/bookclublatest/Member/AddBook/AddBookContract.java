@@ -12,6 +12,6 @@ public class AddBookContract
 
 
     public interface Presenter<V extends View> extends MvpContract.Presenter<V> {
-        void submit(String name, String author, String publication,String isbn, String ism, String tags, String hardsoft);
+        void submit(String name, String author, String publication,String isbn, String ism, String tags, String hardsoft,String url,String desc);
     }
 }

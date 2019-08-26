@@ -33,7 +33,7 @@
         android:layout_marginEnd="8dp"
         android:layout_marginBottom="16dp"
         android:fontFamily="@font/roboto_regular"
-        android:text="Remove"
+        android:text="Remove Book"
         android:textAllCaps="true"
         android:textColor="#fff"
         android:textSize="21sp"

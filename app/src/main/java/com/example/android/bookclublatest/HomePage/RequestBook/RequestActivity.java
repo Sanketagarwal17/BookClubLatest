@@ -1,8 +1,12 @@
 package com.example.android.bookclublatest.HomePage.RequestBook;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.os.Handler;
+import android.support.annotation.NonNull;
+import android.support.design.widget.CoordinatorLayout;
+import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
@@ -10,10 +14,15 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.example.android.bookclublatest.Authentication.Login.LoginActivity;
 import com.example.android.bookclublatest.HomePage.HomePageActivity;
+import com.example.android.bookclublatest.IssueBookDetailActivity;
 import com.example.android.bookclublatest.Member.RequestedBooks.RequestBooksActivity;
 import com.example.android.bookclublatest.R;
 import com.example.android.bookclublatest.SharedPref.SharedPref;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
@@ -22,6 +31,7 @@ import java.util.TimeZone;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import es.dmoral.toasty.Toasty;
 
 public class RequestActivity extends AppCompatActivity implements RequestPageContract.View
 {
@@ -38,6 +48,8 @@ public class RequestActivity extends AppCompatActivity implements RequestPageCon
     ImageView home;
     @BindView(R.id.textView26)
     TextView title;
+    @BindView(R.id.myCoordinatorLayout2)
+    CoordinatorLayout coordinatorLayout;
 
     @BindView(R.id.request_button)
     Button submit;
@@ -67,36 +79,64 @@ public class RequestActivity extends AppCompatActivity implements RequestPageCon
             @Override
             public void onClick(View v)
             {
-                if(firebaseUser.isEmailVerified())
-                {
-                    if(book.getText().toString().isEmpty())
-                    {
-                        book.setError("Please fill !");
-                        book.requestFocus();
-                    }
-                    else if (author.getText().toString().isEmpty())
-                    {
-                        author.setError("Please fill !");
-                        author.requestFocus();
-                    }
-                    else
-                    {
-                        presenter.submit(book.getText().toString().trim(), author.getText().toString().trim(), publication.getText().toString().trim(), additional_info.getText().toString().trim(),sharedPref.getEmail(),current,current);
-                    }
-                }
-                else
-                    Toast.makeText(RequestActivity.this, "Please Verify Your email first", Toast.LENGTH_SHORT).show();
+
+
+                    if (firebaseUser.isEmailVerified()) {
+                        if (book.getText().toString().isEmpty()) {
+                            book.setError("Please fill !");
+                            book.requestFocus();
+                        } else if (author.getText().toString().isEmpty()) {
+                            author.setError("Please fill !");
+                            author.requestFocus();
+                        } else {
+                            presenter.submit(book.getText().toString().trim(), author.getText().toString().trim(), publication.getText().toString().trim(), additional_info.getText().toString().trim(), sharedPref.getEmail(), current, current);
+                        }
+                    } else
+                        showSnackBar();
+
             }
         });
         title.setText("Request Book");
         home.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(RequestActivity.this, HomePageActivity.class));
-                finish();
+                onBackPressed();
             }
         });
     }
+
+    private void showSnackBar()
+    {
+        Snackbar snackbar = Snackbar.make(coordinatorLayout, "Verify your e-mail id.", Snackbar.LENGTH_INDEFINITE)
+                .setAction(" Verify now", new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        sendMail();
+                    }
+                });
+        snackbar.setActionTextColor(Color.parseColor("#CEA100"));
+        View view = snackbar.getView();
+        TextView textView = view.findViewById(android.support.design.R.id.snackbar_text);
+        textView.setTextColor(Color.parseColor("#CEA100"));
+        view.setBackgroundColor(Color.parseColor("#FFE588"));
+        snackbar.show();
+    }
+
+    private void sendMail()
+    {
+        firebaseUser.sendEmailVerification()
+                .addOnCompleteListener(new OnCompleteListener<Void>() {
+                    @Override
+                    public void onComplete(@NonNull Task<Void> task) {
+                        if(task.isSuccessful()) {
+                            Toast.makeText(RequestActivity.this, "Verification Mail Has been Sent, It may Take few minutes to verify.", Toast.LENGTH_LONG).show();
+                        }
+                        else
+                            Toasty.error(RequestActivity.this, task.getException().getMessage(), Toast.LENGTH_SHORT,true).show();
+                    }
+                });
+    }
+
     @Override
     public void showToast(String message) {
         Toast.makeText(this, message, Toast.LENGTH_SHORT).show();
@@ -105,7 +145,7 @@ public class RequestActivity extends AppCompatActivity implements RequestPageCon
     @Override
     public void showSuccess(String s)
     {
-        Toast.makeText(this, "SuccessFully Requested For The Book", Toast.LENGTH_LONG).show();
+        Toasty.success(this, "SuccessFully Requested For The Book", Toast.LENGTH_LONG,false).show();
         book.setText("");
         author.setText("");
         publication.setText("");

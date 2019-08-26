@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/base"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="#FFFFFF">
 
     <android.support.v7.widget.Toolbar
         android:id="@+id/toolbar2"
@@ -64,7 +65,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/open_sans"
-                android:text="november 2029"
+                android:text="IIT(ISM) Dhanbad"
                 android:textColor="#216583"
                 android:textSize="12sp"
                 android:textStyle="bold"
@@ -77,6 +78,7 @@
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/open_sans"
                 android:text="English"
+                android:visibility="gone"
                 android:textColor="#216583"
                 android:textSize="12sp"
                 android:textStyle="bold"
@@ -103,6 +105,7 @@
                 android:fontFamily="@font/open_sans"
                 android:text="HardSofy"
                 android:textColor="#216583"
+                android:visibility="invisible"
                 android:textSize="12sp"
                 android:textStyle="bold"
                 app:layout_constraintStart_toStartOf="@+id/guideline13"
@@ -119,7 +122,7 @@
                 android:textSize="14sp"
                 android:textStyle="bold"
                 app:layout_constraintStart_toStartOf="@+id/guideline13"
-                app:layout_constraintTop_toBottomOf="@+id/imageView10" />
+                app:layout_constraintTop_toBottomOf="@+id/issue_book_image" />
 
             <TextView
                 android:id="@+id/textView28"
@@ -183,6 +186,7 @@
                 android:layout_marginEnd="8dp"
                 android:fontFamily="@font/open_sans"
                 android:text="ISM NO"
+                android:visibility="invisible"
                 android:textColor="#000"
                 android:textSize="11sp"
                 android:textStyle="bold"
@@ -196,11 +200,12 @@
                 android:layout_marginEnd="8dp"
                 android:layout_marginBottom="8dp"
                 android:fontFamily="@font/open_sans"
+                android:visibility="invisible"
                 android:text="ISM NO"
                 android:textColor="#000"
                 android:textSize="11sp"
                 android:textStyle="bold"
-                app:layout_constraintBottom_toBottomOf="@+id/imageView10"
+                app:layout_constraintBottom_toBottomOf="@+id/issue_book_image"
                 app:layout_constraintEnd_toStartOf="@+id/guideline14" />
 
             <TextView
@@ -229,7 +234,7 @@
                 android:textStyle="bold"
                 android:transitionName="ts_book"
                 app:layout_constraintEnd_toStartOf="@+id/guideline14"
-                app:layout_constraintTop_toTopOf="@+id/imageView10" />
+                app:layout_constraintTop_toTopOf="@+id/issue_book_image" />
 
             <TextView
                 android:id="@+id/det_author"
@@ -262,13 +267,14 @@
                 app:layout_constraintTop_toBottomOf="@+id/det_author" />
 
             <ImageView
-                android:id="@+id/imageView10"
+                android:id="@+id/issue_book_image"
                 android:layout_width="120dp"
                 android:layout_height="170dp"
                 android:layout_marginTop="24dp"
                 app:layout_constraintStart_toStartOf="@+id/guideline13"
                 app:layout_constraintTop_toTopOf="parent"
-                app:srcCompat="@drawable/test_book_img" />
+                app:srcCompat="@drawable/test_book_img"
+                android:scaleType="centerCrop"/>
 
             <androidx.constraintlayout.widget.Guideline
                 android:id="@+id/guideline13"

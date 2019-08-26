@@ -1,55 +1,119 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.v7.widget.CardView
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/cardView2"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_margin="6dp"
-    android:elevation="12dp">
+    android:elevation="12dp" >
 
-    <LinearLayout
-        android:layout_width="match_parent"
+    <android.support.v7.widget.CardView
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:orientation="vertical">
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" >
 
-        <TextView
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="email"
-            android:id="@+id/returnlist_email"
+            android:background="@drawable/group">
 
-            android:textSize="14sp"
-            android:textColor="@android:color/black"
-            android:padding="3dp"/>
+            <TextView
+                android:id="@+id/returnlist_name"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="28dp"
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="book"
-            android:id="@+id/returnlist_name"
-            android:textSize="14sp"
-            android:textColor="@android:color/black"
-            android:padding="3dp"/>
+                android:fontFamily="@font/quicksand_regular"
+                android:padding="3dp"
+                android:text="46546465"
+                android:textColor="#000000"
+                android:textSize="15sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="@+id/guideline37"
+                app:layout_constraintTop_toTopOf="parent" />
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="returnDate"
-            android:id="@+id/returnlist_date"
-            android:textSize="14sp"
-            android:textColor="@android:color/black"
-            android:padding="3dp"/>
+            <TextView
+                android:id="@+id/returnlist_email"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:fontFamily="@font/quicksand_regular"
+                android:paddingTop="5dp"
+                android:text="name"
+                android:textColor="#216583"
+                android:textSize="12sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="@+id/guideline37"
+                app:layout_constraintTop_toTopOf="parent" />
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="proceed"
-            android:textAlignment="center"
-            android:id="@+id/returnlist_button"
-            android:textSize="14sp"
-            android:textColor="@android:color/black"
-            android:padding="3dp"
-            android:background="@android:color/darker_gray"/>
+            <TextView
+                android:id="@+id/returnlist_date"
+                android:layout_width="0dp"
+                android:layout_height="26dp"
+                android:fontFamily="@font/quicksand_regular"
+                android:gravity="fill_horizontal|top"
+                android:padding="3dp"
+                android:text="supposed to be returned on 22 august"
+                android:textColor="#B0B0B0"
+                android:textSize="11sp"
+                app:layout_constraintBottom_toTopOf="@id/returnlist_button"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="1.0"
+                app:layout_constraintStart_toStartOf="@+id/guideline37"
+                app:layout_constraintTop_toBottomOf="@id/returnlist_name" />
 
-    </LinearLayout>
 
-</android.support.v7.widget.CardView>
+            <ImageView
+                android:id="@+id/imageView13"
+                android:layout_width="54sp"
+                android:layout_height="74dp"
+                android:layout_marginLeft="22dp"
+                android:layout_marginTop="12dp"
+                android:layout_marginBottom="12dp"
+                android:scaleType="centerCrop"
+                android:src="@drawable/test_book_img"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/guideline37"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_percent=".35" />
+
+            <TextView
+                android:id="@+id/returnlist_button"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="6dp"
+                android:fontFamily="@font/quicksand_regular"
+                android:gravity="center"
+                android:text="Approve"
+                android:textColor="#FFFFFF"
+                android:textSize="12sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="@+id/guideline37" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </android.support.v7.widget.CardView>
+</androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+
+
+
+
+
+
+
+
+
+

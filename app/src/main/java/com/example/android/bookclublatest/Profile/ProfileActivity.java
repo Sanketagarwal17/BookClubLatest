@@ -12,6 +12,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.android.bookclublatest.Authentication.Login.LoginActivity;
 import com.example.android.bookclublatest.Base.BaseActivity;
 import com.example.android.bookclublatest.HomePage.History.HistoryActivity;
 import com.example.android.bookclublatest.HomePage.History.HistoryAdapter;
@@ -57,8 +58,6 @@ public class ProfileActivity extends BaseActivity implements ProfileContract.Vie
     ConstraintLayout constraintLayout;
     @BindView(R.id.textView13)
     TextView no_of_books;
-    @BindView(R.id.circularImageView)
-    CircularImageView circularImageView;
     @BindView(R.id.imageView3)
     ImageView home;
     HistoryAdapter adapter;
@@ -73,6 +72,11 @@ public class ProfileActivity extends BaseActivity implements ProfileContract.Vie
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_myprofile);
         ButterKnife.bind(this);
+        if(FirebaseAuth.getInstance().getCurrentUser()==null){
+            Toast.makeText(ProfileActivity.this, "Please Login First", Toast.LENGTH_SHORT).show();
+            startActivity(new Intent(ProfileActivity.this, LoginActivity.class));
+            finish();
+        }
         mpresenter = new ProfilePresenter<>();
         sharedPref=new SharedPref(this);
         status.setText(sharedPref.getAccessLevel());
@@ -86,7 +90,6 @@ public class ProfileActivity extends BaseActivity implements ProfileContract.Vie
         else
             url=sharedPref.getImageUrl();
 
-        Picasso.get().load(url).into(circularImageView);
 /*
         verify.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -138,8 +141,7 @@ public class ProfileActivity extends BaseActivity implements ProfileContract.Vie
         home.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(ProfileActivity.this, HomePageActivity.class));
-                finish();
+                onBackPressed();
             }
         });
 

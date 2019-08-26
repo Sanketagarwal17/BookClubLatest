@@ -93,22 +93,6 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
-            <com.mikhaellopez.circularimageview.CircularImageView
-                android:id="@+id/circularImageView"
-                android:layout_width="80dp"
-                android:layout_height="80dp"
-                android:layout_marginStart="8dp"
-                android:layout_marginTop="8dp"
-                android:layout_marginEnd="8dp"
-                android:layout_marginBottom="8dp"
-                android:scaleType="centerCrop"
-                android:src="@drawable/test_profile_pic"
-                app:civ_border_width="0dp"
-                app:layout_constraintBottom_toTopOf="@+id/textView12"
-                app:layout_constraintEnd_toStartOf="@+id/textView7"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-
             <TextView
                 android:id="@+id/textView6"
                 android:layout_width="wrap_content"
@@ -131,12 +115,12 @@
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="8dp"
                 android:layout_marginEnd="8dp"
-                android:text="Name :"
                 android:fontFamily="@font/roboto_regular"
+                android:text="Name :"
                 android:textColor="#216583"
                 android:textSize="14sp"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.33"
+                app:layout_constraintHorizontal_bias="0.025"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/textView6" />
 

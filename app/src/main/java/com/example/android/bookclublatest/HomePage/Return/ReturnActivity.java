@@ -9,11 +9,9 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
-
-import com.example.android.bookclublatest.HomePage.History.HistoryActivity;
-import com.example.android.bookclublatest.HomePage.History.HistoryAdapter;
 import com.example.android.bookclublatest.HomePage.History.HistoryModel;
 import com.example.android.bookclublatest.HomePage.HomePageActivity;
 import com.example.android.bookclublatest.R;
@@ -25,18 +23,17 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
-
 import java.util.ArrayList;
-import java.util.Calendar;
 import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import es.dmoral.toasty.Toasty;
 
 public class ReturnActivity extends AppCompatActivity implements ReturnAdapter.Clicklistener
 {
-    @BindView(R.id.return_email)
-    TextView emailtext;
+    @BindView(R.id.no_return_layout)
+    RelativeLayout relativeLayout;
     @BindView(R.id.return_recycler)
     RecyclerView recyclerView;
     @BindView(R.id.return_home)
@@ -55,7 +52,6 @@ public class ReturnActivity extends AppCompatActivity implements ReturnAdapter.C
         ButterKnife.bind(this);
         sharedPref=new SharedPref(this);
         email=sharedPref.getEmail();
-        emailtext.setText(email);
         email=email.replace('.',',');
 
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
@@ -72,21 +68,27 @@ public class ReturnActivity extends AppCompatActivity implements ReturnAdapter.C
                     {
                         for(DataSnapshot ds2:ds.getChildren())
                         {
-                            String bookname,isbn,issue_date,return_date,status,ism;
+                            String bookname,isbn,issue_date,return_date,status,ism,url;
                             bookname=ds2.child("bookname").getValue().toString();
                             isbn=ds2.child("isbn").getValue().toString();
                             ism=ds2.child("ism").getValue().toString();
                             issue_date=ds2.child("issue_date").getValue().toString();
                             return_date=ds2.child("return_date").getValue().toString();
                             status=ds2.child("status").getValue().toString();
-                            HistoryModel model=new HistoryModel(bookname,isbn,ism,issue_date,return_date,status);
+                            url = ds2.child("url").getValue().toString();
+                            HistoryModel model=new HistoryModel(bookname,isbn,ism,issue_date,return_date,status,url);
                             if(model.getStatus().equals("Not Returned"))
                                 list.add(model);
                         }
                     }
                 }
-                adapter=new ReturnAdapter(ReturnActivity.this,list,ReturnActivity.this);
-                recyclerView.setAdapter(adapter);
+                if (list.size()==0)
+                    relativeLayout.setVisibility(View.VISIBLE);
+                else {
+                    relativeLayout.setVisibility(View.GONE);
+                    adapter = new ReturnAdapter(ReturnActivity.this, list, ReturnActivity.this);
+                    recyclerView.setAdapter(adapter);
+                }
             }
 
             @Override
@@ -98,8 +100,7 @@ public class ReturnActivity extends AppCompatActivity implements ReturnAdapter.C
         home.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(ReturnActivity.this,HomePageActivity.class));
-                finish();
+                onBackPressed();
             }
         });
     }
@@ -112,27 +113,26 @@ public class ReturnActivity extends AppCompatActivity implements ReturnAdapter.C
         String issuedate=list.get(pos).getIssue_date();
         String returndtae=list.get(pos).getReturn_date();
         String ismcode=list.get(pos).getIsmcode();
+        String url = list.get(pos).getUrl();
         final String status="pending";
 
-        HistoryModel model=new HistoryModel(book,isbn,ismcode,issuedate,returndtae,status);
+        HistoryModel model=new HistoryModel(book,isbn,ismcode,issuedate,returndtae,status,url);
 
         //Create a request to return
-        FirebaseDatabase.getInstance().getReference().child("Return Requests").child(email).child(isbn).setValue(model).addOnCompleteListener(new OnCompleteListener<Void>() {
+        FirebaseDatabase.getInstance().getReference().child("Return Requests").child(email).child(ismcode).setValue(model).addOnCompleteListener(new OnCompleteListener<Void>() {
             @Override
             public void onComplete(@NonNull Task<Void> task) {
                 if(task.isSuccessful())
                 {
-                    Toast.makeText(ReturnActivity.this, "Your Request Has Been Recieved, Return the Book To the Club", Toast.LENGTH_LONG).show();
+                    Toasty.success(ReturnActivity.this, "Your Request Has Been Recieved, Return the Book To the Club", Toast.LENGTH_LONG,false).show();
                     startActivity(new Intent(ReturnActivity.this, HomePageActivity.class));
                     finish();
                 }
                 else
                 {
-                    Toast.makeText(ReturnActivity.this, "Something went wrong, try again", Toast.LENGTH_SHORT).show();
+                    Toasty.error(ReturnActivity.this, "Something went wrong, try again", Toast.LENGTH_SHORT,true).show();
                 }
             }
         });
-
-
     }
 }

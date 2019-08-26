@@ -26,26 +26,26 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.squareup.picasso.Picasso;
 
 import java.util.Calendar;
 import java.util.Date;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import es.dmoral.toasty.Toasty;
 
 public class IssueBookDetailActivity extends AppCompatActivity {
 
     SharedPref  sharedPref;
-    @BindView(R.id.det_book)
+    @BindView(R.id.description)
+    TextView desc;
+    @BindView(R.id.textView28)
     TextView tvBook;
     @BindView(R.id.det_author)
     TextView tvAuthor;
-    @BindView(R.id.det_hardsofy)
-    TextView tvHardSofy;
     @BindView(R.id.det_isbn)
     TextView tvIsbn;
-    @BindView(R.id.det_ism)
-    TextView tvIsm;
     @BindView(R.id.det_pub)
     TextView tvPub;
     @BindView(R.id.det_tags)
@@ -54,11 +54,16 @@ public class IssueBookDetailActivity extends AppCompatActivity {
     Button issueBookButton;
     @BindView(R.id.myCoordinatorLayout)
     View coordinatorlayout;
-
+    @BindView(R.id.textView29)
+    TextView noCopies;
     @BindView(R.id.textView26)
     TextView title;
     @BindView(R.id.return_home)
     ImageView home;
+    @BindView(R.id.det_book)
+    TextView booktv;
+    @BindView(R.id.issue_book_image)
+    ImageView book_image;
 
     int send = 1;
     private static final String TAG = "IssueBookDetailActivity";
@@ -77,33 +82,44 @@ public class IssueBookDetailActivity extends AppCompatActivity {
         final String ism = getIntent().getStringExtra("ism");
         final String publisher = getIntent().getStringExtra("publisher");
         final String tags = getIntent().getStringExtra("tags");
+        final String stat = getIntent().getStringExtra("status");
+        final String no = getIntent().getStringExtra("no");
+        final String url = getIntent().getStringExtra("url");
+        final String descString = getIntent().getStringExtra("desc");
         ButterKnife.bind(this);
-        tvBook.setText(book);
+        tvBook.setText(stat);
+        booktv.setText(book);
         tvAuthor.setText(author);
-        tvHardSofy.setText(hardsofy);
+        //tvHardSofy.setText(hardsofy);
         tvIsbn.setText(isbn);
-        tvIsm.setText(ism);
+        //tvIsm.setText(ism);
         tvPub.setText(publisher);
         tvTags.setText(tags);
+        //status.setText(stat);
+        desc.setText(descString);
+        noCopies.setText(no);
+        Picasso.get().load(url).into(book_image);
         issueBookButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(!FirebaseAuth.getInstance().getCurrentUser().isEmailVerified())
+                if (FirebaseAuth.getInstance().getCurrentUser() == null) {
+                    Toasty.error(IssueBookDetailActivity.this, "Please login First to Issue Book", Toast.LENGTH_SHORT,true).show();
+                }
+                else{
+
+                if (!FirebaseAuth.getInstance().getCurrentUser().isEmailVerified())
                     showSnackBar();
-                else
-                {
-                    String email=sharedPref.getEmail();
-                    email=email.replace('.',',');
+                else {
+                    String email = sharedPref.getEmail();
+                    email = email.replace('.', ',');
 
                     DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference().child("Issue Requests").
                             child(email);
                     databaseReference.addValueEventListener(new ValueEventListener() {
                         @Override
                         public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                            for(DataSnapshot dataSnapshot1 : dataSnapshot.getChildren())
-                            {
-                                if(dataSnapshot1.getKey().equals(isbn) )
-                                {
+                            for (DataSnapshot dataSnapshot1 : dataSnapshot.getChildren()) {
+                                if (dataSnapshot1.getKey().equals(isbn)) {
                                     IssueBookDetailActivity.this.setSend(0);
                                     break;
                                 }
@@ -115,27 +131,29 @@ public class IssueBookDetailActivity extends AppCompatActivity {
 
                         }
                     });
-                    if(send != 0)
-                    {
-                        FirebaseDatabase.getInstance().getReference().child("Issue Requests").child(email).child(ism)
+                    if (send != 0) {
+                        FirebaseDatabase.getInstance().getReference().child("Issue Requests").child(email).child(isbn)
                                 .child("Status").setValue("pending");
-                        FirebaseDatabase.getInstance().getReference().child("Issue Requests").child(email).child(ism)
+                        FirebaseDatabase.getInstance().getReference().child("Issue Requests").child(email).child(isbn)
                                 .child("Name").setValue(book);
-                        FirebaseDatabase.getInstance().getReference().child("Issue Requests").child(email).child(ism)
+                        FirebaseDatabase.getInstance().getReference().child("Issue Requests").child(email).child(isbn)
                                 .child("Timestamp").setValue(Calendar.getInstance().getTimeInMillis());
-                        FirebaseDatabase.getInstance().getReference().child("Issue Requests").child(email).child(ism)
+                        FirebaseDatabase.getInstance().getReference().child("Issue Requests").child(email).child(isbn)
                                 .child("ISBN").setValue(isbn);
-                        FirebaseDatabase.getInstance().getReference().child("Issue Requests").child(email).child(ism)
+                        FirebaseDatabase.getInstance().getReference().child("Issue Requests").child(email).child(isbn)
                                 .child("ISM").setValue(ism);
+                        FirebaseDatabase.getInstance().getReference().child("Issue Requests").child(email).child(isbn)
+                                .child("url").setValue(url);
+                        FirebaseDatabase.getInstance().getReference().child("Issue Requests").child(email).child(isbn)
+                                .child("desc").setValue(descString);
 
-                        Toast.makeText(IssueBookDetailActivity.this, book + "requested for you", Toast.LENGTH_SHORT).show();
-                    }
-                    else
-                    {
-                        Toast.makeText(IssueBookDetailActivity.this, "You have already requested for this book please wait while we process your request", Toast.LENGTH_SHORT).show();
+                        Toasty.success(IssueBookDetailActivity.this, book + "requested for you", Toast.LENGTH_SHORT,true).show();
+                    } else {
+                        Toasty.warning(IssueBookDetailActivity.this, "You have already requested for this book please wait while we process your request", Toast.LENGTH_SHORT,true).show();
                     }
 
                 }
+            }
             }
         });
 
@@ -146,7 +164,6 @@ public class IssueBookDetailActivity extends AppCompatActivity {
                 startActivity(new Intent(IssueBookDetailActivity.this, HomePageActivity.class));
             }
         });
-
     }
 
     private void showSnackBar()
