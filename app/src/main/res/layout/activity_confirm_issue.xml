@@ -2,24 +2,43 @@
 <android.support.constraint.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/admin_access_view"
-        android:layout_width="140dp"
-        android:layout_height="wrap_content"
+        android:layout_width="408dp"
+        android:layout_height="40dp"
         android:layout_below="@id/issues_bar"
         android:layout_alignParentEnd="true"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/issues_bar">
 
-        <ImageView
-            android:layout_width="match_parent"
-            android:layout_height="40dp"
+        <EditText
+            android:id="@+id/searchbox2"
+            android:layout_width="257dp"
+            android:layout_height="35dp"
+            android:layout_marginStart="20dp"
+            android:background="@drawable/searchbox_bg"
+            android:drawableStart="@drawable/search_img"
+            android:ems="10"
+            android:fontFamily="@font/quicksand_regular"
+            android:hint=" search book/author"
+            android:inputType="textPersonName"
+            android:paddingStart="40dp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/guideline10" />
 
+        <ImageView
+            android:id="@+id/imageView8"
+            android:layout_width="117dp"
+
+            android:layout_height="41dp"
             android:src="@drawable/adminaccess_bg"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.996"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -27,8 +46,7 @@
             android:id="@+id/imageView6"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="6dp"
-            android:layout_marginTop="8dp"
+            android:layout_marginStart="372dp"
             android:src="@drawable/folder"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -42,9 +60,9 @@
             android:textColor="@android:color/white"
             android:textSize="12sp"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/imageView6"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintEnd_toStartOf="@+id/imageView6"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.333" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>
