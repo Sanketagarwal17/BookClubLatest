@@ -108,22 +108,8 @@ public class ConfirmIssueActivity extends AppCompatActivity implements ConfirmIs
 
     }
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.menu_sort,menu);
-        return true;
-    }
+   
 
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-       int id=item.getItemId();
-       if(id==R.id.sort_menu)
-       {
-           showSortDialog();
-           return  true;
-       }
-        return super.onOptionsItemSelected(item);
-    }
 
     private void showSortDialog() {
         String[] options={"By Name","By Time"};
