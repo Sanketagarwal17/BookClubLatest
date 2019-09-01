@@ -10,9 +10,11 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.example.android.bookclublatest.Member.ConfirmIssue.ConfirmIssueModel;
 import com.example.android.bookclublatest.R;
 import com.squareup.picasso.Picasso;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class ConfirmAdapter extends RecyclerView.Adapter<ConfirmAdapter.ViewHolder>
@@ -48,6 +50,10 @@ public class ConfirmAdapter extends RecyclerView.Adapter<ConfirmAdapter.ViewHold
     @Override
     public int getItemCount() {
         return list.size();
+    }
+    public void filterList(ArrayList<ConfirmModel> filteredList) {
+        list = filteredList;
+        notifyDataSetChanged();
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder
