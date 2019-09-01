@@ -1,6 +1,9 @@
 package com.example.android.bookclublatest.Member.ConfirmReturn;
 
+import com.example.android.bookclublatest.Member.ConfirmIssue.ConfirmIssueModel;
+
 import java.io.Serializable;
+import java.util.Comparator;
 
 public class ConfirmModel implements Serializable
 {
@@ -48,4 +51,17 @@ public class ConfirmModel implements Serializable
     public String getStatus() {
         return status;
     }
+
+   public static  final Comparator<ConfirmModel> By_name=new Comparator<ConfirmModel>() {
+    @Override
+    public int compare(ConfirmModel o1, ConfirmModel o2) {
+        return o1.getBookname().compareTo(o2.getBookname());
+    }
+};
+    public static  final Comparator<ConfirmModel> By_time=new Comparator<ConfirmModel>() {
+        @Override
+        public int compare(ConfirmModel o1, ConfirmModel o2) {
+            return o2.getReturn_date().compareTo(o1.getReturn_date());
+        }
+    };
 }
