@@ -85,7 +85,7 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
-        android:layout_marginEnd="16dp"
+        android:layout_marginEnd="8dp"
         android:background="@drawable/searchbox_bg"
         android:drawableStart="@drawable/search_img"
         android:ems="10"
@@ -98,6 +98,8 @@
         app:layout_constraintEnd_toStartOf="@+id/guideline9"
         app:layout_constraintStart_toStartOf="@+id/guideline8"
         app:layout_constraintTop_toTopOf="@+id/guideline10" />
+
+
 
     <android.support.constraint.Guideline
         android:id="@+id/guideline11"

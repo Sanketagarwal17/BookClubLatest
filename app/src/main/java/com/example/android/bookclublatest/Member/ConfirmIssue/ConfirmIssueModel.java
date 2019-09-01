@@ -1,5 +1,7 @@
 package com.example.android.bookclublatest.Member.ConfirmIssue;
 
+import java.util.Comparator;
+
 public class ConfirmIssueModel
 {
     String email,isbn,name,date,ism,url;
@@ -36,4 +38,19 @@ public class ConfirmIssueModel
     public String getUrl() {
         return url;
     }
+
+    public  static  final Comparator<ConfirmIssueModel> By_Name=new Comparator<ConfirmIssueModel>() {
+    @Override
+    public int compare(ConfirmIssueModel o1, ConfirmIssueModel o2) {
+        return o1.getName().compareTo(o2.getName());
+
+      }
+    };
+    public  static  final Comparator<ConfirmIssueModel> By_Time=new Comparator<ConfirmIssueModel>() {
+        @Override
+        public int compare(ConfirmIssueModel o1, ConfirmIssueModel o2) {
+            return o1.getDate().compareTo(o2.getDate());
+
+        }
+    };
 }

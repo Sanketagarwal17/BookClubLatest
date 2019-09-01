@@ -100,5 +100,28 @@
 
         <include layout="@layout/toolbar_return" />
     </android.support.v7.widget.Toolbar>
+    <android.support.constraint.Guideline
+        android:id="@+id/issueguideline1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.96" />
+
+    <android.support.constraint.Guideline
+        android:id="@+id/issueguideline2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.96" />
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/btn_sort"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+       android:layout_margin="6dp"
+        android:src="@drawable/ic_filter"
+        app:layout_constraintEnd_toStartOf="@id/issueguideline1"
+        app:layout_constraintBottom_toTopOf="@+id/issueguideline2"
+        />
 
 </android.support.constraint.ConstraintLayout>
