@@ -10,8 +10,11 @@ import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -63,6 +66,24 @@ public class ConfirmActivity extends AppCompatActivity implements ConfirmAdapter
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         titlebar.setText("Return Books");
+        EditText editText= findViewById(R.id.searchbox3);
+        editText.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+                filter(s.toString());
+
+            }
+        });
 
         FloatingActionButton sort=findViewById(R.id.btn_sort1);
         sort.setOnClickListener(new View.OnClickListener() {
@@ -150,6 +171,16 @@ public class ConfirmActivity extends AppCompatActivity implements ConfirmAdapter
         });
         builder.create().show();
     }
+    private void filter(String text){
+        ArrayList<ConfirmModel> filteredList = new ArrayList<>();
+        for (ConfirmModel item:list){
+            if(item.bookname.toLowerCase().contains(text.toLowerCase())){
+                filteredList.add(item);
+            }
+        }
+        adapter.filterList(filteredList);
+    }
+
 
     public  void ShowData(String s)
     {

@@ -6,6 +6,21 @@
 
     <include layout="@layout/toolbar_return"/>
 
+
+    <EditText
+        android:id="@+id/searchbox3"
+        android:layout_width="411dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="1dp"
+        android:background="@drawable/searchbox_bg"
+        android:drawableStart="@drawable/search_img"
+        android:ems="10"
+        android:fontFamily="@font/quicksand_regular"
+        android:hint="search book/author"
+        android:inputType="textPersonName"
+        android:paddingStart="40dp"
+        android:textStyle="bold" />
+
     <android.support.v7.widget.RecyclerView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -16,11 +31,10 @@
     <android.support.design.widget.FloatingActionButton
         android:id="@+id/btn_sort1"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_margin="16dp"
+        android:layout_height="69dp"
         android:layout_gravity="bottom|end"
-        android:src="@drawable/ic_filter"
-        />
+        android:layout_margin="16dp"
+        android:src="@drawable/ic_filter" />
 
 
 </LinearLayout>
