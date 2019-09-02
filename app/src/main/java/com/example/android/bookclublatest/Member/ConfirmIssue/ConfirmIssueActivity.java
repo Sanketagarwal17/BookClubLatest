@@ -34,7 +34,8 @@ import java.util.List;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-public class ConfirmIssueActivity extends AppCompatActivity implements ConfirmIssueAdapter.Clicklistener {
+public class
+ConfirmIssueActivity extends AppCompatActivity implements ConfirmIssueAdapter.Clicklistener {
 
     FirebaseDatabase firebaseDatabase=FirebaseDatabase.getInstance();
     DatabaseReference databaseReference=firebaseDatabase.getReference("Issue Requests");
