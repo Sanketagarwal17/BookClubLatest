@@ -299,7 +299,7 @@ public class HomePageActivity extends AppCompatActivity
 
         if (id == R.id.nav_requestmenmber)
         {
-            if(!sharedPref.getAccessLevel().equals("Member"))
+            if(sharedPref.getAccessLevel().equals("Student"))
                 startActivity(new Intent(this,RequestForMemberActivity.class));
             else
                 Toasty.warning(this, "You are already a member", Toast.LENGTH_SHORT,true).show();

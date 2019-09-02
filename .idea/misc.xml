@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+<<<<<<< HEAD
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_1_7" project-jdk-name="1.8" project-jdk-type="JavaSDK">
+=======
   <component name="NullableNotNullManager">
     <option name="myDefaultNullable" value="android.support.annotation.Nullable" />
     <option name="myDefaultNotNull" value="android.support.annotation.NonNull" />
@@ -53,6 +56,10 @@
 =======
 >>>>>>> f12b21b06e69ea919b079e39bfd1c4e6c3c259ef
 >>>>>>> 3d3a3a171da49487a3a7f81f935148eff30c36bf
+>>>>>>> aeba61df8fefdbb01615ebf592993c75e7c8b31d
     <output url="file://$PROJECT_DIR$/build/classes" />
+  </component>
+  <component name="ProjectType">
+    <option name="id" value="Android" />
   </component>
 </project>
